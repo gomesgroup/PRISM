@@ -31,7 +31,6 @@ from .model_evaluation import (
 from .visualization import (
     visualize_model_performance,
     plot_bias_corrections,
-    create_comprehensive_dashboard,
     plot_scrambling_test_results
 )
 
@@ -68,7 +67,6 @@ __all__ = [
     # Visualization
     'visualize_model_performance',
     'plot_bias_corrections',
-    'create_comprehensive_dashboard',
     'plot_scrambling_test_results',
     
     # Model loading

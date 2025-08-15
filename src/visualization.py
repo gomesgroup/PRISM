@@ -87,55 +87,75 @@ def visualize_model_performance(results, save_plot=False, suffix=""):
         class_results = results.get('classification', {})
         reg_results = results.get('regression', {})
         
-        fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+        # Check what results we have and adjust subplot layout accordingly
+        has_classification = bool(class_results and class_results.get('model', 'None') != 'None')
+        has_regression = bool(reg_results and reg_results.get('model', 'None') != 'None')
+        
+        if has_classification and has_regression:
+            # Both results available - use 2 subplots
+            fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+            class_ax = axes[0]
+            reg_ax = axes[1]
+        elif has_regression and not has_classification:
+            # Only regression results available - use 1 subplot
+            fig, reg_ax = plt.subplots(1, 1, figsize=(12, 6))
+            class_ax = None
+        elif has_classification and not has_regression:
+            # Only classification results available - use 1 subplot
+            fig, class_ax = plt.subplots(1, 1, figsize=(12, 6))
+            reg_ax = None
+        else:
+            # No results available
+            print("No valid results to plot")
+            return
         
         # --- Classification Performance ---
-        class_metrics = {
-            'Train Accuracy': class_results.get('train_accuracy', 0),
-            'Test Accuracy': class_results.get('test_accuracy', 0),
-            'CV F1 Score': class_results.get('cv_f1_mean', 0)
-        }
-        best_class_name = class_results.get('model', 'None')
-        
-        ax = axes[0]
-        class_names = list(class_metrics.keys())
-        class_values = list(class_metrics.values())
-        bars = ax.bar(class_names, class_values, color=sns.color_palette("husl", len(class_names)))
-        ax.set_ylabel('Score')
-        ax.set_title(f'Classification Model Performance: {best_class_name}')
-        ax.set_ylim(0, 1.1)
-        
-        for bar, value in zip(bars, class_values):
-            height = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2., height + 0.01,
-                    f'{value:.3f}', ha='center', va='bottom')
+        if has_classification and class_ax is not None:
+            class_metrics = {
+                'Train Accuracy': class_results.get('train_accuracy', 0),
+                'Test Accuracy': class_results.get('test_accuracy', 0),
+                'CV F1 Score': class_results.get('cv_f1_mean', 0)
+            }
+            best_class_name = class_results.get('model', 'None')
+            
+            class_names = list(class_metrics.keys())
+            class_values = list(class_metrics.values())
+            bars = class_ax.bar(class_names, class_values, color=sns.color_palette("husl", len(class_names)))
+            class_ax.set_ylabel('Score')
+            class_ax.set_title(f'Classification Model Performance: {best_class_name}')
+            class_ax.set_ylim(0, 1.1)
+            
+            for bar, value in zip(bars, class_values):
+                height = bar.get_height()
+                class_ax.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                        f'{value:.3f}', ha='center', va='bottom')
         
         # --- Regression Performance ---
-        reg_metrics = {
-            'Train R²': reg_results.get('train_r2', 0),
-            'Test R²': reg_results.get('test_r2', 0),
-            'CV R²': reg_results.get('cv_r2_mean', 0)
-        }
-        best_reg_name = reg_results.get('model', 'None')
-        
-        ax = axes[1]
-        reg_names = list(reg_metrics.keys())
-        reg_values = list(reg_metrics.values())
-        bars = ax.bar(reg_names, reg_values, color=sns.color_palette("viridis", len(reg_names)))
-        ax.set_ylabel('R² Score')
-        ax.set_title(f'Regression Model Performance: {best_reg_name}')
-        
-        # Adjust y-axis based on data range
-        min_val = min(reg_values) if reg_values else 0
-        max_val = max(reg_values) if reg_values else 1
-        y_margin = (max_val - min_val) * 0.1 if max_val != min_val else 0.1
-        ax.set_ylim(min_val - y_margin, max_val + y_margin)
-        ax.axhline(0, color='black', linestyle='--', lw=1, alpha=0.5)
-        
-        for bar, value in zip(bars, reg_values):
-            height = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2., height + (y_margin * 0.1),
-                    f'{value:.3f}', ha='center', va='bottom' if height >= 0 else 'top')
+        if has_regression and reg_ax is not None:
+            reg_metrics = {
+                'Train R²': reg_results.get('train_r2', 0),
+                'Test R²': reg_results.get('test_r2', 0),
+                'CV R²': reg_results.get('cv_r2_mean', 0)
+            }
+            best_reg_name = reg_results.get('model', 'None')
+            
+            reg_names = list(reg_metrics.keys())
+            reg_values = list(reg_metrics.values())
+            bars = reg_ax.bar(reg_names, reg_values, color=sns.color_palette("viridis", len(reg_names)))
+            reg_ax.set_ylabel('R² Score')
+            reg_ax.set_title(f'Regression Model Performance: {best_reg_name}')
+            
+            # Adjust y-axis based on data range
+            min_val = min(reg_values) if reg_values else 0
+            max_val = max(reg_values) if reg_values else 1
+            y_margin = (max_val - min_val) * 0.1 if max_val != min_val else 0.1
+            reg_ax.set_ylim(min_val - y_margin, max_val + y_margin)
+            reg_ax.axhline(0, color='black', linestyle='--', lw=1, alpha=0.5)
+            
+            for bar, value in zip(bars, reg_values):
+                height = bar.get_height()
+                reg_ax.text(bar.get_x() + bar.get_width()/2., height + (y_margin * 0.1),
+                        f'{value:.3f}', ha='center', va='bottom' if height >= 0 else 'top')
     
     plt.tight_layout()
     
@@ -337,6 +357,8 @@ def plot_bias_corrections(df_corrected, save_plot=False, suffix=""):
             axes[1, 1].set_ylabel('HTE Rate')
             axes[1, 1].set_title(f'Validation vs NMR\nOriginal R²: {r2_orig:.3f}, Corrected R²: {r2_corr:.3f}')
             axes[1, 1].legend()
+            axes[1, 1].set_xscale('log')
+            axes[1, 1].set_yscale('log')
         else:
             axes[1, 1].text(0.5, 0.5, 'No NMR validation data', ha='center', va='center', 
                            transform=axes[1, 1].transAxes)
@@ -534,114 +556,4 @@ def plot_scrambling_test_results(scrambling_results, save_plot=False, suffix="")
     else:
         plt.show()
 
-def create_comprehensive_dashboard(df_corrected, validation_results, model_results, 
-                                 save_plot=False, suffix=""):
-    """Create a comprehensive dashboard of all results."""
-    
-    fig = plt.figure(figsize=(20, 15))
-    
-    # Create a 3x3 grid
-    gs = fig.add_gridspec(3, 3, hspace=0.3, wspace=0.3)
-    
-    # 1. Bias corrections scatter plot
-    ax1 = fig.add_subplot(gs[0, 0])
-    corrected_data = df_corrected[df_corrected['correction_applied'] == True]
-    if len(corrected_data) > 0:
-        ax1.scatter(corrected_data['HTE_rate'], corrected_data['corrected_HTE_rate'], alpha=0.6)
-        min_val = min(corrected_data['HTE_rate'].min(), corrected_data['corrected_HTE_rate'].min())
-        max_val = max(corrected_data['HTE_rate'].max(), corrected_data['corrected_HTE_rate'].max())
-        ax1.plot([min_val, max_val], [min_val, max_val], 'k--', alpha=0.5)
-    ax1.set_title('Bias Corrections')
-    ax1.set_xlabel('Original Rate')
-    ax1.set_ylabel('Corrected Rate')
-    
-    # 2. Bias distribution
-    ax2 = fig.add_subplot(gs[0, 1])
-    bias_data = df_corrected[df_corrected['predicted_bias'] > 0]
-    if len(bias_data) > 0:
-        ax2.hist(bias_data['predicted_bias'], bins=15, alpha=0.7)
-    ax2.set_title('Predicted Bias Distribution')
-    ax2.set_xlabel('Predicted Bias')
-    ax2.set_ylabel('Frequency')
-    
-    # 3. Model performance metrics
-    ax3 = fig.add_subplot(gs[0, 2])
-    class_res = model_results.get('classification', {})
-    reg_res = model_results.get('regression', {})
-    metrics = {
-        'Class F1': class_res.get('cv_f1_mean', 0),
-        'Reg R²': reg_res.get('cv_r2_mean', 0)
-    }
-    ax3.bar(metrics.keys(), metrics.values(), color=['skyblue', 'lightcoral'])
-    ax3.set_title('Model Performance')
-    ax3.set_ylabel('Score')
-    
-    # 4. Validation results (if available)
-    ax4 = fig.add_subplot(gs[1, 0])
-    if validation_results and len(validation_results) > 0:
-        val_df = pd.DataFrame(validation_results)
-        if 'n_features' in val_df.columns and 'r2_corrected' in val_df.columns:
-            ax4.plot(val_df['n_features'], val_df['r2_corrected'], 'o-')
-    ax4.set_title('R² vs Features')
-    ax4.set_xlabel('Number of Features')
-    ax4.set_ylabel('R²')
-    
-    # 5. Correction statistics
-    ax5 = fig.add_subplot(gs[1, 1])
-    correction_stats = {
-        'Applied': df_corrected['correction_applied'].sum(),
-        'Not Applied': (~df_corrected['correction_applied']).sum()
-    }
-    ax5.pie(correction_stats.values(), labels=correction_stats.keys(), autopct='%1.1f%%')
-    ax5.set_title('Correction Statistics')
-    
-    # 6. NMR validation (if available)
-    ax6 = fig.add_subplot(gs[1, 2])
-    try:
-        nmr_df = pd.read_csv('../data/nmr_rates_only.csv')
-        df_with_nmr = df_corrected.merge(nmr_df, on=['acyl_chlorides', 'amines'], how='left')
-        nmr_data = df_with_nmr[df_with_nmr['NMR_rate'].notna()]
-        
-        if len(nmr_data) > 0:
-            ax6.scatter(nmr_data['NMR_rate'], nmr_data['HTE_rate'], alpha=0.6, label='Original')
-            ax6.scatter(nmr_data['NMR_rate'], nmr_data['corrected_HTE_rate'], alpha=0.6, label='Corrected')
-            ax6.legend()
-            
-            r2_orig = r2_score(nmr_data['NMR_rate'], nmr_data['HTE_rate'])
-            r2_corr = r2_score(nmr_data['NMR_rate'], nmr_data['corrected_HTE_rate'])
-            ax6.set_title(f'NMR Validation\nR²: {r2_orig:.2f}→{r2_corr:.2f}')
-        else:
-            ax6.text(0.5, 0.5, 'No NMR data', ha='center', va='center', transform=ax6.transAxes)
-            ax6.set_title('NMR Validation')
-    except:
-        ax6.text(0.5, 0.5, 'No NMR file', ha='center', va='center', transform=ax6.transAxes)
-        ax6.set_title('NMR Validation')
-    
-    ax6.set_xlabel('NMR Rate')
-    ax6.set_ylabel('HTE Rate')
-    
-    # 7-9. Summary statistics
-    ax7 = fig.add_subplot(gs[2, :])
-    
-    # Create summary text
-    summary_text = f"""
-    MODEL SUMMARY:
-    • Total reactions: {len(df_corrected)}
-    • Corrections applied: {df_corrected['correction_applied'].sum()} ({df_corrected['correction_applied'].mean():.1%})
-    • Average correction magnitude: {df_corrected[df_corrected['correction_applied']]['predicted_bias'].mean():.3f}
-    • Classification F1: {model_results.get('classification', {}).get('cv_f1_mean', 0):.3f}
-    • Regression R²: {model_results.get('regression', {}).get('cv_r2_mean', 0):.3f}
-    """
-    
-    ax7.text(0.05, 0.95, summary_text, transform=ax7.transAxes, fontsize=12,
-             verticalalignment='top', fontfamily='monospace',
-             bbox=dict(boxstyle='round', facecolor='lightgray', alpha=0.5))
-    ax7.axis('off')
-    
-    plt.suptitle('ML Bias Correction Analysis Dashboard', fontsize=16, fontweight='bold')
-    
-    if save_plot:
-        plt.savefig(f'plots/comprehensive_dashboard{suffix}.png', dpi=300, bbox_inches='tight')
-        plt.close()
-    else:
-        plt.show() 
+

@@ -20,16 +20,16 @@ from src.data_processing import (
     process_feature_correlations, select_features_sequentially,
     select_top_features_combined
 )
-from src.model_building import build_models, save_models
+from src.model_building import build_models, build_hte_prediction_models, save_models, create_combined_dataset
 from src.model_evaluation import (
     apply_improved_corrections, validate_corrections, apply_rate_classification,
     test_model_with_scrambled_features, test_model_with_y_scrambling,
-    save_evaluation_report
+    save_evaluation_report, plot_parity, plot_parity_with_residuals,
+    evaluate_regression_with_parity_plots, save_hte_prediction_evaluation_report
 )
 from src.visualization import (
     visualize_model_performance, visualize_classification_performance, 
-    plot_bias_corrections, create_comprehensive_dashboard, 
-    plot_scrambling_test_results
+    plot_bias_corrections, plot_scrambling_test_results
 )
 
 def create_directories():
@@ -38,7 +38,7 @@ def create_directories():
     os.makedirs('plots', exist_ok=True)
     os.makedirs('models', exist_ok=True)
 
-def run_single_analysis(config):
+def run_single_bias_correction_analysis(config):
     """Run a single analysis with given configuration."""
     
     if config['feature_selection_mode'] == 'selected':
@@ -116,7 +116,7 @@ def run_single_analysis(config):
         )
     else:
         raise ValueError(f"Invalid mode: {config['mode']}")
-    
+
     print(f"Final selected features ({len(final_features)}): {final_features}")
     
     # Build models
@@ -199,14 +199,11 @@ def run_single_analysis(config):
             )
         
         # Bias corrections
-        # plot_bias_corrections(df_corrected, save_plot=True, suffix=suffix)
+        plot_bias_corrections(df_corrected, save_plot=config['single_run'], suffix=suffix)
         
         # Scrambling test results
         if scrambling_results:
             plot_scrambling_test_results(scrambling_results, save_plot=True, suffix=suffix)
-        
-        # Comprehensive dashboard
-        # create_comprehensive_dashboard(df_corrected, [], results, save_plot=True, suffix=suffix)
     
     # Save models
     if config['save_models']:
@@ -234,6 +231,123 @@ def run_single_analysis(config):
     
     return analysis_results
 
+def run_single_hte_prediction_analysis(config):
+    """Run a single analysis with given configuration."""
+    
+    if config['feature_selection_mode'] == 'selected':
+        config['n_features'] = len(config['specific_features'])
+    
+    print(f"\n{'='*50}")
+    print(f"Running HTE Prediction Analysis: {config['mode']} with {config['n_features']} features")
+    print(f"{'='*50}")
+    
+    # Load and process data
+    print("\n=== Loading Data ===")
+    df = load_hte_data(analysis_type='hte_prediction', target_col=config['target_col'])
+    
+    # Load and process features
+    acid_feature_data, amine_feature_data = load_and_process_features(df, target_col=config['target_col'])
+
+    # Select final features
+    print(f"\n=== Selecting Features ({config['feature_selection_mode']}) ===")
+    if config['mode'] == "each":
+        if config['feature_selection_mode'] == 'sequential':
+            acyl_feats = select_features_sequentially(
+                acid_feature_data, 
+                config['target_col'], 
+                n_top=config['n_features']
+            )
+            amine_feats = select_features_sequentially(
+                amine_feature_data, 
+                config['target_col'], 
+                n_top=config['n_features']
+            )
+            final_features = list(set(acyl_feats + amine_feats + config['include_features']))
+        elif config['feature_selection_mode'] == 'selected':
+            final_features = list(set(config['specific_features']))
+        else:
+            raise ValueError(f"Invalid feature selection mode: {config['feature_selection_mode']}")
+    
+    elif config['mode'] == "in_all":
+        selected_features = list(set(acid_feature_data.columns[1:].tolist() + amine_feature_data.columns[1:].tolist()))
+
+        combined_df, feature_cols = create_combined_dataset(acid_feature_data, amine_feature_data, df, selected_features, save_df=False)
+        combined_df = combined_df[feature_cols + [config['target_col']]]
+        
+        final_features = select_features_sequentially(
+            combined_df, 
+            config['target_col'], 
+            n_top=config['n_features']
+        )
+    
+    final_features = list(set(final_features))
+    print(f"Final selected features ({len(final_features)}): {final_features}")
+    
+    # Build Models
+    model_results = build_hte_prediction_models(
+        acid_feature_data, amine_feature_data, df, final_features,
+        target_col=config['target_col'],
+        single_run=config['single_run'],
+        hyperparameter_optimization=config['hyperparameter_optimization']
+        )
+    
+    regressor, scaler_reg, valid_features, combined_df, final_results = model_results
+    
+    # Set suffix
+    if config['hyperparameter_optimization']:
+        suffix = f"_{config['mode']}_{config['n_features']}_optuna"
+    else:
+        suffix = f"_{config['mode']}_{config['n_features']}"
+        
+    # Run testing if requested #### Todo later
+    scrambling_results = None
+    y_scrambling_results = None
+    
+        
+    # Visualize model performance
+    if config['save_plots']:
+        print(f"\n=== Generating Visualizations ===")
+        
+        # Model performance
+        visualize_model_performance(final_results, save_plot=True, suffix=suffix)
+        
+        # Parity plot of predicted vs. actual HTE rates
+        if regressor is not None and combined_df is not None:
+            model_name = final_results['regression'].get('model', 'Regression Model')
+            
+            # Use comprehensive evaluation function
+            parity_results = evaluate_regression_with_parity_plots(
+                regressor=regressor,
+                scaler=scaler_reg,
+                combined_df=combined_df,
+                valid_features=valid_features,
+                target_col=config['target_col'],
+                model_name=model_name,
+                save_plots=True,
+                suffix=suffix
+            )
+            
+    # Save evaluation report
+    save_hte_prediction_evaluation_report(final_results, combined_df, final_features, 
+                          selection_mode=config.get('selection_mode', 'manual'), 
+                          n_features=config.get('n_features', len(final_features)),
+                          scrambling_results=scrambling_results, 
+                          y_scrambling_results=y_scrambling_results, 
+                          suffix=suffix)
+    
+    # Compile results
+    analysis_results = {
+        'configuration': config,
+        'n_features': len(final_features),
+        'selected_features': final_features,
+        'model_results': final_results,
+        'scrambling_results': scrambling_results,
+        'y_scrambling_results': y_scrambling_results,
+        'predicted_data': combined_df
+    }
+    
+    return analysis_results
+
 def run_parameter_sweep(config):
     """Run parameter sweep across different feature numbers."""
     print(f"\n{'='*50}")
@@ -242,24 +356,30 @@ def run_parameter_sweep(config):
     
     # Load and process data once
     print("\n=== Loading Data ===")
-    df = load_hte_data()
-    analyze_bias_patterns(df, save_plot=False)
-    acid_feature_data, amine_feature_data = load_and_process_features(df)
+    df = load_hte_data(analysis_type=config['analysis_type'], target_col=config['target_col'])
     
-    # Process feature correlations
-    reduced_acid_features, acid_corr_df = process_feature_correlations(
-        acid_feature_data, target_col='max_bias', correlation_threshold=0.95
-    )
-    reduced_amine_features, amine_corr_df = process_feature_correlations(
-        amine_feature_data, target_col='max_bias', correlation_threshold=0.95
-    )
+    # analyze_bias_patterns(df, save_plot=False)
+    acid_feature_data, amine_feature_data = load_and_process_features(df, target_col=config['target_col'])
+    
+    # # Process feature correlations
+    # reduced_acid_features, acid_corr_df = process_feature_correlations(
+    #     acid_feature_data, target_col=config['target_col'], correlation_threshold=0.95
+    # )
+    # reduced_amine_features, amine_corr_df = process_feature_correlations(
+    #     amine_feature_data, target_col=config['target_col'], correlation_threshold=0.95
+    # )
     
     # Determine feature range
-    max_feats_each = min(len(reduced_acid_features), len(reduced_amine_features))
-    feature_range = range(1, max_feats_each + 1)
+    # max_feats_each = min(len(reduced_acid_features), len(reduced_amine_features))
+    # feature_range = range(1, max_feats_each + 1)
+    if config['mode'] == "each":
+        max_feats = min(len(acid_feature_data.columns), len(amine_feature_data.columns))
+    elif config['mode'] == "in_all":
+        max_feats = len(acid_feature_data.columns) + len(amine_feature_data.columns)
     
-    print(f"Testing feature range: 1 to {max_feats_each}")
-    
+    feature_range = range(1, max_feats + 1)
+    print(f"Testing feature range: 1 to {max_feats}")
+
     all_results = []
     
     for n_features in feature_range:
@@ -272,28 +392,48 @@ def run_parameter_sweep(config):
         sweep_config['run_scrambling_test'] = False  # Skip for sweep
         sweep_config['save_models'] = False
         
-        try:
-            result = run_single_analysis(sweep_config)
+        if config['analysis_type'] == 'bias_correction':
+            try:
+                result = run_single_bias_correction_analysis(sweep_config)
+                
+                if result:
+                    # Add sweep-specific metrics
+                    sweep_result = {
+                        'n_features': n_features,
+                        'r2_corrected': result['validation_results'].get('r_squared_corr', 0),
+                        'r2_improvement': result['validation_results'].get('r2_improvement', 0),
+                        'point_improvement': result['validation_results'].get('n_point_improvement', 0),
+                        'class_cv_f1_mean': result['model_results']['classification'].get('cv_f1_mean', 0),
+                        'reg_cv_r2_mean': result['model_results']['regression'].get('cv_r2_mean', 0),
+                        'reg_test_r2': result['model_results']['regression'].get('test_r2', 0),
+                        'class_model': result['model_results']['classification'].get('model', 'Unknown'),
+                        'reg_model': result['model_results']['regression'].get('model', 'Unknown'),
+                        'selection_mode': config['mode'],
+                        'features': result['selected_features']
+                    }
+                    all_results.append(sweep_result)
+            except Exception as e:
+                print(f"Error with Bias Correction analysis with {n_features} features: {e}")
+                continue
             
-            if result:
-                # Add sweep-specific metrics
-                sweep_result = {
-                    'n_features': n_features,
-                    'r2_corrected': result['validation_results'].get('r_squared_corr', 0),
-                    'r2_improvement': result['validation_results'].get('r2_improvement', 0),
-                    'point_improvement': result['validation_results'].get('n_point_improvement', 0),
-                    'class_cv_f1_mean': result['model_results']['classification'].get('cv_f1_mean', 0),
-                    'reg_cv_r2_mean': result['model_results']['regression'].get('cv_r2_mean', 0),
-                    'reg_test_r2': result['model_results']['regression'].get('test_r2', 0),
-                    'class_model': result['model_results']['classification'].get('model', 'Unknown'),
-                    'reg_model': result['model_results']['regression'].get('model', 'Unknown'),
-                    'selection_mode': config['mode'],
-                    'features': result['selected_features']
-                }
-                all_results.append(sweep_result)
-        except Exception as e:
-            print(f"Error with {n_features} features: {e}")
-            continue
+        elif config['analysis_type'] == 'hte_prediction':
+            try:
+                result = run_single_hte_prediction_analysis(sweep_config)
+                
+                if result:
+                    # Add sweep-specific metrics
+                    sweep_result = {
+                        'n_features': n_features,
+                        'reg_model': result['model_results']['regression'].get('model', 'Unknown'),
+                        'reg_cv_r2_mean': result['model_results']['regression'].get('cv_r2_mean', 0),
+                        'reg_test_r2': result['model_results']['regression'].get('test_r2', 0),
+                        'selection_mode': config['mode'],
+                        'features': result['selected_features']
+                    }
+                    all_results.append(sweep_result)
+            except Exception as e:
+                print(f"Error with HTE Prediction analysis with {n_features} features: {e}")
+                continue
     
     # Save sweep results
     if all_results:
@@ -303,13 +443,19 @@ def run_parameter_sweep(config):
         print(f"\nParameter sweep results saved to results/parameter_sweep_results.csv")
         
         # Find best configuration
-        best_idx = sweep_df['r2_improvement'].idxmax()
+        if config['analysis_type'] == 'bias_correction':
+            best_idx = sweep_df['r2_improvement'].idxmax()
+        elif config['analysis_type'] == 'hte_prediction':
+            best_idx = sweep_df['reg_test_r2'].idxmax()
         best_config = sweep_df.iloc[best_idx]
         print(f"\nBest configuration:")
         print(f"  Features: {best_config['n_features']}")
-        print(f"  R² improvement: {best_config['r2_improvement']:.3f}")
-        print(f"  CV F1 score: {best_config['class_cv_f1_mean']:.3f}")
+        if config['analysis_type'] == 'bias_correction':
+            print(f"  R² improvement: {best_config['r2_improvement']:.3f}")
+            print(f"  CV F1 score: {best_config['class_cv_f1_mean']:.3f}")
         print(f"  CV R² score: {best_config['reg_cv_r2_mean']:.3f}")
+        if config['analysis_type'] == 'hte_prediction':
+            print(f"  Test R² score: {best_config['reg_test_r2']:.3f}")
     
     return all_results
 
@@ -319,13 +465,19 @@ def main():
     
     # Configuration
     config = {
+        # Type of analysis
+        'analysis_type': 'hte_prediction', # OPTIONS: bias_correction, hte_prediction
+        
+        # Target column
+        'target_col': 'HTE_lnk_corrected', # OPTIONS: bias, HTE_rate_corrected, HTE_lnk_corrected
+        
         # Run mode
-        'single_run': True,
-        'mode': "each",  # "each" or "in_all"
-        'n_features': 27,
+        'single_run': False,
+        'mode': "in_all",  # "each" or "in_all"
+        'n_features': 0,
         
         # Feature selection
-        'feature_selection_mode': 'selected',  # OPTIONS: sequential, correlation, selected
+        'feature_selection_mode': 'sequential',  # OPTIONS: sequential, correlation, selected
         'include_features': [], # ['amine_pka_basic', 'acyl_pka_aHs_x_has_acidic_H',  'amine_BV_secondary_avg', 'acyl_BV_secondary_2'],
         'specific_features': ['amine_class_1_mixture', 'acyl_class_aromatic', 'acyl_Charges_secondary_1', 'amine_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H', 'amine_pka_basic', 'acyl_BV_secondary_2', 'amine_BV_secondary_avg'], 
         
@@ -354,7 +506,12 @@ def main():
     
     # Run analysis
     if config['single_run']:
-        results = run_single_analysis(config)
+        if config['analysis_type'] == 'bias_correction':
+            results = run_single_bias_correction_analysis(config)
+        elif config['analysis_type'] == 'hte_prediction':
+            results = run_single_hte_prediction_analysis(config)
+        else:
+            raise ValueError(f"Invalid analysis type: {config['analysis_type']}")
         
         if results:
             print(f"\n{'='*50}")
