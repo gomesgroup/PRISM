@@ -19,7 +19,7 @@ def load_hte_data(analysis_type='bias_correction', target_col='bias'):
     """Load HTE data and calculate bias metrics."""
     
     if analysis_type == 'bias_correction':
-        df = pd.read_csv('data/hte_rates_raw_split_into_2tests.csv', index_col=0)
+        df = pd.read_csv('data/rates/hte_rates_raw_split_into_2tests.csv', index_col=0)
         
         #### Calculate bias for only True Slow Unreliable
         df['is_biased'] = df['Slow_unreliable'] == True
@@ -31,7 +31,7 @@ def load_hte_data(analysis_type='bias_correction', target_col='bias'):
         print(f"Number of biased reactions: {df['is_biased'].sum()}")
         
     elif analysis_type == 'hte_prediction':
-        df = pd.read_csv('data/corrected_hte_rates.csv')
+        df = pd.read_csv('data/rates/corrected_hte_rates.csv')
         
         #### Only measurable data
         df = df[df['Fast_unmeasurable'] == False]
