@@ -1,6 +1,6 @@
 # ML Measurable HTE Rate Analysis - Modular Version
 
-This directory contains a modular refactoring of the original monolithic workflow script. The analysis supports three main types of studies: **rate classification** (measurable vs fast), **bias correction** for HTE rate measurements, and **HTE rate prediction** from molecular features.
+The analysis workflow supports three main types of studies: **rate classification** (measurable vs fast), **bias correction** for HTE rate measurements, and **HTE rate prediction** from molecular features.
 
 ## 🚀 Quick Start
 
@@ -13,6 +13,88 @@ python run_analysis.py
 
 # Load and use trained models for predictions
 python -c "from src.load_models import example_usage; example_usage()"
+```
+## 🔬 Analysis Types & Workflows
+
+### 1. Rate Classification Analysis
+**Purpose**: Classify reactions as measurable or fast unmeasurable based on molecular features
+
+**Data**: Uses either raw or corrected HTE data
+- Binary classification: 0 = measurable rate, 1 = fast unmeasurable rate
+- Used as a preprocessing step for other analyses
+
+**Models**:
+- **Classifier**: Predicts if reaction has measurable rate (0) or is fast unmeasurable (1)
+
+**Target**: `Fast_unmeasurable` (binary classification)
+
+**Workflow**:
+1. **Data Loading**: Load HTE data (raw or corrected)
+2. **Feature Processing**: Load molecular descriptors and select features
+3. **Model Training**: Train binary classifier (measurable vs fast unmeasurable)
+4. **Classification**: Apply trained model to classify reaction rates
+5. **Evaluation**: Generate classification performance metrics and plots
+
+### 2. Bias Correction Analysis
+**Purpose**: Identify and correct systematic measurement bias in HTE rate data
+
+**Data**: Uses `hte_rates_raw_split_into_2tests.csv` with raw HTE measurements
+- Focuses on reactions marked as "Slow_unreliable" 
+- Calculates bias as: `Controls * 1.5 - HTE_rate` for biased reactions
+- Combines classification and regression for comprehensive correction
+
+**Models**:
+- **Classifier**: Predicts if reaction is measurable (0) or fast unmeasurable (1)
+- **Regressor**: Predicts bias magnitude for correction
+
+**Target**: `bias` (calculated bias values) and `Fast_unmeasurable` (classification)
+
+**Workflow**:
+1. **Data Loading**: Load raw HTE data with bias patterns
+2. **Feature Processing**: Load molecular descriptors and perform correlation analysis
+3. **Model Training**: Train classifier (measurable vs fast) + regressor (bias magnitude)
+4. **Bias Correction**: Apply trained models to correct HTE rates
+5. **Validation**: Validate corrections and generate evaluation reports
+
+### 3. HTE Rate Prediction Analysis  
+**Purpose**: Predict corrected HTE rates directly from molecular features
+
+**Data**: Uses `corrected_hte_rates.csv` with bias-corrected HTE measurements
+- Filters to measurable reactions only (`Fast_unmeasurable == False`)
+- Uses log-transformed rates: `HTE_lnk_corrected = log10(HTE_rate_corrected)`
+
+**Models**:
+- **Regressor**: Predicts corrected HTE rates or log-transformed rates
+
+**Target**: `HTE_rate_corrected` or `HTE_lnk_corrected`
+
+**Workflow**:
+1. **Data Loading**: Load corrected HTE rate data
+2. **Feature Processing**: Load molecular descriptors and select features
+3. **Model Training**: Train regression models to predict HTE rates
+4. **Evaluation**: Generate parity plots and performance metrics
+5. **Reporting**: Create comprehensive evaluation reports
+
+### Parameter Sweep Mode
+- Automatically tests different numbers of features across all analysis types
+- Identifies optimal feature count for best performance
+- Generates summary of all tested configurations
+- Saves detailed results for each configuration
+
+## Dependencies
+
+```bash
+# Core scientific computing
+pandas numpy matplotlib seaborn
+
+# Machine learning
+scikit-learn
+
+# Advanced ML models  
+xgboost lightgbm catboost
+
+# Hyperparameter optimization
+optuna
 ```
 
 ## 📁 Module Structure
@@ -55,7 +137,7 @@ python -c "from src.load_models import example_usage; example_usage()"
    - Batch prediction capabilities
    - Model information and debugging utilities
 
-### Orchestration Scripts
+### Main Script
 
 6. **`run_analysis.py`** - Main workflow orchestration
    - Supports two analysis types: `bias_correction` and `hte_prediction`
@@ -103,46 +185,6 @@ config = {
     'save_models': True                       # Save trained models
 }
 ```
-
-## 🔬 Analysis Types
-
-### 1. Rate Classification Analysis
-**Purpose**: Classify reactions as measurable or fast unmeasurable based on molecular features
-
-**Data**: Uses either raw or corrected HTE data
-- Binary classification: 0 = measurable rate, 1 = fast unmeasurable rate
-- Used as a preprocessing step for other analyses
-
-**Models**:
-- **Classifier**: Predicts if reaction has measurable rate (0) or is fast unmeasurable (1)
-
-**Target**: `Fast_unmeasurable` (binary classification)
-
-### 2. Bias Correction Analysis
-**Purpose**: Identify and correct systematic measurement bias in HTE rate data
-
-**Data**: Uses `hte_rates_raw_split_into_2tests.csv` with raw HTE measurements
-- Focuses on reactions marked as "Slow_unreliable" 
-- Calculates bias as: `Controls * 1.5 - HTE_rate` for biased reactions
-- Combines classification and regression for comprehensive correction
-
-**Models**:
-- **Classifier**: Predicts if reaction is measurable (0) or fast unmeasurable (1)
-- **Regressor**: Predicts bias magnitude for correction
-
-**Target**: `bias` (calculated bias values) and `Fast_unmeasurable` (classification)
-
-### 3. HTE Rate Prediction Analysis  
-**Purpose**: Predict corrected HTE rates directly from molecular features
-
-**Data**: Uses `corrected_hte_rates.csv` with bias-corrected HTE measurements
-- Filters to measurable reactions only (`Fast_unmeasurable == False`)
-- Uses log-transformed rates: `HTE_lnk_corrected = log10(HTE_rate_corrected)`
-
-**Models**:
-- **Regressor**: Predicts corrected HTE rates or log-transformed rates
-
-**Target**: `HTE_rate_corrected` or `HTE_lnk_corrected`
 
 ## 🔮 Using Trained Models
 
@@ -239,144 +281,3 @@ ml_measurable_hte_rates/
 └── new_data/                   # 📊 External prediction data
     └── combined_features_hte_rates_drug_scope.csv
 ```
-
-## ✨ Key Features
-
-### 🧩 Three Analysis Types
-- **Rate Classification**: Classify reactions as measurable vs fast unmeasurable
-- **Bias Correction**: Predict and correct measurement bias in HTE rates
-- **HTE Rate Prediction**: Predict corrected HTE rates from molecular features
-- Seamless switching between analysis types via configuration
-
-### 🧩 Modular Design
-- Each module has a single, focused responsibility
-- Easy to test, modify, and extend individual components
-- Clear interfaces between modules
-- Reduced complexity: ~3000 lines → ~1500 lines across 5 core modules
-
-### ⚙️ Flexible Configuration
-- All parameters centralized in `run_analysis.py`
-- Support for different model suffixes and feature selection modes
-- Easy to switch between analysis types and modes
-- Parameter sweep capabilities for optimization
-
-### 🔬 Comprehensive Validation
-- **Feature scrambling tests** - Verify meaningful learning vs. bias exploitation
-- **Y-scrambling tests** - Check model architecture flexibility
-- **Cross-validation** - Assess model generalization
-- **Parity plots** - Visual validation of regression performance
-
-### 📊 Rich Visualizations
-- Automated generation of analysis plots
-- Model performance comparison plots
-- Parity plots for regression models
-- Feature correlation heatmaps
-- Classification performance visualizations (confusion matrices, ROC curves)
-
-### 🔄 Model Management
-- Save/load models with flexible naming conventions
-- Support for different classifier/regressor versions
-- Batch prediction capabilities
-- Model information and debugging tools
-- Hyperparameter optimization with Optuna
-
-## 🔄 Analysis Workflows
-
-### Rate Classification Workflow
-1. **Data Loading**: Load HTE data (raw or corrected)
-2. **Feature Processing**: Load molecular descriptors and select features
-3. **Model Training**: Train binary classifier (measurable vs fast unmeasurable)
-4. **Classification**: Apply trained model to classify reaction rates
-5. **Evaluation**: Generate classification performance metrics and plots
-
-### Bias Correction Workflow
-1. **Data Loading**: Load raw HTE data with bias patterns
-2. **Feature Processing**: Load molecular descriptors and perform correlation analysis
-3. **Model Training**: Train classifier (measurable vs fast) + regressor (bias magnitude)
-4. **Bias Correction**: Apply trained models to correct HTE rates
-5. **Validation**: Validate corrections and generate evaluation reports
-
-### HTE Rate Prediction Workflow
-1. **Data Loading**: Load corrected HTE rate data
-2. **Feature Processing**: Load molecular descriptors and select features
-3. **Model Training**: Train regression models to predict HTE rates
-4. **Evaluation**: Generate parity plots and performance metrics
-5. **Reporting**: Create comprehensive evaluation reports
-
-### Parameter Sweep Mode
-- Automatically tests different numbers of features
-- Identifies optimal feature count for best performance
-- Generates summary of all tested configurations
-- Saves detailed results for each configuration
-
-## 📋 Dependencies
-
-```bash
-# Core scientific computing
-pandas numpy matplotlib seaborn
-
-# Machine learning
-scikit-learn
-
-# Advanced ML models  
-xgboost lightgbm catboost
-
-# Hyperparameter optimization
-optuna
-```
-
-## 🆘 Troubleshooting
-
-### Common Issues
-
-**Models not found:**
-```python
-# Check what files exist in models directory
-import os
-print(os.listdir('models/'))
-
-# Use correct suffix that matches your saved models
-predictor = load_models_simple("_each_8_optuna")  # Match your saved models
-```
-
-**Missing features error:**
-```python
-# Check required features for loaded models
-from src.load_models import load_models_simple
-predictor = load_models_simple("_each_8_optuna")
-info = predictor.get_model_info()
-print("Required features:", info['features'])
-```
-
-**Analysis type configuration:**
-```python
-# In run_analysis.py, set:
-config['analysis_type'] = 'bias_correction'    # For bias correction (includes classification)
-config['analysis_type'] = 'hte_prediction'     # For HTE rate prediction
-# Note: Rate classification is embedded within bias_correction analysis
-```
-
-**Parameter sweep vs single run:**
-```python
-# In run_analysis.py, set:
-config['single_run'] = True   # For single analysis with specific features
-config['single_run'] = False  # For parameter sweep across feature counts
-```
-
-**Feature selection modes:**
-```python
-# In run_analysis.py, choose:
-config['feature_selection_mode'] = 'sequential'   # Sequential feature selection
-config['feature_selection_mode'] = 'correlation'  # Correlation-based selection
-config['feature_selection_mode'] = 'selected'     # Use specific_features list
-```
-
-## 🤝 Contributing
-
-The modular structure makes it easy to:
-- Add new feature selection methods in `data_processing.py`
-- Implement new models in `model_building.py` 
-- Add validation techniques in `model_evaluation.py`
-- Create new visualizations in `visualization.py`
-
-Each module has clear interfaces and focused responsibilities, making development and testing straightforward. 
