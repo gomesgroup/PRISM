@@ -86,7 +86,7 @@ def apply_improved_corrections(df, predict_bias_func):
 def load_and_merge_nmr_hte_data(df):
     """Load NMR data for validation."""
     try:
-        nmr_df = pd.read_csv('../data/nmr_rates_only.csv')
+        nmr_df = pd.read_csv('data/rates/nmr_rates_only.csv')
         df = df.merge(nmr_df, on=['acyl_chlorides', 'amines'], how='left')
         return df
     except FileNotFoundError:
