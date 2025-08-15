@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.model_selection import cross_val_score, cross_val_predict
+from sklearn.metrics import f1_score 
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -726,5 +727,512 @@ def save_evaluation_report(validation_results, model_results, df_corrected, sele
     
     print(f"Comprehensive evaluation report saved to {report_file}")
 
-# Import required functions for compatibility
-from sklearn.metrics import f1_score 
+def save_hte_prediction_evaluation_report(model_results, combined_df, selected_features, 
+                                        selection_mode="manual", n_features=2, 
+                                        scrambling_results=None, y_scrambling_results=None, 
+                                        suffix=""):
+    """Save comprehensive evaluation report for HTE prediction analysis."""
+    import os
+    from sklearn.metrics import r2_score
+    
+    # Ensure results directory exists
+    os.makedirs('results/reports', exist_ok=True)
+    
+    report_file = f'results/reports/hte_prediction_report_{selection_mode}_{n_features}{suffix}.txt'
+    
+    with open(report_file, 'w') as f:
+        f.write("HTE Rate Prediction Analysis Report\n")
+        f.write("=" * 70 + "\n\n")
+        f.write("METHODOLOGY: Single-Stage Regression Model\n")
+        f.write("Direct prediction of HTE rates using molecular descriptors.\n")
+        f.write("Target variable: Log-transformed HTE rates for improved model performance.\n\n")
+        
+        # Dataset summary
+        f.write(f"Total entries: {len(combined_df)}\n")
+        
+        # Split information
+        train_mask = combined_df['test splits'] == 'TRAIN'
+        test_mask = (combined_df['test splits'] == 'TEST1') | (combined_df['test splits'] == 'TEST2')
+        f.write(f"Training samples: {train_mask.sum()}\n")
+        f.write(f"Test samples: {test_mask.sum()}\n\n")
+        
+        f.write(f"Number of features for {selection_mode} selection: {n_features}\n")
+        f.write(f"Final features selected: {selected_features}\n\n")
+        
+        # --- Regression Performance Analysis ---
+        f.write("--- REGRESSION PERFORMANCE ANALYSIS ---\n")
+        if 'regression' in model_results:
+            reg_results = model_results['regression']
+            f.write(f"Best Model: {reg_results.get('model', 'Unknown')}\n")
+            f.write(f"Train R²: {reg_results.get('train_r2', 0):.3f}\n")
+            f.write(f"Test R²: {reg_results.get('test_r2', 0):.3f}\n")
+            f.write(f"CV R²: {reg_results.get('cv_r2_mean', 0):.3f} ± {reg_results.get('cv_r2_std', 0):.3f}\n")
+            
+            # Additional metrics if available
+            if 'train_mae' in reg_results:
+                f.write(f"Train MAE: {reg_results.get('train_mae', 0):.3f}\n")
+            if 'test_mae' in reg_results:
+                f.write(f"Test MAE: {reg_results.get('test_mae', 0):.3f}\n")
+            if 'train_rmse' in reg_results:
+                f.write(f"Train RMSE: {reg_results.get('train_rmse', 0):.3f}\n")
+            if 'test_rmse' in reg_results:
+                f.write(f"Test RMSE: {reg_results.get('test_rmse', 0):.3f}\n")
+        else:
+            f.write("Regression metrics not available.\n")
+        f.write("\n")
+        
+        # --- Data Distribution Analysis ---
+        f.write("--- DATA DISTRIBUTION ANALYSIS ---\n")
+        # Find target column (likely HTE_lnk_corrected or similar)
+        target_cols = [col for col in combined_df.columns if 'HTE' in col and ('lnk' in col or 'corrected' in col)]
+        if target_cols:
+            target_col = target_cols[0]  # Use first matching column
+            target_data = combined_df[target_col].dropna()
+            f.write(f"Target variable: {target_col}\n")
+            f.write(f"Target range: {target_data.min():.3f} to {target_data.max():.3f}\n")
+            f.write(f"Target mean: {target_data.mean():.3f}\n")
+            f.write(f"Target std: {target_data.std():.3f}\n")
+            
+            # Train/test split analysis
+            train_target = combined_df[train_mask][target_col].dropna()
+            test_target = combined_df[test_mask][target_col].dropna()
+            f.write(f"Train target mean: {train_target.mean():.3f} ± {train_target.std():.3f}\n")
+            f.write(f"Test target mean: {test_target.mean():.3f} ± {test_target.std():.3f}\n")
+        f.write("\n")
+        
+        # --- Feature Importance Analysis ---
+        f.write("--- FEATURE ANALYSIS ---\n")
+        f.write(f"Selected features ({len(selected_features)}):\n")
+        for i, feature in enumerate(selected_features, 1):
+            f.write(f"  {i}. {feature}\n")
+        
+        # Feature categories
+        acyl_features = [f for f in selected_features if f.startswith('acyl_')]
+        amine_features = [f for f in selected_features if f.startswith('amine_')]
+        f.write(f"\nFeature breakdown:\n")
+        f.write(f"  Acyl chloride features: {len(acyl_features)}\n")
+        f.write(f"  Amine features: {len(amine_features)}\n")
+        f.write("\n")
+        
+        # --- Model Performance Interpretation ---
+        f.write("--- MODEL PERFORMANCE INTERPRETATION ---\n")
+        if 'regression' in model_results:
+            reg_results = model_results['regression']
+            test_r2 = reg_results.get('test_r2', 0)
+            cv_r2 = reg_results.get('cv_r2_mean', 0)
+            
+            f.write("PERFORMANCE ASSESSMENT:\n")
+            if test_r2 > 0.8:
+                f.write("  ✅ EXCELLENT: Test R² > 0.8 - Very strong predictive performance\n")
+            elif test_r2 > 0.6:
+                f.write("  ✅ GOOD: Test R² > 0.6 - Good predictive performance\n")
+            elif test_r2 > 0.4:
+                f.write("  ⚠️  MODERATE: Test R² > 0.4 - Moderate predictive performance\n")
+            elif test_r2 > 0.2:
+                f.write("  ⚠️  WEAK: Test R² > 0.2 - Weak predictive performance\n")
+            else:
+                f.write("  ❌ POOR: Test R² ≤ 0.2 - Poor predictive performance\n")
+            
+            # Overfitting assessment
+            train_r2 = reg_results.get('train_r2', 0)
+            if train_r2 - test_r2 > 0.2:
+                f.write("  ⚠️  WARNING: Large train-test gap suggests potential overfitting\n")
+            elif train_r2 - test_r2 > 0.1:
+                f.write("  ⚠️  CAUTION: Moderate train-test gap - monitor for overfitting\n")
+            else:
+                f.write("  ✅ GOOD: Train-test performance gap is reasonable\n")
+            
+            # Cross-validation consistency
+            cv_std = reg_results.get('cv_r2_std', 0)
+            if cv_std > 0.1:
+                f.write("  ⚠️  HIGH VARIANCE: Large CV std suggests model instability\n")
+            elif cv_std > 0.05:
+                f.write("  ⚠️  MODERATE VARIANCE: Some model variability across folds\n")
+            else:
+                f.write("  ✅ STABLE: Low CV variance indicates consistent performance\n")
+        f.write("\n")
+        
+        # Scrambling test results (if available)
+        if scrambling_results:
+            f.write("--- SCRAMBLED FEATURES VALIDATION TEST ---\n")
+            f.write("(Tests if model is learning meaningful patterns vs. exploiting biases)\n\n")
+            
+            f.write("REGRESSOR SCRAMBLING TEST:\n")
+            reg_drop = scrambling_results.get('baseline_reg_r2', 0) - scrambling_results.get('scrambled_reg_r2_mean', 0)
+            f.write(f"  Baseline Test R²: {scrambling_results.get('baseline_reg_r2', 0):.3f}\n")
+            f.write(f"  Scrambled Mean R²: {scrambling_results.get('scrambled_reg_r2_mean', 0):.3f} ± {scrambling_results.get('scrambled_reg_r2_std', 0):.3f}\n")
+            f.write(f"  Performance Drop: {reg_drop:.3f}\n")
+            
+            if reg_drop > 0.2:
+                f.write("  ✅ EXCELLENT: Model is learning very meaningful patterns (large drop)\n")
+            elif reg_drop > 0.1:
+                f.write("  ✅ GOOD: Model is learning meaningful patterns (substantial drop)\n")
+            elif reg_drop > 0.05:
+                f.write("  ⚠️  MODERATE: Model shows moderate learning (moderate drop)\n")
+            else:
+                f.write("  ❌ POOR: Model may be exploiting biases (little drop)\n")
+            f.write("\n")
+        
+        # Y-scrambling test results (if available)
+        if y_scrambling_results:
+            f.write("--- Y-SCRAMBLING/Y-RANDOMIZATION VALIDATION TEST ---\n")
+            f.write("(Tests if model architecture/features are too flexible for random targets)\n\n")
+            
+            f.write("REGRESSOR Y-SCRAMBLING TEST:\n")
+            reg_above_chance = y_scrambling_results.get('reg_r2_mean', 0) - y_scrambling_results.get('chance_r2', 0)
+            f.write(f"  Expected chance R²: {y_scrambling_results.get('chance_r2', 0):.3f}\n")
+            f.write(f"  Scrambled Mean R²: {y_scrambling_results.get('reg_r2_mean', 0):.3f} ± {y_scrambling_results.get('reg_r2_std', 0):.3f}\n")
+            f.write(f"  Performance above chance: {reg_above_chance:.3f}\n")
+            
+            if reg_above_chance < 0.05:
+                f.write("  ✅ EXCELLENT: Performance close to chance - appropriate architecture/features\n")
+            elif reg_above_chance < 0.1:
+                f.write("  ✅ GOOD: Performance slightly above chance - reasonable flexibility\n")
+            elif reg_above_chance < 0.2:
+                f.write("  ⚠️  MODERATE: Performance moderately above chance - may be too flexible\n")
+            else:
+                f.write("  ❌ POOR: Performance substantially above chance - too flexible\n")
+            f.write("\n")
+        
+        # --- Recommendations ---
+        f.write("--- RECOMMENDATIONS ---\n")
+        if 'regression' in model_results:
+            reg_results = model_results['regression']
+            test_r2 = reg_results.get('test_r2', 0)
+            train_r2 = reg_results.get('train_r2', 0)
+            cv_std = reg_results.get('cv_r2_std', 0)
+            
+            if test_r2 < 0.4:
+                f.write("• Consider feature engineering or additional descriptors\n")
+                f.write("• Explore non-linear models or ensemble methods\n")
+                f.write("• Check for data quality issues or outliers\n")
+            
+            if train_r2 - test_r2 > 0.2:
+                f.write("• Reduce model complexity to prevent overfitting\n")
+                f.write("• Increase regularization strength\n")
+                f.write("• Consider cross-validation for hyperparameter tuning\n")
+            
+            if cv_std > 0.1:
+                f.write("• Increase dataset size if possible\n")
+                f.write("• Use more robust cross-validation strategies\n")
+                f.write("• Consider ensemble methods for stability\n")
+            
+            if test_r2 > 0.6:
+                f.write("• Model shows good predictive performance\n")
+                f.write("• Consider deploying for practical applications\n")
+                f.write("• Validate on external datasets if available\n")
+        
+        f.write("\n")
+    
+    print(f"HTE prediction evaluation report saved to {report_file}")
+
+def plot_parity(y_true, y_pred, target_name='Target', model_name='Model', 
+                dataset_type='Test', save_plot=False, suffix=""):
+    """
+    Create a parity plot to visualize model predictions vs actual values.
+    
+    Parameters:
+    -----------
+    y_true : array-like
+        Actual target values
+    y_pred : array-like
+        Predicted target values
+    target_name : str, default='Target'
+        Name of the target variable for labeling
+    model_name : str, default='Model'
+        Name of the model for the title
+    dataset_type : str, default='Test'
+        Type of dataset (e.g., 'Test', 'Train', 'Validation')
+    save_plot : bool, default=False
+        Whether to save the plot
+    suffix : str, default=""
+        Suffix to add to the saved filename
+    """
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+    import os
+    
+    # Calculate metrics
+    r2 = r2_score(y_true, y_pred)
+    mae = mean_absolute_error(y_true, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    
+    # Create figure
+    fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+    
+    # Create parity plot
+    ax.scatter(y_true, y_pred, alpha=0.6, s=50, edgecolors='black', linewidth=0.5)
+    
+    # Add perfect prediction line (y=x)
+    min_val = min(min(y_true), min(y_pred))
+    max_val = max(max(y_true), max(y_pred))
+    ax.plot([min_val, max_val], [min_val, max_val], 'r--', lw=2, label='Perfect Prediction (y=x)')
+    
+    # Add trend line (linear regression)
+    z = np.polyfit(y_true, y_pred, 1)
+    p = np.poly1d(z)
+    ax.plot(y_true, p(y_true), 'b-', alpha=0.8, lw=2, label=f'Trend Line (slope={z[0]:.3f})')
+    
+    # Set labels and title
+    ax.set_xlabel(f'Actual {target_name}', fontsize=12)
+    ax.set_ylabel(f'Predicted {target_name}', fontsize=12)
+    ax.set_title(f'Parity Plot: {model_name} ({dataset_type} Set)', fontsize=14, fontweight='bold')
+    
+    # Make axes equal and square
+    ax.set_aspect('equal', adjustable='box')
+    
+    # Add grid
+    ax.grid(True, alpha=0.3)
+    
+    # Add metrics text box
+    metrics_text = f'R² = {r2:.3f}\nMAE = {mae:.3f}\nRMSE = {rmse:.3f}\nN = {len(y_true)}'
+    ax.text(0.05, 0.95, metrics_text, transform=ax.transAxes, fontsize=11,
+            verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+    
+    # Add legend
+    ax.legend(loc='lower right')
+    
+    plt.tight_layout()
+    
+    # Create plots directory if it doesn't exist
+    if save_plot:
+        os.makedirs('plots', exist_ok=True)
+        filename = f'plots/parity_plot_{model_name.lower().replace(" ", "_")}_{dataset_type.lower()}{suffix}.png'
+        plt.savefig(filename, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Parity plot saved as: {filename}")
+    else:
+        plt.show()
+
+def plot_parity_with_residuals(y_true, y_pred, target_name='Target', model_name='Model', 
+                               dataset_type='Test', save_plot=False, suffix=""):
+    """
+    Create a comprehensive parity plot with residuals analysis.
+    
+    Parameters:
+    -----------
+    y_true : array-like
+        Actual target values
+    y_pred : array-like
+        Predicted target values
+    target_name : str, default='Target'
+        Name of the target variable for labeling
+    model_name : str, default='Model'
+        Name of the model for the title
+    dataset_type : str, default='Test'
+        Type of dataset (e.g., 'Test', 'Train', 'Validation')
+    save_plot : bool, default=False
+        Whether to save the plot
+    suffix : str, default=""
+        Suffix to add to the saved filename
+    """
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+    from scipy import stats
+    import os
+    
+    # Calculate metrics and residuals
+    r2 = r2_score(y_true, y_pred)
+    mae = mean_absolute_error(y_true, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+    residuals = y_true - y_pred
+    
+    # Create figure with subplots
+    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+    
+    # --- Parity Plot ---
+    ax = axes[0, 0]
+    ax.scatter(y_true, y_pred, alpha=0.6, s=50, edgecolors='black', linewidth=0.5)
+    
+    # Add perfect prediction line
+    min_val = min(min(y_true), min(y_pred))
+    max_val = max(max(y_true), max(y_pred))
+    ax.plot([min_val, max_val], [min_val, max_val], 'r--', lw=2, label='Perfect Prediction')
+    
+    # Add trend line
+    z = np.polyfit(y_true, y_pred, 1)
+    p = np.poly1d(z)
+    ax.plot(y_true, p(y_true), 'b-', alpha=0.8, lw=2, label=f'Trend (slope={z[0]:.3f})')
+    
+    ax.set_xlabel(f'Actual {target_name}')
+    ax.set_ylabel(f'Predicted {target_name}')
+    ax.set_title('Parity Plot')
+    ax.set_aspect('equal', adjustable='box')
+    ax.grid(True, alpha=0.3)
+    ax.legend()
+    
+    # Add metrics text
+    metrics_text = f'R² = {r2:.3f}\nMAE = {mae:.3f}\nRMSE = {rmse:.3f}'
+    ax.text(0.05, 0.95, metrics_text, transform=ax.transAxes, fontsize=10,
+            verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+    
+    # --- Residuals vs Predicted ---
+    ax = axes[0, 1]
+    ax.scatter(y_pred, residuals, alpha=0.6, s=50, edgecolors='black', linewidth=0.5)
+    ax.axhline(y=0, color='r', linestyle='--', lw=2)
+    ax.set_xlabel(f'Predicted {target_name}')
+    ax.set_ylabel('Residuals (Actual - Predicted)')
+    ax.set_title('Residuals vs Predicted')
+    ax.grid(True, alpha=0.3)
+    
+    # --- Residuals Distribution ---
+    ax = axes[1, 0]
+    ax.hist(residuals, bins=20, alpha=0.7, edgecolor='black', density=True)
+    ax.axvline(x=0, color='r', linestyle='--', lw=2)
+    ax.set_xlabel('Residuals')
+    ax.set_ylabel('Density')
+    ax.set_title('Residuals Distribution')
+    ax.grid(True, alpha=0.3)
+    
+    # Add normal curve overlay
+    mu, sigma = np.mean(residuals), np.std(residuals)
+    x = np.linspace(residuals.min(), residuals.max(), 100)
+    normal_curve = (1/(sigma * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - mu) / sigma) ** 2)
+    ax.plot(x, normal_curve, 'g-', lw=2, label='Normal Distribution')
+    ax.legend()
+    
+    # --- Q-Q Plot ---
+    ax = axes[1, 1]
+    stats.probplot(residuals, dist="norm", plot=ax)
+    ax.set_title('Q-Q Plot (Normality Check)')
+    ax.grid(True, alpha=0.3)
+    
+    # Overall title
+    fig.suptitle(f'{model_name} - {dataset_type} Set Analysis', fontsize=16, fontweight='bold')
+    
+    plt.tight_layout()
+    
+    # Create plots directory if it doesn't exist
+    if save_plot:
+        os.makedirs('plots', exist_ok=True)
+        filename = f'plots/parity_analysis_{model_name.lower().replace(" ", "_")}_{dataset_type.lower()}{suffix}.png'
+        plt.savefig(filename, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"Parity analysis plot saved as: {filename}")
+    else:
+        plt.show()
+
+def evaluate_regression_with_parity_plots(regressor, scaler, combined_df, valid_features, 
+                                         target_col, model_name='Regression Model', 
+                                         save_plots=True, suffix=""):
+    """
+    Comprehensive regression evaluation with parity plots.
+    
+    This function combines model evaluation with parity plot generation,
+    making it easy to assess regression model performance.
+    
+    Parameters:
+    -----------
+    regressor : sklearn model
+        Trained regression model
+    scaler : sklearn scaler
+        Fitted feature scaler
+    combined_df : pandas.DataFrame
+        Dataset with features, target, and test splits
+    valid_features : list
+        List of feature column names
+    target_col : str
+        Name of the target column
+    model_name : str, default='Regression Model'
+        Name of the model for plots
+    save_plots : bool, default=True
+        Whether to save the plots
+    suffix : str, default=""
+        Suffix for saved files
+        
+    Returns:
+    --------
+    dict : Evaluation metrics and plot information
+    """
+    print(f"=== Evaluating {model_name} with Parity Plots ===")
+    
+    # Prepare data
+    train_mask = combined_df['test splits'] == 'TRAIN'
+    test_mask = (combined_df['test splits'] == 'TEST1') | (combined_df['test splits'] == 'TEST2')
+    
+    # Get features and target
+    X = combined_df[valid_features]
+    y = combined_df[target_col]
+    
+    X_train = X[train_mask]
+    y_train = y[train_mask]
+    X_test = X[test_mask]
+    y_test = y[test_mask]
+    
+    # Scale features
+    X_train_scaled = scaler.transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    
+    # Generate predictions
+    y_train_pred = regressor.predict(X_train_scaled)
+    y_test_pred = regressor.predict(X_test_scaled)
+    
+    # Calculate metrics
+    train_r2 = r2_score(y_train, y_train_pred)
+    test_r2 = r2_score(y_test, y_test_pred)
+    train_mae = mean_absolute_error(y_train, y_train_pred)
+    test_mae = mean_absolute_error(y_test, y_test_pred)
+    train_rmse = np.sqrt(mean_squared_error(y_train, y_train_pred))
+    test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
+    
+    print(f"Model Performance:")
+    print(f"  Train R²: {train_r2:.3f}, MAE: {train_mae:.3f}, RMSE: {train_rmse:.3f}")
+    print(f"  Test R²: {test_r2:.3f}, MAE: {test_mae:.3f}, RMSE: {test_rmse:.3f}")
+    
+    # Generate parity plots
+    target_name = target_col.replace('_', ' ').title()
+    
+    if save_plots:
+        print("Generating parity plots...")
+        
+        # Simple parity plots
+        plot_parity(y_train, y_train_pred, 
+                   target_name=target_name,
+                   model_name=model_name,
+                   dataset_type='Train',
+                   save_plot=True, 
+                   suffix=f'{suffix}_train')
+        
+        plot_parity(y_test, y_test_pred,
+                   target_name=target_name, 
+                   model_name=model_name,
+                   dataset_type='Test',
+                   save_plot=True,
+                   suffix=f'{suffix}_test')
+        
+        # Comprehensive analysis for test set
+        plot_parity_with_residuals(y_test, y_test_pred,
+                                 target_name=target_name,
+                                 model_name=model_name,
+                                 dataset_type='Test',
+                                 save_plot=True,
+                                 suffix=f'{suffix}_analysis')
+    
+    # Return evaluation results
+    results = {
+        'model_name': model_name,
+        'target_col': target_col,
+        'train_metrics': {
+            'r2': train_r2,
+            'mae': train_mae,
+            'rmse': train_rmse,
+            'n_samples': len(y_train)
+        },
+        'test_metrics': {
+            'r2': test_r2,
+            'mae': test_mae,
+            'rmse': test_rmse,
+            'n_samples': len(y_test)
+        },
+        'predictions': {
+            'y_train_true': y_train,
+            'y_train_pred': y_train_pred,
+            'y_test_true': y_test,
+            'y_test_pred': y_test_pred
+        }
+    }
+    
+    return results
+

@@ -15,21 +15,30 @@ from sklearn.preprocessing import StandardScaler
 import warnings
 warnings.filterwarnings('ignore')
 
-def load_hte_data():
+def load_hte_data(analysis_type='bias_correction', target_col='bias'):
     """Load HTE data and calculate bias metrics."""
-    df = pd.read_csv('../data/hte_rates_raw_split_by_addition.csv', index_col=0)
-    # df = pd.read_csv('../data/nmr_rates_raw_with_new_scope.csv', index_col=0)
-    # df = pd.read_csv('../data/corrected_hte_rates_each_8_1_optuna.csv', index_col=0)
     
-    #### Calculate bias for only True Slow Unreliable
-    df['is_biased'] = df['Slow_unreliable'] == True
-    df['bias'] = np.where(df['is_biased'], df['Controls']*1.5 - df['HTE_rate'], 0)
-    
-    #### Calculate the delta between the HTE rate and NMR rate 
-    # df['is_biased'] = (df['Fast_unmeasurable'] == False) & (df['Slow_unreliable'] == False) & (df['nmr_rate_2'] > 0)
-    # df['bias'] = df['HTE_rate'] - df['nmr_rate_2']
-    
-    print(f"Number of biased reactions: {df['is_biased'].sum()}")
+    if analysis_type == 'bias_correction':
+        df = pd.read_csv('data/hte_rates_raw_split_into_2tests.csv', index_col=0)
+        
+        #### Calculate bias for only True Slow Unreliable
+        df['is_biased'] = df['Slow_unreliable'] == True
+        df['bias'] = np.where(df['is_biased'], df['Controls']*1.5 - df['HTE_rate'], 0)
+        
+        #### Calculate the delta between the HTE rate and NMR rate 
+        # df['is_biased'] = (df['Fast_unmeasurable'] == False) & (df['Slow_unreliable'] == False) & (df['nmr_rate_2'] > 0)
+        # df['bias'] = df['HTE_rate'] - df['nmr_rate_2']
+        print(f"Number of biased reactions: {df['is_biased'].sum()}")
+        
+    elif analysis_type == 'hte_prediction':
+        df = pd.read_csv('data/corrected_hte_rates.csv')
+        
+        #### Only measurable data
+        df = df[df['Fast_unmeasurable'] == False]
+        df = df[df['HTE_rate_corrected'] > 0]
+        df['HTE_lnk_corrected'] = np.log10(df['HTE_rate_corrected'])
+        df = df[['acyl_chlorides','amines',target_col,'test splits']]
+        print(f"Number of HTE rates: {len(df)}")
     
     return df
 
@@ -50,17 +59,17 @@ def load_descriptors(files, index_col_name):
             print(f"Could not load {file}: {e}")
     return desc_list
 
-def load_and_process_features(df):
+def load_and_process_features(df, target_col='bias'):
     """Load and process molecular descriptors for acyl chlorides and amines."""
     
     # Define file paths
     acid_files = [
-        '../data/features/descriptors_acyl_chlorides_morfeus_addn_w_xtb.csv',
-        '../data/features/descriptors_acyl_chlorides.csv'
+        'data/features/descriptors_acyl_chlorides_morfeus_addn_w_xtb.csv',
+        'data/features/descriptors_acyl_chlorides.csv'
     ]
     amine_files = [
-        '../data/features/descriptors_amines_morfeus_addn_w_xtb.csv',
-        '../data/features/descriptors_amines.csv'
+        'data/features/descriptors_amines_morfeus_addn_w_xtb.csv',
+        'data/features/descriptors_amines.csv'
     ]
     
     # Load descriptors
@@ -82,8 +91,8 @@ def load_and_process_features(df):
     amine_descriptors = preprocess_conditional_features(amine_descriptors, 'amine')
     
     # Create feature dataframes with bias information
-    acid_feature_data = create_feature_dataframe(df, acid_descriptors, 'acyl_chlorides', 'acyl_')
-    amine_feature_data = create_feature_dataframe(df, amine_descriptors, 'amines', 'amine_')
+    acid_feature_data = create_feature_dataframe(df, acid_descriptors, 'acyl_chlorides', 'acyl_', target_col=target_col)
+    amine_feature_data = create_feature_dataframe(df, amine_descriptors, 'amines', 'amine_', target_col=target_col)
     
     return acid_feature_data, amine_feature_data
 
@@ -318,16 +327,19 @@ def preprocess_conditional_features(descriptors, molecule_type='acyl'):
     
     return desc
 
-def create_feature_dataframe(df, descriptors, id_col, prefix):
+def create_feature_dataframe(df, descriptors, id_col, prefix, target_col='bias'):
     """Create feature dataframe with bias information."""
-    feature_data = df[[id_col, 'bias']].copy()
-    feature_data['max_bias'] = df.groupby(id_col)['bias'].transform('max')
+    if target_col == 'bias':
+        feature_data = df[[id_col, target_col]].copy()
+        feature_data['max_bias'] = df.groupby(id_col)[target_col].transform('max')
+    else:
+        feature_data = df[[id_col, target_col]].copy()
     
     # Merge with descriptors
     feature_data = feature_data.merge(descriptors, left_on=id_col, right_index=True, how='left')
     
     # Add prefix to feature columns
-    desc_cols = [col for col in feature_data.columns if col not in [id_col, 'bias', 'max_bias']]
+    desc_cols = [col for col in feature_data.columns if col not in [id_col, target_col, 'max_bias']]
     rename_dict = {col: f"{prefix}{col}" for col in desc_cols}
     feature_data = feature_data.rename(columns=rename_dict)
     
@@ -336,7 +348,7 @@ def create_feature_dataframe(df, descriptors, id_col, prefix):
     
     return feature_data
 
-def process_feature_correlations(df, target_col='max_bias', features=[], 
+def process_feature_correlations(df, target_col='bias', features=[], 
                                 correlation_threshold=0.95, top_n_to_plot=6,
                                 corr_csv_filename=None, plot_filename=None,
                                 plot_title='Feature Correlations vs. Bias'):
@@ -346,7 +358,7 @@ def process_feature_correlations(df, target_col='max_bias', features=[],
     if features:
         available_features = [f for f in features if f in df.columns]
     else:
-        available_features = [col for col in df.columns if col not in ['bias', 'max_bias']]
+        available_features = [col for col in df.columns if col not in [target_col, 'max_bias']]
     
     if not available_features:
         return [], pd.DataFrame()

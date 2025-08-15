@@ -149,7 +149,7 @@ def build_classification_model(combined_df, features, hyperparameter_optimizatio
     
     return best_model, scaler, results
 
-def build_regression_model(combined_df, features, hyperparameter_optimization=False):
+def build_regression_model(combined_df, features, y_col='bias', hyperparameter_optimization=False):
     """Build regression model to predict bias magnitude."""
     print("=== Building Regression Model ===")
 
@@ -157,7 +157,10 @@ def build_regression_model(combined_df, features, hyperparameter_optimization=Fa
     # biased_df = combined_df[combined_df['is_biased'] == True].copy()
     #### Instead, use all data to learn from not biased cases
     #### But, Filter for all measurable cases (rate class = 0)
-    measurable_df = combined_df[combined_df['Fast_unmeasurable'] == False].copy()
+    if y_col == 'bias':
+        measurable_df = combined_df[combined_df['Fast_unmeasurable'] == False].copy()
+    else:
+        measurable_df = combined_df.copy()
     
     #### For NMR rates
     # measurable_df = combined_df[(combined_df['Fast_unmeasurable'] == False) & 
@@ -168,11 +171,11 @@ def build_regression_model(combined_df, features, hyperparameter_optimization=Fa
         print("No measurable biased cases found for regression")
         return None, None, {}
     
-    y = measurable_df['bias']
+    y = measurable_df[y_col]
     X = measurable_df[features]
     
     print(f"Regression dataset: {X.shape}")
-    print(f"Bias range: {y.min():.3f} to {y.max():.3f}")
+    print(f"Target range: {y.min():.3f} to {y.max():.3f}")
     
     # Split data based on "test splits" column
     train_mask = measurable_df['test splits'] == 'TRAIN'
@@ -194,13 +197,13 @@ def build_regression_model(combined_df, features, hyperparameter_optimization=Fa
     # Build model
     if hyperparameter_optimization:
         print("Running hyperparameter optimization for regression...")
-        best_model, best_model_name = optuna_regression_optimization(X_train_scaled, y_train, X_test_scaled, y_test)
+        best_model, best_model_name = optuna_regression_optimization(X_train_scaled, y_train, X_test_scaled, y_test, target_col=y_col)
     else:
         # Try different regressors and select best based on CV R2 score
         regressors = {
             'Bayesian Ridge': BayesianRidge(),
             'Random Forest': RandomForestRegressor(n_estimators=200, random_state=42),
-            'XGBoost': XGBRegressor(n_estimators=200, random_state=42, objective='reg:squaredlogerror'), #
+            'XGBoost': XGBRegressor(n_estimators=200, random_state=42, objective='reg:squaredlogerror' if y_col == 'bias' else 'reg:squarederror'),
             'Ridge': Ridge(random_state=42),
             'CatBoost': CatBoostRegressor(random_state=42, verbose=0),
             'Linear Regression': LinearRegression(),
@@ -282,7 +285,7 @@ def build_models(acid_feature_data, amine_feature_data, df, selected_features,
     
     # Build regression model
     regressor, scaler_reg, reg_results = build_regression_model(
-        combined_df, valid_features, hyperparameter_optimization
+        combined_df, valid_features, y_col='bias', hyperparameter_optimization=hyperparameter_optimization
     )
     
     # Create prediction functions
@@ -344,6 +347,34 @@ def build_models(acid_feature_data, amine_feature_data, df, selected_features,
     return (classifier, regressor, scaler_class, scaler_reg, valid_features, 
             combined_results, predict_bias_func, combined_df, predict_class_func)
 
+def build_hte_prediction_models(acid_feature_data, amine_feature_data, df, selected_features, 
+                target_col, single_run=False, hyperparameter_optimization=False):
+    """Build regression model for HTE prediction."""
+    print(f"=== Building HTE Prediction Models with {len(selected_features)} features ===")
+    print(f"Selected features: {selected_features}")
+    
+    # Create combined dataset
+    combined_df, valid_features = create_combined_dataset(
+        acid_feature_data, amine_feature_data, df, selected_features, save_df=single_run
+    )
+
+    if not valid_features:
+        print("No valid features found")
+        return None, None, None, None, [], {}, None, None, None
+    
+    print(f"Valid features: {len(valid_features)}")
+
+    # Build regression model
+    regressor, scaler_reg, reg_results = build_regression_model(
+        combined_df, valid_features, y_col=target_col, hyperparameter_optimization=hyperparameter_optimization
+    )
+    final_results = {
+        'regression': reg_results
+    }
+    
+    return (regressor, scaler_reg, valid_features, combined_df, final_results)
+
+
 def optuna_classification_optimization(X_train, y_train, X_val, y_val, n_trials=50):
     """Optimize classification model hyperparameters using Optuna."""
     
@@ -398,7 +429,7 @@ def optuna_classification_optimization(X_train, y_train, X_val, y_val, n_trials=
     best_model.fit(X_train, y_train)
     return best_model, best_model_name
 
-def optuna_regression_optimization(X_train, y_train, X_val, y_val, n_trials=50):
+def optuna_regression_optimization(X_train, y_train, X_val, y_val, target_col='bias', n_trials=50):
     """Optimize regression model hyperparameters using Optuna."""
     
     def objective(trial):
@@ -412,12 +443,14 @@ def optuna_regression_optimization(X_train, y_train, X_val, y_val, n_trials=50):
                 random_state=42
             )
         elif model_type == 'xgb':
+            # Use reg:squaredlogerror for 'bias' target, reg:squarederror for log-transformed targets
+            objective = 'reg:squaredlogerror' if target_col == 'bias' else 'reg:squarederror'
             model = XGBRegressor(
                 n_estimators=trial.suggest_int('n_estimators', 50, 200),
                 max_depth=trial.suggest_int('max_depth', 3, 10),
                 learning_rate=trial.suggest_float('learning_rate', 0.01, 0.3),
                 random_state=42,
-                objective='reg:squaredlogerror'
+                objective=objective
             )
         elif model_type == 'lgbm':
             model = LGBMRegressor(
