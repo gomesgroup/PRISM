@@ -2,7 +2,7 @@
 
 The analysis workflow supports three main types of studies: **rate classification** (measurable vs fast), **bias correction** for HTE rate measurements, and **HTE rate prediction** from molecular features.
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Navigate to the ml_measurable_hte_rates directory
@@ -14,12 +14,12 @@ python run_analysis.py
 # Load and use trained models for predictions
 python -c "from src.load_models import example_usage; example_usage()"
 ```
-## 🔬 Analysis Types & Workflows
+## Analysis Types & Workflows
 
 ### 1. Rate Classification Analysis
 **Purpose**: Classify reactions as measurable or fast unmeasurable based on molecular features
 
-**Data**: Uses either raw or corrected HTE data
+**Data**: Uses either raw HTE data.
 - Binary classification: 0 = measurable rate, 1 = fast unmeasurable rate
 - Used as a preprocessing step for other analyses
 
@@ -97,7 +97,7 @@ xgboost lightgbm catboost
 optuna
 ```
 
-## 📁 Module Structure
+## Module Structure
 
 ### Core Modules
 
@@ -153,7 +153,7 @@ All core modules are organized in the `src/` directory:
 - **`src/load_models.py`** - Model loading utilities with flexible suffix support
 - **`src/__init__.py`** - Package initialization with key imports
 
-## ⚙️ Configuration
+## Configuration
 
 Edit the configuration in `run_analysis.py` to customize your analysis:
 
@@ -186,7 +186,7 @@ config = {
 }
 ```
 
-## 🔮 Using Trained Models
+## Using Trained Models
 
 The `src/load_models.py` module provides flexible model loading with support for different suffixes:
 
