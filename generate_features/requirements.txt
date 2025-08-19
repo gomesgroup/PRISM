@@ -1,0 +1,16 @@
+# Core scientific computing
+pandas
+numpy
+
+# Chemistry libraries
+rdkit
+morfeus-ml
+
+# Quantum chemistry and molecular modeling
+rowan-python
+stjames
+qupkake
+
+# Note: OpenBabel and XTB need to be installed separately via conda/mamba
+# as they are not available through pip:
+# conda install -c conda-forge openbabel xtb

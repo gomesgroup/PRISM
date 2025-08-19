@@ -1,0 +1,17 @@
+name: amide-features
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pandas
+  - numpy
+  - rdkit
+  - openbabel
+  - xtb
+  - pip
+  - pip:
+    - morfeus-ml
+    - rowan-python
+    - stjames
+    - qupkake
