@@ -1155,7 +1155,18 @@ def evaluate_regression_with_parity_plots(regressor, scaler, combined_df, valid_
     # Get features and target
     X = combined_df[valid_features]
     y = combined_df[target_col]
-    
+
+    # Ensure strict column alignment and order; prefer scaler's training columns
+    trained_cols = getattr(scaler, 'feature_names_in_', None)
+    if trained_cols is not None:
+        try:
+            X = X.reindex(columns=list(trained_cols))
+        except Exception:
+            common = [c for c in trained_cols if c in X.columns]
+            X = X.reindex(columns=common)
+    else:
+        X = X.reindex(columns=valid_features)
+
     X_train = X[train_mask]
     y_train = y[train_mask]
     X_test = X[test_mask]
@@ -1168,7 +1179,17 @@ def evaluate_regression_with_parity_plots(regressor, scaler, combined_df, valid_
     # Generate predictions
     y_train_pred = regressor.predict(X_train_scaled)
     y_test_pred = regressor.predict(X_test_scaled)
-    
+
+    # Optional uncertainty via bagging (std across base estimators)
+    y_test_std = None
+    try:
+        if hasattr(regressor, 'estimators_') and len(getattr(regressor, 'estimators_', [])) >= 2:
+            import numpy as _np
+            _preds = _np.column_stack([_est.predict(X_test_scaled) for _est in regressor.estimators_])
+            y_test_std = _preds.std(axis=1)
+    except Exception:
+        y_test_std = None
+
     # Calculate metrics
     train_r2 = r2_score(y_train, y_train_pred)
     test_r2 = r2_score(y_test, y_test_pred)
@@ -1230,7 +1251,8 @@ def evaluate_regression_with_parity_plots(regressor, scaler, combined_df, valid_
             'y_train_true': y_train,
             'y_train_pred': y_train_pred,
             'y_test_true': y_test,
-            'y_test_pred': y_test_pred
+            'y_test_pred': y_test_pred,
+            'y_test_std': y_test_std.tolist() if y_test_std is not None else None
         }
     }
     

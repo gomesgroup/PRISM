@@ -1,0 +1,17 @@
+name: hte-ml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - optuna
+  - catboost
+  - lightgbm
+  - py-xgboost-gpu
+  - pip
+
+

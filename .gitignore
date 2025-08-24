@@ -1,0 +1,52 @@
+# OS/editor junk
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.coverage*
+coverage.xml
+htmlcov/
+
+# Environments
+.venv/
+env/
+venv/
+
+# Data/artifacts
+logs/
+plots/
+results/
+catboost_info/
+chemprop_logs/
+models/
+runs/
+
+# Root dot logs
+.cpu_run*.log
+.fast_cpu_run*.log
+.final_fast_run.log
+.gpu_run*.log
+.polars_jax_run.log
+
+# Build/other
+external/
+gt4sd-core/
+gt4sd_hte_integration/
+fixed/
+GPU/
+split
+with
+"seed, seed)\nPY"
+"{log}\"\n    procs.append(subprocess.Popen(cmd, shell=True))\nprint(Launched\n, len(procs), Chemprop-enabled"
+

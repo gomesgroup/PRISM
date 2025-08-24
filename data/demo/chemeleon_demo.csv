@@ -1,0 +1,13 @@
+smiles,y
+C,0.10
+CC,0.15
+CCC,0.20
+CCCC,0.25
+CCO,0.30
+CCN,0.35
+c1ccccc1,0.40
+c1ccncc1,0.45
+CC(=O)O,0.28
+CC(=O)N,0.33
+OCCO,0.22
+COC,0.18

@@ -334,7 +334,7 @@ def plot_bias_corrections(df_corrected, save_plot=False, suffix=""):
     
     # 4. Correction effectiveness (if NMR data available)
     try:
-        nmr_df = pd.read_csv('../data/nmr_rates_only.csv')
+        nmr_df = pd.read_csv('data/rates/nmr_rates_only.csv')
         df_with_nmr = df_corrected.merge(nmr_df, on=['acyl_chlorides', 'amines'], how='left')
         nmr_data = df_with_nmr[df_with_nmr['NMR_rate'].notna()]
         

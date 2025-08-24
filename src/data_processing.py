@@ -5,13 +5,18 @@ Data Processing Module
 Handles data loading, feature processing, and correlation analysis.
 """
 
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+try:
+    import polars as pl
+except Exception:
+    pl = None
 from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -19,7 +24,12 @@ def load_hte_data(analysis_type='bias_correction', target_col='bias'):
     """Load HTE data and calculate bias metrics."""
     
     if analysis_type == 'bias_correction':
-        df = pd.read_csv('data/rates/hte_rates_raw_split_into_2tests.csv', index_col=0)
+        if pl is not None:
+            df_pl = pl.read_csv('data/rates/hte_rates_raw_split_into_2tests.csv')
+            df = df_pl.to_pandas()
+            df.set_index(df.columns[0], inplace=True)
+        else:
+            df = pd.read_csv('data/rates/hte_rates_raw_split_into_2tests.csv', index_col=0)
         
         #### Calculate bias for only True Slow Unreliable
         df['is_biased'] = df['Slow_unreliable'] == True
@@ -31,7 +41,10 @@ def load_hte_data(analysis_type='bias_correction', target_col='bias'):
         print(f"Number of biased reactions: {df['is_biased'].sum()}")
         
     elif analysis_type == 'hte_prediction':
-        df = pd.read_csv('data/rates/corrected_hte_rates.csv')
+        if pl is not None:
+            df = pl.read_csv('data/rates/corrected_hte_rates.csv').to_pandas()
+        else:
+            df = pd.read_csv('data/rates/corrected_hte_rates.csv')
         
         #### Only measurable data
         df = df[df['Fast_unmeasurable'] == False]
@@ -47,7 +60,16 @@ def load_descriptors(files, index_col_name):
     desc_list = []
     for file in files:
         try:
-            desc = pd.read_csv(file)
+            # Prefer pandas for maximum compatibility; fallback to polars
+            try:
+                desc = pd.read_csv(file)
+            except Exception:
+                if pl is None:
+                    raise
+                dpl = pl.read_csv(file)
+                if index_col_name in dpl.columns:
+                    dpl = dpl.unique(subset=[index_col_name], keep='first')
+                desc = dpl.to_pandas()
             if index_col_name in desc.columns:
                 desc.set_index(index_col_name, inplace=True)
                 dup_count = desc.index.duplicated().sum()
@@ -75,6 +97,9 @@ def load_and_process_features(df, target_col='bias'):
     # Load descriptors
     acid_desc_list = load_descriptors(acid_files, 'acyl_chlorides')
     amine_desc_list = load_descriptors(amine_files, 'amines')
+    if not acid_desc_list or not amine_desc_list:
+        # fallback to base loader without smiles
+        return *load_and_process_features(df, target_col), {}, {}
     
     # Merge acid descriptors
     acid_descriptors = acid_desc_list[0]
@@ -95,6 +120,122 @@ def load_and_process_features(df, target_col='bias'):
     amine_feature_data = create_feature_dataframe(df, amine_descriptors, 'amines', 'amine_', target_col=target_col)
     
     return acid_feature_data, amine_feature_data
+
+def load_and_process_features_with_smiles(df, target_col='bias'):
+    """Load and process descriptors plus return SMILES maps for acyl/amine.
+
+    Returns:
+      acid_feature_data, amine_feature_data, acid_smiles_map, amine_smiles_map
+    """
+    # Define file paths
+    acid_files = [
+        'data/features/descriptors_acyl_chlorides_morfeus_addn_w_xtb.csv',
+        'data/features/descriptors_acyl_chlorides.csv'
+    ]
+    amine_files = [
+        'data/features/descriptors_amines_morfeus_addn_w_xtb.csv',
+        'data/features/descriptors_amines.csv'
+    ]
+
+    acid_desc_list = load_descriptors(acid_files, 'acyl_chlorides')
+    amine_desc_list = load_descriptors(amine_files, 'amines')
+
+    # Capture SMILES from the first descriptor file where available
+    acid_smiles_map = {}
+    for d in acid_desc_list:
+        if 'smiles' in d.columns:
+            acid_smiles_map = d['smiles'].astype(str).to_dict()
+            break
+    amine_smiles_map = {}
+    for d in amine_desc_list:
+        if 'smiles' in d.columns:
+            amine_smiles_map = d['smiles'].astype(str).to_dict()
+            break
+
+    # Merge acid descriptors
+    acid_descriptors = acid_desc_list[0]
+    for desc in acid_desc_list[1:]:
+        acid_descriptors = acid_descriptors.join(desc, how='outer', rsuffix='_dup')
+
+    # Merge amine descriptors
+    amine_descriptors = amine_desc_list[0]
+    for desc in amine_desc_list[1:]:
+        amine_descriptors = amine_descriptors.join(desc, how='outer', rsuffix='_dup')
+
+    acid_descriptors = preprocess_conditional_features(acid_descriptors, 'acyl')
+    amine_descriptors = preprocess_conditional_features(amine_descriptors, 'amine')
+
+    acid_feature_data = create_feature_dataframe(df, acid_descriptors, 'acyl_chlorides', 'acyl_', target_col=target_col)
+    amine_feature_data = create_feature_dataframe(df, amine_descriptors, 'amines', 'amine_', target_col=target_col)
+
+    return acid_feature_data, amine_feature_data, acid_smiles_map, amine_smiles_map
+
+def load_reaction_energy_features(filepath='data/reaction_energies/reaction_TSB_w_aimnet2.csv'):
+    """Load AIMNet2-derived reaction energy/TS features and prepare for merging.
+
+    Returns a dataframe indexed by ['acyl_chlorides','amines'] with selected numeric
+    and boolean features. Column names are prefixed with 'rxn_'.
+    """
+    try:
+        rxn = pd.read_csv(filepath)
+    except Exception as e:
+        print(f"Could not load reaction energy features: {e}")
+        return None
+
+    # Harmonize column names
+    rename_map = {
+        'acid_chlorides': 'acyl_chlorides',
+        'acid_chloride': 'acyl_chlorides',
+        'amines': 'amines',
+    }
+    for old, new in rename_map.items():
+        if old in rxn.columns:
+            rxn = rxn.rename(columns={old: new})
+
+    # Keep only rows with the necessary keys
+    core_cols = ['acyl_chlorides', 'amines']
+    missing_keys = [c for c in core_cols if c not in rxn.columns]
+    if missing_keys:
+        print(f"Reaction energy file missing keys {missing_keys}; skipping integration.")
+        return None
+
+    # Selected numeric features if present
+    numeric_candidates = [
+        'lowest_barrier_dGTS_path_B',
+        'barriers_dGTS_from_RXTS_B',
+        'barriers_dGTS_from_INT1_B',
+        'barriers_dGTS_from_PRDS_B',
+        'rxn_dG_B',
+        'imag_freq'
+    ]
+    present_numeric = [c for c in numeric_candidates if c in rxn.columns]
+
+    # Boolean/status features
+    bool_cols = []
+    if 'used_constrained' in rxn.columns:
+        # Convert to int 0/1
+        rxn['used_constrained'] = rxn['used_constrained'].astype(str).str.upper().isin(['TRUE', '1', 'T']).astype(int)
+        bool_cols.append('used_constrained')
+
+    # Status one-hot or simplified valid flag
+    status_cols = []
+    if 'status' in rxn.columns:
+        rxn['status'] = rxn['status'].astype(str)
+        rxn['ts_status_valid'] = rxn['status'].str.contains('Valid TS', case=False).astype(int)
+        status_cols.append('ts_status_valid')
+
+    keep_cols = core_cols + present_numeric + bool_cols + status_cols
+    rxn_small = rxn[keep_cols].copy()
+
+    # Prefix
+    feat_cols = [c for c in rxn_small.columns if c not in core_cols]
+    rxn_small = rxn_small.rename(columns={c: f"rxn_{c}" for c in feat_cols})
+
+    # Set index for efficient merge
+    rxn_small = rxn_small.set_index(['acyl_chlorides', 'amines'])
+
+    print(f"Loaded reaction energy features: {len(rxn_small)} rows, {len(feat_cols)} features")
+    return rxn_small
 
 def preprocess_conditional_features(descriptors, molecule_type='acyl'):
     # Make a copy to avoid modifying original data
@@ -443,8 +584,8 @@ def select_features_sequentially(df, target_col='max_bias', n_top=5, direction="
     # Handle missing values
     X = X.fillna(X.median())
     
-    # Use RandomForest for feature selection
-    estimator = RandomForestRegressor(n_estimators=50, random_state=42)
+    # Use RandomForest for feature selection (parallelized)
+    estimator = RandomForestRegressor(n_estimators=50, random_state=42, n_jobs=max(1, os.cpu_count() or 1))
     
     n_features = min(n_top, len(feature_cols))
     selector = SequentialFeatureSelector(
@@ -452,7 +593,8 @@ def select_features_sequentially(df, target_col='max_bias', n_top=5, direction="
         n_features_to_select=n_features,
         direction=direction,
         scoring='r2',
-        cv=3
+        cv=3,
+        n_jobs=-1
     )
     
     selector.fit(X, y)
@@ -460,6 +602,68 @@ def select_features_sequentially(df, target_col='max_bias', n_top=5, direction="
     
     print(f"Selected {len(selected_features)} features using sequential selection")
     return selected_features
+
+def select_features_by_correlation_fast(df, target_col: str, n_top: int = 32):
+    """Select top-n features by absolute Pearson correlation with target.
+
+    This is a fast, vectorized selector to avoid slow sequential feature selection.
+    Assumes `df` contains only numeric feature columns plus the target column.
+    """
+    if target_col not in df.columns:
+        return []
+
+    feature_cols = [c for c in df.columns if c != target_col and pd.api.types.is_numeric_dtype(df[c])]
+    if not feature_cols:
+        return []
+
+    # Convert to numpy for vectorized correlations (optionally via jax)
+    try:
+        import jax.numpy as jnp  # type: ignore
+        use_jax = True
+    except Exception:
+        jnp = None
+        use_jax = False
+    X_np = df[feature_cols].to_numpy(dtype=float)
+    y_np = df[target_col].to_numpy(dtype=float)
+
+    # Center and compute std
+    if use_jax:
+        y_mean = float(jnp.mean(y_np))
+        y_center = y_np - y_mean
+        y_std = float(jnp.std(y_center, ddof=1))
+    else:
+        y_mean = y_np.mean()
+        y_center = y_np - y_mean
+        y_std = y_center.std(ddof=1)
+    if y_std == 0 or np.isnan(y_std):
+        return feature_cols[:min(n_top, len(feature_cols))]
+
+    if use_jax:
+        X_mean = np.nanmean(X_np, axis=0)
+        X_center = X_np - X_mean
+        X_std = X_center.std(axis=0, ddof=1)
+    else:
+        X_mean = np.nanmean(X_np, axis=0)
+        X_center = X_np - X_mean
+        X_std = X_center.std(axis=0, ddof=1)
+    # Avoid divide by zero
+    X_std[X_std == 0] = 1.0
+
+    # Compute Pearson correlation for each feature
+    # corr_j = sum_i (x_ij_center * y_i_center) / ((n-1) * std_x_j * std_y)
+    numerators = np.nansum(X_center * y_center[:, None], axis=0)
+    denoms = (X_np.shape[0] - 1) * X_std * y_std
+    corrs = numerators / denoms
+    abs_corrs = np.abs(corrs)
+
+    # Select top-n indices
+    n_select = min(n_top, abs_corrs.size)
+    top_idx = np.argpartition(-abs_corrs, kth=n_select - 1)[:n_select]
+    # Sort selected by correlation
+    top_idx_sorted = top_idx[np.argsort(-abs_corrs[top_idx])]
+    top_features = [feature_cols[i] for i in top_idx_sorted]
+
+    return top_features
 
 def select_top_features_combined(acid_corr, amine_corr, n_features=5, include_features=[]):
     """Select top features from combined correlation analysis."""
