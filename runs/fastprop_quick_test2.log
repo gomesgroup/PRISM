@@ -1,0 +1,212 @@
+Seed set to 42
+[08/23/2025 09:10:15 PM fastprop.descriptors] INFO: Calculating descriptors
+  0%|          | 0/1121 [00:00<?, ?it/s]  0%|          | 1/1121 [00:00<06:44,  2.77it/s]  0%|          | 3/1121 [00:01<09:27,  1.97it/s]  1%|          | 13/1121 [00:02<02:37,  7.02it/s]  3%|▎         | 32/1121 [00:02<00:59, 18.41it/s]  9%|▉         | 105/1121 [00:02<00:12, 80.37it/s] 17%|█▋        | 195/1121 [00:02<00:05, 170.06it/s] 22%|██▏       | 242/1121 [00:03<00:06, 135.31it/s] 28%|██▊       | 309/1121 [00:03<00:05, 147.90it/s] 31%|███       | 344/1121 [00:03<00:04, 169.48it/s] 33%|███▎      | 375/1121 [00:03<00:04, 179.27it/s] 41%|████▏     | 463/1121 [00:03<00:02, 277.88it/s] 45%|████▌     | 505/1121 [00:04<00:04, 153.40it/s] 51%|█████     | 574/1121 [00:04<00:02, 195.82it/s] 54%|█████▍    | 608/1121 [00:06<00:05, 87.88it/s]  61%|██████▏   | 689/1121 [00:06<00:03, 138.27it/s] 65%|██████▌   | 730/1121 [00:06<00:02, 147.51it/s] 69%|██████▉   | 779/1121 [00:06<00:01, 183.44it/s] 74%|███████▍  | 835/1121 [00:07<00:02, 112.79it/s] 78%|███████▊  | 874/1121 [00:07<00:01, 133.58it/s] 81%|████████  | 905/1121 [00:07<00:01, 151.63it/s] 86%|████████▌ | 962/1121 [00:07<00:00, 197.33it/s] 89%|████████▉ | 996/1121 [00:07<00:00, 215.70it/s] 98%|█████████▊| 1100/1121 [00:07<00:00, 354.50it/s]100%|██████████| 1121/1121 [00:08<00:00, 128.93it/s]
+[08/23/2025 09:10:25 PM fastprop.descriptors] INFO: Descriptor calculation complete, elapsed time: 0:00:10.960738
+[08/23/2025 09:10:27 PM fastprop.descriptors] INFO: Cached descriptors to runs/fastprop_quick_test/cached_input_combined_lnk_all_1755884086.csv
+[08/23/2025 09:10:27 PM fastprop.cli.train] INFO: Run 'tensorboard --logdir runs/fastprop_quick_test/fastprop_1755983414/tensorboard_logs' to track training progress.
+[08/23/2025 09:10:27 PM fastprop.cli.train] INFO: Training model 1 of 1 (random_seed=42)
+[08/23/2025 09:10:27 PM fastprop.cli.train] INFO: Model architecture:
+{fastprop(
+  (fnn): Sequential(
+    (lin1): Linear(in_features=1613, out_features=256, bias=True)
+    (act1): ReLU()
+    (lin2): Linear(in_features=256, out_features=256, bias=True)
+  )
+  (readout): Linear(in_features=256, out_features=1, bias=True)
+)}
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+/home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+
+  | Name    | Type       | Params | Mode 
+-----------------------------------------------
+0 | fnn     | Sequential | 478 K  | train
+1 | readout | Linear     | 257    | train
+-----------------------------------------------
+479 K     Trainable params
+0         Non-trainable params
+479 K     Total params
+1.917     Total estimated model params size (MB)
+5         Modules in train mode
+0         Modules in eval mode
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/4 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/4 [00:00<?, ?it/s] Epoch 0:  25%|██▌       | 1/4 [00:00<00:00, 11.38it/s]Epoch 0:  25%|██▌       | 1/4 [00:00<00:00, 11.33it/s, v_num=on_1]Epoch 0:  50%|█████     | 2/4 [00:00<00:00, 20.88it/s, v_num=on_1]Epoch 0:  50%|█████     | 2/4 [00:00<00:00, 20.86it/s, v_num=on_1]Epoch 0:  75%|███████▌  | 3/4 [00:00<00:00, 30.24it/s, v_num=on_1]Epoch 0:  75%|███████▌  | 3/4 [00:00<00:00, 30.20it/s, v_num=on_1]Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 38.71it/s, v_num=on_1]Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 38.67it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 129.51it/s][A
+                                                                       [AEpoch 0: 100%|██████████| 4/4 [00:00<00:00, 19.77it/s, v_num=on_1]Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 19.70it/s, v_num=on_1]Epoch 0:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 1:  25%|██▌       | 1/4 [00:00<00:00,  6.81it/s, v_num=on_1]Epoch 1:  25%|██▌       | 1/4 [00:00<00:00,  6.79it/s, v_num=on_1]Epoch 1:  50%|█████     | 2/4 [00:00<00:00, 13.09it/s, v_num=on_1]Epoch 1:  50%|█████     | 2/4 [00:00<00:00, 13.07it/s, v_num=on_1]Epoch 1:  75%|███████▌  | 3/4 [00:00<00:00, 19.18it/s, v_num=on_1]Epoch 1:  75%|███████▌  | 3/4 [00:00<00:00, 19.17it/s, v_num=on_1]Epoch 1: 100%|██████████| 4/4 [00:00<00:00, 24.97it/s, v_num=on_1]Epoch 1: 100%|██████████| 4/4 [00:00<00:00, 24.95it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 136.31it/s][A
+                                                                       [AEpoch 1: 100%|██████████| 4/4 [00:00<00:00, 15.53it/s, v_num=on_1]Epoch 1: 100%|██████████| 4/4 [00:00<00:00, 15.48it/s, v_num=on_1]Epoch 1:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 2:  25%|██▌       | 1/4 [00:00<00:00,  6.88it/s, v_num=on_1]Epoch 2:  25%|██▌       | 1/4 [00:00<00:00,  6.86it/s, v_num=on_1]Epoch 2:  50%|█████     | 2/4 [00:00<00:00, 13.28it/s, v_num=on_1]Epoch 2:  50%|█████     | 2/4 [00:00<00:00, 13.27it/s, v_num=on_1]Epoch 2:  75%|███████▌  | 3/4 [00:00<00:00, 19.36it/s, v_num=on_1]Epoch 2:  75%|███████▌  | 3/4 [00:00<00:00, 19.34it/s, v_num=on_1]Epoch 2: 100%|██████████| 4/4 [00:00<00:00, 25.19it/s, v_num=on_1]Epoch 2: 100%|██████████| 4/4 [00:00<00:00, 25.17it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 125.44it/s][A
+                                                                       [AEpoch 2: 100%|██████████| 4/4 [00:00<00:00, 15.71it/s, v_num=on_1]Epoch 2: 100%|██████████| 4/4 [00:00<00:00, 15.66it/s, v_num=on_1]Epoch 2:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 3:  25%|██▌       | 1/4 [00:00<00:00,  6.62it/s, v_num=on_1]Epoch 3:  25%|██▌       | 1/4 [00:00<00:00,  6.60it/s, v_num=on_1]Epoch 3:  50%|█████     | 2/4 [00:00<00:00, 12.78it/s, v_num=on_1]Epoch 3:  50%|█████     | 2/4 [00:00<00:00, 12.77it/s, v_num=on_1]Epoch 3:  75%|███████▌  | 3/4 [00:00<00:00, 18.57it/s, v_num=on_1]Epoch 3:  75%|███████▌  | 3/4 [00:00<00:00, 18.55it/s, v_num=on_1]Epoch 3: 100%|██████████| 4/4 [00:00<00:00, 24.21it/s, v_num=on_1]Epoch 3: 100%|██████████| 4/4 [00:00<00:00, 24.19it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 133.26it/s][A
+                                                                       [AEpoch 3: 100%|██████████| 4/4 [00:00<00:00, 14.09it/s, v_num=on_1]Epoch 3: 100%|██████████| 4/4 [00:00<00:00, 14.05it/s, v_num=on_1]Epoch 3:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 4:  25%|██▌       | 1/4 [00:00<00:00,  5.93it/s, v_num=on_1]Epoch 4:  25%|██▌       | 1/4 [00:00<00:00,  5.92it/s, v_num=on_1]Epoch 4:  50%|█████     | 2/4 [00:00<00:00, 11.18it/s, v_num=on_1]Epoch 4:  50%|█████     | 2/4 [00:00<00:00, 11.17it/s, v_num=on_1]Epoch 4:  75%|███████▌  | 3/4 [00:00<00:00, 16.23it/s, v_num=on_1]Epoch 4:  75%|███████▌  | 3/4 [00:00<00:00, 16.21it/s, v_num=on_1]Epoch 4: 100%|██████████| 4/4 [00:00<00:00, 20.89it/s, v_num=on_1]Epoch 4: 100%|██████████| 4/4 [00:00<00:00, 20.87it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 126.45it/s][A
+                                                                       [AEpoch 4: 100%|██████████| 4/4 [00:00<00:00, 12.85it/s, v_num=on_1]Epoch 4: 100%|██████████| 4/4 [00:00<00:00, 12.81it/s, v_num=on_1]Epoch 4:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 5:  25%|██▌       | 1/4 [00:00<00:00,  7.21it/s, v_num=on_1]Epoch 5:  25%|██▌       | 1/4 [00:00<00:00,  7.19it/s, v_num=on_1]Epoch 5:  50%|█████     | 2/4 [00:00<00:00, 13.59it/s, v_num=on_1]Epoch 5:  50%|█████     | 2/4 [00:00<00:00, 13.57it/s, v_num=on_1]Epoch 5:  75%|███████▌  | 3/4 [00:00<00:00, 19.77it/s, v_num=on_1]Epoch 5:  75%|███████▌  | 3/4 [00:00<00:00, 19.75it/s, v_num=on_1]Epoch 5: 100%|██████████| 4/4 [00:00<00:00, 25.52it/s, v_num=on_1]Epoch 5: 100%|██████████| 4/4 [00:00<00:00, 25.50it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.99it/s][A
+                                                                       [AEpoch 5: 100%|██████████| 4/4 [00:00<00:00, 14.26it/s, v_num=on_1]Epoch 5: 100%|██████████| 4/4 [00:00<00:00, 14.21it/s, v_num=on_1]Epoch 5:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 6:  25%|██▌       | 1/4 [00:00<00:00,  5.76it/s, v_num=on_1]Epoch 6:  25%|██▌       | 1/4 [00:00<00:00,  5.74it/s, v_num=on_1]Epoch 6:  50%|█████     | 2/4 [00:00<00:00, 10.89it/s, v_num=on_1]Epoch 6:  50%|█████     | 2/4 [00:00<00:00, 10.88it/s, v_num=on_1]Epoch 6:  75%|███████▌  | 3/4 [00:00<00:00, 15.94it/s, v_num=on_1]Epoch 6:  75%|███████▌  | 3/4 [00:00<00:00, 15.91it/s, v_num=on_1]Epoch 6: 100%|██████████| 4/4 [00:00<00:00, 20.71it/s, v_num=on_1]Epoch 6: 100%|██████████| 4/4 [00:00<00:00, 20.69it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 95.98it/s][A
+                                                                      [AEpoch 6: 100%|██████████| 4/4 [00:00<00:00, 12.41it/s, v_num=on_1]Epoch 6: 100%|██████████| 4/4 [00:00<00:00, 12.36it/s, v_num=on_1]Epoch 6:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 7:  25%|██▌       | 1/4 [00:00<00:00,  6.31it/s, v_num=on_1]Epoch 7:  25%|██▌       | 1/4 [00:00<00:00,  6.29it/s, v_num=on_1]Epoch 7:  50%|█████     | 2/4 [00:00<00:00, 12.14it/s, v_num=on_1]Epoch 7:  50%|█████     | 2/4 [00:00<00:00, 12.13it/s, v_num=on_1]Epoch 7:  75%|███████▌  | 3/4 [00:00<00:00, 17.84it/s, v_num=on_1]Epoch 7:  75%|███████▌  | 3/4 [00:00<00:00, 17.83it/s, v_num=on_1]Epoch 7: 100%|██████████| 4/4 [00:00<00:00, 23.24it/s, v_num=on_1]Epoch 7: 100%|██████████| 4/4 [00:00<00:00, 23.23it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.75it/s][A
+                                                                       [AEpoch 7: 100%|██████████| 4/4 [00:00<00:00, 14.36it/s, v_num=on_1]Epoch 7: 100%|██████████| 4/4 [00:00<00:00, 14.31it/s, v_num=on_1]Epoch 7:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 8:  25%|██▌       | 1/4 [00:00<00:00,  7.72it/s, v_num=on_1]Epoch 8:  25%|██▌       | 1/4 [00:00<00:00,  7.70it/s, v_num=on_1]Epoch 8:  50%|█████     | 2/4 [00:00<00:00, 14.90it/s, v_num=on_1]Epoch 8:  50%|█████     | 2/4 [00:00<00:00, 14.88it/s, v_num=on_1]Epoch 8:  75%|███████▌  | 3/4 [00:00<00:00, 21.60it/s, v_num=on_1]Epoch 8:  75%|███████▌  | 3/4 [00:00<00:00, 21.58it/s, v_num=on_1]Epoch 8: 100%|██████████| 4/4 [00:00<00:00, 28.17it/s, v_num=on_1]Epoch 8: 100%|██████████| 4/4 [00:00<00:00, 28.15it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 132.54it/s][A
+                                                                       [AEpoch 8: 100%|██████████| 4/4 [00:00<00:00, 16.75it/s, v_num=on_1]Epoch 8: 100%|██████████| 4/4 [00:00<00:00, 16.69it/s, v_num=on_1]Epoch 8:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 9:  25%|██▌       | 1/4 [00:00<00:00,  6.33it/s, v_num=on_1]Epoch 9:  25%|██▌       | 1/4 [00:00<00:00,  6.31it/s, v_num=on_1]Epoch 9:  50%|█████     | 2/4 [00:00<00:00, 11.98it/s, v_num=on_1]Epoch 9:  50%|█████     | 2/4 [00:00<00:00, 11.97it/s, v_num=on_1]Epoch 9:  75%|███████▌  | 3/4 [00:00<00:00, 17.43it/s, v_num=on_1]Epoch 9:  75%|███████▌  | 3/4 [00:00<00:00, 17.41it/s, v_num=on_1]Epoch 9: 100%|██████████| 4/4 [00:00<00:00, 22.49it/s, v_num=on_1]Epoch 9: 100%|██████████| 4/4 [00:00<00:00, 22.46it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 84.00it/s][A
+                                                                      [AEpoch 9: 100%|██████████| 4/4 [00:00<00:00, 12.87it/s, v_num=on_1]Epoch 9: 100%|██████████| 4/4 [00:00<00:00, 12.81it/s, v_num=on_1]Epoch 9:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 10:  25%|██▌       | 1/4 [00:00<00:00,  7.43it/s, v_num=on_1]Epoch 10:  25%|██▌       | 1/4 [00:00<00:00,  7.41it/s, v_num=on_1]Epoch 10:  50%|█████     | 2/4 [00:00<00:00, 14.20it/s, v_num=on_1]Epoch 10:  50%|█████     | 2/4 [00:00<00:00, 14.19it/s, v_num=on_1]Epoch 10:  75%|███████▌  | 3/4 [00:00<00:00, 20.78it/s, v_num=on_1]Epoch 10:  75%|███████▌  | 3/4 [00:00<00:00, 20.76it/s, v_num=on_1]Epoch 10: 100%|██████████| 4/4 [00:00<00:00, 26.42it/s, v_num=on_1]Epoch 10: 100%|██████████| 4/4 [00:00<00:00, 26.40it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 131.40it/s][A
+                                                                       [AEpoch 10: 100%|██████████| 4/4 [00:00<00:00, 14.91it/s, v_num=on_1]Epoch 10: 100%|██████████| 4/4 [00:00<00:00, 14.86it/s, v_num=on_1]Epoch 10:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 11:  25%|██▌       | 1/4 [00:00<00:00,  6.81it/s, v_num=on_1]Epoch 11:  25%|██▌       | 1/4 [00:00<00:00,  6.80it/s, v_num=on_1]Epoch 11:  50%|█████     | 2/4 [00:00<00:00, 12.39it/s, v_num=on_1]Epoch 11:  50%|█████     | 2/4 [00:00<00:00, 12.37it/s, v_num=on_1]Epoch 11:  75%|███████▌  | 3/4 [00:00<00:00, 18.07it/s, v_num=on_1]Epoch 11:  75%|███████▌  | 3/4 [00:00<00:00, 18.06it/s, v_num=on_1]Epoch 11: 100%|██████████| 4/4 [00:00<00:00, 23.57it/s, v_num=on_1]Epoch 11: 100%|██████████| 4/4 [00:00<00:00, 23.55it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 113.37it/s][A
+                                                                       [AEpoch 11: 100%|██████████| 4/4 [00:00<00:00, 14.59it/s, v_num=on_1]Epoch 11: 100%|██████████| 4/4 [00:00<00:00, 14.53it/s, v_num=on_1]Epoch 11:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 12:  25%|██▌       | 1/4 [00:00<00:00,  6.36it/s, v_num=on_1]Epoch 12:  25%|██▌       | 1/4 [00:00<00:00,  6.34it/s, v_num=on_1]Epoch 12:  50%|█████     | 2/4 [00:00<00:00, 12.08it/s, v_num=on_1]Epoch 12:  50%|█████     | 2/4 [00:00<00:00, 12.07it/s, v_num=on_1]Epoch 12:  75%|███████▌  | 3/4 [00:00<00:00, 17.71it/s, v_num=on_1]Epoch 12:  75%|███████▌  | 3/4 [00:00<00:00, 17.70it/s, v_num=on_1]Epoch 12: 100%|██████████| 4/4 [00:00<00:00, 22.87it/s, v_num=on_1]Epoch 12: 100%|██████████| 4/4 [00:00<00:00, 22.85it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.65it/s][A
+                                                                       [AEpoch 12: 100%|██████████| 4/4 [00:00<00:00, 14.25it/s, v_num=on_1]Epoch 12: 100%|██████████| 4/4 [00:00<00:00, 14.20it/s, v_num=on_1]Epoch 12:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 13:  25%|██▌       | 1/4 [00:00<00:00,  5.83it/s, v_num=on_1]Epoch 13:  25%|██▌       | 1/4 [00:00<00:00,  5.82it/s, v_num=on_1]Epoch 13:  50%|█████     | 2/4 [00:00<00:00, 10.89it/s, v_num=on_1]Epoch 13:  50%|█████     | 2/4 [00:00<00:00, 10.88it/s, v_num=on_1]Epoch 13:  75%|███████▌  | 3/4 [00:00<00:00, 15.92it/s, v_num=on_1]Epoch 13:  75%|███████▌  | 3/4 [00:00<00:00, 15.91it/s, v_num=on_1]Epoch 13: 100%|██████████| 4/4 [00:00<00:00, 20.80it/s, v_num=on_1]Epoch 13: 100%|██████████| 4/4 [00:00<00:00, 20.79it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 124.00it/s][A
+                                                                       [AEpoch 13: 100%|██████████| 4/4 [00:00<00:00, 12.45it/s, v_num=on_1]Epoch 13: 100%|██████████| 4/4 [00:00<00:00, 12.42it/s, v_num=on_1]Epoch 13:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 14:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 14:  25%|██▌       | 1/4 [00:00<00:00,  6.58it/s, v_num=on_1]Epoch 14:  25%|██▌       | 1/4 [00:00<00:00,  6.56it/s, v_num=on_1]Epoch 14:  50%|█████     | 2/4 [00:00<00:00, 12.66it/s, v_num=on_1]Epoch 14:  50%|█████     | 2/4 [00:00<00:00, 12.65it/s, v_num=on_1]Epoch 14:  75%|███████▌  | 3/4 [00:00<00:00, 18.59it/s, v_num=on_1]Epoch 14:  75%|███████▌  | 3/4 [00:00<00:00, 18.58it/s, v_num=on_1]Epoch 14: 100%|██████████| 4/4 [00:00<00:00, 24.26it/s, v_num=on_1]Epoch 14: 100%|██████████| 4/4 [00:00<00:00, 24.24it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 110.29it/s][A
+                                                                       [AEpoch 14: 100%|██████████| 4/4 [00:00<00:00, 13.52it/s, v_num=on_1]Epoch 14: 100%|██████████| 4/4 [00:00<00:00, 13.48it/s, v_num=on_1]Epoch 14:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 15:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 15:  25%|██▌       | 1/4 [00:00<00:00,  5.84it/s, v_num=on_1]Epoch 15:  25%|██▌       | 1/4 [00:00<00:00,  5.82it/s, v_num=on_1]Epoch 15:  50%|█████     | 2/4 [00:00<00:00, 11.23it/s, v_num=on_1]Epoch 15:  50%|█████     | 2/4 [00:00<00:00, 11.22it/s, v_num=on_1]Epoch 15:  75%|███████▌  | 3/4 [00:00<00:00, 16.55it/s, v_num=on_1]Epoch 15:  75%|███████▌  | 3/4 [00:00<00:00, 16.54it/s, v_num=on_1]Epoch 15: 100%|██████████| 4/4 [00:00<00:00, 21.66it/s, v_num=on_1]Epoch 15: 100%|██████████| 4/4 [00:00<00:00, 21.64it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 108.94it/s][A
+                                                                       [AEpoch 15: 100%|██████████| 4/4 [00:00<00:00, 12.76it/s, v_num=on_1]Epoch 15: 100%|██████████| 4/4 [00:00<00:00, 12.72it/s, v_num=on_1]Epoch 15:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 16:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 16:  25%|██▌       | 1/4 [00:00<00:00,  5.90it/s, v_num=on_1]Epoch 16:  25%|██▌       | 1/4 [00:00<00:00,  5.88it/s, v_num=on_1]Epoch 16:  50%|█████     | 2/4 [00:00<00:00, 11.26it/s, v_num=on_1]Epoch 16:  50%|█████     | 2/4 [00:00<00:00, 11.25it/s, v_num=on_1]Epoch 16:  75%|███████▌  | 3/4 [00:00<00:00, 16.54it/s, v_num=on_1]Epoch 16:  75%|███████▌  | 3/4 [00:00<00:00, 16.53it/s, v_num=on_1]Epoch 16: 100%|██████████| 4/4 [00:00<00:00, 21.54it/s, v_num=on_1]Epoch 16: 100%|██████████| 4/4 [00:00<00:00, 21.53it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 122.13it/s][A
+                                                                       [AEpoch 16: 100%|██████████| 4/4 [00:00<00:00, 13.99it/s, v_num=on_1]Epoch 16: 100%|██████████| 4/4 [00:00<00:00, 13.95it/s, v_num=on_1]Epoch 16:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 17:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 17:  25%|██▌       | 1/4 [00:00<00:00,  6.02it/s, v_num=on_1]Epoch 17:  25%|██▌       | 1/4 [00:00<00:00,  6.01it/s, v_num=on_1]Epoch 17:  50%|█████     | 2/4 [00:00<00:00, 11.54it/s, v_num=on_1]Epoch 17:  50%|█████     | 2/4 [00:00<00:00, 11.54it/s, v_num=on_1]Epoch 17:  75%|███████▌  | 3/4 [00:00<00:00, 16.96it/s, v_num=on_1]Epoch 17:  75%|███████▌  | 3/4 [00:00<00:00, 16.95it/s, v_num=on_1]Epoch 17: 100%|██████████| 4/4 [00:00<00:00, 22.10it/s, v_num=on_1]Epoch 17: 100%|██████████| 4/4 [00:00<00:00, 22.09it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 127.60it/s][A
+                                                                       [AEpoch 17: 100%|██████████| 4/4 [00:00<00:00, 13.51it/s, v_num=on_1]Epoch 17: 100%|██████████| 4/4 [00:00<00:00, 13.48it/s, v_num=on_1]Epoch 17:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 18:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 18:  25%|██▌       | 1/4 [00:00<00:00,  5.93it/s, v_num=on_1]Epoch 18:  25%|██▌       | 1/4 [00:00<00:00,  5.91it/s, v_num=on_1]Epoch 18:  50%|█████     | 2/4 [00:00<00:00, 11.47it/s, v_num=on_1]Epoch 18:  50%|█████     | 2/4 [00:00<00:00, 11.46it/s, v_num=on_1]Epoch 18:  75%|███████▌  | 3/4 [00:00<00:00, 16.81it/s, v_num=on_1]Epoch 18:  75%|███████▌  | 3/4 [00:00<00:00, 16.80it/s, v_num=on_1]Epoch 18: 100%|██████████| 4/4 [00:00<00:00, 21.97it/s, v_num=on_1]Epoch 18: 100%|██████████| 4/4 [00:00<00:00, 21.96it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 123.37it/s][A
+                                                                       [AEpoch 18: 100%|██████████| 4/4 [00:00<00:00, 12.87it/s, v_num=on_1]Epoch 18: 100%|██████████| 4/4 [00:00<00:00, 12.84it/s, v_num=on_1]Epoch 18:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 19:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 19:  25%|██▌       | 1/4 [00:00<00:00,  6.71it/s, v_num=on_1]Epoch 19:  25%|██▌       | 1/4 [00:00<00:00,  6.69it/s, v_num=on_1]Epoch 19:  50%|█████     | 2/4 [00:00<00:00, 13.00it/s, v_num=on_1]Epoch 19:  50%|█████     | 2/4 [00:00<00:00, 12.99it/s, v_num=on_1]Epoch 19:  75%|███████▌  | 3/4 [00:00<00:00, 19.01it/s, v_num=on_1]Epoch 19:  75%|███████▌  | 3/4 [00:00<00:00, 19.00it/s, v_num=on_1]Epoch 19: 100%|██████████| 4/4 [00:00<00:00, 24.87it/s, v_num=on_1]Epoch 19: 100%|██████████| 4/4 [00:00<00:00, 24.85it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 136.59it/s][A
+                                                                       [AEpoch 19: 100%|██████████| 4/4 [00:00<00:00, 15.93it/s, v_num=on_1]Epoch 19: 100%|██████████| 4/4 [00:00<00:00, 15.88it/s, v_num=on_1]Epoch 19:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 20:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 20:  25%|██▌       | 1/4 [00:00<00:00,  6.58it/s, v_num=on_1]Epoch 20:  25%|██▌       | 1/4 [00:00<00:00,  6.56it/s, v_num=on_1]Epoch 20:  50%|█████     | 2/4 [00:00<00:00, 12.06it/s, v_num=on_1]Epoch 20:  50%|█████     | 2/4 [00:00<00:00, 12.05it/s, v_num=on_1]Epoch 20:  75%|███████▌  | 3/4 [00:00<00:00, 17.62it/s, v_num=on_1]Epoch 20:  75%|███████▌  | 3/4 [00:00<00:00, 17.60it/s, v_num=on_1]Epoch 20: 100%|██████████| 4/4 [00:00<00:00, 22.88it/s, v_num=on_1]Epoch 20: 100%|██████████| 4/4 [00:00<00:00, 22.86it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 132.33it/s][A
+                                                                       [AEpoch 20: 100%|██████████| 4/4 [00:00<00:00, 14.44it/s, v_num=on_1]Epoch 20: 100%|██████████| 4/4 [00:00<00:00, 14.39it/s, v_num=on_1]Epoch 20:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 21:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 21:  25%|██▌       | 1/4 [00:00<00:00,  6.57it/s, v_num=on_1]Epoch 21:  25%|██▌       | 1/4 [00:00<00:00,  6.55it/s, v_num=on_1]Epoch 21:  50%|█████     | 2/4 [00:00<00:00, 12.47it/s, v_num=on_1]Epoch 21:  50%|█████     | 2/4 [00:00<00:00, 12.46it/s, v_num=on_1]Epoch 21:  75%|███████▌  | 3/4 [00:00<00:00, 18.23it/s, v_num=on_1]Epoch 21:  75%|███████▌  | 3/4 [00:00<00:00, 18.20it/s, v_num=on_1]Epoch 21: 100%|██████████| 4/4 [00:00<00:00, 23.67it/s, v_num=on_1]Epoch 21: 100%|██████████| 4/4 [00:00<00:00, 23.65it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 124.53it/s][A
+                                                                       [AEpoch 21: 100%|██████████| 4/4 [00:00<00:00, 13.85it/s, v_num=on_1]Epoch 21: 100%|██████████| 4/4 [00:00<00:00, 13.81it/s, v_num=on_1]Epoch 21:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 22:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 22:  25%|██▌       | 1/4 [00:00<00:00,  7.17it/s, v_num=on_1]Epoch 22:  25%|██▌       | 1/4 [00:00<00:00,  7.15it/s, v_num=on_1]Epoch 22:  50%|█████     | 2/4 [00:00<00:00, 13.71it/s, v_num=on_1]Epoch 22:  50%|█████     | 2/4 [00:00<00:00, 13.70it/s, v_num=on_1]Epoch 22:  75%|███████▌  | 3/4 [00:00<00:00, 19.85it/s, v_num=on_1]Epoch 22:  75%|███████▌  | 3/4 [00:00<00:00, 19.83it/s, v_num=on_1]Epoch 22: 100%|██████████| 4/4 [00:00<00:00, 25.79it/s, v_num=on_1]Epoch 22: 100%|██████████| 4/4 [00:00<00:00, 25.77it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 79.74it/s][A
+                                                                      [AEpoch 22: 100%|██████████| 4/4 [00:00<00:00, 13.64it/s, v_num=on_1]Epoch 22: 100%|██████████| 4/4 [00:00<00:00, 13.58it/s, v_num=on_1]Epoch 22:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 23:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 23:  25%|██▌       | 1/4 [00:00<00:00,  5.76it/s, v_num=on_1]Epoch 23:  25%|██▌       | 1/4 [00:00<00:00,  5.74it/s, v_num=on_1]Epoch 23:  50%|█████     | 2/4 [00:00<00:00, 11.05it/s, v_num=on_1]Epoch 23:  50%|█████     | 2/4 [00:00<00:00, 11.04it/s, v_num=on_1]Epoch 23:  75%|███████▌  | 3/4 [00:00<00:00, 16.22it/s, v_num=on_1]Epoch 23:  75%|███████▌  | 3/4 [00:00<00:00, 16.21it/s, v_num=on_1]Epoch 23: 100%|██████████| 4/4 [00:00<00:00, 21.14it/s, v_num=on_1]Epoch 23: 100%|██████████| 4/4 [00:00<00:00, 21.12it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.77it/s][A
+                                                                       [AEpoch 23: 100%|██████████| 4/4 [00:00<00:00, 13.70it/s, v_num=on_1]Epoch 23: 100%|██████████| 4/4 [00:00<00:00, 13.66it/s, v_num=on_1]Epoch 23:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 24:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 24:  25%|██▌       | 1/4 [00:00<00:00,  6.40it/s, v_num=on_1]Epoch 24:  25%|██▌       | 1/4 [00:00<00:00,  6.38it/s, v_num=on_1]Epoch 24:  50%|█████     | 2/4 [00:00<00:00, 12.02it/s, v_num=on_1]Epoch 24:  50%|█████     | 2/4 [00:00<00:00, 12.01it/s, v_num=on_1]Epoch 24:  75%|███████▌  | 3/4 [00:00<00:00, 17.63it/s, v_num=on_1]Epoch 24:  75%|███████▌  | 3/4 [00:00<00:00, 17.61it/s, v_num=on_1]Epoch 24: 100%|██████████| 4/4 [00:00<00:00, 22.95it/s, v_num=on_1]Epoch 24: 100%|██████████| 4/4 [00:00<00:00, 22.94it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 123.57it/s][A
+                                                                       [AEpoch 24: 100%|██████████| 4/4 [00:00<00:00, 15.17it/s, v_num=on_1]Epoch 24: 100%|██████████| 4/4 [00:00<00:00, 15.12it/s, v_num=on_1]Epoch 24:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 25:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 25:  25%|██▌       | 1/4 [00:00<00:00,  7.42it/s, v_num=on_1]Epoch 25:  25%|██▌       | 1/4 [00:00<00:00,  7.40it/s, v_num=on_1]Epoch 25:  50%|█████     | 2/4 [00:00<00:00, 14.35it/s, v_num=on_1]Epoch 25:  50%|█████     | 2/4 [00:00<00:00, 14.33it/s, v_num=on_1]Epoch 25:  75%|███████▌  | 3/4 [00:00<00:00, 20.92it/s, v_num=on_1]Epoch 25:  75%|███████▌  | 3/4 [00:00<00:00, 20.91it/s, v_num=on_1]Epoch 25: 100%|██████████| 4/4 [00:00<00:00, 27.31it/s, v_num=on_1]Epoch 25: 100%|██████████| 4/4 [00:00<00:00, 27.28it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 119.10it/s][A
+                                                                       [AEpoch 25: 100%|██████████| 4/4 [00:00<00:00, 14.55it/s, v_num=on_1]Epoch 25: 100%|██████████| 4/4 [00:00<00:00, 14.51it/s, v_num=on_1]Epoch 25:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]        Epoch 26:   0%|          | 0/4 [00:00<?, ?it/s, v_num=on_1]Epoch 26:  25%|██▌       | 1/4 [00:00<00:00,  6.38it/s, v_num=on_1]Epoch 26:  25%|██▌       | 1/4 [00:00<00:00,  6.37it/s, v_num=on_1]Epoch 26:  50%|█████     | 2/4 [00:00<00:00, 12.25it/s, v_num=on_1]Epoch 26:  50%|█████     | 2/4 [00:00<00:00, 12.24it/s, v_num=on_1]Epoch 26:  75%|███████▌  | 3/4 [00:00<00:00, 18.03it/s, v_num=on_1]Epoch 26:  75%|███████▌  | 3/4 [00:00<00:00, 18.02it/s, v_num=on_1]Epoch 26: 100%|██████████| 4/4 [00:00<00:00, 23.54it/s, v_num=on_1]Epoch 26: 100%|██████████| 4/4 [00:00<00:00, 23.52it/s, v_num=on_1]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 125.93it/s][A
+                                                                       [AEpoch 26: 100%|██████████| 4/4 [00:00<00:00, 13.98it/s, v_num=on_1]Epoch 26: 100%|██████████| 4/4 [00:00<00:00, 13.94it/s, v_num=on_1]Epoch 26: 100%|██████████| 4/4 [00:00<00:00, 13.89it/s, v_num=on_1][08/23/2025 09:10:36 PM fastprop.model] INFO: Elapsed time during training: 0:00:09.382210
+[08/23/2025 09:10:36 PM fastprop.model] INFO: Reloading best model from checkpoint file: /home/passos/ml_measurable_hte_rates/runs/fastprop_quick_test/fastprop_1755983414/checkpoints/repetition-1-epoch=16-val_loss=0.00.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+
+Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 87.22it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 69.79it/s]LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+
+Testing: |          | 0/? [00:00<?, ?it/s]Testing:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 84.30it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 69.26it/s][08/23/2025 09:10:37 PM fastprop.model] INFO: Displaying validation results for repetition 1:
+                                                             value
+validation_mse_scaled_loss                                0.334714
+validation_r2_score                                       0.698480
+validation_mean_absolute_percentage_error_score           0.447795
+validation_weighted_mean_absolute_percentage_error_score  0.203081
+validation_mean_absolute_error_score                      0.355407
+validation_root_mean_squared_error_loss                   0.496173
+[08/23/2025 09:10:37 PM fastprop.model] INFO: Displaying validation results for repetition 1:
+                                                       value
+test_mse_scaled_loss                                0.308754
+test_r2_score                                       0.670310
+test_mean_absolute_percentage_error_score           0.235544
+test_weighted_mean_absolute_percentage_error_score  0.198780
+test_mean_absolute_error_score                      0.338825
+test_root_mean_squared_error_loss                   0.476543
+[08/23/2025 09:10:37 PM fastprop.cli.train] INFO: Displaying validation results:
+                                                          count      mean  std       min       25%       50%       75%       max
+validation_mse_scaled_loss                                  1.0  0.334714  NaN  0.334714  0.334714  0.334714  0.334714  0.334714
+validation_r2_score                                         1.0  0.698480  NaN  0.698480  0.698480  0.698480  0.698480  0.698480
+validation_mean_absolute_percentage_error_score             1.0  0.447795  NaN  0.447795  0.447795  0.447795  0.447795  0.447795
+validation_weighted_mean_absolute_percentage_error_score    1.0  0.203081  NaN  0.203081  0.203081  0.203081  0.203081  0.203081
+validation_mean_absolute_error_score                        1.0  0.355407  NaN  0.355407  0.355407  0.355407  0.355407  0.355407
+validation_root_mean_squared_error_loss                     1.0  0.496173  NaN  0.496173  0.496173  0.496173  0.496173  0.496173
+[08/23/2025 09:10:37 PM fastprop.cli.train] INFO: Displaying testing results:
+                                                    count      mean  std       min       25%       50%       75%       max
+test_mse_scaled_loss                                  1.0  0.308754  NaN  0.308754  0.308754  0.308754  0.308754  0.308754
+test_r2_score                                         1.0  0.670310  NaN  0.670310  0.670310  0.670310  0.670310  0.670310
+test_mean_absolute_percentage_error_score             1.0  0.235544  NaN  0.235544  0.235544  0.235544  0.235544  0.235544
+test_weighted_mean_absolute_percentage_error_score    1.0  0.198780  NaN  0.198780  0.198780  0.198780  0.198780  0.198780
+test_mean_absolute_error_score                        1.0  0.338825  NaN  0.338825  0.338825  0.338825  0.338825  0.338825
+test_root_mean_squared_error_loss                     1.0  0.476543  NaN  0.476543  0.476543  0.476543  0.476543  0.476543
+[08/23/2025 09:10:37 PM fastprop.cli.train] INFO: fastprop is unable to generate statistics to check for overfitting, consider increasing 'num_repeats' to at least 2.
+[08/23/2025 09:10:37 PM fastprop.cli.base] INFO: If you use fastprop in published work, please cite https://doi.org/10.1186/s13321-025-01013-4
+[08/23/2025 09:10:37 PM fastprop.cli.base] INFO: Total elapsed time: 0:00:22.449907
+

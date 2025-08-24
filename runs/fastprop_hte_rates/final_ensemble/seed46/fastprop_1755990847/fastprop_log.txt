@@ -1,0 +1,51 @@
+[08/23/2025 11:14:09 PM fastprop.cli.train] INFO: Run 'tensorboard --logdir runs/fastprop_hte_rates/final_ensemble/seed46/fastprop_1755990847/tensorboard_logs' to track training progress.
+[08/23/2025 11:14:09 PM fastprop.cli.train] INFO: Training model 1 of 1 (random_seed=46)
+[08/23/2025 11:14:09 PM fastprop.cli.train] INFO: Model architecture:
+{fastprop(
+  (fnn): Sequential(
+    (clamp): ClampN(n=3)
+    (lin1): Linear(in_features=1613, out_features=2200, bias=True)
+    (act1): ReLU()
+    (lin2): Linear(in_features=2200, out_features=2200, bias=True)
+    (act2): ReLU()
+    (lin3): Linear(in_features=2200, out_features=2200, bias=True)
+  )
+  (readout): Linear(in_features=2200, out_features=1, bias=True)
+)}
+[08/23/2025 11:14:31 PM fastprop.model] INFO: Elapsed time during training: 0:00:21.455045
+[08/23/2025 11:14:31 PM fastprop.model] INFO: Reloading best model from checkpoint file: /home/passos/ml_measurable_hte_rates/runs/fastprop_hte_rates/final_ensemble/seed46/fastprop_1755990847/checkpoints/repetition-1-epoch=43-val_loss=0.00.ckpt
+[08/23/2025 11:14:32 PM fastprop.model] INFO: Displaying validation results for repetition 1:
+                                                             value
+validation_mse_scaled_loss                                0.169013
+validation_r2_score                                       0.790740
+validation_mean_absolute_percentage_error_score           0.234600
+validation_weighted_mean_absolute_percentage_error_score  0.190102
+validation_mean_absolute_error_score                      0.276945
+validation_root_mean_squared_error_loss                   0.351949
+[08/23/2025 11:14:32 PM fastprop.model] INFO: Displaying validation results for repetition 1:
+                                                       value
+test_mse_scaled_loss                                0.369478
+test_r2_score                                       0.679293
+test_mean_absolute_percentage_error_score           0.445116
+test_weighted_mean_absolute_percentage_error_score  0.179270
+test_mean_absolute_error_score                      0.340745
+test_root_mean_squared_error_loss                   0.520371
+[08/23/2025 11:14:32 PM fastprop.cli.train] INFO: Displaying validation results:
+                                                          count      mean  std       min       25%       50%       75%       max
+validation_mse_scaled_loss                                  1.0  0.169013  NaN  0.169013  0.169013  0.169013  0.169013  0.169013
+validation_r2_score                                         1.0  0.790740  NaN  0.790740  0.790740  0.790740  0.790740  0.790740
+validation_mean_absolute_percentage_error_score             1.0  0.234600  NaN  0.234600  0.234600  0.234600  0.234600  0.234600
+validation_weighted_mean_absolute_percentage_error_score    1.0  0.190102  NaN  0.190102  0.190102  0.190102  0.190102  0.190102
+validation_mean_absolute_error_score                        1.0  0.276945  NaN  0.276945  0.276945  0.276945  0.276945  0.276945
+validation_root_mean_squared_error_loss                     1.0  0.351949  NaN  0.351949  0.351949  0.351949  0.351949  0.351949
+[08/23/2025 11:14:32 PM fastprop.cli.train] INFO: Displaying testing results:
+                                                    count      mean  std       min       25%       50%       75%       max
+test_mse_scaled_loss                                  1.0  0.369478  NaN  0.369478  0.369478  0.369478  0.369478  0.369478
+test_r2_score                                         1.0  0.679293  NaN  0.679293  0.679293  0.679293  0.679293  0.679293
+test_mean_absolute_percentage_error_score             1.0  0.445116  NaN  0.445116  0.445116  0.445116  0.445116  0.445116
+test_weighted_mean_absolute_percentage_error_score    1.0  0.179270  NaN  0.179270  0.179270  0.179270  0.179270  0.179270
+test_mean_absolute_error_score                        1.0  0.340745  NaN  0.340745  0.340745  0.340745  0.340745  0.340745
+test_root_mean_squared_error_loss                     1.0  0.520371  NaN  0.520371  0.520371  0.520371  0.520371  0.520371
+[08/23/2025 11:14:32 PM fastprop.cli.train] INFO: fastprop is unable to generate statistics to check for overfitting, consider increasing 'num_repeats' to at least 2.
+[08/23/2025 11:14:32 PM fastprop.cli.base] INFO: If you use fastprop in published work, please cite https://doi.org/10.1186/s13321-025-01013-4
+[08/23/2025 11:14:32 PM fastprop.cli.base] INFO: Total elapsed time: 0:00:25.095025

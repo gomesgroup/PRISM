@@ -1,0 +1,9 @@
+Seed set to 42
+Traceback (most recent call last):
+  File "/home/passos/ml_measurable_hte_rates/.venv/bin/fastprop", line 7, in <module>
+    sys.exit(main())
+  File "/home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/fastprop/cli/base.py", line 141, in main
+    train_fastprop(**training_default)  # type: ignore[arg-type]
+  File "/home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/fastprop/cli/train.py", line 129, in train_fastprop
+    descriptors = get_descriptors(enable_cache and cache_file, DESCRIPTOR_SET_LOOKUP[descriptor_set], rdkit_mols)
+KeyError: 'mordred'

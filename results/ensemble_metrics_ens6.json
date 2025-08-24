@@ -1,0 +1,12 @@
+{
+  "test_r2": NaN,
+  "n": 0,
+  "paths": [
+    "results/predictions_each_8_optuna_ens6_gpu0.csv",
+    "results/predictions_each_8_optuna_ens6_gpu1.csv",
+    "results/predictions_each_8_optuna_ens6_gpu2.csv",
+    "results/predictions_each_8_optuna_ens6_gpu3.csv"
+  ],
+  "output": "results/ensemble_predictions_ens6.csv",
+  "dropped": 8
+}

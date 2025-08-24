@@ -1,0 +1,11 @@
+{
+  "tag": "ens7_eq",
+  "method": "mondrian_amines_constant",
+  "alpha": 0.05,
+  "coverage_test": 0.6116504854368932,
+  "mean_interval_width": 0.6278068024672632,
+  "n_train": 619,
+  "n_cal": 123,
+  "n_groups": 7,
+  "global_q": 0.34041480213767894
+}

@@ -1,0 +1,23 @@
+{
+  "n_runs": 4,
+  "ens_q90": 0.5890739316068394,
+  "ens_q95": 0.8542896738534842,
+  "external_mean_n": 5,
+  "external_mean_r2": 0.13987401099310837,
+  "external_mean_mae": 1.0636452010694524,
+  "external_mean_rmse": 1.106576143112834,
+  "external_mean_coverage90": 0.2,
+  "external_mean_coverage95": 0.2,
+  "external_ridge_n": 5,
+  "external_ridge_r2": 0.16275939187052857,
+  "external_ridge_mae": 1.055513833270391,
+  "external_ridge_rmse": 1.091755554294645,
+  "external_ridge_coverage90": 0.2,
+  "external_ridge_coverage95": 0.2,
+  "external_nnls_n": 5,
+  "external_nnls_r2": 0.11816726878052819,
+  "external_nnls_mae": 0.8252190224995101,
+  "external_nnls_rmse": 1.1204523069564467,
+  "external_nnls_coverage90": 0.8,
+  "external_nnls_coverage95": 1.0
+}

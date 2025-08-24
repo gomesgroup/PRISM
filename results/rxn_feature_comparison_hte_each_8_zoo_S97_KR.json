@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Kernel Ridge",
+      "train_r2": 0.6778087070176373,
+      "test_r2": 0.5629680139170035,
+      "cv_r2_mean": 0.3522154809686868,
+      "cv_r2_std": 0.1692626693457259,
+      "y_train_pred": 

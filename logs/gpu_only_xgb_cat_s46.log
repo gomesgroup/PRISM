@@ -1,0 +1,357 @@
+=== ML Measurable HTE Rate Bias Analysis ===
+
+==================================================
+Running HTE Prediction Analysis: each with 8 features
+==================================================
+
+=== Loading Data ===
+Number of HTE rates: 1031
+Found 5 hydrogen-dependent features: ['num_Hs', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+Found 2 pKa-dependent features: ['pka_aHs', 'pka_lowest']
+Found 26 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'L_main_atom_2', 'B1_main_atom_1', 'B1_main_atom_2', 'B5_main_atom_1', 'B5_main_atom_2', 'Charges_secondary_1', 'Charges_secondary_2', 'fukui_N_secondary_1', 'fukui_N_secondary_2', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_2', 'FREQS_2', 'FCS_avg', 'FREQS_avg', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+
+Processing num_Hs conditional features...
+  18/46 molecules meet condition num_Hs
+    num_Hs: 0 -> 0 NA values
+    BV_Hs_avg: 28 -> 0 NA values
+    Charges_Hs_avg: 28 -> 0 NA values
+    fukui_E_Hs_avg: 28 -> 0 NA values
+    fukui_N_Hs_avg: 28 -> 0 NA values
+
+Processing pKa_features conditional features...
+  18/46 molecules meet condition pKa_features
+    Processing pKa feature pka_aHs with special handling...
+      Created indicator: has_acidic_H_for_pka_aHs
+      Created interaction: pka_aHs_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_aHs: 28 -> 0 NA values
+    Processing pKa feature pka_lowest with special handling...
+      Created indicator: has_acidic_H_for_pka_lowest
+      Created interaction: pka_lowest_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_lowest: 38 -> 0 NA values
+
+Handling remaining NA values...
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Found categorical feature class with 4 unique values: ['aromatic' 'hetero' 'aliphatic' 'mixture']
+    One-hot encoded class -> 4 features: ['class_aliphatic', 'class_aromatic', 'class_hetero', 'class_mixture']
+  Removed identifier feature: smiles
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+  Added indicator: has_num_Hs
+  Added indicator: has_pKa_features
+Preprocessing complete. Shape: (46, 65)
+Remaining NA values: 0
+Found 1 pKa-dependent features: ['pka_basic']
+Warning: num_Hs column not found, cannot properly handle pKa features
+Found 15 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'B1_main_atom_1', 'B5_main_atom_1', 'Charges_secondary_1', 'fukui_N_secondary_1', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_avg', 'FREQS_avg']
+
+Handling remaining NA values...
+  pka_basic: Filled 1 NA values with median/zero
+  smiles: Filled 1 NA values with mode/unknown
+  class: Filled 1 NA values with mode/unknown
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Removed identifier feature: smiles
+  Found categorical feature class with 5 unique values: ['1_aliphatic' '1_aromatic' '2_aliphatic' '1_mixture' '2_mixture']
+    One-hot encoded class -> 5 features: ['class_1_aliphatic', 'class_1_aromatic', 'class_1_mixture', 'class_2_aliphatic', 'class_2_mixture']
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+Preprocessing complete. Shape: (55, 40)
+Remaining NA values: 0
+Loaded reaction energy features: 1488 rows, 8 features
+
+=== Selecting Features (selected) ===
+Final selected features (8): ['acyl_Charges_secondary_1', 'amine_pka_basic', 'acyl_pka_aHs_x_has_acidic_H', 'amine_BV_secondary_avg', 'acyl_BV_secondary_2', 'acyl_class_aromatic', 'amine_class_1_mixture', 'amine_Charges_secondary_1']
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['acyl_Charges_secondary_1', 'amine_pka_basic', 'acyl_pka_aHs_x_has_acidic_H', 'amine_BV_secondary_avg', 'acyl_BV_secondary_2', 'acyl_class_aromatic', 'amine_class_1_mixture', 'amine_Charges_secondary_1']
+Valid features: 17
+=== Building Regression Model ===
+Regression dataset: (1031, 17)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+Train-only SFS selected 16 features for regression
+Running hyperparameter optimization for regression...
+[I 2025-08-20 00:53:05,407] A new study created in memory with name: no-name-7cd2b0b6-e44e-47d2-ac10-078eb14dd8a9
+[I 2025-08-20 00:53:05,834] Trial 0 finished with value: 0.6737704476733074 and parameters: {'model_type': 'rf', 'n_estimators': 192, 'max_depth': 6, 'min_samples_split': 6}. Best is trial 0 with value: 0.6737704476733074.
+[I 2025-08-20 00:53:06,052] Trial 1 finished with value: 0.6392101632258708 and parameters: {'model_type': 'rf', 'n_estimators': 113, 'max_depth': 5, 'min_samples_split': 6}. Best is trial 0 with value: 0.6737704476733074.
+[I 2025-08-20 00:53:06,350] Trial 2 finished with value: 0.715373012502202 and parameters: {'model_type': 'lgbm', 'n_estimators': 83, 'max_depth': 4, 'learning_rate': 0.2104148418925615}. Best is trial 2 with value: 0.715373012502202.
+[I 2025-08-20 00:53:09,858] Trial 3 finished with value: 0.6898991802521761 and parameters: {'model_type': 'cat', 'iterations': 438, 'depth': 7, 'learning_rate': 0.14227354703661635}. Best is trial 2 with value: 0.715373012502202.
+[I 2025-08-20 00:53:10,493] Trial 4 finished with value: 0.6909331406941324 and parameters: {'model_type': 'xgb', 'n_estimators': 90, 'max_depth': 10, 'learning_rate': 0.2771108585264576}. Best is trial 2 with value: 0.715373012502202.
+[I 2025-08-20 00:53:10,623] Trial 5 finished with value: 0.7209847725388931 and parameters: {'model_type': 'lgbm', 'n_estimators': 79, 'max_depth': 5, 'learning_rate': 0.06000635252084981}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:10,912] Trial 6 finished with value: 0.63913507154159 and parameters: {'model_type': 'rf', 'n_estimators': 128, 'max_depth': 5, 'min_samples_split': 9}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:10,964] Trial 7 finished with value: 0.6255761182356754 and parameters: {'model_type': 'lgbm', 'n_estimators': 50, 'max_depth': 9, 'learning_rate': 0.03207493257169257}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:11,133] Trial 8 finished with value: 0.5196834551643215 and parameters: {'model_type': 'rf', 'n_estimators': 95, 'max_depth': 3, 'min_samples_split': 8}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:14,594] Trial 9 finished with value: 0.7047366513674982 and parameters: {'model_type': 'cat', 'iterations': 345, 'depth': 6, 'learning_rate': 0.1669913980449684}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:14,609] Trial 10 finished with value: 0.5346172898705862 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 4.8092101452724056e-05, 'alpha_2': 0.00036232940543661873, 'lambda_1': 0.000914561259550799, 'lambda_2': 0.0005267944086549032}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:14,665] Trial 11 finished with value: 0.4347284390314009 and parameters: {'model_type': 'lgbm', 'n_estimators': 56, 'max_depth': 3, 'learning_rate': 0.01724257677803801}. Best is trial 5 with value: 0.7209847725388931.
+[I 2025-08-20 00:53:14,760] Trial 12 finished with value: 0.7443357969488102 and parameters: {'model_type': 'lgbm', 'n_estimators': 83, 'max_depth': 4, 'learning_rate': 0.19945306631938461}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:14,899] Trial 13 finished with value: 0.7251532585830751 and parameters: {'model_type': 'lgbm', 'n_estimators': 150, 'max_depth': 7, 'learning_rate': 0.09603076428590124}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:15,014] Trial 14 finished with value: 0.7215770948359832 and parameters: {'model_type': 'lgbm', 'n_estimators': 156, 'max_depth': 8, 'learning_rate': 0.1106706806668827}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:15,739] Trial 15 finished with value: 0.7032758869391836 and parameters: {'model_type': 'xgb', 'n_estimators': 149, 'max_depth': 7, 'learning_rate': 0.21862156307071864}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:15,751] Trial 16 finished with value: 0.534609631824126 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009933483444784182, 'alpha_2': 0.0009568054981074375, 'lambda_1': 7.55737198182116e-05, 'lambda_2': 2.20633381000561e-06}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:15,874] Trial 17 finished with value: 0.7074885723320129 and parameters: {'model_type': 'lgbm', 'n_estimators': 184, 'max_depth': 7, 'learning_rate': 0.09724945460649807}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:15,989] Trial 18 finished with value: 0.7021946555858872 and parameters: {'model_type': 'lgbm', 'n_estimators': 156, 'max_depth': 8, 'learning_rate': 0.18973301439071547}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:16,072] Trial 19 finished with value: 0.71618423001069 and parameters: {'model_type': 'lgbm', 'n_estimators': 137, 'max_depth': 6, 'learning_rate': 0.2684235363397701}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:53:36,834] Trial 20 finished with value: 0.7292694390027471 and parameters: {'model_type': 'cat', 'iterations': 745, 'depth': 10, 'learning_rate': 0.12162466957634806}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:54:02,942] Trial 21 finished with value: 0.7288420098728373 and parameters: {'model_type': 'cat', 'iterations': 779, 'depth': 10, 'learning_rate': 0.12323963265031825}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:54:32,082] Trial 22 finished with value: 0.6854079057175548 and parameters: {'model_type': 'cat', 'iterations': 787, 'depth': 10, 'learning_rate': 0.13951929775015265}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:54:59,458] Trial 23 finished with value: 0.7173461661465672 and parameters: {'model_type': 'cat', 'iterations': 800, 'depth': 10, 'learning_rate': 0.17250049563293068}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:55:19,399] Trial 24 finished with value: 0.7187961420795637 and parameters: {'model_type': 'cat', 'iterations': 634, 'depth': 10, 'learning_rate': 0.12264373274061151}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:55:25,619] Trial 25 finished with value: 0.7355190437286948 and parameters: {'model_type': 'cat', 'iterations': 640, 'depth': 4, 'learning_rate': 0.07293220011102565}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:55:32,665] Trial 26 finished with value: 0.7280184224711551 and parameters: {'model_type': 'cat', 'iterations': 613, 'depth': 4, 'learning_rate': 0.07419396917055848}. Best is trial 12 with value: 0.7443357969488102.
+[I 2025-08-20 00:55:39,761] Trial 27 finished with value: 0.7498980853195147 and parameters: {'model_type': 'cat', 'iterations': 617, 'depth': 4, 'learning_rate': 0.22680421441993637}. Best is trial 27 with value: 0.7498980853195147.
+[I 2025-08-20 00:55:40,016] Trial 28 finished with value: 0.7071036739624018 and parameters: {'model_type': 'xgb', 'n_estimators': 67, 'max_depth': 4, 'learning_rate': 0.2444117618716524}. Best is trial 27 with value: 0.7498980853195147.
+[I 2025-08-20 00:55:40,032] Trial 29 finished with value: 0.5346225048190705 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0005394061746920349, 'alpha_2': 9.943250294319143e-05, 'lambda_1': 0.0004687915657788452, 'lambda_2': 0.0008590018980162801}. Best is trial 27 with value: 0.7498980853195147.
+[I 2025-08-20 00:55:45,653] Trial 30 finished with value: 0.751851934151389 and parameters: {'model_type': 'cat', 'iterations': 553, 'depth': 4, 'learning_rate': 0.22636747019401263}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:55:51,607] Trial 31 finished with value: 0.7159802800408672 and parameters: {'model_type': 'cat', 'iterations': 569, 'depth': 4, 'learning_rate': 0.22862906334970168}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:55:55,829] Trial 32 finished with value: 0.6715355958143732 and parameters: {'model_type': 'cat', 'iterations': 497, 'depth': 5, 'learning_rate': 0.2487242053085367}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:02,777] Trial 33 finished with value: 0.7190988832321377 and parameters: {'model_type': 'cat', 'iterations': 650, 'depth': 5, 'learning_rate': 0.18716833715131487}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:08,795] Trial 34 finished with value: 0.7310115903046802 and parameters: {'model_type': 'cat', 'iterations': 558, 'depth': 4, 'learning_rate': 0.19644661156424545}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:09,162] Trial 35 finished with value: 0.7117116786961759 and parameters: {'model_type': 'rf', 'n_estimators': 105, 'max_depth': 13, 'min_samples_split': 2}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:16,078] Trial 36 finished with value: 0.7336585519782592 and parameters: {'model_type': 'cat', 'iterations': 680, 'depth': 5, 'learning_rate': 0.22666511176273457}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:16,491] Trial 37 finished with value: 0.7000452489086572 and parameters: {'model_type': 'xgb', 'n_estimators': 115, 'max_depth': 4, 'learning_rate': 0.2518748760192354}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:20,488] Trial 38 finished with value: 0.6875158714866496 and parameters: {'model_type': 'cat', 'iterations': 476, 'depth': 6, 'learning_rate': 0.2982122147162501}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:21,095] Trial 39 finished with value: 0.7153827277555795 and parameters: {'model_type': 'rf', 'n_estimators': 174, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:21,106] Trial 40 finished with value: 0.534610418808482 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 1.636141668800512e-05, 'alpha_2': 0.0009810093946207214, 'lambda_1': 0.0009968152624544391, 'lambda_2': 7.825325303769775e-05}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:27,899] Trial 41 finished with value: 0.7148976231156292 and parameters: {'model_type': 'cat', 'iterations': 672, 'depth': 5, 'learning_rate': 0.20666079334786538}. Best is trial 30 with value: 0.751851934151389.
+[I 2025-08-20 00:56:35,207] Trial 42 finished with value: 0.7561746795704097 and parameters: {'model_type': 'cat', 'iterations': 700, 'depth': 4, 'learning_rate': 0.22469591395297028}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:42,172] Trial 43 finished with value: 0.7314547785449078 and parameters: {'model_type': 'cat', 'iterations': 573, 'depth': 4, 'learning_rate': 0.23629278291075048}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:50,292] Trial 44 finished with value: 0.732878305551649 and parameters: {'model_type': 'cat', 'iterations': 725, 'depth': 4, 'learning_rate': 0.20334035878556628}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:53,453] Trial 45 finished with value: 0.7063482451855185 and parameters: {'model_type': 'cat', 'iterations': 209, 'depth': 4, 'learning_rate': 0.2691948057339452}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:53,494] Trial 46 finished with value: 0.7473410445610915 and parameters: {'model_type': 'lgbm', 'n_estimators': 73, 'max_depth': 3, 'learning_rate': 0.15385237102566954}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:53,527] Trial 47 finished with value: 0.7307002239270801 and parameters: {'model_type': 'lgbm', 'n_estimators': 66, 'max_depth': 3, 'learning_rate': 0.14323359350475845}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:53,573] Trial 48 finished with value: 0.739126108328893 and parameters: {'model_type': 'lgbm', 'n_estimators': 74, 'max_depth': 4, 'learning_rate': 0.16700237787934952}. Best is trial 42 with value: 0.7561746795704097.
+[I 2025-08-20 00:56:53,618] Trial 49 finished with value: 0.7576650140010741 and parameters: {'model_type': 'lgbm', 'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.21286730874441}. Best is trial 49 with value: 0.7576650140010741.
+Regression Results:
+  Train R²: 0.905
+  Test R²: 0.758
+  CV R²: 0.418 ± 0.239
+
+=== Generating Visualizations ===
+=== Evaluating LightGBM with Parity Plots ===
+Traceback (most recent call last):
+  File "/home/passos/ml_measurable_hte_rates/run_analysis.py", line 722, in <module>
+    main() 
+  File "/home/passos/ml_measurable_hte_rates/run_analysis.py", line 702, in main
+    results = run_single_hte_prediction_analysis(config)
+  File "/home/passos/ml_measurable_hte_rates/run_analysis.py", line 419, in run_single_hte_prediction_analysis
+    parity_results = evaluate_regression_with_parity_plots(
+  File "/home/passos/ml_measurable_hte_rates/src/model_evaluation.py", line 1165, in evaluate_regression_with_parity_plots
+    X_train_scaled = scaler.transform(X_train)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/preprocessing/_data.py", line 1075, in transform
+    X = validate_data(
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2929, in validate_data
+    _check_feature_names(_estimator, X, reset=reset)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2787, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- rxn_barriers_dGTS_from_INT1_B
+

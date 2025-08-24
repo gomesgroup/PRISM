@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Extra Trees",
+      "train_r2": 1.0,
+      "test_r2": 0.7773415619458625,
+      "cv_r2_mean": 0.43623721618247285,
+      "cv_r2_std": 0.2113622299352803,
+      "y_train_pred": 

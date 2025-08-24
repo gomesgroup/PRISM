@@ -1,0 +1,19 @@
+{
+  "tag": "curated8",
+  "n_models": 8,
+  "models": [
+    "predictions_each_8_zoo_S97_GPR",
+    "predictions_each_8_zoo_S97_ETR",
+    "predictions_each_8_zoo_S97_MLP",
+    "predictions_each_8_zoo_S97_SVR",
+    "predictions_each_8_optuna_ens7_gpu0",
+    "predictions_each_8_optuna_ens7_gpu1",
+    "predictions_each_8_optuna_ens7_gpu2",
+    "predictions_each_8_optuna_ens7_gpu3"
+  ],
+  "alpha": 1e-06,
+  "B": 1000,
+  "n_test": 206,
+  "test_r2": 0.7743450900506299,
+  "coverage_95": 0.0
+}

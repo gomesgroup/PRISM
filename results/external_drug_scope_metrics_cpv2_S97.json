@@ -1,0 +1,16 @@
+{
+  "val_q90": 0.6378145404603859,
+  "val_q95": 0.8202869485928498,
+  "external_HTE_lnk_n": 2,
+  "external_HTE_lnk_r2": 0.9562114526301739,
+  "external_HTE_lnk_mae": 0.16473273511556935,
+  "external_HTE_lnk_rmse": 0.16962134976793078,
+  "external_HTE_lnk_coverage90": 1.0,
+  "external_HTE_lnk_coverage95": 1.0,
+  "external_NMR_lnk_n": 5,
+  "external_NMR_lnk_r2": 0.2988027757345937,
+  "external_NMR_lnk_mae": 0.9124129380010031,
+  "external_NMR_lnk_rmse": 0.9991262330431201,
+  "external_NMR_lnk_coverage90": 0.2,
+  "external_NMR_lnk_coverage95": 0.6
+}

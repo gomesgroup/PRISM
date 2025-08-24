@@ -1,0 +1,27 @@
+{
+  "n_models": 4,
+  "n_test": 206,
+  "equal_r2": 0.8064740147371297,
+  "ridge_r2": 0.7860118526191928,
+  "ridge_intercept": -0.017004805518249677,
+  "ridge_weights": {
+    "predictions_each_8_optuna_ens7_gpu0": 1.3985392486707315,
+    "predictions_each_8_optuna_ens7_gpu1": 0.19602477533201323,
+    "predictions_each_8_optuna_ens7_gpu2": -0.18135423146384078,
+    "predictions_each_8_optuna_ens7_gpu3": -0.4027841336153095
+  },
+  "nnls_r2": 0.7960487570440113,
+  "nnls_weights": {
+    "predictions_each_8_optuna_ens7_gpu0": 1.003422980135412,
+    "predictions_each_8_optuna_ens7_gpu1": 0.0,
+    "predictions_each_8_optuna_ens7_gpu2": 0.0,
+    "predictions_each_8_optuna_ens7_gpu3": 0.0
+  },
+  "paths": [
+    "results/predictions_each_8_optuna_ens7_gpu0.csv",
+    "results/predictions_each_8_optuna_ens7_gpu1.csv",
+    "results/predictions_each_8_optuna_ens7_gpu2.csv",
+    "results/predictions_each_8_optuna_ens7_gpu3.csv"
+  ],
+  "output": "results/ensemble_predictions_weighted_ens7.csv"
+}

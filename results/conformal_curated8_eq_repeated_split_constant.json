@@ -1,0 +1,10 @@
+{
+  "tag": "curated8_eq",
+  "method": "repeated_split_constant",
+  "alpha": 0.05,
+  "coverage_test": 0.7378640776699029,
+  "mean_interval_width": 0.915615785179831,
+  "n_train": 619,
+  "repeats": 30,
+  "q_median": 0.4578078925899155
+}

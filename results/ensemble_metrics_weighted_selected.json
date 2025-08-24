@@ -1,0 +1,17 @@
+{
+  "selected_models": [
+    "predictions_each_8_zoo_S97_ETR"
+  ],
+  "n_models": 1,
+  "n_test": 206,
+  "equal_r2": 0.7743450822022038,
+  "ridge_r2": 0.7743450677696374,
+  "ridge_intercept": 1.1438931690754828e-07,
+  "ridge_weights": {
+    "predictions_each_8_zoo_S97_ETR": 0.9999999301504349
+  },
+  "nnls_r2": 0.7743450822022041,
+  "nnls_weights": {
+    "predictions_each_8_zoo_S97_ETR": 1.000000000000001
+  }
+}

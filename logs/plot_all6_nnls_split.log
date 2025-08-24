@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/passos/ml_measurable_hte_rates/src/plot_gpg_style_parity_all6.py", line 162, in <module>
+    main()
+  File "/home/passos/ml_measurable_hte_rates/src/plot_gpg_style_parity_all6.py", line 158, in main
+    parity_plot(df, out_path=PLOT_95, r2=r2, mae=mae, rmse=rmse)
+  File "/home/passos/ml_measurable_hte_rates/src/plot_gpg_style_parity_all6.py", line 113, in parity_plot
+    ax.scatter(
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/_api/deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 5025, in scatter
+    collection = mcoll.PathCollection(
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/collections.py", line 1030, in __init__
+    super().__init__(**kwargs)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/collections.py", line 209, in __init__
+    self._internal_update(kwargs)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/artist.py", line 1233, in _internal_update
+    return self._update_props(
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/artist.py", line 1209, in _update_props
+    ret.append(func(v))
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/collections.py", line 852, in set_alpha
+    self._set_facecolor(self._original_facecolor)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/collections.py", line 769, in _set_facecolor
+    self._facecolors = mcolors.to_rgba_array(c, self._alpha)
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/matplotlib/colors.py", line 466, in to_rgba_array
+    raise ValueError("The number of colors must match the number"
+ValueError: The number of colors must match the number of alpha values if there are more than one of each.

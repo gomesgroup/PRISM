@@ -1,0 +1,57 @@
+HTE Rate Prediction Analysis Report
+======================================================================
+
+METHODOLOGY: Single-Stage Regression Model
+Direct prediction of HTE rates using molecular descriptors.
+Target variable: Log-transformed HTE rates for improved model performance.
+
+Total entries: 1031
+Training samples: 619
+Test samples: 206
+
+Number of features for manual selection: 8
+Final features selected: ['acyl_BV_secondary_2', 'acyl_pka_aHs_x_has_acidic_H', 'acyl_class_aromatic', 'amine_Charges_secondary_1', 'amine_pka_basic', 'acyl_Charges_secondary_1', 'amine_class_1_mixture', 'amine_BV_secondary_avg']
+
+--- REGRESSION PERFORMANCE ANALYSIS ---
+Best Model: Gaussian Process
+Train R²: 0.755
+Test R²: 0.707
+CV R²: 0.438 ± 0.167
+
+--- DATA DISTRIBUTION ANALYSIS ---
+Target variable: HTE_lnk_corrected
+Target range: -1.418 to 4.010
+Target mean: 1.674
+Target std: 0.927
+Train target mean: 1.638 ± 0.908
+Test target mean: 1.770 ± 0.963
+
+--- FEATURE ANALYSIS ---
+Selected features (8):
+  1. acyl_BV_secondary_2
+  2. acyl_pka_aHs_x_has_acidic_H
+  3. acyl_class_aromatic
+  4. amine_Charges_secondary_1
+  5. amine_pka_basic
+  6. acyl_Charges_secondary_1
+  7. amine_class_1_mixture
+  8. amine_BV_secondary_avg
+
+Feature breakdown:
+  Acyl chloride features: 4
+  Amine features: 4
+
+--- MODEL PERFORMANCE INTERPRETATION ---
+PERFORMANCE ASSESSMENT:
+  ✅ GOOD: Test R² > 0.6 - Good predictive performance
+  ✅ GOOD: Train-test performance gap is reasonable
+  ⚠️  HIGH VARIANCE: Large CV std suggests model instability
+
+--- RECOMMENDATIONS ---
+• Increase dataset size if possible
+• Use more robust cross-validation strategies
+• Consider ensemble methods for stability
+• Model shows good predictive performance
+• Consider deploying for practical applications
+• Validate on external datasets if available
+

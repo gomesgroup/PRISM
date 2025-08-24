@@ -1,0 +1,2033 @@
+=== ML Measurable HTE Rate Bias Analysis ===
+
+==================================================
+Running HTE Prediction Analysis: each with 8 features
+==================================================
+
+=== Loading Data ===
+Number of HTE rates: 1031
+Found 5 hydrogen-dependent features: ['num_Hs', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+Found 2 pKa-dependent features: ['pka_aHs', 'pka_lowest']
+Found 26 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'L_main_atom_2', 'B1_main_atom_1', 'B1_main_atom_2', 'B5_main_atom_1', 'B5_main_atom_2', 'Charges_secondary_1', 'Charges_secondary_2', 'fukui_N_secondary_1', 'fukui_N_secondary_2', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_2', 'FREQS_2', 'FCS_avg', 'FREQS_avg', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+
+Processing num_Hs conditional features...
+  18/46 molecules meet condition num_Hs
+    num_Hs: 0 -> 0 NA values
+    BV_Hs_avg: 28 -> 0 NA values
+    Charges_Hs_avg: 28 -> 0 NA values
+    fukui_E_Hs_avg: 28 -> 0 NA values
+    fukui_N_Hs_avg: 28 -> 0 NA values
+
+Processing pKa_features conditional features...
+  18/46 molecules meet condition pKa_features
+    Processing pKa feature pka_aHs with special handling...
+      Created indicator: has_acidic_H_for_pka_aHs
+      Created interaction: pka_aHs_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_aHs: 28 -> 0 NA values
+    Processing pKa feature pka_lowest with special handling...
+      Created indicator: has_acidic_H_for_pka_lowest
+      Created interaction: pka_lowest_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_lowest: 38 -> 0 NA values
+
+Handling remaining NA values...
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Found categorical feature class with 4 unique values: ['aromatic' 'hetero' 'aliphatic' 'mixture']
+    One-hot encoded class -> 4 features: ['class_aliphatic', 'class_aromatic', 'class_hetero', 'class_mixture']
+  Removed identifier feature: smiles
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+  Added indicator: has_num_Hs
+  Added indicator: has_pKa_features
+Preprocessing complete. Shape: (46, 65)
+Remaining NA values: 0
+Found 1 pKa-dependent features: ['pka_basic']
+Warning: num_Hs column not found, cannot properly handle pKa features
+Found 15 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'B1_main_atom_1', 'B5_main_atom_1', 'Charges_secondary_1', 'fukui_N_secondary_1', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_avg', 'FREQS_avg']
+
+Handling remaining NA values...
+  pka_basic: Filled 1 NA values with median/zero
+  smiles: Filled 1 NA values with mode/unknown
+  class: Filled 1 NA values with mode/unknown
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Removed identifier feature: smiles
+  Found categorical feature class with 5 unique values: ['1_aliphatic' '1_aromatic' '2_aliphatic' '1_mixture' '2_mixture']
+    One-hot encoded class -> 5 features: ['class_1_aliphatic', 'class_1_aromatic', 'class_1_mixture', 'class_2_aliphatic', 'class_2_mixture']
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+Preprocessing complete. Shape: (55, 40)
+Remaining NA values: 0
+Loaded reaction energy features: 1488 rows, 8 features
+
+=== Selecting Features (selected) ===
+Final selected features (8): ['amine_pka_basic', 'acyl_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'acyl_class_aromatic', 'acyl_pka_aHs_x_has_acidic_H', 'amine_BV_secondary_avg', 'amine_Charges_secondary_1']
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['amine_pka_basic', 'acyl_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'acyl_class_aromatic', 'acyl_pka_aHs_x_has_acidic_H', 'amine_BV_secondary_avg', 'amine_Charges_secondary_1']
+Valid features: 17
+=== Building Regression Model ===
+Regression dataset: (1031, 17)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+Train-only SFS selected 16 features for regression
+Skipping Gaussian Process (dataset too large)
+Evaluating different regressors...
+  Bayesian Ridge: CV R² = 0.532 ± 0.055
+  Random Forest: CV R² = 0.683 ± 0.065
+  Extra Trees: CV R² = 0.706 ± 0.020
+[0]	validation_0-rmse:0.75867
+[1]	validation_0-rmse:0.66139
+[2]	validation_0-rmse:0.59547
+[3]	validation_0-rmse:0.54703
+[4]	validation_0-rmse:0.52196
+[5]	validation_0-rmse:0.52063
+[6]	validation_0-rmse:0.51769
+[7]	validation_0-rmse:0.51081
+[8]	validation_0-rmse:0.50632
+[9]	validation_0-rmse:0.49319
+[10]	validation_0-rmse:0.49437
+[11]	validation_0-rmse:0.49587
+[12]	validation_0-rmse:0.49608
+[13]	validation_0-rmse:0.49937
+[14]	validation_0-rmse:0.50403
+[15]	validation_0-rmse:0.50767
+[16]	validation_0-rmse:0.50799
+[17]	validation_0-rmse:0.50767
+[18]	validation_0-rmse:0.51240
+[19]	validation_0-rmse:0.51147
+[20]	validation_0-rmse:0.51074
+[21]	validation_0-rmse:0.51189
+[22]	validation_0-rmse:0.51290
+[23]	validation_0-rmse:0.51347
+[24]	validation_0-rmse:0.51460
+[25]	validation_0-rmse:0.51447
+[26]	validation_0-rmse:0.51519
+[27]	validation_0-rmse:0.51040
+[28]	validation_0-rmse:0.50999
+[29]	validation_0-rmse:0.51143
+[30]	validation_0-rmse:0.51049
+[31]	validation_0-rmse:0.51070
+[32]	validation_0-rmse:0.51039
+[33]	validation_0-rmse:0.50911
+[34]	validation_0-rmse:0.51040
+[35]	validation_0-rmse:0.50925
+[36]	validation_0-rmse:0.50962
+[37]	validation_0-rmse:0.50961
+[38]	validation_0-rmse:0.50855
+[39]	validation_0-rmse:0.50914
+[40]	validation_0-rmse:0.50910
+[41]	validation_0-rmse:0.50901
+[42]	validation_0-rmse:0.50935
+[43]	validation_0-rmse:0.51007
+[44]	validation_0-rmse:0.51000
+[45]	validation_0-rmse:0.51007
+[46]	validation_0-rmse:0.50989
+[47]	validation_0-rmse:0.50989
+[48]	validation_0-rmse:0.50959
+[49]	validation_0-rmse:0.50905
+[50]	validation_0-rmse:0.50877
+[51]	validation_0-rmse:0.50884
+[52]	validation_0-rmse:0.50893
+[53]	validation_0-rmse:0.50895
+[54]	validation_0-rmse:0.50923
+[55]	validation_0-rmse:0.50951
+[56]	validation_0-rmse:0.50987
+[57]	validation_0-rmse:0.50988
+[58]	validation_0-rmse:0.51010
+[59]	validation_0-rmse:0.51002
+[60]	validation_0-rmse:0.50956
+[61]	validation_0-rmse:0.50953
+[62]	validation_0-rmse:0.50966
+[63]	validation_0-rmse:0.50981
+[64]	validation_0-rmse:0.51011
+[65]	validation_0-rmse:0.50990
+[66]	validation_0-rmse:0.50971
+[67]	validation_0-rmse:0.50917
+[68]	validation_0-rmse:0.50915
+[69]	validation_0-rmse:0.50922
+[70]	validation_0-rmse:0.50912
+[71]	validation_0-rmse:0.50916
+[72]	validation_0-rmse:0.50914
+[73]	validation_0-rmse:0.50918
+[74]	validation_0-rmse:0.50907
+[75]	validation_0-rmse:0.50954
+[76]	validation_0-rmse:0.50964
+[77]	validation_0-rmse:0.50946
+[78]	validation_0-rmse:0.50938
+[79]	validation_0-rmse:0.50930
+[80]	validation_0-rmse:0.50938
+[81]	validation_0-rmse:0.50953
+[82]	validation_0-rmse:0.50955
+[83]	validation_0-rmse:0.50959
+[84]	validation_0-rmse:0.50943
+[85]	validation_0-rmse:0.50943
+[86]	validation_0-rmse:0.50950
+[87]	validation_0-rmse:0.50957
+[88]	validation_0-rmse:0.50957
+[89]	validation_0-rmse:0.50968
+[90]	validation_0-rmse:0.50961
+[91]	validation_0-rmse:0.50972
+[92]	validation_0-rmse:0.50979
+[93]	validation_0-rmse:0.50993
+[94]	validation_0-rmse:0.50991
+[95]	validation_0-rmse:0.50993
+[96]	validation_0-rmse:0.50995
+[97]	validation_0-rmse:0.50990
+[98]	validation_0-rmse:0.50987
+[99]	validation_0-rmse:0.50991
+[100]	validation_0-rmse:0.51003
+[101]	validation_0-rmse:0.51003
+[102]	validation_0-rmse:0.51004
+[103]	validation_0-rmse:0.51006
+[104]	validation_0-rmse:0.51006
+[105]	validation_0-rmse:0.51004
+[106]	validation_0-rmse:0.51003
+[107]	validation_0-rmse:0.51003
+[108]	validation_0-rmse:0.51005
+[109]	validation_0-rmse:0.51007
+[110]	validation_0-rmse:0.51007
+[111]	validation_0-rmse:0.51006
+[112]	validation_0-rmse:0.51007
+[113]	validation_0-rmse:0.51002
+[114]	validation_0-rmse:0.51000
+[115]	validation_0-rmse:0.51000
+[116]	validation_0-rmse:0.51000
+[117]	validation_0-rmse:0.51001
+[118]	validation_0-rmse:0.51004
+[119]	validation_0-rmse:0.51015
+[120]	validation_0-rmse:0.51014
+[121]	validation_0-rmse:0.51013
+[122]	validation_0-rmse:0.51013
+[123]	validation_0-rmse:0.51013
+[124]	validation_0-rmse:0.51012
+[125]	validation_0-rmse:0.51013
+[126]	validation_0-rmse:0.51013
+[127]	validation_0-rmse:0.51011
+[128]	validation_0-rmse:0.51009
+[129]	validation_0-rmse:0.51010
+[130]	validation_0-rmse:0.51011
+[131]	validation_0-rmse:0.51010
+[132]	validation_0-rmse:0.51013
+[133]	validation_0-rmse:0.51014
+[134]	validation_0-rmse:0.51014
+[135]	validation_0-rmse:0.51014
+[136]	validation_0-rmse:0.51014
+[137]	validation_0-rmse:0.51014
+[138]	validation_0-rmse:0.51014
+[139]	validation_0-rmse:0.51014
+[140]	validation_0-rmse:0.51014
+[141]	validation_0-rmse:0.51014
+[142]	validation_0-rmse:0.51014
+[143]	validation_0-rmse:0.51014
+[144]	validation_0-rmse:0.51014
+[145]	validation_0-rmse:0.51014
+[146]	validation_0-rmse:0.51014
+[147]	validation_0-rmse:0.51014
+[148]	validation_0-rmse:0.51014
+[149]	validation_0-rmse:0.51014
+[150]	validation_0-rmse:0.51014
+[151]	validation_0-rmse:0.51014
+[152]	validation_0-rmse:0.51014
+[153]	validation_0-rmse:0.51014
+[154]	validation_0-rmse:0.51014
+[155]	validation_0-rmse:0.51014
+[156]	validation_0-rmse:0.51014
+[157]	validation_0-rmse:0.51014
+[158]	validation_0-rmse:0.51014
+[159]	validation_0-rmse:0.51014
+[160]	validation_0-rmse:0.51014
+[161]	validation_0-rmse:0.51014
+[162]	validation_0-rmse:0.51014
+[163]	validation_0-rmse:0.51014
+[164]	validation_0-rmse:0.51014
+[165]	validation_0-rmse:0.51014
+[166]	validation_0-rmse:0.51014
+[167]	validation_0-rmse:0.51014
+[168]	validation_0-rmse:0.51014
+[169]	validation_0-rmse:0.51014
+[170]	validation_0-rmse:0.51014
+[171]	validation_0-rmse:0.51014
+[172]	validation_0-rmse:0.51014
+[173]	validation_0-rmse:0.51014
+[174]	validation_0-rmse:0.51014
+[175]	validation_0-rmse:0.51014
+[176]	validation_0-rmse:0.51014
+[177]	validation_0-rmse:0.51014
+[178]	validation_0-rmse:0.51014
+[179]	validation_0-rmse:0.51014
+[180]	validation_0-rmse:0.51014
+[181]	validation_0-rmse:0.51014
+[182]	validation_0-rmse:0.51014
+[183]	validation_0-rmse:0.51014
+[184]	validation_0-rmse:0.51014
+[185]	validation_0-rmse:0.51014
+[186]	validation_0-rmse:0.51014
+[187]	validation_0-rmse:0.51014
+[188]	validation_0-rmse:0.51014
+[189]	validation_0-rmse:0.51014
+[190]	validation_0-rmse:0.51014
+[191]	validation_0-rmse:0.51014
+[192]	validation_0-rmse:0.51014
+[193]	validation_0-rmse:0.51014
+[194]	validation_0-rmse:0.51014
+[195]	validation_0-rmse:0.51014
+[196]	validation_0-rmse:0.51014
+[197]	validation_0-rmse:0.51014
+[198]	validation_0-rmse:0.51014
+[199]	validation_0-rmse:0.51014
+[200]	validation_0-rmse:0.51014
+[201]	validation_0-rmse:0.51014
+[202]	validation_0-rmse:0.51014
+[203]	validation_0-rmse:0.51014
+[204]	validation_0-rmse:0.51014
+[205]	validation_0-rmse:0.51014
+[206]	validation_0-rmse:0.51014
+[207]	validation_0-rmse:0.51014
+[208]	validation_0-rmse:0.51014
+[209]	validation_0-rmse:0.51014
+[210]	validation_0-rmse:0.51014
+[211]	validation_0-rmse:0.51014
+[212]	validation_0-rmse:0.51014
+[213]	validation_0-rmse:0.51014
+[214]	validation_0-rmse:0.51014
+[215]	validation_0-rmse:0.51014
+[216]	validation_0-rmse:0.51014
+[217]	validation_0-rmse:0.51014
+[218]	validation_0-rmse:0.51014
+[219]	validation_0-rmse:0.51014
+[220]	validation_0-rmse:0.51014
+[221]	validation_0-rmse:0.51014
+[222]	validation_0-rmse:0.51014
+[223]	validation_0-rmse:0.51014
+[224]	validation_0-rmse:0.51014
+[225]	validation_0-rmse:0.51014
+[226]	validation_0-rmse:0.51014
+[227]	validation_0-rmse:0.51014
+[228]	validation_0-rmse:0.51014
+[229]	validation_0-rmse:0.51014
+[230]	validation_0-rmse:0.51014
+[231]	validation_0-rmse:0.51014
+[232]	validation_0-rmse:0.51014
+[233]	validation_0-rmse:0.51014
+[234]	validation_0-rmse:0.51014
+[235]	validation_0-rmse:0.51014
+[236]	validation_0-rmse:0.51014
+[237]	validation_0-rmse:0.51014
+[238]	validation_0-rmse:0.51014
+[239]	validation_0-rmse:0.51014
+[240]	validation_0-rmse:0.51014
+[241]	validation_0-rmse:0.51014
+[242]	validation_0-rmse:0.51014
+[243]	validation_0-rmse:0.51014
+[244]	validation_0-rmse:0.51014
+[245]	validation_0-rmse:0.51014
+[246]	validation_0-rmse:0.51014
+[247]	validation_0-rmse:0.51014
+[248]	validation_0-rmse:0.51014
+[249]	validation_0-rmse:0.51014
+[250]	validation_0-rmse:0.51014
+[251]	validation_0-rmse:0.51014
+[252]	validation_0-rmse:0.51014
+[253]	validation_0-rmse:0.51014
+[254]	validation_0-rmse:0.51014
+[255]	validation_0-rmse:0.51014
+[256]	validation_0-rmse:0.51014
+[257]	validation_0-rmse:0.51014
+[258]	validation_0-rmse:0.51014
+[259]	validation_0-rmse:0.51014
+[260]	validation_0-rmse:0.51014
+[261]	validation_0-rmse:0.51014
+[262]	validation_0-rmse:0.51014
+[263]	validation_0-rmse:0.51014
+[264]	validation_0-rmse:0.51014
+[265]	validation_0-rmse:0.51014
+[266]	validation_0-rmse:0.51014
+[267]	validation_0-rmse:0.51014
+[268]	validation_0-rmse:0.51014
+[269]	validation_0-rmse:0.51014
+[270]	validation_0-rmse:0.51014
+[271]	validation_0-rmse:0.51014
+[272]	validation_0-rmse:0.51014
+[273]	validation_0-rmse:0.51014
+[274]	validation_0-rmse:0.51014
+[275]	validation_0-rmse:0.51014
+[276]	validation_0-rmse:0.51014
+[277]	validation_0-rmse:0.51014
+[278]	validation_0-rmse:0.51014
+[279]	validation_0-rmse:0.51014
+[280]	validation_0-rmse:0.51014
+[281]	validation_0-rmse:0.51014
+[282]	validation_0-rmse:0.51014
+[283]	validation_0-rmse:0.51014
+[284]	validation_0-rmse:0.51014
+[285]	validation_0-rmse:0.51014
+[286]	validation_0-rmse:0.51014
+[287]	validation_0-rmse:0.51014
+[288]	validation_0-rmse:0.51014
+[289]	validation_0-rmse:0.51014
+[290]	validation_0-rmse:0.51014
+[291]	validation_0-rmse:0.51014
+[292]	validation_0-rmse:0.51014
+[293]	validation_0-rmse:0.51014
+[294]	validation_0-rmse:0.51014
+[295]	validation_0-rmse:0.51014
+[296]	validation_0-rmse:0.51014
+[297]	validation_0-rmse:0.51014
+[298]	validation_0-rmse:0.51014
+[299]	validation_0-rmse:0.51014
+[300]	validation_0-rmse:0.51014
+[301]	validation_0-rmse:0.51014
+[302]	validation_0-rmse:0.51014
+[303]	validation_0-rmse:0.51014
+[304]	validation_0-rmse:0.51014
+[305]	validation_0-rmse:0.51014
+[306]	validation_0-rmse:0.51014
+[307]	validation_0-rmse:0.51014
+[308]	validation_0-rmse:0.51014
+[309]	validation_0-rmse:0.51014
+[310]	validation_0-rmse:0.51014
+[311]	validation_0-rmse:0.51014
+[312]	validation_0-rmse:0.51014
+[313]	validation_0-rmse:0.51014
+[314]	validation_0-rmse:0.51014
+[315]	validation_0-rmse:0.51014
+[316]	validation_0-rmse:0.51014
+[317]	validation_0-rmse:0.51014
+[318]	validation_0-rmse:0.51014
+[319]	validation_0-rmse:0.51014
+[320]	validation_0-rmse:0.51014
+[321]	validation_0-rmse:0.51014
+[322]	validation_0-rmse:0.51014
+[323]	validation_0-rmse:0.51014
+[324]	validation_0-rmse:0.51014
+[325]	validation_0-rmse:0.51014
+[326]	validation_0-rmse:0.51014
+[327]	validation_0-rmse:0.51014
+[328]	validation_0-rmse:0.51014
+[329]	validation_0-rmse:0.51014
+[330]	validation_0-rmse:0.51014
+[331]	validation_0-rmse:0.51014
+[332]	validation_0-rmse:0.51014
+[333]	validation_0-rmse:0.51014
+[334]	validation_0-rmse:0.51014
+[335]	validation_0-rmse:0.51014
+[336]	validation_0-rmse:0.51014
+[337]	validation_0-rmse:0.51014
+[338]	validation_0-rmse:0.51014
+[339]	validation_0-rmse:0.51014
+[340]	validation_0-rmse:0.51014
+[341]	validation_0-rmse:0.51014
+[342]	validation_0-rmse:0.51014
+[343]	validation_0-rmse:0.51014
+[344]	validation_0-rmse:0.51014
+[345]	validation_0-rmse:0.51014
+[346]	validation_0-rmse:0.51014
+[347]	validation_0-rmse:0.51014
+[348]	validation_0-rmse:0.51014
+[349]	validation_0-rmse:0.51014
+[350]	validation_0-rmse:0.51014
+[351]	validation_0-rmse:0.51014
+[352]	validation_0-rmse:0.51014
+[353]	validation_0-rmse:0.51014
+[354]	validation_0-rmse:0.51014
+[355]	validation_0-rmse:0.51014
+[356]	validation_0-rmse:0.51014
+[357]	validation_0-rmse:0.51014
+[358]	validation_0-rmse:0.51014
+[359]	validation_0-rmse:0.51014
+[360]	validation_0-rmse:0.51014
+[361]	validation_0-rmse:0.51014
+[362]	validation_0-rmse:0.51014
+[363]	validation_0-rmse:0.51014
+[364]	validation_0-rmse:0.51014
+[365]	validation_0-rmse:0.51014
+[366]	validation_0-rmse:0.51014
+[367]	validation_0-rmse:0.51014
+[368]	validation_0-rmse:0.51014
+[369]	validation_0-rmse:0.51014
+[370]	validation_0-rmse:0.51014
+[371]	validation_0-rmse:0.51014
+[372]	validation_0-rmse:0.51014
+[373]	validation_0-rmse:0.51014
+[374]	validation_0-rmse:0.51014
+[375]	validation_0-rmse:0.51014
+[376]	validation_0-rmse:0.51014
+[377]	validation_0-rmse:0.51014
+[378]	validation_0-rmse:0.51014
+[379]	validation_0-rmse:0.51014
+[380]	validation_0-rmse:0.51014
+[381]	validation_0-rmse:0.51014
+[382]	validation_0-rmse:0.51014
+[383]	validation_0-rmse:0.51014
+[384]	validation_0-rmse:0.51014
+[385]	validation_0-rmse:0.51014
+[386]	validation_0-rmse:0.51014
+[387]	validation_0-rmse:0.51014
+[388]	validation_0-rmse:0.51014
+[389]	validation_0-rmse:0.51014
+[390]	validation_0-rmse:0.51014
+[391]	validation_0-rmse:0.51014
+[392]	validation_0-rmse:0.51014
+[393]	validation_0-rmse:0.51014
+[394]	validation_0-rmse:0.51014
+[395]	validation_0-rmse:0.51014
+[396]	validation_0-rmse:0.51014
+[397]	validation_0-rmse:0.51014
+[398]	validation_0-rmse:0.51014
+[399]	validation_0-rmse:0.51014
+[400]	validation_0-rmse:0.51014
+[401]	validation_0-rmse:0.51014
+[402]	validation_0-rmse:0.51014
+[403]	validation_0-rmse:0.51014
+[404]	validation_0-rmse:0.51014
+[405]	validation_0-rmse:0.51014
+[406]	validation_0-rmse:0.51014
+[407]	validation_0-rmse:0.51014
+[408]	validation_0-rmse:0.51014
+[409]	validation_0-rmse:0.51014
+[410]	validation_0-rmse:0.51014
+[411]	validation_0-rmse:0.51014
+[412]	validation_0-rmse:0.51014
+[413]	validation_0-rmse:0.51014
+[414]	validation_0-rmse:0.51014
+[415]	validation_0-rmse:0.51014
+[416]	validation_0-rmse:0.51014
+[417]	validation_0-rmse:0.51014
+[418]	validation_0-rmse:0.51014
+[419]	validation_0-rmse:0.51014
+[420]	validation_0-rmse:0.51014
+[421]	validation_0-rmse:0.51014
+[422]	validation_0-rmse:0.51014
+[423]	validation_0-rmse:0.51014
+[424]	validation_0-rmse:0.51014
+[425]	validation_0-rmse:0.51014
+[426]	validation_0-rmse:0.51014
+[427]	validation_0-rmse:0.51014
+[428]	validation_0-rmse:0.51014
+[429]	validation_0-rmse:0.51014
+[430]	validation_0-rmse:0.51014
+[431]	validation_0-rmse:0.51014
+[432]	validation_0-rmse:0.51014
+[433]	validation_0-rmse:0.51014
+[434]	validation_0-rmse:0.51014
+[435]	validation_0-rmse:0.51014
+[436]	validation_0-rmse:0.51014
+[437]	validation_0-rmse:0.51014
+[438]	validation_0-rmse:0.51014
+[439]	validation_0-rmse:0.51014
+[440]	validation_0-rmse:0.51014
+[441]	validation_0-rmse:0.51014
+[442]	validation_0-rmse:0.51014
+[443]	validation_0-rmse:0.51014
+[444]	validation_0-rmse:0.51014
+[445]	validation_0-rmse:0.51014
+[446]	validation_0-rmse:0.51014
+[447]	validation_0-rmse:0.51014
+[448]	validation_0-rmse:0.51014
+[449]	validation_0-rmse:0.51014
+[450]	validation_0-rmse:0.51014
+[451]	validation_0-rmse:0.51014
+[452]	validation_0-rmse:0.51014
+[453]	validation_0-rmse:0.51014
+[454]	validation_0-rmse:0.51014
+[455]	validation_0-rmse:0.51014
+[456]	validation_0-rmse:0.51014
+[457]	validation_0-rmse:0.51014
+[458]	validation_0-rmse:0.51014
+[459]	validation_0-rmse:0.51014
+[460]	validation_0-rmse:0.51014
+[461]	validation_0-rmse:0.51014
+[462]	validation_0-rmse:0.51014
+[463]	validation_0-rmse:0.51014
+[464]	validation_0-rmse:0.51014
+[465]	validation_0-rmse:0.51014
+[466]	validation_0-rmse:0.51014
+[467]	validation_0-rmse:0.51014
+[468]	validation_0-rmse:0.51014
+[469]	validation_0-rmse:0.51014
+[470]	validation_0-rmse:0.51014
+[471]	validation_0-rmse:0.51014
+[472]	validation_0-rmse:0.51014
+[473]	validation_0-rmse:0.51014
+[474]	validation_0-rmse:0.51014
+[475]	validation_0-rmse:0.51014
+[476]	validation_0-rmse:0.51014
+[477]	validation_0-rmse:0.51014
+[478]	validation_0-rmse:0.51014
+[479]	validation_0-rmse:0.51014
+[480]	validation_0-rmse:0.51014
+[481]	validation_0-rmse:0.51014
+[482]	validation_0-rmse:0.51014
+[483]	validation_0-rmse:0.51014
+[484]	validation_0-rmse:0.51014
+[485]	validation_0-rmse:0.51014
+[486]	validation_0-rmse:0.51014
+[487]	validation_0-rmse:0.51014
+[488]	validation_0-rmse:0.51014
+[489]	validation_0-rmse:0.51014
+[490]	validation_0-rmse:0.51014
+[491]	validation_0-rmse:0.51014
+[492]	validation_0-rmse:0.51014
+[493]	validation_0-rmse:0.51014
+[494]	validation_0-rmse:0.51014
+[495]	validation_0-rmse:0.51014
+[496]	validation_0-rmse:0.51014
+[497]	validation_0-rmse:0.51014
+[498]	validation_0-rmse:0.51014
+[499]	validation_0-rmse:0.51014
+[500]	validation_0-rmse:0.51014
+[501]	validation_0-rmse:0.51014
+[502]	validation_0-rmse:0.51014
+[503]	validation_0-rmse:0.51014
+[504]	validation_0-rmse:0.51014
+[505]	validation_0-rmse:0.51014
+[506]	validation_0-rmse:0.51014
+[507]	validation_0-rmse:0.51014
+[508]	validation_0-rmse:0.51014
+[509]	validation_0-rmse:0.51014
+[510]	validation_0-rmse:0.51014
+[511]	validation_0-rmse:0.51014
+[512]	validation_0-rmse:0.51014
+[513]	validation_0-rmse:0.51014
+[514]	validation_0-rmse:0.51014
+[515]	validation_0-rmse:0.51014
+[516]	validation_0-rmse:0.51014
+[517]	validation_0-rmse:0.51014
+[518]	validation_0-rmse:0.51014
+[519]	validation_0-rmse:0.51014
+[520]	validation_0-rmse:0.51014
+[521]	validation_0-rmse:0.51014
+[522]	validation_0-rmse:0.51014
+[523]	validation_0-rmse:0.51014
+[524]	validation_0-rmse:0.51014
+[525]	validation_0-rmse:0.51014
+[526]	validation_0-rmse:0.51014
+[527]	validation_0-rmse:0.51014
+[528]	validation_0-rmse:0.51014
+[529]	validation_0-rmse:0.51014
+[530]	validation_0-rmse:0.51014
+[531]	validation_0-rmse:0.51014
+[532]	validation_0-rmse:0.51014
+[533]	validation_0-rmse:0.51014
+[534]	validation_0-rmse:0.51014
+[535]	validation_0-rmse:0.51014
+[536]	validation_0-rmse:0.51014
+[537]	validation_0-rmse:0.51014
+[538]	validation_0-rmse:0.51014
+[539]	validation_0-rmse:0.51014
+[540]	validation_0-rmse:0.51014
+[541]	validation_0-rmse:0.51014
+[542]	validation_0-rmse:0.51014
+[543]	validation_0-rmse:0.51014
+[544]	validation_0-rmse:0.51014
+[545]	validation_0-rmse:0.51014
+[546]	validation_0-rmse:0.51014
+[547]	validation_0-rmse:0.51014
+[548]	validation_0-rmse:0.51014
+[549]	validation_0-rmse:0.51014
+[550]	validation_0-rmse:0.51014
+[551]	validation_0-rmse:0.51014
+[552]	validation_0-rmse:0.51014
+[553]	validation_0-rmse:0.51014
+[554]	validation_0-rmse:0.51014
+[555]	validation_0-rmse:0.51014
+[556]	validation_0-rmse:0.51014
+[557]	validation_0-rmse:0.51014
+[558]	validation_0-rmse:0.51014
+[559]	validation_0-rmse:0.51014
+[560]	validation_0-rmse:0.51014
+[561]	validation_0-rmse:0.51014
+[562]	validation_0-rmse:0.51014
+[563]	validation_0-rmse:0.51014
+[564]	validation_0-rmse:0.51014
+[565]	validation_0-rmse:0.51014
+[566]	validation_0-rmse:0.51014
+[567]	validation_0-rmse:0.51014
+[568]	validation_0-rmse:0.51014
+[569]	validation_0-rmse:0.51014
+[570]	validation_0-rmse:0.51014
+[571]	validation_0-rmse:0.51014
+[572]	validation_0-rmse:0.51014
+[573]	validation_0-rmse:0.51014
+[574]	validation_0-rmse:0.51014
+[575]	validation_0-rmse:0.51014
+[576]	validation_0-rmse:0.51014
+[577]	validation_0-rmse:0.51014
+[578]	validation_0-rmse:0.51014
+[579]	validation_0-rmse:0.51014
+[580]	validation_0-rmse:0.51014
+[581]	validation_0-rmse:0.51014
+[582]	validation_0-rmse:0.51014
+[583]	validation_0-rmse:0.51014
+[584]	validation_0-rmse:0.51014
+[585]	validation_0-rmse:0.51014
+[586]	validation_0-rmse:0.51014
+[587]	validation_0-rmse:0.51014
+[588]	validation_0-rmse:0.51014
+[589]	validation_0-rmse:0.51014
+[590]	validation_0-rmse:0.51014
+[591]	validation_0-rmse:0.51014
+[592]	validation_0-rmse:0.51014
+[593]	validation_0-rmse:0.51014
+[594]	validation_0-rmse:0.51014
+[595]	validation_0-rmse:0.51014
+[596]	validation_0-rmse:0.51014
+[597]	validation_0-rmse:0.51014
+[598]	validation_0-rmse:0.51014
+[599]	validation_0-rmse:0.51014
+[600]	validation_0-rmse:0.51014
+[601]	validation_0-rmse:0.51014
+[602]	validation_0-rmse:0.51014
+[603]	validation_0-rmse:0.51014
+[604]	validation_0-rmse:0.51014
+[605]	validation_0-rmse:0.51014
+[606]	validation_0-rmse:0.51014
+[607]	validation_0-rmse:0.51014
+[608]	validation_0-rmse:0.51014
+[609]	validation_0-rmse:0.51014
+[610]	validation_0-rmse:0.51014
+[611]	validation_0-rmse:0.51014
+[612]	validation_0-rmse:0.51014
+[613]	validation_0-rmse:0.51014
+[614]	validation_0-rmse:0.51014
+[615]	validation_0-rmse:0.51014
+[616]	validation_0-rmse:0.51014
+[617]	validation_0-rmse:0.51014
+[618]	validation_0-rmse:0.51014
+[619]	validation_0-rmse:0.51014
+[620]	validation_0-rmse:0.51014
+[621]	validation_0-rmse:0.51014
+[622]	validation_0-rmse:0.51014
+[623]	validation_0-rmse:0.51014
+[624]	validation_0-rmse:0.51014
+[625]	validation_0-rmse:0.51014
+[626]	validation_0-rmse:0.51014
+[627]	validation_0-rmse:0.51014
+[628]	validation_0-rmse:0.51014
+[629]	validation_0-rmse:0.51014
+[630]	validation_0-rmse:0.51014
+[631]	validation_0-rmse:0.51014
+[632]	validation_0-rmse:0.51014
+[633]	validation_0-rmse:0.51014
+[634]	validation_0-rmse:0.51014
+[635]	validation_0-rmse:0.51014
+[636]	validation_0-rmse:0.51014
+[637]	validation_0-rmse:0.51014
+[638]	validation_0-rmse:0.51014
+[639]	validation_0-rmse:0.51014
+[640]	validation_0-rmse:0.51014
+[641]	validation_0-rmse:0.51014
+[642]	validation_0-rmse:0.51014
+[643]	validation_0-rmse:0.51014
+[644]	validation_0-rmse:0.51014
+[645]	validation_0-rmse:0.51014
+[646]	validation_0-rmse:0.51014
+[647]	validation_0-rmse:0.51014
+[648]	validation_0-rmse:0.51014
+[649]	validation_0-rmse:0.51014
+[650]	validation_0-rmse:0.51014
+[651]	validation_0-rmse:0.51014
+[652]	validation_0-rmse:0.51014
+[653]	validation_0-rmse:0.51014
+[654]	validation_0-rmse:0.51014
+[655]	validation_0-rmse:0.51014
+[656]	validation_0-rmse:0.51014
+[657]	validation_0-rmse:0.51014
+[658]	validation_0-rmse:0.51014
+[659]	validation_0-rmse:0.51014
+[660]	validation_0-rmse:0.51014
+[661]	validation_0-rmse:0.51014
+[662]	validation_0-rmse:0.51014
+[663]	validation_0-rmse:0.51014
+[664]	validation_0-rmse:0.51014
+[665]	validation_0-rmse:0.51014
+[666]	validation_0-rmse:0.51014
+[667]	validation_0-rmse:0.51014
+[668]	validation_0-rmse:0.51014
+[669]	validation_0-rmse:0.51014
+[670]	validation_0-rmse:0.51014
+[671]	validation_0-rmse:0.51014
+[672]	validation_0-rmse:0.51014
+[673]	validation_0-rmse:0.51014
+[674]	validation_0-rmse:0.51014
+[675]	validation_0-rmse:0.51014
+[676]	validation_0-rmse:0.51014
+[677]	validation_0-rmse:0.51014
+[678]	validation_0-rmse:0.51014
+[679]	validation_0-rmse:0.51014
+[680]	validation_0-rmse:0.51014
+[681]	validation_0-rmse:0.51014
+[682]	validation_0-rmse:0.51014
+[683]	validation_0-rmse:0.51014
+[684]	validation_0-rmse:0.51014
+[685]	validation_0-rmse:0.51014
+[686]	validation_0-rmse:0.51014
+[687]	validation_0-rmse:0.51014
+[688]	validation_0-rmse:0.51014
+[689]	validation_0-rmse:0.51014
+[690]	validation_0-rmse:0.51014
+[691]	validation_0-rmse:0.51014
+[692]	validation_0-rmse:0.51014
+[693]	validation_0-rmse:0.51014
+[694]	validation_0-rmse:0.51014
+[695]	validation_0-rmse:0.51014
+[696]	validation_0-rmse:0.51014
+[697]	validation_0-rmse:0.51014
+[698]	validation_0-rmse:0.51014
+[699]	validation_0-rmse:0.51014
+[700]	validation_0-rmse:0.51014
+[701]	validation_0-rmse:0.51014
+[702]	validation_0-rmse:0.51014
+[703]	validation_0-rmse:0.51014
+[704]	validation_0-rmse:0.51014
+[705]	validation_0-rmse:0.51014
+[706]	validation_0-rmse:0.51014
+[707]	validation_0-rmse:0.51014
+[708]	validation_0-rmse:0.51014
+[709]	validation_0-rmse:0.51014
+[710]	validation_0-rmse:0.51014
+[711]	validation_0-rmse:0.51014
+[712]	validation_0-rmse:0.51014
+[713]	validation_0-rmse:0.51014
+[714]	validation_0-rmse:0.51014
+[715]	validation_0-rmse:0.51014
+[716]	validation_0-rmse:0.51014
+[717]	validation_0-rmse:0.51014
+[718]	validation_0-rmse:0.51014
+[719]	validation_0-rmse:0.51014
+[720]	validation_0-rmse:0.51014
+[721]	validation_0-rmse:0.51014
+[722]	validation_0-rmse:0.51014
+[723]	validation_0-rmse:0.51014
+[724]	validation_0-rmse:0.51014
+[725]	validation_0-rmse:0.51014
+[726]	validation_0-rmse:0.51014
+[727]	validation_0-rmse:0.51014
+[728]	validation_0-rmse:0.51014
+[729]	validation_0-rmse:0.51014
+[730]	validation_0-rmse:0.51014
+[731]	validation_0-rmse:0.51014
+[732]	validation_0-rmse:0.51014
+[733]	validation_0-rmse:0.51014
+[734]	validation_0-rmse:0.51014
+[735]	validation_0-rmse:0.51014
+[736]	validation_0-rmse:0.51014
+[737]	validation_0-rmse:0.51014
+[738]	validation_0-rmse:0.51014
+[739]	validation_0-rmse:0.51014
+[740]	validation_0-rmse:0.51014
+[741]	validation_0-rmse:0.51014
+[742]	validation_0-rmse:0.51014
+[743]	validation_0-rmse:0.51014
+[744]	validation_0-rmse:0.51014
+[745]	validation_0-rmse:0.51014
+[746]	validation_0-rmse:0.51014
+[747]	validation_0-rmse:0.51014
+[748]	validation_0-rmse:0.51014
+[749]	validation_0-rmse:0.51014
+[750]	validation_0-rmse:0.51014
+[751]	validation_0-rmse:0.51014
+[752]	validation_0-rmse:0.51014
+[753]	validation_0-rmse:0.51014
+[754]	validation_0-rmse:0.51014
+[755]	validation_0-rmse:0.51014
+[756]	validation_0-rmse:0.51014
+[757]	validation_0-rmse:0.51014
+[758]	validation_0-rmse:0.51014
+[759]	validation_0-rmse:0.51014
+[760]	validation_0-rmse:0.51014
+[761]	validation_0-rmse:0.51014
+[762]	validation_0-rmse:0.51014
+[763]	validation_0-rmse:0.51014
+[764]	validation_0-rmse:0.51014
+[765]	validation_0-rmse:0.51014
+[766]	validation_0-rmse:0.51014
+[767]	validation_0-rmse:0.51014
+[768]	validation_0-rmse:0.51014
+[769]	validation_0-rmse:0.51014
+[770]	validation_0-rmse:0.51014
+[771]	validation_0-rmse:0.51014
+[772]	validation_0-rmse:0.51014
+[773]	validation_0-rmse:0.51014
+[774]	validation_0-rmse:0.51014
+[775]	validation_0-rmse:0.51014
+[776]	validation_0-rmse:0.51014
+[777]	validation_0-rmse:0.51014
+[778]	validation_0-rmse:0.51014
+[779]	validation_0-rmse:0.51014
+[780]	validation_0-rmse:0.51014
+[781]	validation_0-rmse:0.51014
+[782]	validation_0-rmse:0.51014
+[783]	validation_0-rmse:0.51014
+[784]	validation_0-rmse:0.51014
+[785]	validation_0-rmse:0.51014
+[786]	validation_0-rmse:0.51014
+[787]	validation_0-rmse:0.51014
+[788]	validation_0-rmse:0.51014
+[789]	validation_0-rmse:0.51014
+[790]	validation_0-rmse:0.51014
+[791]	validation_0-rmse:0.51014
+[792]	validation_0-rmse:0.51014
+[793]	validation_0-rmse:0.51014
+[794]	validation_0-rmse:0.51014
+[795]	validation_0-rmse:0.51014
+[796]	validation_0-rmse:0.51014
+[797]	validation_0-rmse:0.51014
+[798]	validation_0-rmse:0.51014
+[799]	validation_0-rmse:0.51014
+  XGBoost: CV R² = 0.692 ± 0.043
+Warning: less than 75% GPU memory available for training. Free: 4033.125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 6604.8125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 6604.8125 Total: 81155.75
+Application terminated with error: ??+0 (0x75EA6D95D33A)
+??+0 (0x75EA6D1C0BB7)
+??+0 (0x75EA6E7C86CB)
+??+0 (0x75EA6E7C855B)
+??+0 (0x75EA6E7C2676)
+??+0 (0x75EA6E7C15A6)
+??+0 (0x75EA6E7C2E98)
+??+0 (0x75EA6D4BBF63)
+??+0 (0x75EA6D4BBD9E)
+??+0 (0x75EA9349CAA4)
+??+0 (0x75EA93529C3C)
+
+(TCatBoostException) catboost/cuda/cuda_lib/cuda_base.h:183: CUDA error 2: out of memory
+Terminating due to uncaught exception 0x3a64ec60410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:183: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x000075ea93797740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, charset_normalizer.md, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+Terminating due to uncaught exception 0x27f97010410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x00007ac7395b9740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, charset_normalizer.md, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+Terminating due to uncaught exception 0x533a4810410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x0000766eb0809740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, charset_normalizer.md, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+Terminating due to uncaught exception 0x48393410410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x000079419df5e740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, charset_normalizer.md, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+  CatBoost: Failed - A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {}
+Detailed tracebacks of the workers should have been printed to stderr in the executor process if faulthandler was not disabled.
+  LightGBM: CV R² = 0.717 ± 0.032
+  SVR: CV R² = 0.615 ± 0.080
+  Kernel Ridge: CV R² = 0.533 ± 0.052
+  MLP: CV R² = 0.508 ± 0.114
+  Ridge: CV R² = 0.531 ± 0.055
+  Linear Regression: CV R² = 0.530 ± 0.056
+  Lasso: CV R² = -0.004 ± 0.004
+  ElasticNet: CV R² = -0.004 ± 0.004
+Best regressor: LightGBM (CV R² = 0.717)
+Warning: less than 75% GPU memory available for training. Free: 3492.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 2103.125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 3957.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 3769.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 7349.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 7009.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 7331.3125 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 10599.375 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 13547.375 Total: 81155.75
+Stacking CV R² = nan ± nan
+Regression Results:
+  Train R²: 0.956
+  Test R²: 0.605
+  CV R²: 0.540 ± 0.119
+
+=== Generating Visualizations ===
+=== Evaluating LightGBM with Parity Plots ===
+Model Performance:
+  Train R²: 0.956, MAE: 0.057, RMSE: 0.196
+  Test R²: 0.605, MAE: 0.395, RMSE: 0.594
+Generating parity plots...
+Parity plot saved as: plots/parity_plot_lightgbm_train_each_8_train.png
+Parity plot saved as: plots/parity_plot_lightgbm_test_each_8_test.png
+Parity analysis plot saved as: plots/parity_analysis_lightgbm_test_each_8_analysis.png
+Saved predictions to results/predictions_each_8.csv
+Saved combined dataset to results/combined_df_each_8.csv
+Models saved with suffix: _each_8
+HTE prediction evaluation report saved to results/reports/hte_prediction_report_manual_8_each_8.txt
+
+=== Comparing without reaction-energy features (HTE prediction) ===
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['amine_pka_basic', 'acyl_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'acyl_class_aromatic', 'acyl_pka_aHs_x_has_acidic_H', 'amine_BV_secondary_avg', 'amine_Charges_secondary_1']
+Valid features: 9
+=== Building Regression Model ===
+Regression dataset: (1031, 9)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+Train-only SFS selected 8 features for regression
+Skipping Gaussian Process (dataset too large)
+Evaluating different regressors...
+  Bayesian Ridge: CV R² = 0.395 ± 0.061
+  Random Forest: CV R² = 0.730 ± 0.052
+  Extra Trees: CV R² = 0.726 ± 0.017
+[0]	validation_0-rmse:0.71817
+[1]	validation_0-rmse:0.58685
+[2]	validation_0-rmse:0.50680
+[3]	validation_0-rmse:0.46420
+[4]	validation_0-rmse:0.43734
+[5]	validation_0-rmse:0.42349
+[6]	validation_0-rmse:0.41645
+[7]	validation_0-rmse:0.41954
+[8]	validation_0-rmse:0.41480
+[9]	validation_0-rmse:0.41769
+[10]	validation_0-rmse:0.41854
+[11]	validation_0-rmse:0.41499
+[12]	validation_0-rmse:0.41436
+[13]	validation_0-rmse:0.41552
+[14]	validation_0-rmse:0.41501
+[15]	validation_0-rmse:0.42003
+[16]	validation_0-rmse:0.42007
+[17]	validation_0-rmse:0.42475
+[18]	validation_0-rmse:0.42593
+[19]	validation_0-rmse:0.42560
+[20]	validation_0-rmse:0.42382
+[21]	validation_0-rmse:0.42377
+[22]	validation_0-rmse:0.42312
+[23]	validation_0-rmse:0.42387
+[24]	validation_0-rmse:0.42688
+[25]	validation_0-rmse:0.42624
+[26]	validation_0-rmse:0.42991
+[27]	validation_0-rmse:0.42990
+[28]	validation_0-rmse:0.43057
+[29]	validation_0-rmse:0.43096
+[30]	validation_0-rmse:0.43140
+[31]	validation_0-rmse:0.43220
+[32]	validation_0-rmse:0.43347
+[33]	validation_0-rmse:0.43435
+[34]	validation_0-rmse:0.43436
+[35]	validation_0-rmse:0.43501
+[36]	validation_0-rmse:0.43409
+[37]	validation_0-rmse:0.43475
+[38]	validation_0-rmse:0.43286
+[39]	validation_0-rmse:0.43326
+[40]	validation_0-rmse:0.43322
+[41]	validation_0-rmse:0.43461
+[42]	validation_0-rmse:0.43524
+[43]	validation_0-rmse:0.43587
+[44]	validation_0-rmse:0.43713
+[45]	validation_0-rmse:0.43822
+[46]	validation_0-rmse:0.43858
+[47]	validation_0-rmse:0.43911
+[48]	validation_0-rmse:0.43889
+[49]	validation_0-rmse:0.44002
+[50]	validation_0-rmse:0.44069
+[51]	validation_0-rmse:0.43893
+[52]	validation_0-rmse:0.43910
+[53]	validation_0-rmse:0.43970
+[54]	validation_0-rmse:0.44023
+[55]	validation_0-rmse:0.44055
+[56]	validation_0-rmse:0.44081
+[57]	validation_0-rmse:0.44099
+[58]	validation_0-rmse:0.44146
+[59]	validation_0-rmse:0.44136
+[60]	validation_0-rmse:0.44048
+[61]	validation_0-rmse:0.44018
+[62]	validation_0-rmse:0.44024
+[63]	validation_0-rmse:0.44055
+[64]	validation_0-rmse:0.44032
+[65]	validation_0-rmse:0.44022
+[66]	validation_0-rmse:0.44010
+[67]	validation_0-rmse:0.44021
+[68]	validation_0-rmse:0.43996
+[69]	validation_0-rmse:0.43969
+[70]	validation_0-rmse:0.43965
+[71]	validation_0-rmse:0.43958
+[72]	validation_0-rmse:0.43969
+[73]	validation_0-rmse:0.44097
+[74]	validation_0-rmse:0.44126
+[75]	validation_0-rmse:0.44164
+[76]	validation_0-rmse:0.44155
+[77]	validation_0-rmse:0.44131
+[78]	validation_0-rmse:0.44191
+[79]	validation_0-rmse:0.44184
+[80]	validation_0-rmse:0.44175
+[81]	validation_0-rmse:0.44183
+[82]	validation_0-rmse:0.44179
+[83]	validation_0-rmse:0.44162
+[84]	validation_0-rmse:0.44158
+[85]	validation_0-rmse:0.44205
+[86]	validation_0-rmse:0.44167
+[87]	validation_0-rmse:0.44181
+[88]	validation_0-rmse:0.44228
+[89]	validation_0-rmse:0.44222
+[90]	validation_0-rmse:0.44231
+[91]	validation_0-rmse:0.44217
+[92]	validation_0-rmse:0.44223
+[93]	validation_0-rmse:0.44226
+[94]	validation_0-rmse:0.44203
+[95]	validation_0-rmse:0.44183
+[96]	validation_0-rmse:0.44133
+[97]	validation_0-rmse:0.44147
+[98]	validation_0-rmse:0.44137
+[99]	validation_0-rmse:0.44147
+[100]	validation_0-rmse:0.44158
+[101]	validation_0-rmse:0.44161
+[102]	validation_0-rmse:0.44164
+[103]	validation_0-rmse:0.44160
+[104]	validation_0-rmse:0.44166
+[105]	validation_0-rmse:0.44163
+[106]	validation_0-rmse:0.44183
+[107]	validation_0-rmse:0.44190
+[108]	validation_0-rmse:0.44210
+[109]	validation_0-rmse:0.44223
+[110]	validation_0-rmse:0.44218
+[111]	validation_0-rmse:0.44207
+[112]	validation_0-rmse:0.44191
+[113]	validation_0-rmse:0.44179
+[114]	validation_0-rmse:0.44165
+[115]	validation_0-rmse:0.44166
+[116]	validation_0-rmse:0.44167
+[117]	validation_0-rmse:0.44182
+[118]	validation_0-rmse:0.44185
+[119]	validation_0-rmse:0.44176
+[120]	validation_0-rmse:0.44190
+[121]	validation_0-rmse:0.44176
+[122]	validation_0-rmse:0.44182
+[123]	validation_0-rmse:0.44184
+[124]	validation_0-rmse:0.44181
+[125]	validation_0-rmse:0.44178
+[126]	validation_0-rmse:0.44187
+[127]	validation_0-rmse:0.44187
+[128]	validation_0-rmse:0.44188
+[129]	validation_0-rmse:0.44182
+[130]	validation_0-rmse:0.44185
+[131]	validation_0-rmse:0.44186
+[132]	validation_0-rmse:0.44183
+[133]	validation_0-rmse:0.44192
+[134]	validation_0-rmse:0.44201
+[135]	validation_0-rmse:0.44209
+[136]	validation_0-rmse:0.44204
+[137]	validation_0-rmse:0.44203
+[138]	validation_0-rmse:0.44204
+[139]	validation_0-rmse:0.44206
+[140]	validation_0-rmse:0.44207
+[141]	validation_0-rmse:0.44206
+[142]	validation_0-rmse:0.44213
+[143]	validation_0-rmse:0.44214
+[144]	validation_0-rmse:0.44213
+[145]	validation_0-rmse:0.44218
+[146]	validation_0-rmse:0.44223
+[147]	validation_0-rmse:0.44221
+[148]	validation_0-rmse:0.44231
+[149]	validation_0-rmse:0.44233
+[150]	validation_0-rmse:0.44241
+[151]	validation_0-rmse:0.44232
+[152]	validation_0-rmse:0.44232
+[153]	validation_0-rmse:0.44231
+[154]	validation_0-rmse:0.44228
+[155]	validation_0-rmse:0.44227
+[156]	validation_0-rmse:0.44230
+[157]	validation_0-rmse:0.44233
+[158]	validation_0-rmse:0.44237
+[159]	validation_0-rmse:0.44237
+[160]	validation_0-rmse:0.44240
+[161]	validation_0-rmse:0.44241
+[162]	validation_0-rmse:0.44245
+[163]	validation_0-rmse:0.44245
+[164]	validation_0-rmse:0.44246
+[165]	validation_0-rmse:0.44240
+[166]	validation_0-rmse:0.44241
+[167]	validation_0-rmse:0.44239
+[168]	validation_0-rmse:0.44237
+[169]	validation_0-rmse:0.44234
+[170]	validation_0-rmse:0.44239
+[171]	validation_0-rmse:0.44238
+[172]	validation_0-rmse:0.44239
+[173]	validation_0-rmse:0.44240
+[174]	validation_0-rmse:0.44236
+[175]	validation_0-rmse:0.44235
+[176]	validation_0-rmse:0.44235
+[177]	validation_0-rmse:0.44235
+[178]	validation_0-rmse:0.44236
+[179]	validation_0-rmse:0.44238
+[180]	validation_0-rmse:0.44244
+[181]	validation_0-rmse:0.44248
+[182]	validation_0-rmse:0.44247
+[183]	validation_0-rmse:0.44248
+[184]	validation_0-rmse:0.44245
+[185]	validation_0-rmse:0.44243
+[186]	validation_0-rmse:0.44240
+[187]	validation_0-rmse:0.44237
+[188]	validation_0-rmse:0.44237
+[189]	validation_0-rmse:0.44236
+[190]	validation_0-rmse:0.44237
+[191]	validation_0-rmse:0.44236
+[192]	validation_0-rmse:0.44233
+[193]	validation_0-rmse:0.44233
+[194]	validation_0-rmse:0.44231
+[195]	validation_0-rmse:0.44231
+[196]	validation_0-rmse:0.44231
+[197]	validation_0-rmse:0.44231
+[198]	validation_0-rmse:0.44231
+[199]	validation_0-rmse:0.44231
+[200]	validation_0-rmse:0.44231
+[201]	validation_0-rmse:0.44231
+[202]	validation_0-rmse:0.44231
+[203]	validation_0-rmse:0.44231
+[204]	validation_0-rmse:0.44231
+[205]	validation_0-rmse:0.44231
+[206]	validation_0-rmse:0.44231
+[207]	validation_0-rmse:0.44231
+[208]	validation_0-rmse:0.44231
+[209]	validation_0-rmse:0.44231
+[210]	validation_0-rmse:0.44231
+[211]	validation_0-rmse:0.44231
+[212]	validation_0-rmse:0.44231
+[213]	validation_0-rmse:0.44231
+[214]	validation_0-rmse:0.44231
+[215]	validation_0-rmse:0.44231
+[216]	validation_0-rmse:0.44231
+[217]	validation_0-rmse:0.44231
+[218]	validation_0-rmse:0.44231
+[219]	validation_0-rmse:0.44231
+[220]	validation_0-rmse:0.44231
+[221]	validation_0-rmse:0.44231
+[222]	validation_0-rmse:0.44231
+[223]	validation_0-rmse:0.44231
+[224]	validation_0-rmse:0.44231
+[225]	validation_0-rmse:0.44231
+[226]	validation_0-rmse:0.44231
+[227]	validation_0-rmse:0.44231
+[228]	validation_0-rmse:0.44231
+[229]	validation_0-rmse:0.44231
+[230]	validation_0-rmse:0.44231
+[231]	validation_0-rmse:0.44231
+[232]	validation_0-rmse:0.44231
+[233]	validation_0-rmse:0.44231
+[234]	validation_0-rmse:0.44231
+[235]	validation_0-rmse:0.44231
+[236]	validation_0-rmse:0.44231
+[237]	validation_0-rmse:0.44231
+[238]	validation_0-rmse:0.44231
+[239]	validation_0-rmse:0.44231
+[240]	validation_0-rmse:0.44231
+[241]	validation_0-rmse:0.44231
+[242]	validation_0-rmse:0.44231
+[243]	validation_0-rmse:0.44231
+[244]	validation_0-rmse:0.44231
+[245]	validation_0-rmse:0.44231
+[246]	validation_0-rmse:0.44231
+[247]	validation_0-rmse:0.44231
+[248]	validation_0-rmse:0.44231
+[249]	validation_0-rmse:0.44231
+[250]	validation_0-rmse:0.44231
+[251]	validation_0-rmse:0.44231
+[252]	validation_0-rmse:0.44231
+[253]	validation_0-rmse:0.44231
+[254]	validation_0-rmse:0.44231
+[255]	validation_0-rmse:0.44231
+[256]	validation_0-rmse:0.44231
+[257]	validation_0-rmse:0.44231
+[258]	validation_0-rmse:0.44231
+[259]	validation_0-rmse:0.44231
+[260]	validation_0-rmse:0.44231
+[261]	validation_0-rmse:0.44231
+[262]	validation_0-rmse:0.44231
+[263]	validation_0-rmse:0.44231
+[264]	validation_0-rmse:0.44231
+[265]	validation_0-rmse:0.44231
+[266]	validation_0-rmse:0.44231
+[267]	validation_0-rmse:0.44231
+[268]	validation_0-rmse:0.44231
+[269]	validation_0-rmse:0.44231
+[270]	validation_0-rmse:0.44231
+[271]	validation_0-rmse:0.44231
+[272]	validation_0-rmse:0.44231
+[273]	validation_0-rmse:0.44231
+[274]	validation_0-rmse:0.44231
+[275]	validation_0-rmse:0.44231
+[276]	validation_0-rmse:0.44231
+[277]	validation_0-rmse:0.44231
+[278]	validation_0-rmse:0.44231
+[279]	validation_0-rmse:0.44231
+[280]	validation_0-rmse:0.44231
+[281]	validation_0-rmse:0.44231
+[282]	validation_0-rmse:0.44231
+[283]	validation_0-rmse:0.44231
+[284]	validation_0-rmse:0.44231
+[285]	validation_0-rmse:0.44231
+[286]	validation_0-rmse:0.44231
+[287]	validation_0-rmse:0.44231
+[288]	validation_0-rmse:0.44231
+[289]	validation_0-rmse:0.44231
+[290]	validation_0-rmse:0.44231
+[291]	validation_0-rmse:0.44231
+[292]	validation_0-rmse:0.44231
+[293]	validation_0-rmse:0.44231
+[294]	validation_0-rmse:0.44231
+[295]	validation_0-rmse:0.44231
+[296]	validation_0-rmse:0.44231
+[297]	validation_0-rmse:0.44231
+[298]	validation_0-rmse:0.44231
+[299]	validation_0-rmse:0.44231
+[300]	validation_0-rmse:0.44231
+[301]	validation_0-rmse:0.44231
+[302]	validation_0-rmse:0.44231
+[303]	validation_0-rmse:0.44231
+[304]	validation_0-rmse:0.44231
+[305]	validation_0-rmse:0.44231
+[306]	validation_0-rmse:0.44231
+[307]	validation_0-rmse:0.44231
+[308]	validation_0-rmse:0.44231
+[309]	validation_0-rmse:0.44231
+[310]	validation_0-rmse:0.44231
+[311]	validation_0-rmse:0.44231
+[312]	validation_0-rmse:0.44231
+[313]	validation_0-rmse:0.44231
+[314]	validation_0-rmse:0.44231
+[315]	validation_0-rmse:0.44231
+[316]	validation_0-rmse:0.44231
+[317]	validation_0-rmse:0.44231
+[318]	validation_0-rmse:0.44231
+[319]	validation_0-rmse:0.44231
+[320]	validation_0-rmse:0.44231
+[321]	validation_0-rmse:0.44231
+[322]	validation_0-rmse:0.44231
+[323]	validation_0-rmse:0.44231
+[324]	validation_0-rmse:0.44231
+[325]	validation_0-rmse:0.44231
+[326]	validation_0-rmse:0.44231
+[327]	validation_0-rmse:0.44231
+[328]	validation_0-rmse:0.44231
+[329]	validation_0-rmse:0.44231
+[330]	validation_0-rmse:0.44231
+[331]	validation_0-rmse:0.44231
+[332]	validation_0-rmse:0.44231
+[333]	validation_0-rmse:0.44231
+[334]	validation_0-rmse:0.44231
+[335]	validation_0-rmse:0.44231
+[336]	validation_0-rmse:0.44231
+[337]	validation_0-rmse:0.44231
+[338]	validation_0-rmse:0.44231
+[339]	validation_0-rmse:0.44231
+[340]	validation_0-rmse:0.44231
+[341]	validation_0-rmse:0.44231
+[342]	validation_0-rmse:0.44231
+[343]	validation_0-rmse:0.44231
+[344]	validation_0-rmse:0.44231
+[345]	validation_0-rmse:0.44231
+[346]	validation_0-rmse:0.44231
+[347]	validation_0-rmse:0.44231
+[348]	validation_0-rmse:0.44231
+[349]	validation_0-rmse:0.44231
+[350]	validation_0-rmse:0.44231
+[351]	validation_0-rmse:0.44231
+[352]	validation_0-rmse:0.44231
+[353]	validation_0-rmse:0.44231
+[354]	validation_0-rmse:0.44231
+[355]	validation_0-rmse:0.44231
+[356]	validation_0-rmse:0.44231
+[357]	validation_0-rmse:0.44231
+[358]	validation_0-rmse:0.44231
+[359]	validation_0-rmse:0.44231
+[360]	validation_0-rmse:0.44231
+[361]	validation_0-rmse:0.44231
+[362]	validation_0-rmse:0.44231
+[363]	validation_0-rmse:0.44231
+[364]	validation_0-rmse:0.44231
+[365]	validation_0-rmse:0.44231
+[366]	validation_0-rmse:0.44231
+[367]	validation_0-rmse:0.44231
+[368]	validation_0-rmse:0.44231
+[369]	validation_0-rmse:0.44231
+[370]	validation_0-rmse:0.44231
+[371]	validation_0-rmse:0.44231
+[372]	validation_0-rmse:0.44231
+[373]	validation_0-rmse:0.44231
+[374]	validation_0-rmse:0.44231
+[375]	validation_0-rmse:0.44231
+[376]	validation_0-rmse:0.44231
+[377]	validation_0-rmse:0.44231
+[378]	validation_0-rmse:0.44231
+[379]	validation_0-rmse:0.44231
+[380]	validation_0-rmse:0.44231
+[381]	validation_0-rmse:0.44231
+[382]	validation_0-rmse:0.44231
+[383]	validation_0-rmse:0.44231
+[384]	validation_0-rmse:0.44231
+[385]	validation_0-rmse:0.44231
+[386]	validation_0-rmse:0.44231
+[387]	validation_0-rmse:0.44231
+[388]	validation_0-rmse:0.44231
+[389]	validation_0-rmse:0.44231
+[390]	validation_0-rmse:0.44231
+[391]	validation_0-rmse:0.44231
+[392]	validation_0-rmse:0.44231
+[393]	validation_0-rmse:0.44231
+[394]	validation_0-rmse:0.44231
+[395]	validation_0-rmse:0.44231
+[396]	validation_0-rmse:0.44231
+[397]	validation_0-rmse:0.44231
+[398]	validation_0-rmse:0.44231
+[399]	validation_0-rmse:0.44231
+[400]	validation_0-rmse:0.44231
+[401]	validation_0-rmse:0.44231
+[402]	validation_0-rmse:0.44231
+[403]	validation_0-rmse:0.44231
+[404]	validation_0-rmse:0.44231
+[405]	validation_0-rmse:0.44231
+[406]	validation_0-rmse:0.44231
+[407]	validation_0-rmse:0.44231
+[408]	validation_0-rmse:0.44231
+[409]	validation_0-rmse:0.44231
+[410]	validation_0-rmse:0.44231
+[411]	validation_0-rmse:0.44231
+[412]	validation_0-rmse:0.44231
+[413]	validation_0-rmse:0.44231
+[414]	validation_0-rmse:0.44231
+[415]	validation_0-rmse:0.44231
+[416]	validation_0-rmse:0.44231
+[417]	validation_0-rmse:0.44231
+[418]	validation_0-rmse:0.44231
+[419]	validation_0-rmse:0.44231
+[420]	validation_0-rmse:0.44231
+[421]	validation_0-rmse:0.44231
+[422]	validation_0-rmse:0.44231
+[423]	validation_0-rmse:0.44231
+[424]	validation_0-rmse:0.44231
+[425]	validation_0-rmse:0.44231
+[426]	validation_0-rmse:0.44231
+[427]	validation_0-rmse:0.44231
+[428]	validation_0-rmse:0.44231
+[429]	validation_0-rmse:0.44231
+[430]	validation_0-rmse:0.44231
+[431]	validation_0-rmse:0.44231
+[432]	validation_0-rmse:0.44231
+[433]	validation_0-rmse:0.44231
+[434]	validation_0-rmse:0.44231
+[435]	validation_0-rmse:0.44231
+[436]	validation_0-rmse:0.44231
+[437]	validation_0-rmse:0.44231
+[438]	validation_0-rmse:0.44231
+[439]	validation_0-rmse:0.44231
+[440]	validation_0-rmse:0.44231
+[441]	validation_0-rmse:0.44231
+[442]	validation_0-rmse:0.44231
+[443]	validation_0-rmse:0.44231
+[444]	validation_0-rmse:0.44231
+[445]	validation_0-rmse:0.44231
+[446]	validation_0-rmse:0.44231
+[447]	validation_0-rmse:0.44231
+[448]	validation_0-rmse:0.44231
+[449]	validation_0-rmse:0.44231
+[450]	validation_0-rmse:0.44231
+[451]	validation_0-rmse:0.44231
+[452]	validation_0-rmse:0.44231
+[453]	validation_0-rmse:0.44231
+[454]	validation_0-rmse:0.44231
+[455]	validation_0-rmse:0.44231
+[456]	validation_0-rmse:0.44231
+[457]	validation_0-rmse:0.44231
+[458]	validation_0-rmse:0.44231
+[459]	validation_0-rmse:0.44231
+[460]	validation_0-rmse:0.44231
+[461]	validation_0-rmse:0.44231
+[462]	validation_0-rmse:0.44231
+[463]	validation_0-rmse:0.44231
+[464]	validation_0-rmse:0.44231
+[465]	validation_0-rmse:0.44231
+[466]	validation_0-rmse:0.44231
+[467]	validation_0-rmse:0.44231
+[468]	validation_0-rmse:0.44231
+[469]	validation_0-rmse:0.44231
+[470]	validation_0-rmse:0.44231
+[471]	validation_0-rmse:0.44231
+[472]	validation_0-rmse:0.44231
+[473]	validation_0-rmse:0.44231
+[474]	validation_0-rmse:0.44231
+[475]	validation_0-rmse:0.44231
+[476]	validation_0-rmse:0.44231
+[477]	validation_0-rmse:0.44231
+[478]	validation_0-rmse:0.44231
+[479]	validation_0-rmse:0.44231
+[480]	validation_0-rmse:0.44231
+[481]	validation_0-rmse:0.44231
+[482]	validation_0-rmse:0.44231
+[483]	validation_0-rmse:0.44231
+[484]	validation_0-rmse:0.44231
+[485]	validation_0-rmse:0.44231
+[486]	validation_0-rmse:0.44231
+[487]	validation_0-rmse:0.44231
+[488]	validation_0-rmse:0.44231
+[489]	validation_0-rmse:0.44231
+[490]	validation_0-rmse:0.44231
+[491]	validation_0-rmse:0.44231
+[492]	validation_0-rmse:0.44231
+[493]	validation_0-rmse:0.44231
+[494]	validation_0-rmse:0.44231
+[495]	validation_0-rmse:0.44231
+[496]	validation_0-rmse:0.44231
+[497]	validation_0-rmse:0.44231
+[498]	validation_0-rmse:0.44231
+[499]	validation_0-rmse:0.44231
+[500]	validation_0-rmse:0.44231
+[501]	validation_0-rmse:0.44231
+[502]	validation_0-rmse:0.44231
+[503]	validation_0-rmse:0.44231
+[504]	validation_0-rmse:0.44231
+[505]	validation_0-rmse:0.44231
+[506]	validation_0-rmse:0.44231
+[507]	validation_0-rmse:0.44231
+[508]	validation_0-rmse:0.44231
+[509]	validation_0-rmse:0.44231
+[510]	validation_0-rmse:0.44231
+[511]	validation_0-rmse:0.44231
+[512]	validation_0-rmse:0.44231
+[513]	validation_0-rmse:0.44231
+[514]	validation_0-rmse:0.44231
+[515]	validation_0-rmse:0.44231
+[516]	validation_0-rmse:0.44231
+[517]	validation_0-rmse:0.44231
+[518]	validation_0-rmse:0.44231
+[519]	validation_0-rmse:0.44231
+[520]	validation_0-rmse:0.44231
+[521]	validation_0-rmse:0.44231
+[522]	validation_0-rmse:0.44231
+[523]	validation_0-rmse:0.44231
+[524]	validation_0-rmse:0.44231
+[525]	validation_0-rmse:0.44231
+[526]	validation_0-rmse:0.44231
+[527]	validation_0-rmse:0.44231
+[528]	validation_0-rmse:0.44231
+[529]	validation_0-rmse:0.44231
+[530]	validation_0-rmse:0.44231
+[531]	validation_0-rmse:0.44231
+[532]	validation_0-rmse:0.44231
+[533]	validation_0-rmse:0.44231
+[534]	validation_0-rmse:0.44231
+[535]	validation_0-rmse:0.44231
+[536]	validation_0-rmse:0.44231
+[537]	validation_0-rmse:0.44231
+[538]	validation_0-rmse:0.44231
+[539]	validation_0-rmse:0.44231
+[540]	validation_0-rmse:0.44231
+[541]	validation_0-rmse:0.44231
+[542]	validation_0-rmse:0.44231
+[543]	validation_0-rmse:0.44231
+[544]	validation_0-rmse:0.44231
+[545]	validation_0-rmse:0.44231
+[546]	validation_0-rmse:0.44231
+[547]	validation_0-rmse:0.44231
+[548]	validation_0-rmse:0.44231
+[549]	validation_0-rmse:0.44231
+[550]	validation_0-rmse:0.44231
+[551]	validation_0-rmse:0.44231
+[552]	validation_0-rmse:0.44231
+[553]	validation_0-rmse:0.44231
+[554]	validation_0-rmse:0.44231
+[555]	validation_0-rmse:0.44231
+[556]	validation_0-rmse:0.44231
+[557]	validation_0-rmse:0.44231
+[558]	validation_0-rmse:0.44231
+[559]	validation_0-rmse:0.44231
+[560]	validation_0-rmse:0.44231
+[561]	validation_0-rmse:0.44231
+[562]	validation_0-rmse:0.44231
+[563]	validation_0-rmse:0.44231
+[564]	validation_0-rmse:0.44231
+[565]	validation_0-rmse:0.44231
+[566]	validation_0-rmse:0.44231
+[567]	validation_0-rmse:0.44231
+[568]	validation_0-rmse:0.44231
+[569]	validation_0-rmse:0.44231
+[570]	validation_0-rmse:0.44231
+[571]	validation_0-rmse:0.44231
+[572]	validation_0-rmse:0.44231
+[573]	validation_0-rmse:0.44231
+[574]	validation_0-rmse:0.44231
+[575]	validation_0-rmse:0.44231
+[576]	validation_0-rmse:0.44231
+[577]	validation_0-rmse:0.44231
+[578]	validation_0-rmse:0.44231
+[579]	validation_0-rmse:0.44231
+[580]	validation_0-rmse:0.44231
+[581]	validation_0-rmse:0.44231
+[582]	validation_0-rmse:0.44231
+[583]	validation_0-rmse:0.44231
+[584]	validation_0-rmse:0.44231
+[585]	validation_0-rmse:0.44231
+[586]	validation_0-rmse:0.44231
+[587]	validation_0-rmse:0.44231
+[588]	validation_0-rmse:0.44231
+[589]	validation_0-rmse:0.44231
+[590]	validation_0-rmse:0.44231
+[591]	validation_0-rmse:0.44231
+[592]	validation_0-rmse:0.44231
+[593]	validation_0-rmse:0.44231
+[594]	validation_0-rmse:0.44231
+[595]	validation_0-rmse:0.44231
+[596]	validation_0-rmse:0.44231
+[597]	validation_0-rmse:0.44231
+[598]	validation_0-rmse:0.44231
+[599]	validation_0-rmse:0.44231
+[600]	validation_0-rmse:0.44231
+[601]	validation_0-rmse:0.44231
+[602]	validation_0-rmse:0.44231
+[603]	validation_0-rmse:0.44231
+[604]	validation_0-rmse:0.44231
+[605]	validation_0-rmse:0.44231
+[606]	validation_0-rmse:0.44231
+[607]	validation_0-rmse:0.44231
+[608]	validation_0-rmse:0.44231
+[609]	validation_0-rmse:0.44231
+[610]	validation_0-rmse:0.44231
+[611]	validation_0-rmse:0.44231
+[612]	validation_0-rmse:0.44231
+[613]	validation_0-rmse:0.44231
+[614]	validation_0-rmse:0.44231
+[615]	validation_0-rmse:0.44231
+[616]	validation_0-rmse:0.44231
+[617]	validation_0-rmse:0.44231
+[618]	validation_0-rmse:0.44231
+[619]	validation_0-rmse:0.44231
+[620]	validation_0-rmse:0.44231
+[621]	validation_0-rmse:0.44231
+[622]	validation_0-rmse:0.44231
+[623]	validation_0-rmse:0.44231
+[624]	validation_0-rmse:0.44231
+[625]	validation_0-rmse:0.44231
+[626]	validation_0-rmse:0.44231
+[627]	validation_0-rmse:0.44231
+[628]	validation_0-rmse:0.44231
+[629]	validation_0-rmse:0.44231
+[630]	validation_0-rmse:0.44231
+[631]	validation_0-rmse:0.44231
+[632]	validation_0-rmse:0.44231
+[633]	validation_0-rmse:0.44231
+[634]	validation_0-rmse:0.44231
+[635]	validation_0-rmse:0.44231
+[636]	validation_0-rmse:0.44231
+[637]	validation_0-rmse:0.44231
+[638]	validation_0-rmse:0.44231
+[639]	validation_0-rmse:0.44231
+[640]	validation_0-rmse:0.44231
+[641]	validation_0-rmse:0.44231
+[642]	validation_0-rmse:0.44231
+[643]	validation_0-rmse:0.44231
+[644]	validation_0-rmse:0.44231
+[645]	validation_0-rmse:0.44231
+[646]	validation_0-rmse:0.44231
+[647]	validation_0-rmse:0.44231
+[648]	validation_0-rmse:0.44231
+[649]	validation_0-rmse:0.44231
+[650]	validation_0-rmse:0.44231
+[651]	validation_0-rmse:0.44231
+[652]	validation_0-rmse:0.44231
+[653]	validation_0-rmse:0.44231
+[654]	validation_0-rmse:0.44231
+[655]	validation_0-rmse:0.44231
+[656]	validation_0-rmse:0.44231
+[657]	validation_0-rmse:0.44231
+[658]	validation_0-rmse:0.44231
+[659]	validation_0-rmse:0.44231
+[660]	validation_0-rmse:0.44231
+[661]	validation_0-rmse:0.44231
+[662]	validation_0-rmse:0.44231
+[663]	validation_0-rmse:0.44231
+[664]	validation_0-rmse:0.44231
+[665]	validation_0-rmse:0.44231
+[666]	validation_0-rmse:0.44231
+[667]	validation_0-rmse:0.44231
+[668]	validation_0-rmse:0.44231
+[669]	validation_0-rmse:0.44231
+[670]	validation_0-rmse:0.44231
+[671]	validation_0-rmse:0.44231
+[672]	validation_0-rmse:0.44231
+[673]	validation_0-rmse:0.44231
+[674]	validation_0-rmse:0.44231
+[675]	validation_0-rmse:0.44231
+[676]	validation_0-rmse:0.44231
+[677]	validation_0-rmse:0.44231
+[678]	validation_0-rmse:0.44231
+[679]	validation_0-rmse:0.44231
+[680]	validation_0-rmse:0.44231
+[681]	validation_0-rmse:0.44231
+[682]	validation_0-rmse:0.44231
+[683]	validation_0-rmse:0.44231
+[684]	validation_0-rmse:0.44231
+[685]	validation_0-rmse:0.44231
+[686]	validation_0-rmse:0.44231
+[687]	validation_0-rmse:0.44231
+[688]	validation_0-rmse:0.44231
+[689]	validation_0-rmse:0.44231
+[690]	validation_0-rmse:0.44231
+[691]	validation_0-rmse:0.44231
+[692]	validation_0-rmse:0.44231
+[693]	validation_0-rmse:0.44231
+[694]	validation_0-rmse:0.44231
+[695]	validation_0-rmse:0.44231
+[696]	validation_0-rmse:0.44231
+[697]	validation_0-rmse:0.44231
+[698]	validation_0-rmse:0.44231
+[699]	validation_0-rmse:0.44231
+[700]	validation_0-rmse:0.44231
+[701]	validation_0-rmse:0.44231
+[702]	validation_0-rmse:0.44231
+[703]	validation_0-rmse:0.44231
+[704]	validation_0-rmse:0.44231
+[705]	validation_0-rmse:0.44231
+[706]	validation_0-rmse:0.44231
+[707]	validation_0-rmse:0.44231
+[708]	validation_0-rmse:0.44231
+[709]	validation_0-rmse:0.44231
+[710]	validation_0-rmse:0.44231
+[711]	validation_0-rmse:0.44231
+[712]	validation_0-rmse:0.44231
+[713]	validation_0-rmse:0.44231
+[714]	validation_0-rmse:0.44231
+[715]	validation_0-rmse:0.44231
+[716]	validation_0-rmse:0.44231
+[717]	validation_0-rmse:0.44231
+[718]	validation_0-rmse:0.44231
+[719]	validation_0-rmse:0.44231
+[720]	validation_0-rmse:0.44231
+[721]	validation_0-rmse:0.44231
+[722]	validation_0-rmse:0.44231
+[723]	validation_0-rmse:0.44231
+[724]	validation_0-rmse:0.44231
+[725]	validation_0-rmse:0.44231
+[726]	validation_0-rmse:0.44231
+[727]	validation_0-rmse:0.44231
+[728]	validation_0-rmse:0.44231
+[729]	validation_0-rmse:0.44231
+[730]	validation_0-rmse:0.44231
+[731]	validation_0-rmse:0.44231
+[732]	validation_0-rmse:0.44231
+[733]	validation_0-rmse:0.44231
+[734]	validation_0-rmse:0.44231
+[735]	validation_0-rmse:0.44231
+[736]	validation_0-rmse:0.44231
+[737]	validation_0-rmse:0.44231
+[738]	validation_0-rmse:0.44231
+[739]	validation_0-rmse:0.44231
+[740]	validation_0-rmse:0.44231
+[741]	validation_0-rmse:0.44231
+[742]	validation_0-rmse:0.44231
+[743]	validation_0-rmse:0.44231
+[744]	validation_0-rmse:0.44231
+[745]	validation_0-rmse:0.44231
+[746]	validation_0-rmse:0.44231
+[747]	validation_0-rmse:0.44231
+[748]	validation_0-rmse:0.44231
+[749]	validation_0-rmse:0.44231
+[750]	validation_0-rmse:0.44231
+[751]	validation_0-rmse:0.44231
+[752]	validation_0-rmse:0.44231
+[753]	validation_0-rmse:0.44231
+[754]	validation_0-rmse:0.44231
+[755]	validation_0-rmse:0.44231
+[756]	validation_0-rmse:0.44231
+[757]	validation_0-rmse:0.44231
+[758]	validation_0-rmse:0.44231
+[759]	validation_0-rmse:0.44231
+[760]	validation_0-rmse:0.44231
+[761]	validation_0-rmse:0.44231
+[762]	validation_0-rmse:0.44231
+[763]	validation_0-rmse:0.44231
+[764]	validation_0-rmse:0.44231
+[765]	validation_0-rmse:0.44231
+[766]	validation_0-rmse:0.44231
+[767]	validation_0-rmse:0.44231
+[768]	validation_0-rmse:0.44231
+[769]	validation_0-rmse:0.44231
+[770]	validation_0-rmse:0.44231
+[771]	validation_0-rmse:0.44231
+[772]	validation_0-rmse:0.44231
+[773]	validation_0-rmse:0.44231
+[774]	validation_0-rmse:0.44231
+[775]	validation_0-rmse:0.44231
+[776]	validation_0-rmse:0.44231
+[777]	validation_0-rmse:0.44231
+[778]	validation_0-rmse:0.44231
+[779]	validation_0-rmse:0.44231
+[780]	validation_0-rmse:0.44231
+[781]	validation_0-rmse:0.44231
+[782]	validation_0-rmse:0.44231
+[783]	validation_0-rmse:0.44231
+[784]	validation_0-rmse:0.44231
+[785]	validation_0-rmse:0.44231
+[786]	validation_0-rmse:0.44231
+[787]	validation_0-rmse:0.44231
+[788]	validation_0-rmse:0.44231
+[789]	validation_0-rmse:0.44231
+[790]	validation_0-rmse:0.44231
+[791]	validation_0-rmse:0.44231
+[792]	validation_0-rmse:0.44231
+[793]	validation_0-rmse:0.44231
+[794]	validation_0-rmse:0.44231
+[795]	validation_0-rmse:0.44231
+[796]	validation_0-rmse:0.44231
+[797]	validation_0-rmse:0.44231
+[798]	validation_0-rmse:0.44231
+[799]	validation_0-rmse:0.44231
+  XGBoost: CV R² = 0.706 ± 0.060
+Warning: less than 75% GPU memory available for training. Free: 3514.8125 Total: 81155.75
+Terminating due to uncaught exception 0x24a8c410410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x0000733333ad6740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, charset_normalizer.md, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+Terminating due to uncaught exception 0x44d21c10410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x000070af8cdb5740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, charset_normalizer.md, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+Terminating due to uncaught exception 0x2144c410410    what() -> "catboost/cuda/cuda_lib/cuda_base.h:251: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x000078514ae38740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, charset_normalizer.md, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, _catboost, catboost._catboost (total: 195)
+  CatBoost: Failed - A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGABRT(-6)}
+Detailed tracebacks of the workers should have been printed to stderr in the executor process if faulthandler was not disabled.
+  LightGBM: CV R² = 0.735 ± 0.043
+  SVR: CV R² = 0.604 ± 0.063
+  Kernel Ridge: CV R² = 0.486 ± 0.056
+  MLP: CV R² = 0.509 ± 0.062
+  Ridge: CV R² = 0.395 ± 0.063
+  Linear Regression: CV R² = 0.395 ± 0.063
+  Lasso: CV R² = -0.004 ± 0.004
+  ElasticNet: CV R² = -0.004 ± 0.004
+Best regressor: LightGBM (CV R² = 0.735)
+Warning: less than 75% GPU memory available for training. Free: 1915.1875 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 125.1875 Total: 81155.75
+Warning: less than 75% GPU memory available for training. Free: 35.1875 Total: 81155.75
+Application terminated with error: ??+0 (0x7745A7B5D33A)
+??+0 (0x7745A73C0BB7)
+??+0 (0x7745A89B33A4)
+??+0 (0x7745A89C35F4)
+??+0 (0x7745A89C1B11)
+??+0 (0x7745A89C2E98)
+??+0 (0x7745A76BBF63)
+??+0 (0x7745A76BBD9E)
+??+0 (0x7745FF09CAA4)
+??+0 (0x7745FF129C3C)
+
+(TCatBoostException) catboost/cuda/cuda_lib/cuda_base.cpp:16: CUDA error 2: out of memory
+Terminating due to uncaught exception 0x22c678c0410    what() -> "catboost/cuda/cuda_lib/cuda_base.cpp:16: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x00007745ff21a740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_base.py", line 39 in _fit_single_estimator
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 1914 in _get_sequential_output
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 1986 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 82 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_stacking.py", line 211 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/base.py", line 1365 in wrapper
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_stacking.py", line 1043 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, charset_normalizer.md, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, PIL._imaging, kiwisolver._cext, _catboost, catboost._catboost (total: 197)
+Warning: less than 75% GPU memory available for training. Free: 33.1875 Total: 81155.75
+Application terminated with error: ??+0 (0x71D14715D33A)
+??+0 (0x71D1469C0BB7)
+??+0 (0x71D147FB33A4)
+??+0 (0x71D147FC35F4)
+??+0 (0x71D147FC1B11)
+??+0 (0x71D147FC2E98)
+??+0 (0x71D146CBBF63)
+??+0 (0x71D146CBBD9E)
+??+0 (0x71D19E69CAA4)
+??+0 (0x71D19E729C3C)
+
+(TCatBoostException) catboost/cuda/cuda_lib/cuda_base.cpp:16: CUDA error 2: out of memory
+Terminating due to uncaught exception 0x54bffcc0410    what() -> "catboost/cuda/cuda_lib/cuda_base.cpp:16: CUDA error 2: out of memory"
+ of type TCatBoostException
+Fatal Python error: Aborted
+
+Thread 0x000071d19e923740 (most recent call first):
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 1790 in _train
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 2410 in _fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/catboost/core.py", line 5873 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_base.py", line 39 in _fit_single_estimator
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 1914 in _get_sequential_output
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 1986 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 82 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_stacking.py", line 211 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/base.py", line 1365 in wrapper
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/ensemble/_stacking.py", line 1043 in fit
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/model_selection/_validation.py", line 859 in _fit_and_score
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in <listcomp>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/parallel.py", line 607 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 291 in __call__
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/process_executor.py", line 490 in _process_worker
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 108 in run
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/process.py", line 314 in _bootstrap
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 180 in <module>
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 86 in _run_code
+  File "/home/passos/mambaforge/envs/hte-ml/lib/python3.10/runpy.py", line 196 in _run_module_as_main
+
+Extension modules: psutil._psutil_linux, psutil._psutil_posix, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, sklearn.__check_build._check_build, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, charset_normalizer.md, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.linalg._propack._spropack, scipy.sparse.linalg._propack._dpropack, scipy.sparse.linalg._propack._cpropack, scipy.sparse.linalg._propack._zpropack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.spatial.transform._rotation, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize._cython_nnls, scipy._lib._uarray._uarray, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.interpolate._fitpack, scipy.interpolate._dfitpack, scipy.interpolate._dierckx, scipy.interpolate._ppoly, scipy.interpolate._interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.interpolate._bspl, scipy.special.cython_special, scipy.stats._stats, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._biasedurn, scipy.stats._stats_pythran, scipy.stats._levy_stable.levyst, scipy.stats._ansari_swilk_statistics, scipy.stats._mvn, scipy.stats._rcont.rcont, scipy.ndimage._nd_image, scipy.ndimage._rank_filter_1d, _ni_label, scipy.ndimage._ni_label, pyarrow.lib, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, _cyutility, sklearn._cyutility, sklearn.utils._isfinite, sklearn.utils.sparsefuncs_fast, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.utils._vector_sentinel, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_distances_reduction._radius_neighbors_classmode, sklearn.metrics._pairwise_fast, sklearn.utils._random, sklearn.neighbors._partition_nodes, sklearn.neighbors._ball_tree, sklearn.neighbors._kd_tree, sklearn.utils.arrayfuncs, sklearn.utils._seq_dataset, sklearn.linear_model._cd_fast, _loss, sklearn._loss._loss, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.linear_model._sag_fast, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.decomposition._online_lda_fast, sklearn.decomposition._cdnmf_fast, sklearn.tree._utils, sklearn.neighbors._quad_tree, sklearn.tree._tree, sklearn.tree._partitioner, sklearn.tree._splitter, sklearn.tree._criterion, sklearn.ensemble._gradient_boosting, sklearn.ensemble._hist_gradient_boosting.common, sklearn.ensemble._hist_gradient_boosting._gradient_boosting, sklearn.ensemble._hist_gradient_boosting._binning, sklearn.ensemble._hist_gradient_boosting._bitset, sklearn.ensemble._hist_gradient_boosting.histogram, sklearn.ensemble._hist_gradient_boosting._predictor, sklearn.ensemble._hist_gradient_boosting.splitting, PIL._imaging, kiwisolver._cext, _catboost, catboost._catboost (total: 197)
+Stacking failed: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGABRT(-6)}
+Detailed tracebacks of the workers should have been printed to stderr in the executor process if faulthandler was not disabled.
+Regression Results:
+  Train R²: 0.968
+  Test R²: 0.634
+  CV R²: 0.534 ± 0.183
+Failed to save comparison file: Object of type ndarray is not JSON serializable
+
+==================================================
+ANALYSIS COMPLETE
+==================================================
+Check the following directories for outputs:
+  - plots/: Visualization files
+  - results/: Data files and reports
+  - models/: Trained model files

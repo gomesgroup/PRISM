@@ -1,0 +1,6 @@
+Saved results/ensemble_summary_by_holdout_cpv2_S97.csv
+Saved results/ensemble_summary_by_holdout_cpv2_S97.json
+    method holdout  test_r2  test_mae  test_rmse  coverage90_test  coverage95_test  n_test
+equal_mean   TEST1 0.803173  0.326846   0.426126         0.825243         0.951456     206
+     ridge   TEST1 0.802832  0.333248   0.426495         0.844660         0.961165     206
+      nnls   TEST1 0.801202  0.329432   0.428254         0.839806         0.941748     206

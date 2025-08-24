@@ -226,7 +226,10 @@ def main() -> None:
     set_gpg_style()
 
     # 1) Co-Kriging MF
-    ck_csv = "results/cokriging_mf_predictions_nmr.csv"
+    # Prefer OOF predictions if available
+    ck_csv = "results/cokriging_mf_predictions_nmr_oof.csv"
+    if not os.path.exists(ck_csv):
+        ck_csv = "results/cokriging_mf_predictions_nmr.csv"
     if os.path.exists(ck_csv):
         df_ck = pd.read_csv(ck_csv)
         # Standardize split column name

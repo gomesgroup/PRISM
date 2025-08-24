@@ -1,0 +1,1462 @@
+=== ML Measurable HTE Rate Bias Analysis ===
+
+==================================================
+Running HTE Prediction Analysis: each with 8 features
+==================================================
+
+=== Loading Data ===
+Number of HTE rates: 1031
+Found 5 hydrogen-dependent features: ['num_Hs', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+Found 2 pKa-dependent features: ['pka_aHs', 'pka_lowest']
+Found 26 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'L_main_atom_2', 'B1_main_atom_1', 'B1_main_atom_2', 'B5_main_atom_1', 'B5_main_atom_2', 'Charges_secondary_1', 'Charges_secondary_2', 'fukui_N_secondary_1', 'fukui_N_secondary_2', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_2', 'FREQS_2', 'FCS_avg', 'FREQS_avg', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+
+Processing num_Hs conditional features...
+  18/46 molecules meet condition num_Hs
+    num_Hs: 0 -> 0 NA values
+    BV_Hs_avg: 28 -> 0 NA values
+    Charges_Hs_avg: 28 -> 0 NA values
+    fukui_E_Hs_avg: 28 -> 0 NA values
+    fukui_N_Hs_avg: 28 -> 0 NA values
+
+Processing pKa_features conditional features...
+  18/46 molecules meet condition pKa_features
+    Processing pKa feature pka_aHs with special handling...
+      Created indicator: has_acidic_H_for_pka_aHs
+      Created interaction: pka_aHs_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_aHs: 28 -> 0 NA values
+    Processing pKa feature pka_lowest with special handling...
+      Created indicator: has_acidic_H_for_pka_lowest
+      Created interaction: pka_lowest_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_lowest: 38 -> 0 NA values
+
+Handling remaining NA values...
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Found categorical feature class with 4 unique values: ['aromatic' 'hetero' 'aliphatic' 'mixture']
+    One-hot encoded class -> 4 features: ['class_aliphatic', 'class_aromatic', 'class_hetero', 'class_mixture']
+  Removed identifier feature: smiles
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+  Added indicator: has_num_Hs
+  Added indicator: has_pKa_features
+Preprocessing complete. Shape: (46, 65)
+Remaining NA values: 0
+Found 1 pKa-dependent features: ['pka_basic']
+Warning: num_Hs column not found, cannot properly handle pKa features
+Found 15 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'B1_main_atom_1', 'B5_main_atom_1', 'Charges_secondary_1', 'fukui_N_secondary_1', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_avg', 'FREQS_avg']
+
+Handling remaining NA values...
+  pka_basic: Filled 1 NA values with median/zero
+  smiles: Filled 1 NA values with mode/unknown
+  class: Filled 1 NA values with mode/unknown
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Removed identifier feature: smiles
+  Found categorical feature class with 5 unique values: ['1_aliphatic' '1_aromatic' '2_aliphatic' '1_mixture' '2_mixture']
+    One-hot encoded class -> 5 features: ['class_1_aliphatic', 'class_1_aromatic', 'class_1_mixture', 'class_2_aliphatic', 'class_2_mixture']
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+Preprocessing complete. Shape: (55, 40)
+Remaining NA values: 0
+Loaded reaction energy features: 1488 rows, 8 features
+
+=== Selecting Features (selected) ===
+Final selected features (8): ['acyl_class_aromatic', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H', 'amine_Charges_secondary_1', 'amine_BV_secondary_avg', 'amine_pka_basic']
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['acyl_class_aromatic', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H', 'amine_Charges_secondary_1', 'amine_BV_secondary_avg', 'amine_pka_basic']
+Valid features: 17
+=== Building Regression Model ===
+Regression dataset: (1031, 17)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+Train-only SFS selected 16 features for regression
+Running hyperparameter optimization for regression...
+[I 2025-08-20 01:21:30,388] A new study created in memory with name: no-name-c10025f4-1ed6-4e15-93c0-751c8a715f52
+[I 2025-08-20 01:21:30,744] Trial 0 finished with value: 0.5863169780105325 and parameters: {'model_type': 'rf', 'n_estimators': 192, 'max_depth': 4, 'min_samples_split': 5}. Best is trial 0 with value: 0.5863169780105325.
+[I 2025-08-20 01:21:30,754] Trial 1 finished with value: 0.48044730786800294 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.00031771572755449234, 'alpha_2': 0.0009303002085299194, 'lambda_1': 3.362306965307593e-06, 'lambda_2': 5.0826691424602954e-05}. Best is trial 0 with value: 0.5863169780105325.
+[I 2025-08-20 01:21:31,483] Trial 2 finished with value: 0.7306380616819337 and parameters: {'model_type': 'xgb', 'n_estimators': 200, 'max_depth': 7, 'learning_rate': 0.27578490914789355}. Best is trial 2 with value: 0.7306380616819337.
+[I 2025-08-20 01:21:31,577] Trial 3 finished with value: 0.5433401795889033 and parameters: {'model_type': 'xgb', 'n_estimators': 112, 'max_depth': 3, 'learning_rate': 0.01367515042137732}. Best is trial 2 with value: 0.7306380616819337.
+[I 2025-08-20 01:21:31,785] Trial 4 finished with value: 0.7625410864106476 and parameters: {'model_type': 'lgbm', 'n_estimators': 193, 'max_depth': 5, 'learning_rate': 0.29667874458177673}. Best is trial 4 with value: 0.7625410864106476.
+[I 2025-08-20 01:21:48,863] Trial 5 finished with value: 0.7405496460638996 and parameters: {'model_type': 'cat', 'iterations': 513, 'depth': 10, 'learning_rate': 0.27220796976529077}. Best is trial 4 with value: 0.7625410864106476.
+[I 2025-08-20 01:21:48,996] Trial 6 finished with value: 0.7602205051748506 and parameters: {'model_type': 'lgbm', 'n_estimators': 116, 'max_depth': 8, 'learning_rate': 0.12598496159760592}. Best is trial 4 with value: 0.7625410864106476.
+[I 2025-08-20 01:21:49,672] Trial 7 finished with value: 0.7453479250374336 and parameters: {'model_type': 'xgb', 'n_estimators': 180, 'max_depth': 7, 'learning_rate': 0.29891487527967525}. Best is trial 4 with value: 0.7625410864106476.
+[I 2025-08-20 01:21:49,729] Trial 8 finished with value: 0.7804850424464737 and parameters: {'model_type': 'lgbm', 'n_estimators': 132, 'max_depth': 6, 'learning_rate': 0.06627698224010711}. Best is trial 8 with value: 0.7804850424464737.
+[I 2025-08-20 01:21:51,444] Trial 9 finished with value: 0.7613905067576621 and parameters: {'model_type': 'cat', 'iterations': 206, 'depth': 5, 'learning_rate': 0.07963783240320417}. Best is trial 8 with value: 0.7804850424464737.
+[I 2025-08-20 01:21:51,491] Trial 10 finished with value: 0.7566490831675873 and parameters: {'model_type': 'lgbm', 'n_estimators': 53, 'max_depth': 10, 'learning_rate': 0.19576861627844275}. Best is trial 8 with value: 0.7804850424464737.
+[I 2025-08-20 01:21:51,558] Trial 11 finished with value: 0.7699833915650397 and parameters: {'model_type': 'lgbm', 'n_estimators': 154, 'max_depth': 5, 'learning_rate': 0.19319638912304887}. Best is trial 8 with value: 0.7804850424464737.
+[I 2025-08-20 01:21:51,624] Trial 12 finished with value: 0.7746080015328821 and parameters: {'model_type': 'lgbm', 'n_estimators': 149, 'max_depth': 5, 'learning_rate': 0.1916714553030268}. Best is trial 8 with value: 0.7804850424464737.
+[I 2025-08-20 01:21:51,686] Trial 13 finished with value: 0.7831635042232458 and parameters: {'model_type': 'lgbm', 'n_estimators': 143, 'max_depth': 5, 'learning_rate': 0.08230693557073424}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:21:51,699] Trial 14 finished with value: 0.48045512049211425 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009573874013646588, 'alpha_2': 2.420548473805917e-06, 'lambda_1': 0.0009587285346603461, 'lambda_2': 0.000972495996314487}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:21:52,029] Trial 15 finished with value: 0.7331160663062259 and parameters: {'model_type': 'rf', 'n_estimators': 94, 'max_depth': 14, 'min_samples_split': 10}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:21:52,116] Trial 16 finished with value: 0.7752828836465112 and parameters: {'model_type': 'lgbm', 'n_estimators': 152, 'max_depth': 6, 'learning_rate': 0.06803715991668262}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:21:52,146] Trial 17 finished with value: 0.7016807225888446 and parameters: {'model_type': 'lgbm', 'n_estimators': 82, 'max_depth': 3, 'learning_rate': 0.04693396681330196}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:21:52,224] Trial 18 finished with value: 0.7454828964669498 and parameters: {'model_type': 'lgbm', 'n_estimators': 136, 'max_depth': 8, 'learning_rate': 0.125579148764851}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:08,776] Trial 19 finished with value: 0.7786984790886416 and parameters: {'model_type': 'cat', 'iterations': 800, 'depth': 9, 'learning_rate': 0.1087516870617086}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:09,369] Trial 20 finished with value: 0.7414408345871695 and parameters: {'model_type': 'rf', 'n_estimators': 167, 'max_depth': 11, 'min_samples_split': 2}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:26,028] Trial 21 finished with value: 0.7718175104742071 and parameters: {'model_type': 'cat', 'iterations': 795, 'depth': 9, 'learning_rate': 0.10962288740150897}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:35,148] Trial 22 finished with value: 0.7716251887458836 and parameters: {'model_type': 'cat', 'iterations': 753, 'depth': 7, 'learning_rate': 0.0945019417069532}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:44,061] Trial 23 finished with value: 0.7576178821211643 and parameters: {'model_type': 'cat', 'iterations': 523, 'depth': 8, 'learning_rate': 0.14916747428288207}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:44,082] Trial 24 finished with value: 0.48045173533405716 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 5.134098464185051e-05, 'alpha_2': 0.00036320147666813515, 'lambda_1': 0.00040933114056158795, 'lambda_2': 0.0005683304879092621}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:51,008] Trial 25 finished with value: 0.7594498447195717 and parameters: {'model_type': 'cat', 'iterations': 661, 'depth': 6, 'learning_rate': 0.05014804647533526}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:51,153] Trial 26 finished with value: 0.7069310956417445 and parameters: {'model_type': 'lgbm', 'n_estimators': 129, 'max_depth': 6, 'learning_rate': 0.015633204416372407}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:51,202] Trial 27 finished with value: 0.7585044580555994 and parameters: {'model_type': 'lgbm', 'n_estimators': 96, 'max_depth': 4, 'learning_rate': 0.052115052327309126}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:53,769] Trial 28 finished with value: 0.7605824010002231 and parameters: {'model_type': 'cat', 'iterations': 307, 'depth': 4, 'learning_rate': 0.149737206633946}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:54,186] Trial 29 finished with value: 0.7336665705608587 and parameters: {'model_type': 'rf', 'n_estimators': 140, 'max_depth': 12, 'min_samples_split': 10}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:54,747] Trial 30 finished with value: 0.7756706267495843 and parameters: {'model_type': 'xgb', 'n_estimators': 167, 'max_depth': 4, 'learning_rate': 0.09593759571843752}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:55,318] Trial 31 finished with value: 0.78170721698388 and parameters: {'model_type': 'xgb', 'n_estimators': 171, 'max_depth': 4, 'learning_rate': 0.09625670961605175}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:55,961] Trial 32 finished with value: 0.7630444401569777 and parameters: {'model_type': 'xgb', 'n_estimators': 166, 'max_depth': 6, 'learning_rate': 0.08334826316002952}. Best is trial 13 with value: 0.7831635042232458.
+[I 2025-08-20 01:22:56,116] Trial 33 finished with value: 0.7866651633512239 and parameters: {'model_type': 'xgb', 'n_estimators': 113, 'max_depth': 5, 'learning_rate': 0.12080390195984508}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,281] Trial 34 finished with value: 0.774412131302808 and parameters: {'model_type': 'xgb', 'n_estimators': 120, 'max_depth': 5, 'learning_rate': 0.12558258309864992}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,426] Trial 35 finished with value: 0.7628118198369863 and parameters: {'model_type': 'xgb', 'n_estimators': 129, 'max_depth': 4, 'learning_rate': 0.03531228861968495}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,575] Trial 36 finished with value: 0.782355096778731 and parameters: {'model_type': 'xgb', 'n_estimators': 108, 'max_depth': 5, 'learning_rate': 0.06871700381775721}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,722] Trial 37 finished with value: 0.7748548722397286 and parameters: {'model_type': 'xgb', 'n_estimators': 105, 'max_depth': 5, 'learning_rate': 0.11065769721573239}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,812] Trial 38 finished with value: 0.768373244439086 and parameters: {'model_type': 'xgb', 'n_estimators': 70, 'max_depth': 4, 'learning_rate': 0.16443454677223454}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:56,912] Trial 39 finished with value: 0.6621677397446903 and parameters: {'model_type': 'xgb', 'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.028934407659896022}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,065] Trial 40 finished with value: 0.761008439400165 and parameters: {'model_type': 'xgb', 'n_estimators': 109, 'max_depth': 5, 'learning_rate': 0.16887028581762079}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,293] Trial 41 finished with value: 0.7685646675867761 and parameters: {'model_type': 'xgb', 'n_estimators': 140, 'max_depth': 6, 'learning_rate': 0.06708514792719926}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,307] Trial 42 finished with value: 0.48044675355178934 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009764519986519653, 'alpha_2': 0.0009960077019424485, 'lambda_1': 0.0009753108622053087, 'lambda_2': 1.27288903575269e-05}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,475] Trial 43 finished with value: 0.7798873725694864 and parameters: {'model_type': 'xgb', 'n_estimators': 122, 'max_depth': 5, 'learning_rate': 0.06570987887060795}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,695] Trial 44 finished with value: 0.7626224583962085 and parameters: {'model_type': 'xgb', 'n_estimators': 133, 'max_depth': 6, 'learning_rate': 0.08601967686169837}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,767] Trial 45 finished with value: 0.7836261087945673 and parameters: {'model_type': 'lgbm', 'n_estimators': 159, 'max_depth': 4, 'learning_rate': 0.1351997801153524}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,844] Trial 46 finished with value: 0.7784207477571532 and parameters: {'model_type': 'lgbm', 'n_estimators': 178, 'max_depth': 4, 'learning_rate': 0.1355426233831624}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:57,989] Trial 47 finished with value: 0.7658918112343469 and parameters: {'model_type': 'xgb', 'n_estimators': 159, 'max_depth': 3, 'learning_rate': 0.22375953522306435}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:58,071] Trial 48 finished with value: 0.7864752714886659 and parameters: {'model_type': 'lgbm', 'n_estimators': 179, 'max_depth': 4, 'learning_rate': 0.1029073883784266}. Best is trial 33 with value: 0.7866651633512239.
+[I 2025-08-20 01:22:58,134] Trial 49 finished with value: 0.7693155488565783 and parameters: {'model_type': 'lgbm', 'n_estimators': 193, 'max_depth': 3, 'learning_rate': 0.13720974036667885}. Best is trial 33 with value: 0.7866651633512239.
+[01:23:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:04] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:07] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:13] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:13] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+Wrapped best model with Bagging ensemble: Bagging(XGBoost x15)
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:14] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:15] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:15] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:15] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:15] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:15] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:23] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:24] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:32] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:32] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:32] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:33] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:42] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:50] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:23:51] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/site-packages/xgboost/core.py:158: UserWarning: [01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+  warnings.warn(smsg, UserWarning)
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+[01:24:00] WARNING: /home/conda/feedstock_root/build_artifacts/xgboost-split_1744329155408/work/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    E.g. tree_method = "hist", device = "cuda"
+
+Regression Results:
+  Train R²: 0.919
+  Test R²: 0.750
+  CV R²: 0.509 ± 0.196
+
+=== Generating Visualizations ===
+=== Evaluating Bagging(XGBoost x15) with Parity Plots ===
+Model Performance:
+  Train R²: 0.919, MAE: 0.183, RMSE: 0.266
+  Test R²: 0.750, MAE: 0.331, RMSE: 0.461
+Generating parity plots...
+Parity plot saved as: plots/parity_plot_bagging(xgboost_x15)_train_each_8_optuna_train.png
+Parity plot saved as: plots/parity_plot_bagging(xgboost_x15)_test_each_8_optuna_test.png
+Parity analysis plot saved as: plots/parity_analysis_bagging(xgboost_x15)_test_each_8_optuna_analysis.png
+HTE prediction evaluation report saved to results/reports/hte_prediction_report_manual_8_each_8_optuna.txt
+
+=== Comparing without reaction-energy features (HTE prediction) ===
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['acyl_class_aromatic', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H', 'amine_Charges_secondary_1', 'amine_BV_secondary_avg', 'amine_pka_basic']
+Valid features: 9
+=== Building Regression Model ===
+Regression dataset: (1031, 9)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+/home/passos/mambaforge/envs/hte-ml/lib/python3.10/multiprocessing/queues.py:122: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+Train-only SFS selected 8 features for regression
+Running hyperparameter optimization for regression...
+[I 2025-08-20 01:25:13,467] A new study created in memory with name: no-name-2d638aa0-4380-4443-bb8a-86452b232481
+[I 2025-08-20 01:25:13,646] Trial 0 finished with value: 0.7017486485223287 and parameters: {'model_type': 'rf', 'n_estimators': 143, 'max_depth': 6, 'min_samples_split': 8}. Best is trial 0 with value: 0.7017486485223287.
+[I 2025-08-20 01:25:13,869] Trial 1 finished with value: 0.7618058049752112 and parameters: {'model_type': 'rf', 'n_estimators': 139, 'max_depth': 15, 'min_samples_split': 5}. Best is trial 1 with value: 0.7618058049752112.
+[I 2025-08-20 01:25:13,872] Trial 2 finished with value: 0.421656430195695 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 1.081377617019032e-05, 'alpha_2': 0.0007590844544560273, 'lambda_1': 0.0006021734364257048, 'lambda_2': 0.0007639130056767872}. Best is trial 1 with value: 0.7618058049752112.
+[I 2025-08-20 01:25:14,113] Trial 3 finished with value: 0.7393698929424322 and parameters: {'model_type': 'xgb', 'n_estimators': 191, 'max_depth': 5, 'learning_rate': 0.2431607897011088}. Best is trial 1 with value: 0.7618058049752112.
+[I 2025-08-20 01:25:14,115] Trial 4 finished with value: 0.42165220387071634 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.000659596682747407, 'alpha_2': 0.0007034552717761151, 'lambda_1': 0.000814313048523085, 'lambda_2': 8.199423575508059e-05}. Best is trial 1 with value: 0.7618058049752112.
+[I 2025-08-20 01:25:14,228] Trial 5 finished with value: 0.7890014886377077 and parameters: {'model_type': 'lgbm', 'n_estimators': 155, 'max_depth': 8, 'learning_rate': 0.034416850417451954}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,255] Trial 6 finished with value: 0.7812535569073535 and parameters: {'model_type': 'lgbm', 'n_estimators': 107, 'max_depth': 3, 'learning_rate': 0.170396141667675}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,546] Trial 7 finished with value: 0.7502859285997672 and parameters: {'model_type': 'rf', 'n_estimators': 169, 'max_depth': 8, 'min_samples_split': 5}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,835] Trial 8 finished with value: 0.7651567996161972 and parameters: {'model_type': 'rf', 'n_estimators': 177, 'max_depth': 11, 'min_samples_split': 4}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,837] Trial 9 finished with value: 0.42165668680368273 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.00045713794676576256, 'alpha_2': 0.0009960242530716384, 'lambda_1': 0.00029924413397182327, 'lambda_2': 0.0007901024364484481}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,900] Trial 10 finished with value: 0.6691155176361632 and parameters: {'model_type': 'lgbm', 'n_estimators': 52, 'max_depth': 8, 'learning_rate': 0.029664284856724007}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,934] Trial 11 finished with value: 0.7760692614612746 and parameters: {'model_type': 'lgbm', 'n_estimators': 86, 'max_depth': 3, 'learning_rate': 0.12499095137038344}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:14,971] Trial 12 finished with value: 0.7868451322075442 and parameters: {'model_type': 'lgbm', 'n_estimators': 104, 'max_depth': 3, 'learning_rate': 0.15658003103841475}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:36,731] Trial 13 finished with value: 0.7751467527766692 and parameters: {'model_type': 'cat', 'iterations': 516, 'depth': 7, 'learning_rate': 0.028632298176403365}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:36,821] Trial 14 finished with value: 0.7688986286741547 and parameters: {'model_type': 'lgbm', 'n_estimators': 105, 'max_depth': 8, 'learning_rate': 0.12966516284386842}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:36,885] Trial 15 finished with value: 0.7561835594883058 and parameters: {'model_type': 'lgbm', 'n_estimators': 150, 'max_depth': 5, 'learning_rate': 0.1951796238823306}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:38,964] Trial 16 finished with value: 0.7406065555742759 and parameters: {'model_type': 'xgb', 'n_estimators': 73, 'max_depth': 9, 'learning_rate': 0.07794762111768079}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:45,054] Trial 17 finished with value: 0.7717264625786324 and parameters: {'model_type': 'cat', 'iterations': 202, 'depth': 10, 'learning_rate': 0.2987841720111437}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:45,104] Trial 18 finished with value: 0.7869618229385371 and parameters: {'model_type': 'lgbm', 'n_estimators': 118, 'max_depth': 4, 'learning_rate': 0.09411602989528597}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:45,158] Trial 19 finished with value: 0.7888803834080446 and parameters: {'model_type': 'lgbm', 'n_estimators': 123, 'max_depth': 5, 'learning_rate': 0.07524196260003713}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:45,260] Trial 20 finished with value: 0.771029812975015 and parameters: {'model_type': 'lgbm', 'n_estimators': 161, 'max_depth': 6, 'learning_rate': 0.07251899081898694}. Best is trial 5 with value: 0.7890014886377077.
+[I 2025-08-20 01:25:45,316] Trial 21 finished with value: 0.7922123928721487 and parameters: {'model_type': 'lgbm', 'n_estimators': 120, 'max_depth': 4, 'learning_rate': 0.07756223011662801}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:25:45,402] Trial 22 finished with value: 0.7146137766278835 and parameters: {'model_type': 'lgbm', 'n_estimators': 126, 'max_depth': 5, 'learning_rate': 0.016657331443816252}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:25:45,456] Trial 23 finished with value: 0.7860354285044324 and parameters: {'model_type': 'lgbm', 'n_estimators': 129, 'max_depth': 4, 'learning_rate': 0.06910603265953309}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:25:45,538] Trial 24 finished with value: 0.7823389844820025 and parameters: {'model_type': 'lgbm', 'n_estimators': 154, 'max_depth': 7, 'learning_rate': 0.049152202588066615}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:03,007] Trial 25 finished with value: 0.7824820756294423 and parameters: {'model_type': 'cat', 'iterations': 739, 'depth': 4, 'learning_rate': 0.11772162312239072}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:03,976] Trial 26 finished with value: 0.7738469994950435 and parameters: {'model_type': 'xgb', 'n_estimators': 129, 'max_depth': 4, 'learning_rate': 0.0988599948258646}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:04,045] Trial 27 finished with value: 0.7839452188678281 and parameters: {'model_type': 'lgbm', 'n_estimators': 87, 'max_depth': 7, 'learning_rate': 0.04562153735326994}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:04,142] Trial 28 finished with value: 0.7772222571419052 and parameters: {'model_type': 'lgbm', 'n_estimators': 183, 'max_depth': 9, 'learning_rate': 0.053899104145362725}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:04,224] Trial 29 finished with value: 0.7687394269698482 and parameters: {'model_type': 'lgbm', 'n_estimators': 199, 'max_depth': 6, 'learning_rate': 0.09419781651860115}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:05,789] Trial 30 finished with value: 0.7886626811254429 and parameters: {'model_type': 'cat', 'iterations': 227, 'depth': 4, 'learning_rate': 0.1511210653772762}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:10,259] Trial 31 finished with value: 0.7837074977015693 and parameters: {'model_type': 'cat', 'iterations': 217, 'depth': 4, 'learning_rate': 0.2206449638630914}. Best is trial 21 with value: 0.7922123928721487.
+Warning: less than 75% GPU memory available for training. Free: 4007.4375 Total: 81155.75
+[I 2025-08-20 01:26:17,430] Trial 32 finished with value: 0.7854438031807378 and parameters: {'model_type': 'cat', 'iterations': 436, 'depth': 6, 'learning_rate': 0.15566586336414734}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:24,296] Trial 33 finished with value: 0.777806283158188 and parameters: {'model_type': 'cat', 'iterations': 402, 'depth': 10, 'learning_rate': 0.05947000927970805}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:24,315] Trial 34 finished with value: 0.4216521222288191 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009400279980448091, 'alpha_2': 2.5170976241946797e-05, 'lambda_1': 1.5475093830956443e-05, 'lambda_2': 2.5520913583700674e-05}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:24,533] Trial 35 finished with value: 0.7528876332807632 and parameters: {'model_type': 'rf', 'n_estimators': 116, 'max_depth': 11, 'min_samples_split': 10}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:26,467] Trial 36 finished with value: 0.7640581007837145 and parameters: {'model_type': 'xgb', 'n_estimators': 142, 'max_depth': 5, 'learning_rate': 0.11170724698550508}. Best is trial 21 with value: 0.7922123928721487.
+[I 2025-08-20 01:26:47,990] Trial 37 finished with value: 0.7922735961387322 and parameters: {'model_type': 'cat', 'iterations': 649, 'depth': 6, 'learning_rate': 0.1434302374150642}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:26:48,009] Trial 38 finished with value: 0.4216541824011708 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 5.9142634696016105e-05, 'alpha_2': 9.519152897470969e-05, 'lambda_1': 0.0008764996037753298, 'lambda_2': 0.0004084381970162045}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:26:48,348] Trial 39 finished with value: 0.7676638186845948 and parameters: {'model_type': 'rf', 'n_estimators': 164, 'max_depth': 11, 'min_samples_split': 2}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:26:48,404] Trial 40 finished with value: 0.541178220156308 and parameters: {'model_type': 'lgbm', 'n_estimators': 98, 'max_depth': 4, 'learning_rate': 0.011540350537504795}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:09,313] Trial 41 finished with value: 0.7688350706937257 and parameters: {'model_type': 'cat', 'iterations': 675, 'depth': 6, 'learning_rate': 0.18678385649471896}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:18,812] Trial 42 finished with value: 0.791894291460451 and parameters: {'model_type': 'cat', 'iterations': 601, 'depth': 5, 'learning_rate': 0.13744582947193754}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:30,500] Trial 43 finished with value: 0.7780593778584799 and parameters: {'model_type': 'cat', 'iterations': 625, 'depth': 6, 'learning_rate': 0.14396330651273948}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:39,046] Trial 44 finished with value: 0.7876722416938702 and parameters: {'model_type': 'cat', 'iterations': 573, 'depth': 8, 'learning_rate': 0.08036700018568084}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:49,056] Trial 45 finished with value: 0.7910600109692273 and parameters: {'model_type': 'cat', 'iterations': 771, 'depth': 5, 'learning_rate': 0.17893830558838275}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:27:56,158] Trial 46 finished with value: 0.7819804757033243 and parameters: {'model_type': 'cat', 'iterations': 762, 'depth': 5, 'learning_rate': 0.17567736898471067}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:28:03,719] Trial 47 finished with value: 0.778309665767797 and parameters: {'model_type': 'cat', 'iterations': 797, 'depth': 5, 'learning_rate': 0.20229385452355064}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:28:11,294] Trial 48 finished with value: 0.785656723947841 and parameters: {'model_type': 'cat', 'iterations': 686, 'depth': 5, 'learning_rate': 0.13578564292736495}. Best is trial 37 with value: 0.7922735961387322.
+[I 2025-08-20 01:28:11,314] Trial 49 finished with value: 0.42165794331984296 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.00032547576966468933, 'alpha_2': 0.00036687031788897815, 'lambda_1': 0.00035920378872683287, 'lambda_2': 0.0009999559543077225}. Best is trial 37 with value: 0.7922735961387322.
+Regression Results:
+  Train R²: 0.937
+  Test R²: 0.792
+  CV R²: 0.499 ± 0.212
+Saved comparison to results/rxn_feature_comparison_hte_each_8_optuna.json
+
+==================================================
+ANALYSIS COMPLETE
+==================================================
+Check the following directories for outputs:
+  - plots/: Visualization files
+  - results/: Data files and reports
+  - models/: Trained model files

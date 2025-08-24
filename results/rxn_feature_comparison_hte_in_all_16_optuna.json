@@ -1,0 +1,20 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Random Forest",
+      "train_r2": 0.57877066185704,
+      "test_r2": 0.2664232331099743,
+      "cv_r2_mean": 0.32810481959850957,
+      "cv_r2_std": 0.15525399883824545
+    }
+  },
+  "without_rxn": {
+    "regression": {
+      "model": "LightGBM",
+      "train_r2": 0.453841080515914,
+      "test_r2": 0.17857373289146283,
+      "cv_r2_mean": 0.128925461485113,
+      "cv_r2_std": 0.2198571726670538
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "test_r2": 0.7247842075168496,
+  "n": 206,
+  "paths": [
+    "results/predictions_each_8_optuna_ens7_gpu0.csv",
+    "results/predictions_each_8_optuna_ens7_gpu1.csv",
+    "results/predictions_each_8_optuna_ens7_gpu2.csv",
+    "results/predictions_each_8_optuna_ens7_gpu3.csv",
+    "results/predictions_each_8_zoo_S97_ENet.csv",
+    "results/predictions_each_8_zoo_S97_ETR.csv",
+    "results/predictions_each_8_zoo_S97_GPR.csv",
+    "results/predictions_each_8_zoo_S97_KR.csv",
+    "results/predictions_each_8_zoo_S97_LR.csv",
+    "results/predictions_each_8_zoo_S97_Lasso.csv",
+    "results/predictions_each_8_zoo_S97_MLP.csv",
+    "results/predictions_each_8_zoo_S97_Ridge.csv",
+    "results/predictions_each_8_zoo_S97_SVR.csv"
+  ],
+  "output": "results/ensemble_predictions_ens7_zoo.csv"
+}

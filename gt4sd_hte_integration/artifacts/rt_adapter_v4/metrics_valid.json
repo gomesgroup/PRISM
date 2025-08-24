@@ -1,0 +1,14 @@
+{
+  "log10": {
+    "r2": 0.2697551178606101,
+    "mae": 0.608558177947998,
+    "rmse": 0.8097596168518066
+  },
+  "rate": {
+    "r2": 0.3099649883110528
+  },
+  "calibration": {
+    "type": "isotonic_rate",
+    "isotonic_rate_model": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/calibrator_isotonic_rate.pkl"
+  }
+}

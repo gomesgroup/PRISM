@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Linear Regression",
+      "train_r2": 0.49032865994473573,
+      "test_r2": 0.586860807692666,
+      "cv_r2_mean": 0.2593613892037289,
+      "cv_r2_std": 0.23671254956527696,
+      "y_train_pred": 

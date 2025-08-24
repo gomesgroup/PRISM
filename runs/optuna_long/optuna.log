@@ -1,0 +1,32 @@
+[I 2025-08-20 18:56:15,368] A new study created in memory with name: rt_hte_optimization
+INFO:optuna_rt_optimization:Starting Optuna optimization with 12 trials
+  0%|          | 0/12 [00:00<?, ?it/s]                                        0%|          | 0/12 [00:00<?, ?it/s]                                        0%|          | 0/12 [00:00<?, ?it/s]  0%|          | 0/12 [00:00<?, ?it/s]
+[W 2025-08-20 18:56:15,372] Trial 0 failed with parameters: {'learning_rate': 2.8057582076672495e-05, 'batch_size': 4, 'num_epochs': 8, 'dropout': 0.06742508365045984, 'n_layers': 10, 'd_model': 512, 'd_inner': 512, 'n_head': 16, 'warmup_steps': 105, 'gradient_clip': 1.1479175279631737} because of the following error: FileNotFoundError(2, 'No such file or directory').
+Traceback (most recent call last):
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/_optimize.py", line 197, in _run_trial
+    value_or_values = func(trial)
+  File "/home/passos/ml_measurable_hte_rates/regression-transformer/optuna_rt_optimization.py", line 89, in objective
+    dropout=dropout
+  File "/home/passos/ml_measurable_hte_rates/regression-transformer/optuna_rt_optimization.py", line 122, in _create_config
+    with open(self.base_config, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'configs/rt_hte_fixed.json'
+[W 2025-08-20 18:56:15,372] Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/home/passos/ml_measurable_hte_rates/regression-transformer/optuna_rt_optimization.py", line 312, in optimize
+    show_progress_bar=True
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/study.py", line 484, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/_optimize.py", line 73, in _optimize
+    progress_bar=progress_bar,
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/_optimize.py", line 160, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/_optimize.py", line 248, in _run_trial
+    raise func_err
+  File "/home/passos/mambaforge/envs/terminator/lib/python3.7/site-packages/optuna/study/_optimize.py", line 197, in _run_trial
+    value_or_values = func(trial)
+  File "/home/passos/ml_measurable_hte_rates/regression-transformer/optuna_rt_optimization.py", line 89, in objective
+    dropout=dropout
+  File "/home/passos/ml_measurable_hte_rates/regression-transformer/optuna_rt_optimization.py", line 122, in _create_config
+    with open(self.base_config, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'configs/rt_hte_fixed.json'

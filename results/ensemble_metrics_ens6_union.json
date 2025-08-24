@@ -1,0 +1,11 @@
+{
+  "r2_min1": 0.7679341146126752,
+  "n_min1": 606,
+  "r2_min2": 0.7717266227492735,
+  "n_min2": 192,
+  "r2_min3": 0.6360716279348773,
+  "n_min3": 26,
+  "r2_min4": null,
+  "n_min4": 0,
+  "path": "results/ensemble_predictions_ens6_union.csv"
+}

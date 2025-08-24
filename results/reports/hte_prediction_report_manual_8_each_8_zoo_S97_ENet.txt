@@ -1,0 +1,54 @@
+HTE Rate Prediction Analysis Report
+======================================================================
+
+METHODOLOGY: Single-Stage Regression Model
+Direct prediction of HTE rates using molecular descriptors.
+Target variable: Log-transformed HTE rates for improved model performance.
+
+Total entries: 1031
+Training samples: 619
+Test samples: 206
+
+Number of features for manual selection: 8
+Final features selected: ['acyl_pka_aHs_x_has_acidic_H', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'amine_BV_secondary_avg', 'acyl_class_aromatic', 'amine_Charges_secondary_1', 'acyl_Charges_secondary_1', 'amine_pka_basic']
+
+--- REGRESSION PERFORMANCE ANALYSIS ---
+Best Model: ElasticNet
+Train R²: 0.000
+Test R²: -0.019
+CV R²: -0.047 ± 0.055
+
+--- DATA DISTRIBUTION ANALYSIS ---
+Target variable: HTE_lnk_corrected
+Target range: -1.418 to 4.010
+Target mean: 1.674
+Target std: 0.927
+Train target mean: 1.638 ± 0.908
+Test target mean: 1.770 ± 0.963
+
+--- FEATURE ANALYSIS ---
+Selected features (8):
+  1. acyl_pka_aHs_x_has_acidic_H
+  2. acyl_BV_secondary_2
+  3. amine_class_1_mixture
+  4. amine_BV_secondary_avg
+  5. acyl_class_aromatic
+  6. amine_Charges_secondary_1
+  7. acyl_Charges_secondary_1
+  8. amine_pka_basic
+
+Feature breakdown:
+  Acyl chloride features: 4
+  Amine features: 4
+
+--- MODEL PERFORMANCE INTERPRETATION ---
+PERFORMANCE ASSESSMENT:
+  ❌ POOR: Test R² ≤ 0.2 - Poor predictive performance
+  ✅ GOOD: Train-test performance gap is reasonable
+  ⚠️  MODERATE VARIANCE: Some model variability across folds
+
+--- RECOMMENDATIONS ---
+• Consider feature engineering or additional descriptors
+• Explore non-linear models or ensemble methods
+• Check for data quality issues or outliers
+

@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "LightGBM",
+      "train_r2": 0.9432622074928437,
+      "test_r2": 0.7423656266805723,
+      "cv_r2_mean": 0.5231850570230508,
+      "cv_r2_std": 0.1980574669640398,
+      "y_train_pred": 

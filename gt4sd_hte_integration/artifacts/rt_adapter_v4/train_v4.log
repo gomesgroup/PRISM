@@ -1,0 +1,31 @@
+=== RT Adapter v4 Training ===
+BitFit enabled parameters: 14
+Epoch 01 | train_huber=0.528 | val_log R2=-0.3351 MAE=0.883 RMSE=1.095 | val_rate R2=0.1261 | cal=isotonic_rate
+Epoch 02 | train_huber=0.368 | val_log R2=-0.3809 MAE=0.895 RMSE=1.114 | val_rate R2=0.1733 | cal=isotonic_rate
+Epoch 03 | train_huber=0.319 | val_log R2=-0.3696 MAE=0.897 RMSE=1.109 | val_rate R2=0.1853 | cal=isotonic_rate
+Epoch 04 | train_huber=0.348 | val_log R2=-0.4974 MAE=0.959 RMSE=1.160 | val_rate R2=0.0962 | cal=isotonic_rate
+Epoch 05 | train_huber=0.332 | val_log R2=-0.1108 MAE=0.796 RMSE=0.999 | val_rate R2=0.2316 | cal=isotonic_rate
+Epoch 06 | train_huber=0.323 | val_log R2=-0.2333 MAE=0.852 RMSE=1.052 | val_rate R2=0.2194 | cal=isotonic_rate
+Epoch 07 | train_huber=0.350 | val_log R2=-0.1411 MAE=0.802 RMSE=1.012 | val_rate R2=0.1633 | cal=isotonic_rate
+Epoch 08 | train_huber=0.326 | val_log R2=-0.2943 MAE=0.872 RMSE=1.078 | val_rate R2=0.1273 | cal=isotonic_rate
+Epoch 09 | train_huber=0.322 | val_log R2=-0.2530 MAE=0.864 RMSE=1.061 | val_rate R2=0.1361 | cal=isotonic_rate
+Epoch 10 | train_huber=0.285 | val_log R2=-0.2247 MAE=0.846 RMSE=1.049 | val_rate R2=0.2333 | cal=isotonic_rate
+Epoch 11 | train_huber=0.302 | val_log R2=-0.0941 MAE=0.797 RMSE=0.991 | val_rate R2=0.1966 | cal=isotonic_rate
+Epoch 12 | train_huber=0.277 | val_log R2=-0.2471 MAE=0.852 RMSE=1.058 | val_rate R2=0.1807 | cal=isotonic_rate
+Epoch 13 | train_huber=0.287 | val_log R2=-0.0644 MAE=0.778 RMSE=0.978 | val_rate R2=0.2414 | cal=isotonic_rate
+Epoch 14 | train_huber=0.260 | val_log R2=-0.1536 MAE=0.810 RMSE=1.018 | val_rate R2=0.1821 | cal=isotonic_rate
+Epoch 15 | train_huber=0.302 | val_log R2=0.0339 MAE=0.727 RMSE=0.931 | val_rate R2=0.2509 | cal=isotonic_rate
+Epoch 16 | train_huber=0.260 | val_log R2=0.1049 MAE=0.700 RMSE=0.897 | val_rate R2=0.2625 | cal=isotonic_rate
+Epoch 17 | train_huber=0.299 | val_log R2=0.0583 MAE=0.741 RMSE=0.920 | val_rate R2=0.2814 | cal=isotonic_rate
+Epoch 18 | train_huber=0.267 | val_log R2=0.0848 MAE=0.729 RMSE=0.907 | val_rate R2=0.2509 | cal=isotonic_rate
+Epoch 19 | train_huber=0.281 | val_log R2=0.1502 MAE=0.688 RMSE=0.874 | val_rate R2=0.2957 | cal=isotonic_rate
+Epoch 20 | train_huber=0.287 | val_log R2=0.0755 MAE=0.706 RMSE=0.911 | val_rate R2=0.2042 | cal=isotonic_rate
+Epoch 21 | train_huber=0.250 | val_log R2=0.1126 MAE=0.706 RMSE=0.893 | val_rate R2=0.2352 | cal=isotonic_rate
+Epoch 22 | train_huber=0.255 | val_log R2=0.1241 MAE=0.708 RMSE=0.887 | val_rate R2=0.2468 | cal=isotonic_rate
+Epoch 23 | train_huber=0.227 | val_log R2=0.2006 MAE=0.666 RMSE=0.847 | val_rate R2=0.2681 | cal=isotonic_rate
+Epoch 24 | train_huber=0.277 | val_log R2=-0.0108 MAE=0.755 RMSE=0.953 | val_rate R2=0.1923 | cal=isotonic_rate
+Epoch 25 | train_huber=0.241 | val_log R2=0.2946 MAE=0.618 RMSE=0.796 | val_rate R2=0.2816 | cal=isotonic_rate
+Training until validation scores don't improve for 100 rounds
+Early stopping, best iteration is:
+[204]	valid's l2: 0.233429	valid's l1: 0.312492
+Stack v4 | log10 R2=0.7686 | rate R2=0.2517 | CV log10 R2=0.7511 | CV rate R2=0.2494

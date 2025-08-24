@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Lasso",
+      "train_r2": 0.0,
+      "test_r2": -0.018900546363953996,
+      "cv_r2_mean": -0.04719290468893909,
+      "cv_r2_std": 0.05500099665710423,
+      "y_train_pred": 

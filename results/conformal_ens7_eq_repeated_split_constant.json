@@ -1,0 +1,10 @@
+{
+  "tag": "ens7_eq",
+  "method": "repeated_split_constant",
+  "alpha": 0.05,
+  "coverage_test": 0.6844660194174758,
+  "mean_interval_width": 0.7837900114867988,
+  "n_train": 619,
+  "repeats": 30,
+  "q_median": 0.3918950057433994
+}

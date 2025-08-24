@@ -1,0 +1,15 @@
+{
+  "tag": "ens7",
+  "n_models": 4,
+  "models": [
+    "predictions_each_8_optuna_ens7_gpu0",
+    "predictions_each_8_optuna_ens7_gpu1",
+    "predictions_each_8_optuna_ens7_gpu2",
+    "predictions_each_8_optuna_ens7_gpu3"
+  ],
+  "alpha": 0.01832980710832434,
+  "B": 1000,
+  "n_test": 206,
+  "test_r2": 0.786348294208,
+  "coverage_95": 0.05339805825242718
+}

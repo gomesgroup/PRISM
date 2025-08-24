@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "CatBoost",
+      "train_r2": 0.958144118502557,
+      "test_r2": 0.7921087372411751,
+      "cv_r2_mean": 0.41111192417777537,
+      "cv_r2_std": 0.2008555039500264,
+      "y_train_pred": 

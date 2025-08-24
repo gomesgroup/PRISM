@@ -1,0 +1,235 @@
+=== ML Measurable HTE Rate Bias Analysis ===
+
+==================================================
+Running HTE Prediction Analysis: each with 8 features
+==================================================
+
+=== Loading Data ===
+Number of HTE rates: 1031
+Found 5 hydrogen-dependent features: ['num_Hs', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+Found 2 pKa-dependent features: ['pka_aHs', 'pka_lowest']
+Found 26 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'L_main_atom_2', 'B1_main_atom_1', 'B1_main_atom_2', 'B5_main_atom_1', 'B5_main_atom_2', 'Charges_secondary_1', 'Charges_secondary_2', 'fukui_N_secondary_1', 'fukui_N_secondary_2', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_2', 'FREQS_2', 'FCS_avg', 'FREQS_avg', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+
+Processing num_Hs conditional features...
+  18/46 molecules meet condition num_Hs
+    num_Hs: 0 -> 0 NA values
+    BV_Hs_avg: 28 -> 0 NA values
+    Charges_Hs_avg: 28 -> 0 NA values
+    fukui_E_Hs_avg: 28 -> 0 NA values
+    fukui_N_Hs_avg: 28 -> 0 NA values
+
+Processing pKa_features conditional features...
+  18/46 molecules meet condition pKa_features
+    Processing pKa feature pka_aHs with special handling...
+      Created indicator: has_acidic_H_for_pka_aHs
+      Created interaction: pka_aHs_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_aHs: 28 -> 0 NA values
+    Processing pKa feature pka_lowest with special handling...
+      Created indicator: has_acidic_H_for_pka_lowest
+      Created interaction: pka_lowest_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_lowest: 38 -> 0 NA values
+
+Handling remaining NA values...
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Found categorical feature class with 4 unique values: ['aromatic' 'hetero' 'aliphatic' 'mixture']
+    One-hot encoded class -> 4 features: ['class_aliphatic', 'class_aromatic', 'class_hetero', 'class_mixture']
+  Removed identifier feature: smiles
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+  Added indicator: has_num_Hs
+  Added indicator: has_pKa_features
+Preprocessing complete. Shape: (46, 65)
+Remaining NA values: 0
+Found 1 pKa-dependent features: ['pka_basic']
+Warning: num_Hs column not found, cannot properly handle pKa features
+Found 15 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'B1_main_atom_1', 'B5_main_atom_1', 'Charges_secondary_1', 'fukui_N_secondary_1', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_avg', 'FREQS_avg']
+
+Handling remaining NA values...
+  pka_basic: Filled 1 NA values with median/zero
+  smiles: Filled 1 NA values with mode/unknown
+  class: Filled 1 NA values with mode/unknown
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Removed identifier feature: smiles
+  Found categorical feature class with 5 unique values: ['1_aliphatic' '1_aromatic' '2_aliphatic' '1_mixture' '2_mixture']
+    One-hot encoded class -> 5 features: ['class_1_aliphatic', 'class_1_aromatic', 'class_1_mixture', 'class_2_aliphatic', 'class_2_mixture']
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+Preprocessing complete. Shape: (55, 40)
+Remaining NA values: 0
+Loaded reaction energy features: 1488 rows, 8 features
+
+=== Selecting Features (selected) ===
+Final selected features (8): ['acyl_class_aromatic', 'amine_pka_basic', 'amine_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'amine_BV_secondary_avg', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H']
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['acyl_class_aromatic', 'amine_pka_basic', 'amine_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'amine_BV_secondary_avg', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H']
+Valid features: 17
+=== Building Regression Model ===
+Regression dataset: (1031, 17)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+Train-only SFS selected 16 features for regression
+Running hyperparameter optimization for regression...
+[I 2025-08-20 03:33:31,137] A new study created in memory with name: no-name-963ffab1-3fc5-4193-bcf5-e7c0cdd8377a
+[I 2025-08-20 03:33:45,070] Trial 0 finished with value: 0.7590494074089813 and parameters: {'model_type': 'xgb', 'n_estimators': 136, 'max_depth': 7, 'learning_rate': 0.06539585807131806}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:46,099] Trial 1 finished with value: 0.7009788655442241 and parameters: {'model_type': 'lgbm', 'n_estimators': 146, 'max_depth': 7, 'learning_rate': 0.2932277542926804}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:49,532] Trial 2 finished with value: 0.7299848003368745 and parameters: {'model_type': 'xgb', 'n_estimators': 105, 'max_depth': 5, 'learning_rate': 0.2518308660041162}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:59,005] Trial 3 finished with value: 0.6918162855365382 and parameters: {'model_type': 'cat', 'iterations': 435, 'depth': 8, 'learning_rate': 0.2130055357973682}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:59,202] Trial 4 finished with value: 0.7397318366105019 and parameters: {'model_type': 'lgbm', 'n_estimators': 162, 'max_depth': 5, 'learning_rate': 0.09259760833137697}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:59,288] Trial 5 finished with value: 0.7338347423724803 and parameters: {'model_type': 'lgbm', 'n_estimators': 96, 'max_depth': 10, 'learning_rate': 0.03728250871882226}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:33:59,336] Trial 6 finished with value: 0.546101122662987 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0003709735120914809, 'alpha_2': 0.000492575376582323, 'lambda_1': 0.00019354598273766375, 'lambda_2': 0.00042062212322300027}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:34:58,044] Trial 7 finished with value: 0.7425225387184188 and parameters: {'model_type': 'cat', 'iterations': 777, 'depth': 10, 'learning_rate': 0.13193244450169098}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:00,335] Trial 8 finished with value: 0.7472293118350178 and parameters: {'model_type': 'xgb', 'n_estimators': 140, 'max_depth': 7, 'learning_rate': 0.05784468642036746}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:00,980] Trial 9 finished with value: 0.5066027738547452 and parameters: {'model_type': 'rf', 'n_estimators': 72, 'max_depth': 3, 'min_samples_split': 4}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:03,826] Trial 10 finished with value: 0.6934552322538352 and parameters: {'model_type': 'xgb', 'n_estimators': 198, 'max_depth': 10, 'learning_rate': 0.01320481906113543}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:04,971] Trial 11 finished with value: 0.7520108412489115 and parameters: {'model_type': 'xgb', 'n_estimators': 140, 'max_depth': 7, 'learning_rate': 0.07995189574804798}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:06,583] Trial 12 finished with value: 0.732903440752559 and parameters: {'model_type': 'xgb', 'n_estimators': 175, 'max_depth': 8, 'learning_rate': 0.11829787280903224}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:08,049] Trial 13 finished with value: 0.7439241851265137 and parameters: {'model_type': 'xgb', 'n_estimators': 120, 'max_depth': 8, 'learning_rate': 0.17787019645026259}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:08,141] Trial 14 finished with value: 0.5461000973086204 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0008963226640662416, 'alpha_2': 1.231042372777728e-05, 'lambda_1': 0.0009721797466863659, 'lambda_2': 0.0009766879166058873}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:10,270] Trial 15 finished with value: 0.7287574115427584 and parameters: {'model_type': 'rf', 'n_estimators': 127, 'max_depth': 15, 'min_samples_split': 10}. Best is trial 0 with value: 0.7590494074089813.
+[I 2025-08-20 03:35:11,394] Trial 16 finished with value: 0.7598316840632642 and parameters: {'model_type': 'xgb', 'n_estimators': 167, 'max_depth': 5, 'learning_rate': 0.07754939455877198}. Best is trial 16 with value: 0.7598316840632642.
+[I 2025-08-20 03:35:12,411] Trial 17 finished with value: 0.7501478474307361 and parameters: {'model_type': 'xgb', 'n_estimators': 176, 'max_depth': 5, 'learning_rate': 0.1521055963899334}. Best is trial 16 with value: 0.7598316840632642.
+[I 2025-08-20 03:35:12,770] Trial 18 finished with value: 0.7501498584399515 and parameters: {'model_type': 'xgb', 'n_estimators': 198, 'max_depth': 3, 'learning_rate': 0.09281995552458565}. Best is trial 16 with value: 0.7598316840632642.
+[I 2025-08-20 03:35:18,874] Trial 19 finished with value: 0.729867412642937 and parameters: {'model_type': 'cat', 'iterations': 217, 'depth': 4, 'learning_rate': 0.05580621986719457}. Best is trial 16 with value: 0.7598316840632642.
+[I 2025-08-20 03:35:20,199] Trial 20 finished with value: 0.7290424885931505 and parameters: {'model_type': 'rf', 'n_estimators': 51, 'max_depth': 14, 'min_samples_split': 2}. Best is trial 16 with value: 0.7598316840632642.
+[I 2025-08-20 03:35:21,533] Trial 21 finished with value: 0.7636968510902822 and parameters: {'model_type': 'xgb', 'n_estimators': 159, 'max_depth': 6, 'learning_rate': 0.08972945506850023}. Best is trial 21 with value: 0.7636968510902822.
+[I 2025-08-20 03:35:22,308] Trial 22 finished with value: 0.6804807668737217 and parameters: {'model_type': 'xgb', 'n_estimators': 162, 'max_depth': 6, 'learning_rate': 0.011855233079386372}. Best is trial 21 with value: 0.7636968510902822.
+[I 2025-08-20 03:35:23,080] Trial 23 finished with value: 0.7578093108677062 and parameters: {'model_type': 'xgb', 'n_estimators': 160, 'max_depth': 4, 'learning_rate': 0.10994402688207243}. Best is trial 21 with value: 0.7636968510902822.
+[I 2025-08-20 03:35:24,138] Trial 24 finished with value: 0.7562240162485963 and parameters: {'model_type': 'xgb', 'n_estimators': 179, 'max_depth': 6, 'learning_rate': 0.05843781279925076}. Best is trial 21 with value: 0.7636968510902822.
+[I 2025-08-20 03:35:24,163] Trial 25 finished with value: 0.5461019170532562 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 5.732116045822119e-05, 'alpha_2': 0.0009931450789732329, 'lambda_1': 0.0008077043193867892, 'lambda_2': 1.716249647921189e-05}. Best is trial 21 with value: 0.7636968510902822.
+[I 2025-08-20 03:35:24,791] Trial 26 finished with value: 0.7670400649256263 and parameters: {'model_type': 'xgb', 'n_estimators': 150, 'max_depth': 6, 'learning_rate': 0.15773266295884142}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:25,551] Trial 27 finished with value: 0.7549370757179441 and parameters: {'model_type': 'xgb', 'n_estimators': 155, 'max_depth': 5, 'learning_rate': 0.18159916389624325}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:25,863] Trial 28 finished with value: 0.7576093354235055 and parameters: {'model_type': 'xgb', 'n_estimators': 184, 'max_depth': 4, 'learning_rate': 0.13983099631711945}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:26,542] Trial 29 finished with value: 0.7584676807010445 and parameters: {'model_type': 'xgb', 'n_estimators': 112, 'max_depth': 6, 'learning_rate': 0.17900641121976435}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:26,605] Trial 30 finished with value: 0.5461000522399162 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009257866951192158, 'alpha_2': 7.909304337354317e-06, 'lambda_1': 7.991626361391393e-05, 'lambda_2': 0.0009770137880031754}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:31,170] Trial 31 finished with value: 0.7335202673594297 and parameters: {'model_type': 'lgbm', 'n_estimators': 131, 'max_depth': 8, 'learning_rate': 0.07721916887581404}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:31,952] Trial 32 finished with value: 0.765501597278289 and parameters: {'model_type': 'xgb', 'n_estimators': 147, 'max_depth': 6, 'learning_rate': 0.11485254452833378}. Best is trial 26 with value: 0.7670400649256263.
+[I 2025-08-20 03:35:32,701] Trial 33 finished with value: 0.7717427436896942 and parameters: {'model_type': 'xgb', 'n_estimators': 150, 'max_depth': 6, 'learning_rate': 0.1140702049251182}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:35:33,609] Trial 34 finished with value: 0.7417704105056674 and parameters: {'model_type': 'xgb', 'n_estimators': 148, 'max_depth': 6, 'learning_rate': 0.11218647722764723}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:36:20,633] Trial 35 finished with value: 0.7326869718266191 and parameters: {'model_type': 'cat', 'iterations': 799, 'depth': 4, 'learning_rate': 0.16231307240630405}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:36:24,604] Trial 36 finished with value: 0.7508935857243209 and parameters: {'model_type': 'xgb', 'n_estimators': 149, 'max_depth': 6, 'learning_rate': 0.20943282444305383}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:36:31,233] Trial 37 finished with value: 0.7200477163081179 and parameters: {'model_type': 'lgbm', 'n_estimators': 152, 'max_depth': 4, 'learning_rate': 0.13113035673078643}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:36:34,158] Trial 38 finished with value: 0.7448257707603554 and parameters: {'model_type': 'xgb', 'n_estimators': 136, 'max_depth': 7, 'learning_rate': 0.10079588790147045}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:36:39,236] Trial 39 finished with value: 0.7211413754287302 and parameters: {'model_type': 'rf', 'n_estimators': 123, 'max_depth': 9, 'min_samples_split': 9}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:37:35,243] Trial 40 finished with value: 0.7549548864321111 and parameters: {'model_type': 'cat', 'iterations': 535, 'depth': 7, 'learning_rate': 0.1451994626359219}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:37:44,888] Trial 41 finished with value: 0.7640779776085165 and parameters: {'model_type': 'xgb', 'n_estimators': 168, 'max_depth': 5, 'learning_rate': 0.08193187783406496}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:37:52,699] Trial 42 finished with value: 0.7576654781866488 and parameters: {'model_type': 'xgb', 'n_estimators': 169, 'max_depth': 6, 'learning_rate': 0.11267964548740483}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:37:58,933] Trial 43 finished with value: 0.7612102092826544 and parameters: {'model_type': 'xgb', 'n_estimators': 144, 'max_depth': 5, 'learning_rate': 0.12569803821198883}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:10,686] Trial 44 finished with value: 0.7400210877046395 and parameters: {'model_type': 'xgb', 'n_estimators': 189, 'max_depth': 7, 'learning_rate': 0.03968173502354145}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:14,824] Trial 45 finished with value: 0.7512191509659171 and parameters: {'model_type': 'xgb', 'n_estimators': 156, 'max_depth': 5, 'learning_rate': 0.19957802695568524}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:30,630] Trial 46 finished with value: 0.7223627789734967 and parameters: {'model_type': 'lgbm', 'n_estimators': 168, 'max_depth': 6, 'learning_rate': 0.23052265182737608}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:37,953] Trial 47 finished with value: 0.7442304169733807 and parameters: {'model_type': 'xgb', 'n_estimators': 134, 'max_depth': 7, 'learning_rate': 0.16346016250749174}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:42,457] Trial 48 finished with value: 0.7474185437321794 and parameters: {'model_type': 'xgb', 'n_estimators': 158, 'max_depth': 5, 'learning_rate': 0.08971786440980165}. Best is trial 33 with value: 0.7717427436896942.
+[I 2025-08-20 03:38:43,059] Trial 49 finished with value: 0.5461009996124501 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.000560541581940928, 'alpha_2': 0.0009476568305340827, 'lambda_1': 0.0004938939245023626, 'lambda_2': 0.0004936029375934067}. Best is trial 33 with value: 0.7717427436896942.
+Regression Results:
+  Train R²: 0.999
+  Test R²: 0.772
+  CV R²: 0.494 ± 0.210
+
+=== Generating Visualizations ===
+=== Evaluating XGBoost with Parity Plots ===
+Model Performance:
+  Train R²: 0.999, MAE: 0.022, RMSE: 0.032
+  Test R²: 0.772, MAE: 0.324, RMSE: 0.465
+Generating parity plots...
+Parity plot saved as: plots/parity_plot_xgboost_train_each_8_optuna_train.png
+Parity plot saved as: plots/parity_plot_xgboost_test_each_8_optuna_test.png
+Parity analysis plot saved as: plots/parity_analysis_xgboost_test_each_8_optuna_analysis.png
+Saved predictions to results/predictions_each_8_optuna.csv
+Saved combined dataset to results/combined_df_each_8_optuna.csv
+Models saved with suffix: _each_8_optuna
+HTE prediction evaluation report saved to results/reports/hte_prediction_report_manual_8_each_8_optuna.txt
+
+=== Comparing without reaction-energy features (HTE prediction) ===
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['acyl_class_aromatic', 'amine_pka_basic', 'amine_Charges_secondary_1', 'amine_class_1_mixture', 'acyl_BV_secondary_2', 'amine_BV_secondary_avg', 'acyl_Charges_secondary_1', 'acyl_pka_aHs_x_has_acidic_H']
+Valid features: 9
+=== Building Regression Model ===
+Regression dataset: (1031, 9)
+Target range: -1.418 to 4.010
+
+
+Training data: 619 samples
+Test data: 206 samples
+
+
+Train-only SFS selected 8 features for regression
+Running hyperparameter optimization for regression...
+[I 2025-08-20 03:46:49,137] A new study created in memory with name: no-name-0d6d9516-3a83-4f55-ac98-e58c67709a26
+[I 2025-08-20 03:47:47,663] Trial 0 finished with value: 0.7660920333024066 and parameters: {'model_type': 'cat', 'iterations': 718, 'depth': 6, 'learning_rate': 0.051828151544856094}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:47:50,671] Trial 1 finished with value: 0.7112795543719674 and parameters: {'model_type': 'xgb', 'n_estimators': 185, 'max_depth': 10, 'learning_rate': 0.20835726842752117}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:47:52,421] Trial 2 finished with value: 0.716739327339679 and parameters: {'model_type': 'xgb', 'n_estimators': 158, 'max_depth': 8, 'learning_rate': 0.17203813549058208}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:48:03,975] Trial 3 finished with value: 0.7529527511577427 and parameters: {'model_type': 'lgbm', 'n_estimators': 91, 'max_depth': 8, 'learning_rate': 0.1734716425044006}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:48:04,539] Trial 4 finished with value: 0.7358065905162325 and parameters: {'model_type': 'rf', 'n_estimators': 58, 'max_depth': 8, 'min_samples_split': 5}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:48:04,575] Trial 5 finished with value: 0.44654189652859577 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0006056349487328857, 'alpha_2': 3.979812225651077e-05, 'lambda_1': 0.00027851824072632945, 'lambda_2': 0.0003015231991905351}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:49:05,533] Trial 6 finished with value: 0.7629713293105497 and parameters: {'model_type': 'cat', 'iterations': 718, 'depth': 4, 'learning_rate': 0.193391296882777}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:49:05,621] Trial 7 finished with value: 0.44654687953025696 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0004119215644028061, 'alpha_2': 0.0002472733281150935, 'lambda_1': 8.997802665481636e-05, 'lambda_2': 0.0007943766763443555}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:49:06,667] Trial 8 finished with value: 0.4932938264944079 and parameters: {'model_type': 'xgb', 'n_estimators': 91, 'max_depth': 4, 'learning_rate': 0.01094178657777753}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:49:10,246] Trial 9 finished with value: 0.761734482678476 and parameters: {'model_type': 'xgb', 'n_estimators': 167, 'max_depth': 6, 'learning_rate': 0.18160678897592847}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:49:55,599] Trial 10 finished with value: 0.7616002896168678 and parameters: {'model_type': 'cat', 'iterations': 394, 'depth': 8, 'learning_rate': 0.0517211556219327}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:52:25,756] Trial 11 finished with value: 0.7478802407544505 and parameters: {'model_type': 'cat', 'iterations': 799, 'depth': 4, 'learning_rate': 0.28941395021428806}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:54:19,279] Trial 12 finished with value: 0.7510636046016731 and parameters: {'model_type': 'cat', 'iterations': 748, 'depth': 4, 'learning_rate': 0.09981626720831305}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:55:08,105] Trial 13 finished with value: 0.7490289232175978 and parameters: {'model_type': 'cat', 'iterations': 603, 'depth': 6, 'learning_rate': 0.25081453727054187}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:55:37,641] Trial 14 finished with value: 0.7606701413242271 and parameters: {'model_type': 'cat', 'iterations': 591, 'depth': 6, 'learning_rate': 0.12082258295888126}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:55:38,844] Trial 15 finished with value: 0.7588515346831938 and parameters: {'model_type': 'lgbm', 'n_estimators': 129, 'max_depth': 3, 'learning_rate': 0.10986016221310965}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:55:39,107] Trial 16 finished with value: 0.7427065624301664 and parameters: {'model_type': 'rf', 'n_estimators': 50, 'max_depth': 15, 'min_samples_split': 10}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:56:44,298] Trial 17 finished with value: 0.7644741490417352 and parameters: {'model_type': 'cat', 'iterations': 673, 'depth': 10, 'learning_rate': 0.22732407451594133}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:56:54,335] Trial 18 finished with value: 0.7281067761103994 and parameters: {'model_type': 'cat', 'iterations': 203, 'depth': 10, 'learning_rate': 0.24578531755027605}. Best is trial 0 with value: 0.7660920333024066.
+[I 2025-08-20 03:57:43,780] Trial 19 finished with value: 0.770876416262586 and parameters: {'model_type': 'cat', 'iterations': 585, 'depth': 10, 'learning_rate': 0.06742533614443813}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:45,830] Trial 20 finished with value: 0.7678498190615887 and parameters: {'model_type': 'rf', 'n_estimators': 198, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:47,708] Trial 21 finished with value: 0.7672641203877075 and parameters: {'model_type': 'rf', 'n_estimators': 200, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:49,340] Trial 22 finished with value: 0.7674102954762987 and parameters: {'model_type': 'rf', 'n_estimators': 191, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:50,744] Trial 23 finished with value: 0.7628916059975512 and parameters: {'model_type': 'rf', 'n_estimators': 153, 'max_depth': 12, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:51,963] Trial 24 finished with value: 0.7629836589463572 and parameters: {'model_type': 'rf', 'n_estimators': 199, 'max_depth': 13, 'min_samples_split': 4}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:53,550] Trial 25 finished with value: 0.7658893189309374 and parameters: {'model_type': 'rf', 'n_estimators': 177, 'max_depth': 13, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:54,643] Trial 26 finished with value: 0.7543958294783615 and parameters: {'model_type': 'rf', 'n_estimators': 136, 'max_depth': 11, 'min_samples_split': 7}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:55,466] Trial 27 finished with value: 0.760267896750704 and parameters: {'model_type': 'rf', 'n_estimators': 103, 'max_depth': 15, 'min_samples_split': 4}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:59,727] Trial 28 finished with value: 0.7481876500121785 and parameters: {'model_type': 'lgbm', 'n_estimators': 185, 'max_depth': 6, 'learning_rate': 0.06501170433082143}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:57:59,761] Trial 29 finished with value: 0.4465386863281081 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 6.424952520932129e-06, 'alpha_2': 0.000982158245955937, 'lambda_1': 0.000924462959900036, 'lambda_2': 1.2739965088920347e-05}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:00,990] Trial 30 finished with value: 0.7580134570879282 and parameters: {'model_type': 'rf', 'n_estimators': 146, 'max_depth': 14, 'min_samples_split': 7}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:02,544] Trial 31 finished with value: 0.7673920048266781 and parameters: {'model_type': 'rf', 'n_estimators': 199, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:04,349] Trial 32 finished with value: 0.761667008356828 and parameters: {'model_type': 'rf', 'n_estimators': 200, 'max_depth': 13, 'min_samples_split': 3}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:05,369] Trial 33 finished with value: 0.7648986368238151 and parameters: {'model_type': 'rf', 'n_estimators': 175, 'max_depth': 14, 'min_samples_split': 3}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:07,048] Trial 34 finished with value: 0.7641633602210832 and parameters: {'model_type': 'rf', 'n_estimators': 187, 'max_depth': 12, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:08,422] Trial 35 finished with value: 0.7646566761971735 and parameters: {'model_type': 'rf', 'n_estimators': 166, 'max_depth': 14, 'min_samples_split': 4}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:12,703] Trial 36 finished with value: 0.7341231449888883 and parameters: {'model_type': 'lgbm', 'n_estimators': 112, 'max_depth': 9, 'learning_rate': 0.1431194577133571}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:14,241] Trial 37 finished with value: 0.7278207625996549 and parameters: {'model_type': 'xgb', 'n_estimators': 188, 'max_depth': 9, 'learning_rate': 0.03446388404029056}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:15,950] Trial 38 finished with value: 0.7643414507436002 and parameters: {'model_type': 'rf', 'n_estimators': 172, 'max_depth': 15, 'min_samples_split': 3}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:16,033] Trial 39 finished with value: 0.44654839122454304 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.000982042745769924, 'alpha_2': 0.0007683465064968812, 'lambda_1': 0.0007793774734009609, 'lambda_2': 0.0009804556888250264}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:17,043] Trial 40 finished with value: 0.7669502456711975 and parameters: {'model_type': 'xgb', 'n_estimators': 145, 'max_depth': 4, 'learning_rate': 0.08055855101634035}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:18,526] Trial 41 finished with value: 0.7672641203877075 and parameters: {'model_type': 'rf', 'n_estimators': 200, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:19,684] Trial 42 finished with value: 0.7647302476203582 and parameters: {'model_type': 'rf', 'n_estimators': 191, 'max_depth': 14, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:21,057] Trial 43 finished with value: 0.7644868046224376 and parameters: {'model_type': 'rf', 'n_estimators': 179, 'max_depth': 12, 'min_samples_split': 3}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:22,576] Trial 44 finished with value: 0.7677083089524734 and parameters: {'model_type': 'rf', 'n_estimators': 192, 'max_depth': 15, 'min_samples_split': 2}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:22,642] Trial 45 finished with value: 0.4465435410941381 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 7.585167549386542e-05, 'alpha_2': 0.0005014211336827847, 'lambda_1': 0.0005424787548167076, 'lambda_2': 0.000479794134913601}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:23,961] Trial 46 finished with value: 0.7620571786563695 and parameters: {'model_type': 'rf', 'n_estimators': 191, 'max_depth': 13, 'min_samples_split': 3}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:38,500] Trial 47 finished with value: 0.7542562978428771 and parameters: {'model_type': 'cat', 'iterations': 430, 'depth': 8, 'learning_rate': 0.14785241588178927}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:43,632] Trial 48 finished with value: 0.7422341351767812 and parameters: {'model_type': 'lgbm', 'n_estimators': 161, 'max_depth': 7, 'learning_rate': 0.019225922248046194}. Best is trial 19 with value: 0.770876416262586.
+[I 2025-08-20 03:58:46,116] Trial 49 finished with value: 0.7239796932398863 and parameters: {'model_type': 'xgb', 'n_estimators': 180, 'max_depth': 9, 'learning_rate': 0.09291403278319602}. Best is trial 19 with value: 0.770876416262586.
+Regression Results:
+  Train R²: 0.940
+  Test R²: 0.771
+  CV R²: 0.527 ± 0.230
+Failed to save comparison file: Object of type ndarray is not JSON serializable
+
+==================================================
+ANALYSIS COMPLETE
+==================================================
+Check the following directories for outputs:
+  - plots/: Visualization files
+  - results/: Data files and reports
+  - models/: Trained model files

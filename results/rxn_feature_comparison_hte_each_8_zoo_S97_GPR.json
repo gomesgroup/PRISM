@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Gaussian Process",
+      "train_r2": 0.7548325238573995,
+      "test_r2": 0.7073996863996336,
+      "cv_r2_mean": 0.437909686399769,
+      "cv_r2_std": 0.16739538872197227,
+      "y_train_pred": 

@@ -1,0 +1,73 @@
+HTE Rate Prediction Analysis Report
+======================================================================
+
+METHODOLOGY: Single-Stage Regression Model
+Direct prediction of HTE rates using molecular descriptors.
+Target variable: Log-transformed HTE rates for improved model performance.
+
+Total entries: 1031
+Training samples: 617
+Test samples: 234
+
+Number of features for manual selection: 24
+Final features selected: ['acyl_pka_lowest', 'acyl_Charges_Hs_avg_x_has_num_Hs', 'acyl_BV_Hs_avg', 'acyl_num_Hs_x_has_num_Hs', 'acyl_has_acidic_H_for_pka_lowest', 'acyl_fukui_N_Hs_avg', 'acyl_pka_aHs', 'acyl_Charges_main_atom', 'int_pka_basic_minus_pka_lowest', 'acyl_BV_secondary_avg', 'acyl_pka_aHs_x_has_pKa_features', 'acyl_fukui_E_Hs_avg', 'int_pka_basic_minus_pka_aHs', 'acyl_BV_secondary_2', 'acyl_has_pKa_features', 'acyl_num_Hs', 'int_BV_secondary_prod', 'acyl_Charges_Hs_avg', 'acyl_BV_Hs_avg_x_has_num_Hs', 'acyl_has_acidic_H_for_pka_aHs', 'acyl_has_num_Hs', 'acyl_Charges_secondary_2', 'acyl_pka_aHs_x_has_acidic_H', 'acyl_fukui_E_secondary_2']
+
+--- REGRESSION PERFORMANCE ANALYSIS ---
+Best Model: Bagging(Random Forest x15)
+Train R²: 0.675
+Test R²: 0.458
+CV R²: 0.422 ± 0.152
+
+--- DATA DISTRIBUTION ANALYSIS ---
+Target variable: HTE_lnk_corrected
+Target range: -1.418 to 4.010
+Target mean: 1.674
+Target std: 0.927
+Train target mean: 1.719 ± 0.899
+Test target mean: 1.737 ± 0.994
+
+--- FEATURE ANALYSIS ---
+Selected features (24):
+  1. acyl_pka_lowest
+  2. acyl_Charges_Hs_avg_x_has_num_Hs
+  3. acyl_BV_Hs_avg
+  4. acyl_num_Hs_x_has_num_Hs
+  5. acyl_has_acidic_H_for_pka_lowest
+  6. acyl_fukui_N_Hs_avg
+  7. acyl_pka_aHs
+  8. acyl_Charges_main_atom
+  9. int_pka_basic_minus_pka_lowest
+  10. acyl_BV_secondary_avg
+  11. acyl_pka_aHs_x_has_pKa_features
+  12. acyl_fukui_E_Hs_avg
+  13. int_pka_basic_minus_pka_aHs
+  14. acyl_BV_secondary_2
+  15. acyl_has_pKa_features
+  16. acyl_num_Hs
+  17. int_BV_secondary_prod
+  18. acyl_Charges_Hs_avg
+  19. acyl_BV_Hs_avg_x_has_num_Hs
+  20. acyl_has_acidic_H_for_pka_aHs
+  21. acyl_has_num_Hs
+  22. acyl_Charges_secondary_2
+  23. acyl_pka_aHs_x_has_acidic_H
+  24. acyl_fukui_E_secondary_2
+
+Feature breakdown:
+  Acyl chloride features: 21
+  Amine features: 0
+
+--- MODEL PERFORMANCE INTERPRETATION ---
+PERFORMANCE ASSESSMENT:
+  ⚠️  MODERATE: Test R² > 0.4 - Moderate predictive performance
+  ⚠️  WARNING: Large train-test gap suggests potential overfitting
+  ⚠️  HIGH VARIANCE: Large CV std suggests model instability
+
+--- RECOMMENDATIONS ---
+• Reduce model complexity to prevent overfitting
+• Increase regularization strength
+• Consider cross-validation for hyperparameter tuning
+• Increase dataset size if possible
+• Use more robust cross-validation strategies
+• Consider ensemble methods for stability
+

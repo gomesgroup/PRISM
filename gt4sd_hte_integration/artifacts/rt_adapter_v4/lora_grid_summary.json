@@ -1,0 +1,650 @@
+[
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r4_a32_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r8_a32_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qv",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qv_r16_a32_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 4,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r4_a32_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 8,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r8_a32_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a8_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a8_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a8_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 8.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a8_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a16_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a16_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a16_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 16.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a16_L2_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a32_L1_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 1,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a32_L1_d0.1.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.0,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a32_L2_d0.0.log"
+  },
+  {
+    "target": "attn_qvo",
+    "r": 16,
+    "alpha": 32.0,
+    "layers": 2,
+    "dropout": 0.1,
+    "rate_r2": 0.21556727253511998,
+    "log": "/home/passos/ml_measurable_hte_rates/gt4sd_hte_integration/artifacts/rt_adapter_v4/lora_attn_qvo_r16_a32_L2_d0.1.log"
+  }
+]

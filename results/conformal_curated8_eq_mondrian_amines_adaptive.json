@@ -1,0 +1,11 @@
+{
+  "tag": "curated8_eq",
+  "method": "mondrian_amines_adaptive",
+  "alpha": 0.05,
+  "coverage_test": 0.529126213592233,
+  "mean_interval_width": 0.6421103901620879,
+  "n_train": 619,
+  "n_cal": 123,
+  "n_groups": 10,
+  "global_q": 5.993472939709147
+}

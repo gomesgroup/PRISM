@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "Ridge",
+      "train_r2": 0.5098885048495607,
+      "test_r2": 0.5708416194542201,
+      "cv_r2_mean": 0.3662747743531307,
+      "cv_r2_std": 0.10845529216394592,
+      "y_train_pred": 

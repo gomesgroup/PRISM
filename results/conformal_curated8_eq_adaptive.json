@@ -1,0 +1,11 @@
+{
+  "tag": "curated8_eq",
+  "adaptive": true,
+  "alpha": 0.05,
+  "calibration_fraction": 0.2,
+  "n_train": 619,
+  "n_cal": 123,
+  "quantile_q": 6.629965620309941,
+  "n_test": 206,
+  "coverage_test": 0.6019417475728155
+}

@@ -147,6 +147,9 @@ def main():
     kf = KFold(n_splits=args.n_splits, shuffle=True, random_state=42)
     y_true_all: List[float] = []
     y_pred_all: List[float] = []
+    # Out-of-fold containers for HF rows
+    oof_pred = np.full(shape=y_hf.shape, fill_value=np.nan, dtype=float)
+    oof_std = np.full(shape=y_hf.shape, fill_value=np.nan, dtype=float)
 
     # Kernel for delta GP
     base_kernel = ConstantKernel(1.0, (1e-3, 1e3)) * RBF(length_scale=np.ones(X_scaled.shape[1]), length_scale_bounds=(1e-2, 1e2)) + WhiteKernel(noise_level=1e-3, noise_level_bounds=(1e-6, 1e0))
@@ -169,12 +172,17 @@ def main():
         if isinstance(pred_out, tuple):
             # Some sklearn versions may return (mean, std) or (mean, std, cov)
             delta_pred_te = pred_out[0]
+            std_te = pred_out[1] if len(pred_out) > 1 else np.zeros_like(delta_pred_te)
         else:
             delta_pred_te = pred_out
+            std_te = np.zeros_like(delta_pred_te)
         y_pred_te = rho * y_lf_te + delta_pred_te
 
         y_true_all.extend(y_hf_te.tolist())
         y_pred_all.extend(y_pred_te.tolist())
+        # Store OOF
+        oof_pred[test_idx] = y_pred_te
+        oof_std[test_idx] = std_te
 
     y_true_all_np = np.asarray(y_true_all, dtype=float)
     y_pred_all_np = np.asarray(y_pred_all, dtype=float)
@@ -218,7 +226,18 @@ def main():
                 metrics[f"split_{sp}"] = compute_metrics(y_hf[mask], y_pred_all_final[mask])
 
     # Overall
-    metrics["overall_hf"] = compute_metrics(y_hf, y_pred_all_final)
+    metrics["overall_hf_insample"] = compute_metrics(y_hf, y_pred_all_final)
+    # Save OOF predictions if complete
+    if not np.isnan(oof_pred).any():
+        metrics["overall_hf_oof"] = compute_metrics(y_hf, oof_pred)
+        preds_oof_df = hf_df.select([c for c in ["acyl_chlorides", "amines", "split"] if c in hf_df.columns]) if any(c in hf_df.columns for c in ["acyl_chlorides","amines","split"]) else pl.DataFrame({})
+        preds_oof_df = preds_oof_df.with_columns(
+            pl.Series("y_true_nmr_lnk", y_hf),
+            pl.Series("y_pred_nmr_lnk", oof_pred),
+            pl.Series("y_std_delta", oof_std),
+        )
+        preds_oof_path = out_dir / f"{args.output_prefix}_predictions_nmr_oof.csv"
+        preds_oof_df.write_csv(preds_oof_path)
 
     metrics_path = out_dir / f"{args.output_prefix}_metrics.json"
     with metrics_path.open("w") as f:

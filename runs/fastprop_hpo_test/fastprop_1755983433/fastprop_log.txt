@@ -1,0 +1,7 @@
+[08/23/2025 09:10:33 PM fastprop.descriptors] INFO: Calculating descriptors
+[08/23/2025 09:10:40 PM fastprop.descriptors] INFO: Descriptor calculation complete, elapsed time: 0:00:07.542579
+[08/23/2025 09:10:41 PM fastprop.descriptors] INFO: Cached descriptors to runs/fastprop_hpo_test/cached_input_combined_lnk_optimized_1755884086.csv
+[08/23/2025 09:10:41 PM fastprop.cli.train] INFO: Run 'tensorboard --logdir runs/fastprop_hpo_test/fastprop_1755983433/tensorboard_logs' to track training progress.
+[08/23/2025 09:12:07 PM fastprop.cli.train] INFO: Best hyperparameters identified: hidden_size: 500, fnn_layers: 3
+[08/23/2025 09:12:07 PM fastprop.cli.base] INFO: If you use fastprop in published work, please cite https://doi.org/10.1186/s13321-025-01013-4
+[08/23/2025 09:12:07 PM fastprop.cli.base] INFO: Total elapsed time: 0:01:34.709064

@@ -1,0 +1,68 @@
+HTE Rate Prediction Analysis Report
+======================================================================
+
+METHODOLOGY: Single-Stage Regression Model
+Direct prediction of HTE rates using molecular descriptors.
+Target variable: Log-transformed HTE rates for improved model performance.
+
+Total entries: 1031
+Training samples: 876
+Test samples: 155
+
+Number of features for manual selection: 16
+Final features selected: ['acyl_fukui_E_Hs_avg', 'acyl_Charges_Hs_avg_x_has_num_Hs', 'int_BV_secondary_prod', 'acyl_Charges_Hs_avg', 'acyl_has_pKa_features', 'int_pka_basic_minus_pka_lowest', 'acyl_num_Hs', 'acyl_has_num_Hs', 'acyl_BV_secondary_2', 'int_pka_basic_minus_pka_aHs', 'acyl_has_acidic_H_for_pka_lowest', 'acyl_has_acidic_H_for_pka_aHs', 'acyl_Charges_main_atom', 'acyl_pka_aHs', 'acyl_num_Hs_x_has_num_Hs', 'acyl_BV_secondary_avg']
+
+--- REGRESSION PERFORMANCE ANALYSIS ---
+Best Model: XGBoost
+Train R²: 0.443
+Test R²: 0.169
+CV R²: 0.127 ± 0.210
+
+--- DATA DISTRIBUTION ANALYSIS ---
+Target variable: HTE_lnk_corrected
+Target range: -1.418 to 4.010
+Target mean: 1.674
+Target std: 0.927
+Train target mean: 1.603 ± 0.916
+Test target mean: 2.070 ± 0.891
+
+--- FEATURE ANALYSIS ---
+Selected features (16):
+  1. acyl_fukui_E_Hs_avg
+  2. acyl_Charges_Hs_avg_x_has_num_Hs
+  3. int_BV_secondary_prod
+  4. acyl_Charges_Hs_avg
+  5. acyl_has_pKa_features
+  6. int_pka_basic_minus_pka_lowest
+  7. acyl_num_Hs
+  8. acyl_has_num_Hs
+  9. acyl_BV_secondary_2
+  10. int_pka_basic_minus_pka_aHs
+  11. acyl_has_acidic_H_for_pka_lowest
+  12. acyl_has_acidic_H_for_pka_aHs
+  13. acyl_Charges_main_atom
+  14. acyl_pka_aHs
+  15. acyl_num_Hs_x_has_num_Hs
+  16. acyl_BV_secondary_avg
+
+Feature breakdown:
+  Acyl chloride features: 13
+  Amine features: 0
+
+--- MODEL PERFORMANCE INTERPRETATION ---
+PERFORMANCE ASSESSMENT:
+  ❌ POOR: Test R² ≤ 0.2 - Poor predictive performance
+  ⚠️  WARNING: Large train-test gap suggests potential overfitting
+  ⚠️  HIGH VARIANCE: Large CV std suggests model instability
+
+--- RECOMMENDATIONS ---
+• Consider feature engineering or additional descriptors
+• Explore non-linear models or ensemble methods
+• Check for data quality issues or outliers
+• Reduce model complexity to prevent overfitting
+• Increase regularization strength
+• Consider cross-validation for hyperparameter tuning
+• Increase dataset size if possible
+• Use more robust cross-validation strategies
+• Consider ensemble methods for stability
+

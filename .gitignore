@@ -23,14 +23,14 @@ htmlcov/
 env/
 venv/
 
-# Data/artifacts
-logs/
-plots/
-results/
-catboost_info/
-chemprop_logs/
-models/
-runs/
+# Data/artifacts (keep tracked by default; comment out to ignore)
+# logs/
+# plots/
+# results/
+# catboost_info/
+# chemprop_logs/
+# models/
+# runs/
 
 # Root dot logs
 .cpu_run*.log
@@ -39,14 +39,5 @@ runs/
 .gpu_run*.log
 .polars_jax_run.log
 
-# Build/other
-external/
-gt4sd-core/
-gt4sd_hte_integration/
-fixed/
-GPU/
-split
-with
-"seed, seed)\nPY"
-"{log}\"\n    procs.append(subprocess.Popen(cmd, shell=True))\nprint(Launched\n, len(procs), Chemprop-enabled"
+# Build/other (no blanket ignores for source dirs)
 

@@ -1,0 +1,26 @@
+Using prediction files:
+ - results/predictions_each_8_optuna_cpv2_gpu0.csv
+ - results/predictions_each_8_optuna_cpv2_gpu1.csv
+ - results/predictions_each_8_optuna_cpv2_gpu2.csv
+ - results/predictions_each_8_optuna_cpv2_gpu3.csv
+Saved ensemble: results/ensemble_predictions_cpv2_S97.csv
+Saved metrics: results/ensemble_metrics_cpv2_S97.json
+{
+  "n_test": 206,
+  "n_val": 206,
+  "calibration_split": "VAL",
+  "test_r2": 0.8031734537180023,
+  "test_mae": 0.32684558562303295,
+  "test_rmse": 0.4261258151361156,
+  "q90": 0.5890739316068394,
+  "q95": 0.8542896738534842,
+  "coverage90_test": 0.8252427184466019,
+  "coverage95_test": 0.9514563106796117,
+  "paths": [
+    "results/predictions_each_8_optuna_cpv2_gpu0.csv",
+    "results/predictions_each_8_optuna_cpv2_gpu1.csv",
+    "results/predictions_each_8_optuna_cpv2_gpu2.csv",
+    "results/predictions_each_8_optuna_cpv2_gpu3.csv"
+  ],
+  "output_csv": "results/ensemble_predictions_cpv2_S97.csv"
+}

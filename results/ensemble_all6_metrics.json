@@ -1,0 +1,49 @@
+{
+  "members": [
+    "pred_predictions_each_8_optuna_cpv2_gpu0",
+    "pred_predictions_each_8_optuna_cpv2_gpu1",
+    "pred_predictions_each_8_optuna_cpv2_gpu2",
+    "pred_predictions_each_8_optuna_cpv2_gpu3",
+    "pred_predictions_each_8_zoo_S97_XGB",
+    "pred_predictions_each_8_zoo_S97_CatCPU"
+  ],
+  "n_train": 619,
+  "n_val": 206,
+  "n_test": 206,
+  "ridge": {
+    "weights": [
+      0.2533777063013669,
+      0.4303547616345775,
+      0.5100223386359438,
+      0.0,
+      0.43396525023820604,
+      0.0
+    ],
+    "intercept": -1.030175505233044,
+    "test_r2": 0.6192262800269508,
+    "test_mae": 0.47560779944472387,
+    "test_rmse": 0.5926925829472408,
+    "q90": 0.9204015816126314,
+    "q95": 1.1586267606561824,
+    "coverage90_test": 0.8786407766990292,
+    "coverage95_test": 0.941747572815534
+  },
+  "nnls": {
+    "weights": [
+      0.0,
+      0.29701332376881806,
+      0.4369122403219234,
+      0.0,
+      0.27401233332415553,
+      0.0
+    ],
+    "intercept": -0.014380715376858921,
+    "test_r2": 0.7999287977283915,
+    "test_mae": 0.3243717286007948,
+    "test_rmse": 0.4296237682160695,
+    "q90": 0.6428820447608448,
+    "q95": 0.7899520176075417,
+    "coverage90_test": 0.8592233009708737,
+    "coverage95_test": 0.9368932038834952
+  }
+}

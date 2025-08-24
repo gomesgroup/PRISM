@@ -1,0 +1,1097 @@
+Seed set to 42
+[08/23/2025 09:10:33 PM fastprop.descriptors] INFO: Calculating descriptors
+  0%|          | 0/1121 [00:00<?, ?it/s]  0%|          | 1/1121 [00:00<17:02,  1.10it/s]  5%|▍         | 56/1121 [00:01<00:14, 75.37it/s]  8%|▊         | 89/1121 [00:01<00:10, 93.87it/s] 12%|█▏        | 134/1121 [00:01<00:06, 142.07it/s] 15%|█▌        | 169/1121 [00:01<00:06, 138.65it/s] 21%|██▏       | 240/1121 [00:01<00:03, 222.07it/s] 26%|██▋       | 297/1121 [00:02<00:04, 190.82it/s] 33%|███▎      | 373/1121 [00:02<00:02, 272.32it/s] 38%|███▊      | 421/1121 [00:02<00:02, 303.95it/s] 41%|████▏     | 464/1121 [00:02<00:03, 210.49it/s] 49%|████▉     | 552/1121 [00:02<00:01, 311.30it/s] 54%|█████▎    | 602/1121 [00:03<00:01, 299.83it/s] 60%|█████▉    | 669/1121 [00:03<00:01, 238.85it/s] 65%|██████▍   | 724/1121 [00:03<00:01, 283.63it/s] 68%|██████▊   | 765/1121 [00:03<00:01, 272.46it/s] 76%|███████▋  | 856/1121 [00:03<00:00, 385.94it/s] 81%|████████  | 909/1121 [00:04<00:01, 173.01it/s] 85%|████████▍ | 948/1121 [00:04<00:00, 186.21it/s] 94%|█████████▍| 1053/1121 [00:04<00:00, 294.93it/s]100%|██████████| 1121/1121 [00:04<00:00, 226.63it/s]
+[08/23/2025 09:10:40 PM fastprop.descriptors] INFO: Descriptor calculation complete, elapsed time: 0:00:07.542579
+[08/23/2025 09:10:41 PM fastprop.descriptors] INFO: Cached descriptors to runs/fastprop_hpo_test/cached_input_combined_lnk_optimized_1755884086.csv
+[08/23/2025 09:10:41 PM fastprop.cli.train] INFO: Run 'tensorboard --logdir runs/fastprop_hpo_test/fastprop_1755983433/tensorboard_logs' to track training progress.
+2025-08-23 21:10:43,237	INFO worker.py:1927 -- Started a local Ray instance.
+[I 2025-08-23 21:10:44,275] A new study created in memory with name: optuna
+[36m(<lambda> pid=43235)[0m Using bfloat16 Automatic Mixed Precision (AMP)
+[36m(<lambda> pid=43235)[0m GPU available: True (cuda), used: True
+[36m(<lambda> pid=43235)[0m TPU available: False, using: 0 TPU cores
+[36m(<lambda> pid=43235)[0m HPU available: False, using: 0 HPUs
+[36m(<lambda> pid=43235)[0m You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[36m(<lambda> pid=43235)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=43235)[0m /home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m   | Name    | Type       | Params | Mode 
+[36m(<lambda> pid=43235)[0m -----------------------------------------------
+[36m(<lambda> pid=43235)[0m 0 | fnn     | Sequential | 19.6 M | train
+[36m(<lambda> pid=43235)[0m 1 | readout | Linear     | 2.4 K  | train
+[36m(<lambda> pid=43235)[0m -----------------------------------------------
+[36m(<lambda> pid=43235)[0m 19.6 M    Trainable params
+[36m(<lambda> pid=43235)[0m 0         Non-trainable params
+[36m(<lambda> pid=43235)[0m 19.6 M    Total params
+[36m(<lambda> pid=43235)[0m 78.259    Total estimated model params size (MB)
+[36m(<lambda> pid=43235)[0m 9         Modules in train mode
+[36m(<lambda> pid=43235)[0m 0         Modules in eval mode
+[33m(raylet)[0m [2025-08-23 21:10:53,199 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.9805 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+╭───────────────────────────────────────────────────────────────╮
+│ Configuration for experiment     lambda_2025-08-23_21-10-44   │
+├───────────────────────────────────────────────────────────────┤
+│ Search algorithm                 SearchGenerator              │
+│ Scheduler                        FIFOScheduler                │
+│ Number of trials                 5                            │
+╰───────────────────────────────────────────────────────────────╯
+
+View detailed results here: /home/passos/ray_results/lambda_2025-08-23_21-10-44
+To visualize your results with TensorBoard, run: `tensorboard --logdir /tmp/ray/session_2025-08-23_21-10-41_870840_16932/artifacts/2025-08-23_21-10-44/lambda_2025-08-23_21-10-44/driver_artifacts`
+
+Trial status: 1 PENDING
+Current time: 2025-08-23 21:10:44. Total running time: 0s
+Logical resource usage: 0/96 CPUs, 0/4 GPUs (0.0/1.0 accelerator_type:A100)
+╭───────────────────────────────────────────────────────────╮
+│ Trial name        status       hidden_size     fnn_layers │
+├───────────────────────────────────────────────────────────┤
+│ lambda_14eea55e   PENDING             2400              4 │
+╰───────────────────────────────────────────────────────────╯
+
+Trial lambda_14eea55e started with configuration:
+╭───────────────────────────────────────╮
+│ Trial lambda_14eea55e config          │
+├───────────────────────────────────────┤
+│ fnn_layers                          4 │
+│ hidden_size                      2400 │
+╰───────────────────────────────────────╯
+[36m(<lambda> pid=43235)[0m Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=43235)[0m Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=43235)[0m Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]                                                                           
+[36m(<lambda> pid=43235)[0m Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] 
+[36m(<lambda> pid=43235)[0m Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.22it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.17it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 103.67it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.79it/s, v_num=on_1]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.77it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  4.90it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  4.89it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.52it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  2.96it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  2.96it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  4.12it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  4.11it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 110.14it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.10it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.09it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 115.55it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  2.68it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  2.68it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  4.71it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  4.71it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 123.55it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.98it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.97it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.82it/s][A
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.07it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.09it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.08it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 126.33it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.04it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.03it/s, v_num=on_1]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.68it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.66it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 101.75it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.26it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.61it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.12it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  4.57it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  4.57it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 120.57it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s, v_num=on_1]Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  4.38it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  4.37it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 106.04it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  2.58it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  2.57it/s, v_num=on_1]Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.00it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  4.99it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 98.81it/s][A
+[36m(<lambda> pid=43235)[0m                                                                       [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  2.73it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  2.72it/s, v_num=on_1]Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.78it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.77it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=43235)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[33m(raylet)[0m [2025-08-23 21:11:03,209 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.8837 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=72956)[0m Using bfloat16 Automatic Mixed Precision (AMP)
+[36m(<lambda> pid=72956)[0m GPU available: True (cuda), used: True
+[36m(<lambda> pid=72956)[0m TPU available: False, using: 0 TPU cores
+[36m(<lambda> pid=72956)[0m HPU available: False, using: 0 HPUs
+[36m(<lambda> pid=72956)[0m You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[36m(<lambda> pid=72956)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=72956)[0m /home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m   | Name    | Type       | Params | Mode 
+[36m(<lambda> pid=72956)[0m -----------------------------------------------
+[36m(<lambda> pid=72956)[0m 0 | fnn     | Sequential | 4.9 M  | train
+[36m(<lambda> pid=72956)[0m 1 | readout | Linear     | 1.8 K  | train
+[36m(<lambda> pid=72956)[0m -----------------------------------------------
+[36m(<lambda> pid=72956)[0m 5.0 M     Trainable params
+[36m(<lambda> pid=72956)[0m 0         Non-trainable params
+[36m(<lambda> pid=72956)[0m 5.0 M     Total params
+[36m(<lambda> pid=72956)[0m 19.800    Total estimated model params size (MB)
+[36m(<lambda> pid=72956)[0m 5         Modules in train mode
+[36m(<lambda> pid=72956)[0m 0         Modules in eval mode
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 107.07it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.81it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.80it/s, v_num=on_1]Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.21it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m 
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 106.48it/s][A
+[36m(<lambda> pid=43235)[0m                                                                        [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.05it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.04it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.03it/s, v_num=on_1]
+[36m(<lambda> pid=43235)[0m Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=43235)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 77.56it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 64.25it/s]
+[36m(<lambda> pid=43235)[0m Testing: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=43235)[0m Testing:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 82.25it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.93it/s]
+
+Trial lambda_14eea55e completed after 1 iterations at 2025-08-23 21:11:00. Total running time: 16s
+╭──────────────────────────────────────────╮
+│ Trial lambda_14eea55e result             │
+├──────────────────────────────────────────┤
+│ checkpoint_dir_name                      │
+│ time_this_iter_s                 12.0017 │
+│ time_total_s                     12.0017 │
+│ training_iteration                     1 │
+│ mse                              0.40009 │
+╰──────────────────────────────────────────╯
+
+Trial lambda_2e4c654d started with configuration:
+╭───────────────────────────────────────╮
+│ Trial lambda_2e4c654d config          │
+├───────────────────────────────────────┤
+│ fnn_layers                          2 │
+│ hidden_size                      1800 │
+╰───────────────────────────────────────╯
+[36m(<lambda> pid=72956)[0m Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=72956)[0m Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=72956)[0m Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s]                                                                           
+[36m(<lambda> pid=72956)[0m Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] 
+[36m(<lambda> pid=72956)[0m Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.97it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.94it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 124.17it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  5.22it/s, v_num=on_1]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  6.12it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  6.11it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 109.72it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.53it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.52it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  7.06it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  7.04it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 108.72it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.82it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.80it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  6.06it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  6.05it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 129.84it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.66it/s, v_num=on_1]Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  6.56it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  6.54it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.99it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.83it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.82it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  6.44it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  6.43it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 106.63it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.54it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.53it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  6.87it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  6.85it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.99it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.84it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.83it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  7.52it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  7.50it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 113.91it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  4.34it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  4.33it/s, v_num=on_1]Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  7.19it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  7.18it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.41it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  3.97it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  3.95it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.95it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.94it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 100.19it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.29it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.28it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  7.20it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  7.18it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 128.48it/s][A
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.91it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.21it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s, v_num=on_1]
+[33m(raylet)[0m [2025-08-23 21:11:13,222 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.9249 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 95.64it/s][A
+[36m(<lambda> pid=72956)[0m                                                                       [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.30it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.29it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  7.17it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  7.15it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.01it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.13it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.11it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  7.05it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  7.04it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 123.56it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  4.12it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  4.11it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  6.79it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  6.77it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 120.40it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.74it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  7.15it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  7.13it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.08it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.12it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.11it/s, v_num=on_1]
+
+Trial status: 1 TERMINATED | 1 RUNNING
+Current time: 2025-08-23 21:11:14. Total running time: 30s
+Logical resource usage: 96.0/96 CPUs, 1.0/4 GPUs (0.0/1.0 accelerator_type:A100)
+Current best trial: 14eea55e with mse=0.4000858664512634 and params={'hidden_size': 2400, 'fnn_layers': 4}
+╭────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name        status         hidden_size     fnn_layers     iter     total time (s)        mse │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ lambda_2e4c654d   RUNNING               1800              2                                        │
+│ lambda_14eea55e   TERMINATED            2400              4        1            12.0017   0.400086 │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[36m(<lambda> pid=72956)[0m Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  5.82it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 107.65it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=on_1]Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  6.43it/s, v_num=on_1]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  6.42it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=72956)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=93824)[0m Using bfloat16 Automatic Mixed Precision (AMP)
+[36m(<lambda> pid=93824)[0m GPU available: True (cuda), used: True
+[36m(<lambda> pid=93824)[0m TPU available: False, using: 0 TPU cores
+[36m(<lambda> pid=93824)[0m HPU available: False, using: 0 HPUs
+[36m(<lambda> pid=93824)[0m You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[36m(<lambda> pid=93824)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=93824)[0m /home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m   | Name    | Type       | Params | Mode 
+[36m(<lambda> pid=93824)[0m -----------------------------------------------
+[36m(<lambda> pid=93824)[0m 0 | fnn     | Sequential | 975 K  | train
+[36m(<lambda> pid=93824)[0m 1 | readout | Linear     | 501    | train
+[36m(<lambda> pid=93824)[0m -----------------------------------------------
+[36m(<lambda> pid=93824)[0m 975 K     Trainable params
+[36m(<lambda> pid=93824)[0m 0         Non-trainable params
+[36m(<lambda> pid=93824)[0m 975 K     Total params
+[36m(<lambda> pid=93824)[0m 3.902     Total estimated model params size (MB)
+[36m(<lambda> pid=93824)[0m 7         Modules in train mode
+[36m(<lambda> pid=93824)[0m 0         Modules in eval mode
+[33m(raylet)[0m [2025-08-23 21:11:23,231 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.9247 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 102.34it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.48it/s, v_num=on_1]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.47it/s, v_num=on_1]Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  6.57it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  6.56it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 79.44it/s][A
+[36m(<lambda> pid=72956)[0m                                                                       [AEpoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s, v_num=on_1]Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  6.83it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  6.81it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 72.63it/s][A
+[36m(<lambda> pid=72956)[0m                                                                       [AEpoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.42it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.41it/s, v_num=on_1]Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m 
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=72956)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 109.66it/s][A
+[36m(<lambda> pid=72956)[0m                                                                        [AEpoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.35it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.34it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s, v_num=on_1]
+[36m(<lambda> pid=72956)[0m Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 78.58it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 65.21it/s]
+[36m(<lambda> pid=72956)[0m Testing: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=72956)[0m Testing:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=72956)[0m Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Trial lambda_2e4c654d completed after 1 iterations at 2025-08-23 21:11:16. Total running time: 32s
+╭──────────────────────────────────────────╮
+│ Trial lambda_2e4c654d result             │
+├──────────────────────────────────────────┤
+│ checkpoint_dir_name                      │
+│ time_this_iter_s                 9.61995 │
+│ time_total_s                     9.61995 │
+│ training_iteration                     1 │
+│ mse                              0.42616 │
+╰──────────────────────────────────────────╯
+[36m(<lambda> pid=72956)[0m Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 81.59it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.20it/s]
+
+Trial lambda_356c2c48 started with configuration:
+╭──────────────────────────────────────╮
+│ Trial lambda_356c2c48 config         │
+├──────────────────────────────────────┤
+│ fnn_layers                         3 │
+│ hidden_size                      500 │
+╰──────────────────────────────────────╯
+[36m(<lambda> pid=93824)[0m Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=93824)[0m Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=93824)[0m Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]                                                                           
+[36m(<lambda> pid=93824)[0m Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] 
+[36m(<lambda> pid=93824)[0m Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.39it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.34it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 93.64it/s][A
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  3.99it/s, v_num=on_1]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  3.98it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  5.98it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 130.27it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.53it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.52it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  6.93it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  6.91it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 117.54it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.84it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.83it/s, v_num=on_1]Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.59it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.58it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 122.50it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=on_1]Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.86it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 86.79it/s][A
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.07it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.80it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.80it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 113.90it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.01it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.00it/s, v_num=on_1]Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.50it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=on_1]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.41it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.40it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.16it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.05it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.04it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  5.15it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  5.14it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 98.77it/s][A
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.98it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.97it/s, v_num=on_1]Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.62it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.61it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 102.88it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.27it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.25it/s, v_num=on_1]Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  5.61it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  5.60it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 119.17it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.07it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.82it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.81it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 114.21it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.73it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.72it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  6.22it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  6.20it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.47it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  3.70it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s, v_num=on_1]Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  6.77it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  6.75it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.83it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.68it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s, v_num=on_1]Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  5.77it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  5.76it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 103.21it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.89it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.88it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  6.34it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  6.32it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 110.63it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.43it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.42it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s, v_num=on_1]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  5.49it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 113.43it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.10it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.09it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  5.45it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  5.43it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 98.73it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.29it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.28it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  7.02it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  7.00it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 117.56it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.96it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.94it/s, v_num=on_1]Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  5.42it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  5.41it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 107.35it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 20: 100%|██████████| 1/1 [00:00<00:00,  2.90it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  2.90it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  5.46it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  5.45it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 114.94it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 21: 100%|██████████| 1/1 [00:00<00:00,  3.39it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  6.66it/s, v_num=on_1]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  6.64it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 117.39it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 22: 100%|██████████| 1/1 [00:00<00:00,  3.76it/s, v_num=on_1]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  3.74it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  6.14it/s, v_num=on_1]Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  6.13it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.09it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 23: 100%|██████████| 1/1 [00:00<00:00,  3.34it/s, v_num=on_1]Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  5.63it/s, v_num=on_1]Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  5.62it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[33m(raylet)[0m [2025-08-23 21:11:33,244 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.9132 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=93824)[0m `Trainer.fit` stopped: `max_epochs=30` reached.
+[36m(<lambda> pid=93824)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=93824)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=115649)[0m Using bfloat16 Automatic Mixed Precision (AMP)
+[36m(<lambda> pid=115649)[0m GPU available: True (cuda), used: True
+[36m(<lambda> pid=115649)[0m TPU available: False, using: 0 TPU cores
+[36m(<lambda> pid=115649)[0m HPU available: False, using: 0 HPUs
+[36m(<lambda> pid=115649)[0m You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[36m(<lambda> pid=115649)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=115649)[0m /home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m   | Name    | Type       | Params | Mode 
+[36m(<lambda> pid=115649)[0m -----------------------------------------------
+[36m(<lambda> pid=115649)[0m 0 | fnn     | Sequential | 8.2 M  | train
+[36m(<lambda> pid=115649)[0m 1 | readout | Linear     | 1.8 K  | train
+[36m(<lambda> pid=115649)[0m -----------------------------------------------
+[36m(<lambda> pid=115649)[0m 8.2 M     Trainable params
+[36m(<lambda> pid=115649)[0m 0         Non-trainable params
+[36m(<lambda> pid=115649)[0m 8.2 M     Total params
+[36m(<lambda> pid=115649)[0m 32.767    Total estimated model params size (MB)
+[36m(<lambda> pid=115649)[0m 7         Modules in train mode
+[36m(<lambda> pid=115649)[0m 0         Modules in eval mode
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 93.64it/s][A
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 24: 100%|██████████| 1/1 [00:00<00:00,  3.13it/s, v_num=on_1]Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  4.47it/s, v_num=on_1]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  4.46it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 114.86it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 25: 100%|██████████| 1/1 [00:00<00:00,  2.77it/s, v_num=on_1]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  2.76it/s, v_num=on_1]Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  4.84it/s, v_num=on_1]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  4.83it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 93.85it/s][A
+[36m(<lambda> pid=93824)[0m                                                                       [AEpoch 26: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s, v_num=on_1]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  2.68it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  5.54it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  5.52it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 105.55it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 27: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s, v_num=on_1]Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  3.30it/s, v_num=on_1]Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s, v_num=on_1]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 100.40it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 28: 100%|██████████| 1/1 [00:00<00:00,  3.45it/s, v_num=on_1]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  3.44it/s, v_num=on_1]Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  5.78it/s, v_num=on_1]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  5.77it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m 
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=93824)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.00it/s][A
+[36m(<lambda> pid=93824)[0m                                                                        [AEpoch 29: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=on_1]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=on_1]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  2.90it/s, v_num=on_1]
+[36m(<lambda> pid=93824)[0m Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 86.85it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.26it/s]
+[36m(<lambda> pid=93824)[0m Testing: |          | 0/? [00:00<?, ?it/s]Testing:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Trial lambda_356c2c48 completed after 1 iterations at 2025-08-23 21:11:33. Total running time: 49s
+╭──────────────────────────────────────────╮
+│ Trial lambda_356c2c48 result             │
+├──────────────────────────────────────────┤
+│ checkpoint_dir_name                      │
+│ time_this_iter_s                 11.9895 │
+│ time_total_s                     11.9895 │
+│ training_iteration                     1 │
+│ mse                              0.36762 │
+╰──────────────────────────────────────────╯
+[36m(<lambda> pid=93824)[0m Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 81.60it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 65.39it/s]
+
+Trial lambda_93eeb709 started with configuration:
+╭───────────────────────────────────────╮
+│ Trial lambda_93eeb709 config          │
+├───────────────────────────────────────┤
+│ fnn_layers                          3 │
+│ hidden_size                      1800 │
+╰───────────────────────────────────────╯
+[36m(<lambda> pid=115649)[0m Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=115649)[0m Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[33m(raylet)[0m [2025-08-23 21:11:43,253 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.8213 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=115649)[0m Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s]                                                                           
+[36m(<lambda> pid=115649)[0m Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] 
+[36m(<lambda> pid=115649)[0m Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.80it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.76it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 109.03it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.66it/s, v_num=on_1]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.63it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  6.03it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  6.02it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 112.75it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.63it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.62it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  5.51it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 109.03it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.30it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  6.77it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  6.76it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 96.08it/s][A
+[36m(<lambda> pid=115649)[0m                                                                       [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.52it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.50it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.26it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.25it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 112.62it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.07it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  7.14it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  7.12it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 120.84it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.08it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  4.07it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  6.24it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  6.23it/s, v_num=on_1]
+
+Trial status: 3 TERMINATED | 1 RUNNING
+Current time: 2025-08-23 21:11:44. Total running time: 1min 0s
+Logical resource usage: 96.0/96 CPUs, 1.0/4 GPUs (0.0/1.0 accelerator_type:A100)
+Current best trial: 356c2c48 with mse=0.36762383580207825 and params={'hidden_size': 500, 'fnn_layers': 3}
+╭────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name        status         hidden_size     fnn_layers     iter     total time (s)        mse │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ lambda_93eeb709   RUNNING               1800              3                                        │
+│ lambda_14eea55e   TERMINATED            2400              4        1           12.0017    0.400086 │
+│ lambda_2e4c654d   TERMINATED            1800              2        1            9.61995   0.426163 │
+│ lambda_356c2c48   TERMINATED             500              3        1           11.9895    0.367624 │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.96it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.59it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.58it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.75it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  5.74it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 122.23it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.37it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.98it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.96it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 97.15it/s][A
+[36m(<lambda> pid=115649)[0m                                                                       [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.44it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.42it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 106.21it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  6.11it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  6.10it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 123.63it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.65it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.64it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  6.33it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  6.32it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 125.22it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.84it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.83it/s, v_num=on_1]Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  7.10it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  7.08it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 114.45it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.08it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.07it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.49it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.48it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 75.08it/s][A
+[36m(<lambda> pid=115649)[0m                                                                       [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.02it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.01it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  6.13it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  6.12it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 102.48it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.36it/s, v_num=on_1]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.35it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.99it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  4.98it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 99.01it/s][A
+[36m(<lambda> pid=115649)[0m                                                                       [AEpoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.99it/s, v_num=on_1]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.98it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  5.14it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  5.13it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 117.05it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s, v_num=on_1]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=on_1]Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  7.92it/s, v_num=on_1]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  7.90it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 114.75it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 17: 100%|██████████| 1/1 [00:00<00:00,  4.20it/s, v_num=on_1]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  4.19it/s, v_num=on_1]Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  5.09it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  5.08it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 120.63it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.14it/s, v_num=on_1]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.13it/s, v_num=on_1]Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  6.84it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  6.82it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 117.15it/s][A
+[36m(<lambda> pid=115649)[0m                                                                        [AEpoch 19: 100%|██████████| 1/1 [00:00<00:00,  4.06it/s, v_num=on_1]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  4.05it/s, v_num=on_1]Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  6.69it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  6.68it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=115649)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[33m(raylet)[0m [2025-08-23 21:11:53,262 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.8212 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=137082)[0m Using bfloat16 Automatic Mixed Precision (AMP)
+[36m(<lambda> pid=137082)[0m GPU available: True (cuda), used: True
+[36m(<lambda> pid=137082)[0m TPU available: False, using: 0 TPU cores
+[36m(<lambda> pid=137082)[0m HPU available: False, using: 0 HPUs
+[36m(<lambda> pid=137082)[0m You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[36m(<lambda> pid=137082)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=137082)[0m /home/passos/ml_measurable_hte_rates/.venv/lib/python3.9/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m   | Name    | Type       | Params | Mode 
+[36m(<lambda> pid=137082)[0m -----------------------------------------------
+[36m(<lambda> pid=137082)[0m 0 | fnn     | Sequential | 19.6 M | train
+[36m(<lambda> pid=137082)[0m 1 | readout | Linear     | 2.4 K  | train
+[36m(<lambda> pid=137082)[0m -----------------------------------------------
+[36m(<lambda> pid=137082)[0m 19.6 M    Trainable params
+[36m(<lambda> pid=137082)[0m 0         Non-trainable params
+[36m(<lambda> pid=137082)[0m 19.6 M    Total params
+[36m(<lambda> pid=137082)[0m 78.259    Total estimated model params size (MB)
+[36m(<lambda> pid=137082)[0m 9         Modules in train mode
+[36m(<lambda> pid=137082)[0m 0         Modules in eval mode
+[36m(<lambda> pid=115649)[0m 
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=115649)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 96.04it/s][A
+[36m(<lambda> pid=115649)[0m                                                                       [AEpoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.81it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.79it/s, v_num=on_1]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.78it/s, v_num=on_1]
+[36m(<lambda> pid=115649)[0m Validation: |          | 0/? [00:00<?, ?it/s]
+[36m(<lambda> pid=115649)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.18it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 52.33it/s]
+[36m(<lambda> pid=115649)[0m Testing: |          | 0/? [00:00<?, ?it/s]Testing:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 86.38it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.36it/s]
+
+Trial lambda_93eeb709 completed after 1 iterations at 2025-08-23 21:11:51. Total running time: 1min 7s
+╭──────────────────────────────────────────╮
+│ Trial lambda_93eeb709 result             │
+├──────────────────────────────────────────┤
+│ checkpoint_dir_name                      │
+│ time_this_iter_s                 11.7252 │
+│ time_total_s                     11.7252 │
+│ training_iteration                     1 │
+│ mse                              0.42573 │
+╰──────────────────────────────────────────╯
+
+Trial lambda_012d0aa3 started with configuration:
+╭───────────────────────────────────────╮
+│ Trial lambda_012d0aa3 config          │
+├───────────────────────────────────────┤
+│ fnn_layers                          4 │
+│ hidden_size                      2400 │
+╰───────────────────────────────────────╯
+[36m(<lambda> pid=137082)[0m Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(<lambda> pid=137082)[0m Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s]                                                                           
+[36m(<lambda> pid=137082)[0m Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] 
+[36m(<lambda> pid=137082)[0m Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.41it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00, 10.38it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 120.56it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.94it/s, v_num=on_1]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.92it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  5.73it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  5.72it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 105.74it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=on_1]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  5.35it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  5.34it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 113.62it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.00it/s, v_num=on_1]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.00it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  5.83it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.46it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.48it/s, v_num=on_1]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.47it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  5.89it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[33m(raylet)[0m [2025-08-23 21:12:03,270 E 35396 35429] (raylet) file_system_monitor.cc:116: /tmp/ray/session_2025-08-23_21-10-41_870840_16932 is over 95% full, available space: 55.6024 GB; capacity: 1756.86 GB. Object creation will fail if spilling is required.
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.97it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s, v_num=on_1]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.32it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  6.67it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  6.65it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 118.90it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.87it/s, v_num=on_1]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  5.48it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.56it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.46it/s, v_num=on_1]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.45it/s, v_num=on_1]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  7.02it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  7.00it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 104.89it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.86it/s, v_num=on_1]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.27it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  4.26it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 116.19it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.58it/s, v_num=on_1]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.58it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.06it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  5.05it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 98.50it/s][A
+[36m(<lambda> pid=137082)[0m                                                                       [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s, v_num=on_1]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.05it/s, v_num=on_1]Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  6.15it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  6.13it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 104.58it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.53it/s, v_num=on_1]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.51it/s, v_num=on_1]Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  5.84it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 111.85it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.37it/s, v_num=on_1]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.36it/s, v_num=on_1]Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[36m(<lambda> pid=137082)[0m LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+2025-08-23 21:12:07,920	INFO tune.py:1009 -- Wrote the latest version of all result files and experiment state to '/home/passos/ray_results/lambda_2025-08-23_21-10-44' in 0.0040s.
+[08/23/2025 09:12:07 PM fastprop.cli.train] INFO: Best hyperparameters identified: hidden_size: 500, fnn_layers: 3
+[08/23/2025 09:12:07 PM fastprop.cli.base] INFO: If you use fastprop in published work, please cite https://doi.org/10.1186/s13321-025-01013-4
+[08/23/2025 09:12:07 PM fastprop.cli.base] INFO: Total elapsed time: 0:01:34.709064
+[36m(<lambda> pid=137082)[0m Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  5.00it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  4.98it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 100.52it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.86it/s, v_num=on_1]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s, v_num=on_1]Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.27it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  5.26it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m 
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 109.44it/s][A
+[36m(<lambda> pid=137082)[0m                                                                        [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=on_1]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=on_1]
+[36m(<lambda> pid=137082)[0m Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 86.85it/s]
+[36m(<lambda> pid=137082)[0m Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 68.90it/s]
+[36m(<lambda> pid=137082)[0m Testing: |          | 0/? [00:00<?, ?it/s]Testing:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 85.97it/s]
+[36m(<lambda> pid=137082)[0m Testing DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 67.84it/s]
+
+Trial lambda_012d0aa3 completed after 1 iterations at 2025-08-23 21:12:07. Total running time: 1min 23s
+╭──────────────────────────────────────────╮
+│ Trial lambda_012d0aa3 result             │
+├──────────────────────────────────────────┤
+│ checkpoint_dir_name                      │
+│ time_this_iter_s                 10.8898 │
+│ time_total_s                     10.8898 │
+│ training_iteration                     1 │
+│ mse                              0.40009 │
+╰──────────────────────────────────────────╯
+
+Trial status: 5 TERMINATED
+Current time: 2025-08-23 21:12:07. Total running time: 1min 23s
+Logical resource usage: 96.0/96 CPUs, 1.0/4 GPUs (0.0/1.0 accelerator_type:A100)
+Current best trial: 356c2c48 with mse=0.36762383580207825 and params={'hidden_size': 500, 'fnn_layers': 3}
+╭────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name        status         hidden_size     fnn_layers     iter     total time (s)        mse │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ lambda_14eea55e   TERMINATED            2400              4        1           12.0017    0.400086 │
+│ lambda_2e4c654d   TERMINATED            1800              2        1            9.61995   0.426163 │
+│ lambda_356c2c48   TERMINATED             500              3        1           11.9895    0.367624 │
+│ lambda_93eeb709   TERMINATED            1800              3        1           11.7252    0.425727 │
+│ lambda_012d0aa3   TERMINATED            2400              4        1           10.8898    0.400086 │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────╯
+

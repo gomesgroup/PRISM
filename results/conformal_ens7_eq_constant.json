@@ -1,0 +1,11 @@
+{
+  "tag": "ens7_eq",
+  "adaptive": false,
+  "alpha": 0.05,
+  "calibration_fraction": 0.2,
+  "n_train": 619,
+  "n_cal": 123,
+  "quantile_q": 0.2915449610772376,
+  "n_test": 206,
+  "coverage_test": 0.5776699029126213
+}

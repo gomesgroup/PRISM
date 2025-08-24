@@ -1,0 +1,25 @@
+{
+  "per_model": [
+    {
+      "name": "predictions_each_8_optuna_ens7_gpu2_with_val",
+      "test_r2": 0.8044362607641931,
+      "n_test": 206
+    },
+    {
+      "name": "predictions_each_8_optuna_ens7_gpu0_with_val",
+      "test_r2": 0.7950703215746224,
+      "n_test": 206
+    },
+    {
+      "name": "predictions_each_8_optuna_ens7_gpu3_with_val",
+      "test_r2": 0.7927927560316042,
+      "n_test": 206
+    },
+    {
+      "name": "predictions_each_8_optuna_ens7_gpu1_with_val",
+      "test_r2": 0.7879768350757687,
+      "n_test": 206
+    }
+  ],
+  "ens7_equal_test_r2": 0.8064740147371297
+}

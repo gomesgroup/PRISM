@@ -1,0 +1,97 @@
+=== ML Measurable HTE Rate Bias Analysis ===
+
+==================================================
+Running HTE Prediction Analysis: each with 8 features
+==================================================
+
+=== Loading Data ===
+Number of HTE rates: 1031
+Found 5 hydrogen-dependent features: ['num_Hs', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+Found 2 pKa-dependent features: ['pka_aHs', 'pka_lowest']
+Found 26 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'L_main_atom_2', 'B1_main_atom_1', 'B1_main_atom_2', 'B5_main_atom_1', 'B5_main_atom_2', 'Charges_secondary_1', 'Charges_secondary_2', 'fukui_N_secondary_1', 'fukui_N_secondary_2', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_2', 'FREQS_2', 'FCS_avg', 'FREQS_avg', 'BV_Hs_avg', 'Charges_Hs_avg', 'fukui_E_Hs_avg', 'fukui_N_Hs_avg']
+
+Processing num_Hs conditional features...
+  18/46 molecules meet condition num_Hs
+    num_Hs: 0 -> 0 NA values
+    BV_Hs_avg: 28 -> 0 NA values
+    Charges_Hs_avg: 28 -> 0 NA values
+    fukui_E_Hs_avg: 28 -> 0 NA values
+    fukui_N_Hs_avg: 28 -> 0 NA values
+
+Processing pKa_features conditional features...
+  18/46 molecules meet condition pKa_features
+    Processing pKa feature pka_aHs with special handling...
+      Created indicator: has_acidic_H_for_pka_aHs
+      Created interaction: pka_aHs_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_aHs: 28 -> 0 NA values
+    Processing pKa feature pka_lowest with special handling...
+      Created indicator: has_acidic_H_for_pka_lowest
+      Created interaction: pka_lowest_x_has_acidic_H
+      Used 50.0 for molecules without acidic H
+    pka_lowest: 38 -> 0 NA values
+
+Handling remaining NA values...
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Found categorical feature class with 4 unique values: ['aromatic' 'hetero' 'aliphatic' 'mixture']
+    One-hot encoded class -> 4 features: ['class_aliphatic', 'class_aromatic', 'class_hetero', 'class_mixture']
+  Removed identifier feature: smiles
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+  Added indicator: has_num_Hs
+  Added indicator: has_pKa_features
+Preprocessing complete. Shape: (46, 65)
+Remaining NA values: 0
+Found 1 pKa-dependent features: ['pka_basic']
+Warning: num_Hs column not found, cannot properly handle pKa features
+Found 15 heteroatom-dependent features: ['BV_main_1', 'Charges_main_atom', 'fukui_E_main_atom', 'fukui_N_main_atom', 'L_main_atom_1', 'B1_main_atom_1', 'B5_main_atom_1', 'Charges_secondary_1', 'fukui_N_secondary_1', 'Charges_secondary_avg', 'fukui_N_secondary_avg', 'FCS_1', 'FREQS_1', 'FCS_avg', 'FREQS_avg']
+
+Handling remaining NA values...
+  pka_basic: Filled 1 NA values with median/zero
+  smiles: Filled 1 NA values with mode/unknown
+  class: Filled 1 NA values with mode/unknown
+
+Encoding categorical features...
+  Removed identifier feature: name
+  Removed identifier feature: smiles
+  Found categorical feature class with 5 unique values: ['1_aliphatic' '1_aromatic' '2_aliphatic' '1_mixture' '2_mixture']
+    One-hot encoded class -> 5 features: ['class_1_aliphatic', 'class_1_aromatic', 'class_1_mixture', 'class_2_aliphatic', 'class_2_mixture']
+  Processed 1 categorical features
+  Removed 2 identifier features: ['name', 'smiles']
+
+Creating feature quality indicators...
+Preprocessing complete. Shape: (55, 40)
+Remaining NA values: 0
+Loaded reaction energy features: 1488 rows, 8 features
+
+=== Selecting Features (selected) ===
+Final selected features (8): ['amine_pka_basic', 'amine_Charges_secondary_1', 'amine_BV_secondary_avg', 'acyl_class_aromatic', 'acyl_pka_aHs_x_has_acidic_H', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'acyl_Charges_secondary_1']
+=== Building HTE Prediction Models with 8 features ===
+Selected features: ['amine_pka_basic', 'amine_Charges_secondary_1', 'amine_BV_secondary_avg', 'acyl_class_aromatic', 'acyl_pka_aHs_x_has_acidic_H', 'acyl_BV_secondary_2', 'amine_class_1_mixture', 'acyl_Charges_secondary_1']
+Valid features: 17
+=== Building Regression Model ===
+Regression dataset: (1031, 17)
+Target range: -1.418 to 4.010
+
+
+Training data: 632 samples
+Test data: 221 samples
+
+
+SFS (regression) failed, using provided features. Error: n_features_to_select must be < n_features.
+Running hyperparameter optimization for regression...
+[I 2025-08-20 00:18:56,723] A new study created in memory with name: no-name-d8de564c-01b2-4836-a762-4fcd263ff3bc
+[I 2025-08-20 00:23:11,524] Trial 0 finished with value: 0.4435163834248407 and parameters: {'model_type': 'xgb', 'n_estimators': 63, 'max_depth': 7, 'learning_rate': 0.12340908295372115}. Best is trial 0 with value: 0.4435163834248407.
+[I 2025-08-20 00:28:55,938] Trial 1 finished with value: 0.37191769683919773 and parameters: {'model_type': 'xgb', 'n_estimators': 193, 'max_depth': 9, 'learning_rate': 0.24227139518386306}. Best is trial 0 with value: 0.4435163834248407.
+[I 2025-08-20 00:32:31,005] Trial 2 finished with value: 0.6009485965040939 and parameters: {'model_type': 'lgbm', 'n_estimators': 103, 'max_depth': 4, 'learning_rate': 0.13132925805081924}. Best is trial 2 with value: 0.6009485965040939.
+[I 2025-08-20 00:36:59,634] Trial 3 finished with value: 0.582492258013654 and parameters: {'model_type': 'xgb', 'n_estimators': 136, 'max_depth': 4, 'learning_rate': 0.2741919024319835}. Best is trial 2 with value: 0.6009485965040939.
+[I 2025-08-20 00:37:00,583] Trial 4 finished with value: 0.48694522743861934 and parameters: {'model_type': 'rf', 'n_estimators': 100, 'max_depth': 10, 'min_samples_split': 10}. Best is trial 2 with value: 0.6009485965040939.
+[I 2025-08-20 00:41:41,131] Trial 5 finished with value: 0.6014683642151835 and parameters: {'model_type': 'lgbm', 'n_estimators': 95, 'max_depth': 5, 'learning_rate': 0.09446952932983824}. Best is trial 5 with value: 0.6014683642151835.
+[I 2025-08-20 00:41:41,195] Trial 6 finished with value: 0.4125481060719218 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 6.400849421541534e-06, 'alpha_2': 9.46328672536714e-05, 'lambda_1': 0.0004824451598213328, 'lambda_2': 0.00084561515636763}. Best is trial 5 with value: 0.6014683642151835.
+[I 2025-08-20 00:47:43,209] Trial 7 finished with value: 0.5816060530207763 and parameters: {'model_type': 'lgbm', 'n_estimators': 96, 'max_depth': 7, 'learning_rate': 0.2683197762786023}. Best is trial 5 with value: 0.6014683642151835.
+[I 2025-08-20 00:47:43,220] Trial 8 finished with value: 0.41254409491165234 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 0.0009104121572954424, 'alpha_2': 0.0008825448366798666, 'lambda_1': 0.00047257768588092704, 'lambda_2': 0.0009782082382215937}. Best is trial 5 with value: 0.6014683642151835.
+[I 2025-08-20 00:47:43,222] Trial 9 finished with value: 0.41256485239402185 and parameters: {'model_type': 'bayesian_ridge', 'alpha_1': 1.2727329399830898e-05, 'alpha_2': 6.80985848659354e-05, 'lambda_1': 0.0009623199241385333, 'lambda_2': 0.00030663407292515655}. Best is trial 5 with value: 0.6014683642151835.

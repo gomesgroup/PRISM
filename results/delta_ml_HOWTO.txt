@@ -1,0 +1,15 @@
+
+Delta-ML pipeline outputs generated.
+
+If you need to regenerate CheMeleon ensemble predictions using ONLY GPUs 0 and 1:
+
+  1) Activate chemprop environment
+     eval "$(conda shell.zsh hook)" && conda activate chemprop-v2
+
+  2) Run prediction constrained to GPUs 0 and 1 (uses one device per run)
+     CUDA_VISIBLE_DEVICES=0,1 chemprop predict        -i data/rates/corrected_hte_rates_each_8_optuna_finite_lnk.csv        -s amine_smiles acid_smiles        --model-paths          runs/chemeleon_lnk_bigffn_ens5/model_0/best.pt          runs/chemeleon_lnk_bigffn_ens5/model_1/best.pt          runs/chemeleon_lnk_bigffn_ens5/model_2/best.pt          runs/chemeleon_lnk_bigffn_ens5/model_3/best.pt          runs/chemeleon_lnk_bigffn_ens5/model_4/best.pt        -o results/bigffn_ens5_all_predictions.csv        --accelerator gpu --devices 1
+
+Then rebuild the plotting CSV (if needed) and rerun:
+
+     python src/train_delta_model.py --include-reaction-features
+

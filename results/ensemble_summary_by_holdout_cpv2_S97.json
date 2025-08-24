@@ -1,0 +1,32 @@
+[
+  {
+    "method": "equal_mean",
+    "holdout": "TEST1",
+    "test_r2": 0.8031734537180023,
+    "test_mae": 0.32684558562303295,
+    "test_rmse": 0.4261258151361156,
+    "coverage90_test": 0.8252427184466019,
+    "coverage95_test": 0.9514563106796117,
+    "n_test": 206
+  },
+  {
+    "method": "ridge",
+    "holdout": "TEST1",
+    "test_r2": 0.8028320304454173,
+    "test_mae": 0.333248245295922,
+    "test_rmse": 0.42649524251991094,
+    "coverage90_test": 0.8446601941747572,
+    "coverage95_test": 0.9611650485436893,
+    "n_test": 206
+  },
+  {
+    "method": "nnls",
+    "holdout": "TEST1",
+    "test_r2": 0.8012024470196564,
+    "test_mae": 0.32943158460130584,
+    "test_rmse": 0.4282540967320269,
+    "coverage90_test": 0.8398058252427184,
+    "coverage95_test": 0.941747572815534,
+    "n_test": 206
+  }
+]

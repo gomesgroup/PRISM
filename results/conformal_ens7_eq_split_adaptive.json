@@ -1,0 +1,10 @@
+{
+  "tag": "ens7_eq",
+  "method": "split_adaptive",
+  "alpha": 0.05,
+  "coverage_test": 0.8543689320388349,
+  "mean_interval_width": 1.4727215244975778,
+  "n_train": 619,
+  "n_cal": 123,
+  "q": 16.414526237513744
+}

@@ -1,0 +1,9 @@
+{
+  "with_rxn": {
+    "regression": {
+      "model": "XGBoost",
+      "train_r2": 0.9166462656390222,
+      "test_r2": 0.744762423907117,
+      "cv_r2_mean": 0.3850062093123848,
+      "cv_r2_std": 0.2239073052843136,
+      "y_train_pred": 
