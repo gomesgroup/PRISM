@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import scienceplots  # required before style.use
+import scienceplots as _scienceplots  # noqa: F401  required before style.use
 
 
 def apply_default_style() -> None:
