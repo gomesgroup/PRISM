@@ -26,8 +26,12 @@ import matplotlib.colors as mcolors
 from matplotlib import font_manager as fm
 from matplotlib.lines import Line2D
 
-from utils.plot_style import apply_default_style
-apply_default_style()
+try:
+    from utils.plot_style import apply_default_style
+    apply_default_style()
+except Exception:
+    # Optional style helper may not exist; proceed with defaults
+    pass
 
 
 PREDICTIONS_CSV = "results/ensemble_all6_predictions_full.csv"
@@ -84,16 +88,22 @@ def parity_plot(
     include_val: bool = True,
 ) -> None:
     # Map uncertainty to alpha (lighter == higher uncertainty)
-    # Use std_weighted_nnls if present, else std_unweighted
-    std_col = "std_weighted_nnls" if "std_weighted_nnls" in df.columns else "std_unweighted"
-    std = pd.to_numeric(df[std_col], errors="coerce")
+    # Prefer std_weighted_nnls; else std_unweighted; else None (constant alpha)
+    std_col = (
+        "std_weighted_nnls" if "std_weighted_nnls" in df.columns else (
+            "std_unweighted" if "std_unweighted" in df.columns else None
+        )
+    )
+    std = pd.to_numeric(df[std_col], errors="coerce") if std_col is not None else None
     y_true = pd.to_numeric(df["y_true"], errors="coerce")
     y_pred = pd.to_numeric(df["pred_nnls"], errors="coerce")
     split = df["split"].astype(str)
-    mask = (~y_true.isna()) & (~y_pred.isna()) & (~std.isna())
+    mask = (~y_true.isna()) & (~y_pred.isna())
+    if std is not None:
+        mask = mask & (~std.isna())
     y_true = y_true[mask].to_numpy()
     y_pred = y_pred[mask].to_numpy()
-    std = std[mask].to_numpy()
+    std = std[mask].to_numpy() if std is not None else None
     split = split[mask].to_numpy()
 
     # Explicitly drop validation points if requested
@@ -101,7 +111,8 @@ def parity_plot(
         keep = split != "VAL"
         y_true = y_true[keep]
         y_pred = y_pred[keep]
-        std = std[keep]
+        if std is not None:
+            std = std[keep]
         split = split[keep]
 
     if len(y_true) == 0:
@@ -121,36 +132,51 @@ def parity_plot(
     fig, ax = plt.subplots()
     # Diagonal 1:1
     ax.plot([y_lo, y_hi], [y_lo, y_hi], color="black", linewidth=1.0, zorder=1.5)
-    # Light linear fit line on TEST for visual guidance (combine TEST/TEST1/TEST2)
+    # Thin, highly faded linear fit for TEST in test color; add analogous VAL line
     try:
         idx_test = (split == "TEST") | (split == "TEST1") | (split == "TEST2")
         if np.any(idx_test):
-            coeffs = np.polyfit(y_true[idx_test], y_pred[idx_test], 1)
+            coeffs_t = np.polyfit(y_true[idx_test], y_pred[idx_test], 1)
             xs = np.linspace(y_lo, y_hi, 200)
-            ax.plot(xs, coeffs[0] * xs + coeffs[1], color="#bdbdbd", linewidth=2.0, alpha=0.8, zorder=1.0)
+            ax.plot(xs, coeffs_t[0] * xs + coeffs_t[1], color="#d62728", linewidth=0.8, alpha=0.25, zorder=1.0)
+        # Train trend line in light gray
+        idx_train = (split == "TRAIN")
+        if np.any(idx_train):
+            coeffs_tr = np.polyfit(y_true[idx_train], y_pred[idx_train], 1)
+            xs = np.linspace(y_lo, y_hi, 200)
+            ax.plot(xs, coeffs_tr[0] * xs + coeffs_tr[1], color="#B0B0B0", linewidth=0.8, alpha=0.25, zorder=1.0)
+        if include_val:
+            idx_val = (split == "VAL")
+            if np.any(idx_val):
+                coeffs_v = np.polyfit(y_true[idx_val], y_pred[idx_val], 1)
+                xs = np.linspace(y_lo, y_hi, 200)
+                ax.plot(xs, coeffs_v[0] * xs + coeffs_v[1], color="#FDB515", linewidth=0.8, alpha=0.25, zorder=1.0)
     except Exception:
         pass
 
-    # Normalize std to alpha: lighter == higher UQ
-    # Map std to [0.2, 1.0] inverted (higher std -> lower alpha)
-    smin, smax = float(np.nanmin(std)), float(np.nanmax(std))
-    if smax > smin:
-        rel = (std - smin) / (smax - smin)
+    # Normalize std to alpha if available; otherwise use constant alpha
+    if std is not None:
+        smin, smax = float(np.nanmin(std)), float(np.nanmax(std))
+        if smax > smin:
+            rel = (std - smin) / (smax - smin)
+        else:
+            rel = np.zeros_like(std)
+        alpha_vals = 1.0 - 0.8 * rel  # in [0.2,1.0]
     else:
-        rel = np.zeros_like(std)
-    alpha_vals = 1.0 - 0.8 * rel  # in [0.2,1.0]
+        alpha_vals = np.full_like(y_true, 0.85, dtype=float)
 
     # Plot groups separately, squares
     # Colors: TRAIN black, TEST red, VAL gold (CMU Gold Thread #FDB515)
     # Distinguish TEST1/TEST2 as lighter/darker reds for clarity
     group_colors = {
-        "TRAIN": "#000000",
+        "TRAIN": "#D0D0D0",
         "TEST": "#d62728",
         "VAL": "#FDB515",
         "TEST1": "#ef5959",
         "TEST2": "#a51616",
     }
-    labs = ("TRAIN", "VAL", "TEST", "TEST1", "TEST2") if include_val else ("TRAIN", "TEST", "TEST1", "TEST2")
+    # Draw order so that VAL appears on top: TRAIN → TEST(±TEST1/TEST2) → VAL
+    labs = ("TRAIN", "TEST", "TEST1", "TEST2", "VAL") if include_val else ("TRAIN", "TEST", "TEST1", "TEST2")
     for lab in labs:
         if lab not in group_colors:
             continue
@@ -160,14 +186,17 @@ def parity_plot(
             continue
         # Use alpha on facecolors; keep a solid edgecolor for better contrast
         face_rgba = np.array([mcolors.to_rgba(color, a) for a in alpha_vals[idx]])
+        # Revert to same solid color for edges; make edges thinner
+        lw = 0.5
+        size = 4.5 if lab == "TRAIN" else 6
         ax.scatter(
             y_true[idx],
             y_pred[idx],
-            s=6,
+            s=size,
             marker="s",
             facecolors=face_rgba,
             edgecolors=color,
-            linewidths=0.8,
+            linewidths=lw,
             zorder=3.0,
             label=lab.lower(),
         )
@@ -232,11 +261,11 @@ def parity_plot(
         labels = []
         handles = []
         entries = [
-            ("train", "#000000", (split == "TRAIN")),
+            ("train", "#D0D0D0", (split == "TRAIN")),
             ("test", "#d62728", (split == "TEST") | (split == "TEST1") | (split == "TEST2")),
         ]
         if include_val:
-            entries.insert(1, ("val", "#FDB515", (split == "VAL")))
+            entries.append(("val", "#FDB515", (split == "VAL")))
         for lab, color, base_mask in entries:
             mask = base_mask
             if np.any(mask):

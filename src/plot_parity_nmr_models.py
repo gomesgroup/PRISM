@@ -90,23 +90,27 @@ def parity_plot(
     split_col: Optional[str] = None,
     font_family: Optional[str] = None,
     include_val: bool = False,
+    y_label: str = "predicted ln k",
 ) -> None:
     # Prepare columns
     y_true_series = pd.to_numeric(df[y_true_col], errors="coerce")
     y_pred_series = pd.to_numeric(df[y_pred_col], errors="coerce")
+    std_series: Optional[pd.Series]
     if std_col is not None and std_col in df.columns:
         std_series = pd.to_numeric(df[std_col], errors="coerce")
     else:
-        std_series = pd.Series(np.ones(len(df), dtype=float))  # constant alpha
+        std_series = None
     if split_col is not None and split_col in df.columns:
         split_series = df[split_col].astype(str)
     else:
         split_series = pd.Series(["TEST"] * len(df))
 
-    mask = (~y_true_series.isna()) & (~y_pred_series.isna()) & (~std_series.isna())
+    mask = (~y_true_series.isna()) & (~y_pred_series.isna())
+    if std_series is not None:
+        mask = mask & (~std_series.isna())
     y_true = y_true_series[mask].to_numpy()
     y_pred = y_pred_series[mask].to_numpy()
-    std = std_series[mask].to_numpy()
+    std = std_series[mask].to_numpy() if std_series is not None else None
     split = split_series[mask].to_numpy()
 
     # Drop VAL if requested
@@ -114,51 +118,67 @@ def parity_plot(
         keep = split != "VAL"
         y_true = y_true[keep]
         y_pred = y_pred[keep]
-        std = std[keep]
+        if std is not None:
+            std = std[keep]
         split = split[keep]
 
     if len(y_true) == 0:
         print(f"No valid rows to plot for {out_path}")
         return
 
-    # Axes limits and padding
-    y_min = min(y_true.min(), y_pred.min())
-    y_max = max(y_true.max(), y_pred.max())
-    pad = 0.1 * (y_max - y_min)
+    # Axes limits with padding and fixed tick coverage [-1, 4]
+    y_min = float(min(y_true.min(), y_pred.min()))
+    y_max = float(max(y_true.max(), y_pred.max()))
+    pad = 0.1 * (y_max - y_min if y_max > y_min else 1.0)
     y_lo = min(y_min - pad, -1.0)
     y_hi = max(y_max + pad, 4.0)
 
     fig, ax = plt.subplots()
-    # 1:1 line
+    # 1:1 diagonal
     ax.plot([y_lo, y_hi], [y_lo, y_hi], color="black", linewidth=1.0, zorder=1.5)
 
-    # TEST-only linear fit line
+    # Thin, faded linear fits for TRAIN/TEST/VAL (if present)
     try:
         idx_test = (split == "TEST") | (split == "TEST1") | (split == "TEST2")
         if np.any(idx_test):
-            coeffs = np.polyfit(y_true[idx_test], y_pred[idx_test], 1)
             xs = np.linspace(y_lo, y_hi, 200)
-            ax.plot(xs, coeffs[0] * xs + coeffs[1], color="#bdbdbd", linewidth=2.0, alpha=0.8, zorder=1.0)
+            coeffs_t = np.polyfit(np.asarray(y_true[idx_test], dtype=float), np.asarray(y_pred[idx_test], dtype=float), 1)
+            ax.plot(xs, coeffs_t[0] * xs + coeffs_t[1], color="#d62728", linewidth=0.8, alpha=0.25, zorder=1.0)
+        idx_train = (split == "TRAIN")
+        if np.any(idx_train):
+            xs = np.linspace(y_lo, y_hi, 200)
+            coeffs_tr = np.polyfit(np.asarray(y_true[idx_train], dtype=float), np.asarray(y_pred[idx_train], dtype=float), 1)
+            ax.plot(xs, coeffs_tr[0] * xs + coeffs_tr[1], color="#B0B0B0", linewidth=0.8, alpha=0.25, zorder=1.0)
+        if include_val:
+            idx_val = (split == "VAL")
+            if np.any(idx_val):
+                xs = np.linspace(y_lo, y_hi, 200)
+                coeffs_v = np.polyfit(np.asarray(y_true[idx_val], dtype=float), np.asarray(y_pred[idx_val], dtype=float), 1)
+                ax.plot(xs, coeffs_v[0] * xs + coeffs_v[1], color="#FDB515", linewidth=0.8, alpha=0.25, zorder=1.0)
     except Exception:
         pass
 
-    # Map std to alpha range [0.2, 1.0]
-    smin, smax = float(np.nanmin(std)), float(np.nanmax(std))
-    if smax > smin:
-        rel = (std - smin) / (smax - smin)
+    # Alpha mapping from std if available; else constant
+    if std is not None:
+        smin = float(np.nanmin(std))
+        smax = float(np.nanmax(std))
+        if smax > smin:
+            rel = (std - smin) / (smax - smin)
+        else:
+            rel = np.zeros_like(std)
+        alpha_vals = 1.0 - 0.8 * rel
     else:
-        rel = np.zeros_like(std)
-    alpha_vals = 1.0 - 0.8 * rel
+        alpha_vals = np.full_like(y_true, 0.85, dtype=float)
 
-    # Colors per split
+    # Colors and draw order (VAL on top)
     group_colors = {
-        "TRAIN": "#000000",
+        "TRAIN": "#D0D0D0",
         "TEST": "#d62728",
         "VAL": "#FDB515",
         "TEST1": "#ef5959",
         "TEST2": "#a51616",
     }
-    labs = ("TRAIN", "VAL", "TEST", "TEST1", "TEST2") if include_val else ("TRAIN", "TEST", "TEST1", "TEST2")
+    labs = ("TRAIN", "TEST", "TEST1", "TEST2", "VAL") if include_val else ("TRAIN", "TEST", "TEST1", "TEST2")
     for lab in labs:
         if lab not in group_colors:
             continue
@@ -167,14 +187,16 @@ def parity_plot(
         if not np.any(idx):
             continue
         face_rgba = np.array([mcolors.to_rgba(color, a) for a in alpha_vals[idx]])
+        lw = 0.5
+        size = 4.5 if lab == "TRAIN" else 6
         ax.scatter(
             y_true[idx],
             y_pred[idx],
-            s=6,
+            s=size,
             marker="s",
             facecolors=face_rgba,
             edgecolors=color,
-            linewidths=0.8,
+            linewidths=lw,
             zorder=3.0,
             label=lab.lower(),
         )
@@ -187,7 +209,7 @@ def parity_plot(
 
     label_fp = None
     ax.set_xlabel("measured ln k", fontproperties=label_fp)
-    ax.set_ylabel("predicted ln k", fontproperties=label_fp)
+    ax.set_ylabel(y_label, fontproperties=label_fp)
     ax.xaxis.label.set_fontstyle("normal")
     ax.yaxis.label.set_fontstyle("normal")
     ax.set_axisbelow(True)
@@ -247,12 +269,16 @@ def main() -> None:
             std_col="y_std_delta" if "y_std_delta" in df_ck.columns else None,
             split_col=split_col,
             include_val=False,
+            y_label="predicted ln k (Co-Kriging MF)",
         )
     else:
         print(f"Missing Co-Kriging predictions: {ck_csv}")
 
     # 2) CheMeleon fine-tuned
-    ft_csv = "results/nmr_finetune_predictions_joined.csv"
+    # Prefer 70/15/15 joined predictions if available
+    ft_csv = "results/nmr_finetune_70_15_15_predictions_joined.csv"
+    if not os.path.exists(ft_csv):
+        ft_csv = "results/nmr_finetune_predictions_joined.csv"
     if os.path.exists(ft_csv):
         df_ft = pd.read_csv(ft_csv)
         # Identify split column if any
@@ -262,19 +288,66 @@ def main() -> None:
         elif "test splits" in df_ft.columns:
             split_col = "test splits"
         # Parity
-        y_pred_col = "NMR_lnk_pred" if "NMR_lnk_pred" in df_ft.columns else "NMR_lnk_x"
+        y_pred_col = "NMR_lnk_pred" if "NMR_lnk_pred" in df_ft.columns else ("NMR_lnk_x" if "NMR_lnk_x" in df_ft.columns else "NMR_lnk")
         y_true_col = "NMR_lnk" if "NMR_lnk" in df_ft.columns else "NMR_lnk_y"
+        # TEST-only figure
+        if split_col is not None:
+            df_test = df_ft[df_ft[split_col].astype(str).isin(["TEST"])].copy()
+            if not df_test.empty:
+                parity_plot(
+                    df=df_test,
+                    out_path="plots/parity_nmr_chemeleon_finetuned_TEST.png",
+                    y_true_col=y_true_col,
+                    y_pred_col=y_pred_col,
+                    std_col=None,
+                    split_col=split_col,
+                    include_val=False,
+                    y_label="predicted ln k (CheMeleon FT)",
+                )
+        # All splits figure
         parity_plot(
             df=df_ft,
-            out_path="plots/parity_nmr_chemeleon_finetuned.png",
+            out_path="plots/parity_nmr_chemeleon_finetuned_TRAIN_VAL_TEST.png",
             y_true_col=y_true_col,
             y_pred_col=y_pred_col,
             std_col=None,
             split_col=split_col,
-            include_val=False,
+            include_val=True,
+            y_label="predicted ln k (CheMeleon FT)",
         )
     else:
         print(f"Missing fine-tuned predictions: {ft_csv}")
+
+    # 3) CheMeleon CV (replicate validation predictions aggregated)
+    cv_files = [f"results/nmr_cv5_rep{r}_val_pred.csv" for r in range(5)]
+    cv_files = [p for p in cv_files if os.path.exists(p)]
+    if len(cv_files) > 0:
+        # Concatenate predictions and join true labels from TRAIN set
+        dfs = []
+        for p in cv_files:
+            d = pd.read_csv(p)
+            if "NMR_lnk" in d.columns:
+                d = d.rename(columns={"NMR_lnk": "NMR_lnk_pred"})
+            d["replicate_file"] = os.path.basename(p)
+            dfs.append(d)
+        dcat = pd.concat(dfs, ignore_index=True)
+        train_true = pd.read_csv("data/rates/nmr_lnk_smiles_train_70.csv")
+        dcat = dcat.merge(train_true[["amine_smiles","acid_smiles","NMR_lnk"]], on=["amine_smiles","acid_smiles"], how="left")
+        # Mark as VAL for plotting
+        dcat["split"] = "VAL"
+        # Plot CV VAL-only parity
+        parity_plot(
+            df=dcat,
+            out_path="plots/parity_nmr_chemeleon_finetuned_CV_VAL.png",
+            y_true_col="NMR_lnk",
+            y_pred_col="NMR_lnk_pred",
+            std_col=None,
+            split_col="split",
+            include_val=True,
+            y_label="predicted ln k (CheMeleon FT)",
+        )
+    else:
+        print("No CV validation prediction files found; skipping CV parity plot.")
 
 
 if __name__ == "__main__":
