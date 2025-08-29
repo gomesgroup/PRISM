@@ -1,0 +1,162 @@
+# This variable specifies which type of image processing should be used.
+# Currently, the options are "hydrogen" for hydrogen film-related image
+# processing, and "intensity", for any image processing that only focuses on
+# the intensities.
+image_processing_type: "intensity"
+
+# This variable should be set to True if the image processing is for 
+# calibration, and False otherwise.
+is_calibration: False
+
+# If this variable is set to True, figures will be displayed in
+# image_processing.ipynb. Otherwise, no figures will be display.
+#
+# NOTE: aside from the figures related to the masks, the figures generated
+# in this notebook are never saved.
+display_figures: True
+
+# This variable specifies the absolute parent directory that contains the
+# data for all experiments.
+parent_data_directory: "e:\\Image Analysis"
+
+# This variable specifes the name of the project. A sub-folder of the same
+# name should exist in the parent_data_directory.
+project_name: "Amide Bond formation"
+
+# This variable specifes the name of the experiment. A sub-folder of the same
+# name should exist with the project_name directory. This directory should
+# contain an "input" sub-directory (the structure of this directory is
+# specified in the README.txt). The "input" sub-directory will contain all
+# image/mask inputs for the image processing.
+experiment_name: "5-15-24-Ninetales"
+
+# This variable specifies the number of columns in each row of wells, including 
+# the reference wells. The rows are ordered from top to bottom in the mask
+# image. The total number of wells must match the number of wells in the
+# input mask image.
+columns_per_row: [12, 12, 13, 13, 13, 13, 12, 12]
+
+# This variable is used to specify the wells that are reference or empty
+# wells in the masks.
+#
+# Reference wells are specified by mapping a string of the form "(a,b)", where
+# a is the 0-indexed row and b is the 0-indexed column, to "ref" (for reference
+# wells) or "empty" (for empty wells).
+#
+# NOTE: if you have multiple masks, the reference and empty wells should be in 
+# the same positions.
+#
+# NOTE: "empty" wells may cause the intensity/post-processed data figures in the
+# notebook to display in an unusual way (this is because the ordering does not
+# account for columns, so labeling a well as "empty" will cause the sample 
+# labels in the same row to shift as if the well was not there).
+ref_or_empty: {"(2,12)": "ref","(3,12)": "ref","(4,12)": "ref","(5,12)": "ref"}
+
+# This variable specifies the image channels to be used for analysis. Multiple
+# channels can be passed in, and each channel will be analyzed separately.
+# There are four options: "blue", "green", "red", and "average". "blue", 
+# "green", and "red" analyze the blue, green, and red channels of the input
+# images respectively. "average" causes the blue, green, and red channels
+# to be averaged together and then analyzed.
+analysis_channels: ["average"]
+
+# If this variable is True, the reference and sample wells will be normalized
+# by the average intensity of the reference wells in each image. If this
+# variable is False, normalization by the average intensity of the reference
+# wells will not occur.
+normalize_by_reference: True
+
+# This variable specifies the requested outputs for the image processing
+# for each image dataset. NOTE, each mask should have an entry specified
+# in this dictionary. Each sub-dictionary maps the desired output
+# property. "True" means the property will be saved in the output csv.
+# "False" means the property   will not be saved.
+requested_outputs: 
+  {"yellow": {"Normalized Raw Reference Intensity" : True, 
+           "Normalized Reference Intensity": True, 
+           "Normalized Sample Intensity": True},
+    "white": {"Normalized Raw Reference Intensity" : True, 
+            "Normalized Reference Intensity": True, 
+            "Normalized Sample Intensity": True}
+           }
+
+# This dictionary stores the calibration coefficients for each reactor.
+# The entries should be labeled with the reactor name. The sub-dictionaries
+# contain the coefficients for the quadratic or linear fit. For a quadratic fit, 
+# there should be three entries in the sub-dictionary: "a", "b", and "c" (where 
+# the fit is ax^2 + bx + c). For a linear fit, there should be two entries in
+# the sub-dictionary: "a" and "b" (where the fit is ax + b).
+# Once a calibration is complete, the constants should be added here.
+reactor_calibration_coefficients:
+  {"gastly": {"a": 0.943543, "b": -1.22109, "c": 0.973533},
+   "rattata": {"a": 0.968379, "b": -1.26827, "c": 0.982771},
+   "snorlax": {"a": 1.0029, "b": -1.26733, "c": 0.980978},
+   "torchic": {"a": 1.3072, "b": -1.3966, "c": 1.0055}}
+
+# The name of the reactor used for this experiment. This must match one of the
+# entries in reactor_calibration_coefficients.
+reactor_name: "gastly"
+
+# This variable specifies the volume of the vials. The units are specified
+# below with the "volume_units" variable.
+vial_volume: 1.1
+
+# This variable specifies the per-well solution volume. It should have the
+# same shape as the sample well array. The units are specified below with the 
+# "volume_units" variable.
+solution_volumes: [[0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42], 
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42],
+                   [0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42, 0.42]]
+
+# This variable specifies the time units used for the calculations. The valid
+# options are "second", "minute", and "hour".
+time_units: "minute"
+
+# This variable specifes the volume units used for the calculations. The valid
+# options are "L", "mL", and "uL" (micro liter).
+volume_units: "mL"
+
+# This variable specifes the amount units used for the calculations. The valid
+# options are "mol", "mmol", and "umol" (micro mol).
+amount_units: "umol"
+
+# Variables used for the Savitsky-Golay Filter used to compute a smoothed
+# derivative for the hydrogen rate.
+
+# This variable determines the window size for the Savitzky-Golay filter, which
+# is used to compute a smoothed derivative of the hydrogen amount (in order
+# to compute the rate). This value should be less than or equal to the
+# number of images.
+savitzky_golay_window: 22
+
+# This variable determines the polynomial degree for the Savitzky-Golay filter,
+# which is used to compute a smoothed derivative of the hydrogen amount (in 
+# order to compute the rate). This value should be less than the
+# savitzky_golay_window value.
+savitzky_golay_degree: 2
+
+# This variable specifies the fraction of the per-well max hydrogen that
+# must be reached for the incubation period to be considered complete.
+# It should be greater than or equal to 0, less than or equal to 1, and
+# less than the plateau_threshold_fraction.
+incubation_threshold_fraction: 0.05
+
+# This variable specifies the fraction of the per-well max hydrogen that
+# must be reached for the plateau period to begin. It should be greater
+# than 0, less than or equal to 1, and greater than the 
+# incubation_threshold_fraction.
+plateau_threshold_fraction: 0.90
+
+# This list specifies the image datasets that should be used to generate movies.
+# Each entry in this list should correspond to the name of the image directory
+# for the desired image dataset. The list can be empty, in which case no
+# movies will be generated.
+movies_to_be_generated: ["yellow","white"]
+
+# This variable specifies the frames per second to use in the generated movies.
+frames_per_second: 15
