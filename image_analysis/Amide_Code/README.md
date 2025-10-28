@@ -40,4 +40,4 @@ Create a project folder anywhere, with this structure:
 
 Place images and masks in their respective folders. These names should match the channel names in `config.yaml`. Ensure each channel folder under images has a matching folder under masks.
 
-The [inflection_finder.ipynb](inflection_finder.ipynb) notebook is provided for further data inspection and analysis after processing. It will find and annote inflection points in the processed data.
+The `inflection_finder.ipynb` notebook is provided in example project folders (e.g., `Ninetales_Template/`) for further data inspection and analysis after processing. It will find and annotate inflection points in the processed data.
