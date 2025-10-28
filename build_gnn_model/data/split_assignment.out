@@ -1,0 +1,23 @@
+Loading dataset from: PRISM/data/corrected_hte_rates_each_8_optuna.csv
+Dataset shape: (1031, 10)
+Skipping feature addition (use --add-features to include molecular descriptors)
+Created 1031 unique reaction keys
+Created controls mapping for 46 acyl chlorides
+Split types found: ['TRAIN' 'TEST1']
+
+Original split sizes:
+  TRAIN: 925
+  TEST1: 106
+  TEST2: 0
+  Combined TEST: 106 (TEST1 + TEST2)
+
+After creating validation split:
+  Train: 832 (80.7%)
+  Val:   93 (9.0%)
+  Test:  106 (10.3%)
+Number of train reactions: 832
+Number of val reactions: 93
+Number of test reactions: 106
+
+Saving splits to: /Users/liliana/Scripts/AIMNet2_GNN/updated/data/hte-all-corrected_splits_train_val_tests_lnk.json
+✅ Splits file created successfully!

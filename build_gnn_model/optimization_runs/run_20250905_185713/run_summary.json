@@ -1,0 +1,29 @@
+{
+  "run_directory": "optimization_runs/run_20250905_185713",
+  "timestamp": "2025-09-06T09:47:31.950765",
+  "n_epochs": 500,
+  "best_params": {
+    "learning_rate": 5.0942970892403476e-05,
+    "n_graph_layers": 5,
+    "n_output_layers": 1,
+    "samples_per_epoch": 300
+  },
+  "final_performance": {
+    "train_r2": 0.9867072105407715,
+    "train_mae": 0.08236967772245407,
+    "val_r2": 0.8396614789962769,
+    "val_mae": 0.23883311450481415,
+    "test_r2": 0.5170213580131531,
+    "test_mae": 0.523066520690918
+  },
+  "files_created": [
+    "best_params.json",
+    "all_trials.json",
+    "final_metrics.json",
+    "plots/optimization_history.png",
+    "plots/hyperparameter_importance.png",
+    "plots/final_training_curves.png",
+    "plots/optimized_parity_plot.png",
+    "model/optimized_final.jpt"
+  ]
+}

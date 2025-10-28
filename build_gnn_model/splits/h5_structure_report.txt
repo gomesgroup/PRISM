@@ -1,0 +1,54 @@
+================================================================================
+H5 DATA STRUCTURE REPORT
+================================================================================
+
+DIRECTORY: splits/
+------------------------------------------------------------
+
+test.h5:
+  Reactions: 106
+  File size: 24.7 MB
+  Datasets per reaction: ['Control', 'acid_a', 'acid_aim', 'acid_q', 'amine_a', 'amine_aim', 'amine_q', 'int_a', 'int_aim', 'int_q', 'rate']
+    Control: (1,) (float64)
+    acid_a: (16, 256) (float32)
+    acid_aim: (16, 256) (float32)
+    acid_q: (16,) (float32)
+    amine_a: (25, 256) (float32)
+    amine_aim: (25, 256) (float32)
+    amine_q: (25,) (float32)
+    int_a: (73, 256) (float32)
+    int_aim: (73, 256) (float32)
+    int_q: (73,) (float32)
+    rate: (1,) (float64)
+
+train.h5:
+  Reactions: 832
+  File size: 188.9 MB
+  Datasets per reaction: ['Control', 'acid_a', 'acid_aim', 'acid_q', 'amine_a', 'amine_aim', 'amine_q', 'int_a', 'int_aim', 'int_q', 'rate']
+    Control: (1,) (float64)
+    acid_a: (16, 256) (float32)
+    acid_aim: (16, 256) (float32)
+    acid_q: (16,) (float32)
+    amine_a: (32, 256) (float32)
+    amine_aim: (32, 256) (float32)
+    amine_q: (32,) (float32)
+    int_a: (80, 256) (float32)
+    int_aim: (80, 256) (float32)
+    int_q: (80,) (float32)
+    rate: (1,) (float64)
+
+val.h5:
+  Reactions: 93
+  File size: 20.8 MB
+  Datasets per reaction: ['Control', 'acid_a', 'acid_aim', 'acid_q', 'amine_a', 'amine_aim', 'amine_q', 'int_a', 'int_aim', 'int_q', 'rate']
+    Control: (1,) (float64)
+    acid_a: (16, 256) (float32)
+    acid_aim: (16, 256) (float32)
+    acid_q: (16,) (float32)
+    amine_a: (14, 256) (float32)
+    amine_aim: (14, 256) (float32)
+    amine_q: (14,) (float32)
+    int_a: (62, 256) (float32)
+    int_aim: (62, 256) (float32)
+    int_q: (62,) (float32)
+    rate: (1,) (float64)

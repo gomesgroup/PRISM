@@ -1,0 +1,6 @@
+{
+  "learning_rate": 5.0942970892403476e-05,
+  "n_graph_layers": 5,
+  "n_output_layers": 1,
+  "samples_per_epoch": 300
+}

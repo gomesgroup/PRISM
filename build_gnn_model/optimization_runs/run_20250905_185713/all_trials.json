@@ -1,0 +1,652 @@
+[
+  {
+    "number": 0,
+    "value": 0.6613185528977416,
+    "params": {
+      "learning_rate": 0.002067419226262221,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T18:57:13.191812",
+    "datetime_complete": "2025-09-05T19:27:00.276963"
+  },
+  {
+    "number": 1,
+    "value": 0.20192993366496373,
+    "params": {
+      "learning_rate": 5.632157021545914e-05,
+      "n_graph_layers": 4,
+      "n_output_layers": 3,
+      "samples_per_epoch": 100
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T19:27:00.279734",
+    "datetime_complete": "2025-09-05T19:39:35.146682"
+  },
+  {
+    "number": 2,
+    "value": 0.21910538980517485,
+    "params": {
+      "learning_rate": 0.0001263308718145191,
+      "n_graph_layers": 3,
+      "n_output_layers": 2,
+      "samples_per_epoch": 100
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T19:39:35.148334",
+    "datetime_complete": "2025-09-05T19:50:16.539901"
+  },
+  {
+    "number": 3,
+    "value": 0.25066054970750795,
+    "params": {
+      "learning_rate": 8.761738817016989e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 50
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T19:50:16.541184",
+    "datetime_complete": "2025-09-05T19:57:39.970943"
+  },
+  {
+    "number": 4,
+    "value": 0.16799119895723297,
+    "params": {
+      "learning_rate": 0.00020574537305045982,
+      "n_graph_layers": 2,
+      "n_output_layers": 2,
+      "samples_per_epoch": 150
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T19:57:39.971834",
+    "datetime_complete": "2025-09-05T20:10:58.001548"
+  },
+  {
+    "number": 5,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 1.539225562520528e-06,
+      "n_graph_layers": 2,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:10:58.002197",
+    "datetime_complete": "2025-09-05T20:13:38.475375"
+  },
+  {
+    "number": 6,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 1.314583507713064e-06,
+      "n_graph_layers": 3,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:13:38.475957",
+    "datetime_complete": "2025-09-05T20:16:34.474028"
+  },
+  {
+    "number": 7,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.00044669365358346964,
+      "n_graph_layers": 2,
+      "n_output_layers": 2,
+      "samples_per_epoch": 100
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:16:34.474646",
+    "datetime_complete": "2025-09-05T20:17:37.335503"
+  },
+  {
+    "number": 8,
+    "value": 0.12396892815993751,
+    "params": {
+      "learning_rate": 0.00010513474702371039,
+      "n_graph_layers": 4,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:17:37.336148",
+    "datetime_complete": "2025-09-05T20:46:41.899955"
+  },
+  {
+    "number": 9,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.000939280302951603,
+      "n_graph_layers": 4,
+      "n_output_layers": 2,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:46:41.900735",
+    "datetime_complete": "2025-09-05T20:50:16.947240"
+  },
+  {
+    "number": 10,
+    "value": 0.19295156088215878,
+    "params": {
+      "learning_rate": 1.3704300388482812e-05,
+      "n_graph_layers": 4,
+      "n_output_layers": 3,
+      "samples_per_epoch": 200
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T20:50:16.947962",
+    "datetime_complete": "2025-09-05T21:31:29.759924"
+  },
+  {
+    "number": 11,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.007903271529466401,
+      "n_graph_layers": 3,
+      "n_output_layers": 1,
+      "samples_per_epoch": 200
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T21:31:29.764358",
+    "datetime_complete": "2025-09-05T21:33:31.625811"
+  },
+  {
+    "number": 12,
+    "value": 0.2104560211873917,
+    "params": {
+      "learning_rate": 1.6279090358361463e-05,
+      "n_graph_layers": 2,
+      "n_output_layers": 3,
+      "samples_per_epoch": 150
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T21:33:31.626431",
+    "datetime_complete": "2025-09-05T21:47:06.349017"
+  },
+  {
+    "number": 13,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.00029299708881464176,
+      "n_graph_layers": 4,
+      "n_output_layers": 2,
+      "samples_per_epoch": 150
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T21:47:06.349696",
+    "datetime_complete": "2025-09-05T21:48:57.595174"
+  },
+  {
+    "number": 14,
+    "value": 0.15655931707784787,
+    "params": {
+      "learning_rate": 2.440502701865508e-05,
+      "n_graph_layers": 3,
+      "n_output_layers": 3,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T21:48:57.595765",
+    "datetime_complete": "2025-09-05T22:11:53.460605"
+  },
+  {
+    "number": 15,
+    "value": 0.18515707084729766,
+    "params": {
+      "learning_rate": 1.3884052660570496e-05,
+      "n_graph_layers": 3,
+      "n_output_layers": 3,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T22:11:53.461237",
+    "datetime_complete": "2025-09-05T22:35:03.492276"
+  },
+  {
+    "number": 16,
+    "value": 0.15381020912861448,
+    "params": {
+      "learning_rate": 3.3284836113458134e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 3,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T22:35:03.492905",
+    "datetime_complete": "2025-09-05T23:03:05.865264"
+  },
+  {
+    "number": 17,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 6.027619178898912e-06,
+      "n_graph_layers": 5,
+      "n_output_layers": 3,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T23:03:05.865898",
+    "datetime_complete": "2025-09-05T23:06:35.688119"
+  },
+  {
+    "number": 18,
+    "value": 0.12130203007274488,
+    "params": {
+      "learning_rate": 5.0942970892403476e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T23:06:35.688790",
+    "datetime_complete": "2025-09-05T23:35:58.174958"
+  },
+  {
+    "number": 19,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 5.835743669693226e-06,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T23:35:58.179027",
+    "datetime_complete": "2025-09-05T23:40:20.984102"
+  },
+  {
+    "number": 20,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.0007420958276941809,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 200
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T23:40:20.984693",
+    "datetime_complete": "2025-09-05T23:42:27.945119"
+  },
+  {
+    "number": 21,
+    "value": 0.13732910910078328,
+    "params": {
+      "learning_rate": 3.96537255714798e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-05T23:42:27.945690",
+    "datetime_complete": "2025-09-06T00:12:13.678230"
+  },
+  {
+    "number": 22,
+    "value": 0.12729560373852003,
+    "params": {
+      "learning_rate": 4.702367167787309e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T00:12:13.678853",
+    "datetime_complete": "2025-09-06T00:42:51.607686"
+  },
+  {
+    "number": 23,
+    "value": 0.12534363731534504,
+    "params": {
+      "learning_rate": 9.876817694591395e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T00:42:51.608346",
+    "datetime_complete": "2025-09-06T01:14:36.246841"
+  },
+  {
+    "number": 24,
+    "value": 0.1479431469219694,
+    "params": {
+      "learning_rate": 0.00012480032101733118,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T01:14:36.247578",
+    "datetime_complete": "2025-09-06T01:38:34.485190"
+  },
+  {
+    "number": 25,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.00027386197096012917,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T01:38:34.485838",
+    "datetime_complete": "2025-09-06T01:42:41.572449"
+  },
+  {
+    "number": 26,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 5.807040705616246e-06,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T01:42:41.573027",
+    "datetime_complete": "2025-09-06T01:45:49.089653"
+  },
+  {
+    "number": 27,
+    "value": 0.12901341511346262,
+    "params": {
+      "learning_rate": 8.523142703039965e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T01:45:49.090249",
+    "datetime_complete": "2025-09-06T02:17:09.282108"
+  },
+  {
+    "number": 28,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.0012381380893152108,
+      "n_graph_layers": 4,
+      "n_output_layers": 2,
+      "samples_per_epoch": 200
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T02:17:09.283105",
+    "datetime_complete": "2025-09-06T02:19:27.326727"
+  },
+  {
+    "number": 29,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.003717703118035032,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T02:19:27.327311",
+    "datetime_complete": "2025-09-06T02:22:52.169136"
+  },
+  {
+    "number": 30,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.0005321867292764459,
+      "n_graph_layers": 5,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T02:22:52.169723",
+    "datetime_complete": "2025-09-06T02:26:29.707206"
+  },
+  {
+    "number": 31,
+    "value": 0.14151032434204364,
+    "params": {
+      "learning_rate": 5.800710776936979e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T02:26:29.707788",
+    "datetime_complete": "2025-09-06T02:57:27.216865"
+  },
+  {
+    "number": 32,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.00019483178665911187,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T02:57:27.217515",
+    "datetime_complete": "2025-09-06T03:01:26.361135"
+  },
+  {
+    "number": 33,
+    "value": 0.1262875404890335,
+    "params": {
+      "learning_rate": 5.7495437158205046e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T03:01:26.361703",
+    "datetime_complete": "2025-09-06T03:28:06.246830"
+  },
+  {
+    "number": 34,
+    "value": 0.12956526512871755,
+    "params": {
+      "learning_rate": 7.547754030221296e-05,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T03:28:06.247504",
+    "datetime_complete": "2025-09-06T03:52:04.547731"
+  },
+  {
+    "number": 35,
+    "value": 0.13108741230143822,
+    "params": {
+      "learning_rate": 0.00013357012229678005,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T03:52:04.548395",
+    "datetime_complete": "2025-09-06T04:18:18.080477"
+  },
+  {
+    "number": 36,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 1.9101152187449284e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 50
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T04:18:18.081384",
+    "datetime_complete": "2025-09-06T04:19:06.121857"
+  },
+  {
+    "number": 37,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.0001792909097073539,
+      "n_graph_layers": 4,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T04:19:06.122425",
+    "datetime_complete": "2025-09-06T04:23:05.692217"
+  },
+  {
+    "number": 38,
+    "value": 0.13643552674667234,
+    "params": {
+      "learning_rate": 2.865860432880551e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T04:23:05.692801",
+    "datetime_complete": "2025-09-06T04:56:02.330449"
+  },
+  {
+    "number": 39,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 9.627058630316173e-06,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T04:56:02.331109",
+    "datetime_complete": "2025-09-06T04:59:06.917599"
+  },
+  {
+    "number": 40,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 6.376984676666535e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 2,
+      "samples_per_epoch": 200
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T04:59:06.918221",
+    "datetime_complete": "2025-09-06T05:02:17.238416"
+  },
+  {
+    "number": 41,
+    "value": 0.1267479484959431,
+    "params": {
+      "learning_rate": 4.4200352965362643e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T05:02:17.239028",
+    "datetime_complete": "2025-09-06T05:32:43.331616"
+  },
+  {
+    "number": 42,
+    "value": 0.12962728872291768,
+    "params": {
+      "learning_rate": 0.00010115641891148866,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T05:32:43.332481",
+    "datetime_complete": "2025-09-06T06:03:16.469134"
+  },
+  {
+    "number": 43,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.0003274996058795999,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T06:03:16.469771",
+    "datetime_complete": "2025-09-06T06:06:40.669799"
+  },
+  {
+    "number": 44,
+    "value": 0.12863278982836018,
+    "params": {
+      "learning_rate": 4.047249180598537e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T06:06:40.670376",
+    "datetime_complete": "2025-09-06T06:37:51.084092"
+  },
+  {
+    "number": 45,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 0.00014085800732845788,
+      "n_graph_layers": 3,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T06:37:51.085233",
+    "datetime_complete": "2025-09-06T06:41:24.450872"
+  },
+  {
+    "number": 46,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 2.383139508686629e-06,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 100
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T06:41:24.451446",
+    "datetime_complete": "2025-09-06T06:42:36.738569"
+  },
+  {
+    "number": 47,
+    "value": 0.13688664478650758,
+    "params": {
+      "learning_rate": 6.117546934863756e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T06:42:36.739139",
+    "datetime_complete": "2025-09-06T07:08:34.438047"
+  },
+  {
+    "number": 48,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 8.734449342179745e-05,
+      "n_graph_layers": 5,
+      "n_output_layers": 2,
+      "samples_per_epoch": 300
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T07:08:34.438713",
+    "datetime_complete": "2025-09-06T07:14:21.015637"
+  },
+  {
+    "number": 49,
+    "value": Infinity,
+    "params": {
+      "learning_rate": 8.311750869292708e-06,
+      "n_graph_layers": 4,
+      "n_output_layers": 1,
+      "samples_per_epoch": 250
+    },
+    "state": "COMPLETE",
+    "datetime_start": "2025-09-06T07:14:21.016213",
+    "datetime_complete": "2025-09-06T07:17:51.569718"
+  }
+]

@@ -1,0 +1,14 @@
+Loaded splits from /Users/liliana/Scripts/AIMNet2_GNN/updated/data/hte-all-corrected_splits_train_val_tests_lnk.json:
+  Train: 832 reactions
+  Val: 93 reactions
+  Test: 106 reactions
+  Train features: 832 reactions with additional features
+    Feature keys: {'Control'}
+  Val features: 93 reactions with additional features
+  Test features: 106 reactions with additional features
+Processing 832 reactions for /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/train.h5
+Saved 832 reactions to /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/train.h5
+Processing 93 reactions for /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/val.h5
+Saved 93 reactions to /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/val.h5
+Processing 106 reactions for /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/test.h5
+Saved 106 reactions to /Users/liliana/Scripts/AIMNet2_GNN/updated/splits/test.h5
