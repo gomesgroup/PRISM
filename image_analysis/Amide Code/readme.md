@@ -18,6 +18,7 @@ Image_Processing_Suite/
 ├── image_processing/         # Core Python modules
 ├── config.yaml               # Analysis parameters (thresholds, filters, etc.)
 └── process_images.ipynb      # Notebook to run the full pipeline
+```
 
 ## Project Data Folder Layout
 
@@ -35,8 +36,8 @@ Create a project folder anywhere, with this structure:
 │       └── <channel2_name>/
 │
 └── inflection_finder.ipynb   # Notebook for downstream data inspection
+```
 
 Place images and masks in their respective folders. These names should match the channel names in `config.yaml`. Ensure each channel folder under images has a matching folder under masks.
 
-The `inflection_finder.ipynb` notebook is provided for further data inspection and analysis after processing. It will find and annote inflection points in the processed data.
-```
+The [inflection_finder.ipynb](inflection_finder.ipynb) notebook is provided for further data inspection and analysis after processing. It will find and annote inflection points in the processed data.
