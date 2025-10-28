@@ -9,9 +9,8 @@ This repository contains the complete workflow for predicting the type and amide
 - **`data/`** - Datasets including molecular and atomistic descriptors, reaction rates, and XYZ molecular structures.
 - **`generate_features/`** - Scripts for generating molecular/atomistic features from structures using the Morfeus python package and pKa calculators.
 - **`image_analysis/`** - Image processing scripts for analyzing the PRISM high-throughput experimental plate data. [See README](image_analysis/Amide_Code/README.md)
-- **`new_predictions.ipynb`** - Jupyter notebook for making predictions on new reaction combinations. [Open notebook](new_predictions.ipynb)
-
-Each subdirectory contains its own README with detailed instructions.
+- **`predictions_from_class_bias.ipynb`** - Jupyter notebook for making PRISM classification predictions on new reaction combinations. [Open notebook](predictions_from_class_bias.ipynb)
+- **`predictions_from_gnn.ipynb`** - Jupyter notebook for making PRISM HTE rate predictions on new reaction combinations. [Open notebook](predictions_from_gnn.ipynb)
 
 ## Citation
 
