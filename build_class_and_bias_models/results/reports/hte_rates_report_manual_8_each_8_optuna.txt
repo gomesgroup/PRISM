@@ -1,0 +1,76 @@
+Measurable HTE Rate Bias Correction Report
+======================================================================
+
+METHODOLOGY: Two-Stage Model
+1. Part 1 (Binary Classifier): Predicts if reaction has measurable rate:
+   - Class 0: Measurable rates (rate > 0, not biased)
+   - Class 1: Fast unmeasurable rates (rate ≤ 0)
+2. Part 2 (Regressor): Predicts bias magnitude for measurable but biased reactions.
+
+Total entries: 1201
+Fast unmeasurable rates (≤ 0): 80
+Biased entries (ground truth): 421
+Corrections applied: 421
+
+Number of features for manual selection: 8
+Final features selected: ['acyl_pka_aHs_x_has_acidic_H', 'acyl_Charges_secondary_1', 'acyl_BV_secondary_2', 'amine_BV_secondary_avg', 'amine_class_1_mixture', 'acyl_class_aromatic', 'amine_Charges_secondary_1', 'amine_pka_basic']
+
+--- CLASSIFICATION PERFORMANCE ANALYSIS ---
+Best Model: LightGBM
+Train Accuracy: 1.000
+Test Accuracy: 0.977
+CV F1 Score: 0.684 ± 0.109
+
+--- REGRESSION PERFORMANCE (on biased data) ---
+Best Model: Random Forest
+Train R²: 0.903
+Test R²: 0.479
+CV R²: -1.026 ± 2.284
+
+--- REGRESSION PERFORMANCE TO NMR Rates ---
+  Original R² vs NMR: 0.835
+  Corrected R² vs NMR: 0.767
+  R² Improvement: -8.2%
+  Point Improvement: 43
+
+
+--- OVERALL CORRECTION METRICS ---
+BIASED POINTS METRICS:
+  Mean actual bias: 48.21
+  Mean predicted bias: 40.47
+
+ALL POINTS METRICS:
+  Mean predicted bias: 16.59
+  Mean HTE rate before correction: 328.60
+  Mean HTE rate after correction: 316.16
+
+--- SCRAMBLED FEATURES VALIDATION TEST ---
+(Tests if model is learning meaningful patterns vs. exploiting biases)
+
+CLASSIFIER SCRAMBLING TEST:
+  Baseline Test F1 Score: 0.975
+  Scrambled Mean F1 Score: 0.040 ± 0.027
+  Performance Drop: 0.935
+  ✅ RESULT: Model is learning meaningful patterns (substantial drop)
+
+REGRESSOR SCRAMBLING TEST:
+  Baseline Test R²: 0.854
+  Scrambled Mean R²: -0.417 ± 0.079
+  Performance Drop: 1.271
+  ✅ RESULT: Model is learning meaningful patterns (substantial drop)
+
+--- Y-SCRAMBLING/Y-RANDOMIZATION VALIDATION TEST ---
+(Tests if model architecture/features are too flexible for random targets)
+
+CLASSIFIER Y-SCRAMBLING TEST:
+  Expected chance F1 score: 0.124
+  Scrambled Mean F1 Score: 0.109 ± 0.017
+  Performance above chance: -0.016
+  ✅ RESULT: Performance close to chance - appropriate architecture/features
+
+REGRESSOR Y-SCRAMBLING TEST:
+  Expected chance R²: 0.000
+  Scrambled Mean R²: -0.009 ± 0.005
+  Performance above chance: -0.009
+  ✅ RESULT: Performance close to chance - appropriate architecture/features
+
