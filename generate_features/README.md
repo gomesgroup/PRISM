@@ -67,7 +67,7 @@ python generate_features/amide_feature_generator.py \
 ### Optional Arguments
 - `--verbose`: Enable verbose output
 
-## Important Notes
+## Notes
 
 1. **Rowan API Key**: The script includes a hardcoded Rowan API key. For production use, consider setting this as an environment variable.
 
@@ -79,40 +79,3 @@ python generate_features/amide_feature_generator.py \
 
 3. **External Dependencies**: Make sure `obabel`, `qupkake`, and `xtb` packages are installed.
 
-## Troubleshooting
-
-### Environment Creation Issues
-- Ensure you have conda/mamba installed
-- Try updating conda/mamba: `conda update conda` or `mamba update mamba`
-
-### Missing External Tools
-If you get command not found errors:
-```bash
-# Check if tools are installed
-which obabel
-which qupkake  
-which xtb
-
-# If missing, try reinstalling the environment
-mamba env remove -n amide-features
-./setup.sh
-```
-
-### Import Errors
-```bash
-# Activate environment first
-mamba activate amide-features
-
-# Test imports
-python -c "import rdkit; print('RDKit OK')"
-python -c "import morfeus; print('Morfeus OK')"
-```
-
-## Alternative Installation (Advanced Users)
-
-If you prefer pip:
-```bash
-pip install -r requirements.txt
-# Then manually install OpenBabel and XTB via conda:
-conda install -c conda-forge openbabel xtb
-```
