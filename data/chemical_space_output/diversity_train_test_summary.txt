@@ -1,0 +1,31 @@
+Train and Test dataset diversity analysis using Tanimoto on Morgan fingerprints (r=2, 2048 bits)
+========================================================================
+
+Interpretation:
+  • max Tanimoto to train: for each test compound, similarity to the nearest training structure.
+    Values near 1.0 indicate the test case is well covered by the training library; lower values
+    suggest greater structural novelty (more 'out-of-sample' in fingerprint space).
+  • Pairwise train–test vs train–train: if train–test similarities are systematically lower than
+    train–train, the held-out set explores regions less dense in the training manifold.
+  • Murcko scaffolds: fraction of test compounds whose scaffold appears in training complements
+    fingerprint similarity (same scaffold can still differ in substitution).
+
+Amines
+------
+  Compounds: train = 39, test = 15
+  Max Tanimoto to train (per test): mean = 0.3724, std = 0.1330, median = 0.3250
+  Range of max-sim-to-train: [0.1864, 0.6842]
+  Pairwise mean Tanimoto — train–train: 0.1298; test–test: 0.1761; train–test: 0.1381
+  Murcko scaffolds (test vs train):
+    fraction of test compounds whose scaffold appears in train: 0.200
+    distinct test scaffolds: 11; not seen in train (among distinct): 9
+
+Acyl chlorides
+--------------
+  Compounds: train = 30, test = 16
+  Max Tanimoto to train (per test): mean = 0.4302, std = 0.1079, median = 0.4258
+  Range of max-sim-to-train: [0.2500, 0.6364]
+  Pairwise mean Tanimoto — train–train: 0.2912; test–test: 0.2471; train–test: 0.2455
+  Murcko scaffolds (test vs train):
+    fraction of test compounds whose scaffold appears in train: 0.812
+    distinct test scaffolds: 6; not seen in train (among distinct): 3
