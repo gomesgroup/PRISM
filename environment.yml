@@ -1,0 +1,23 @@
+# conda env create -f environment.yml && conda activate prism-ml
+name: prism-ml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scikit-learn=1.9
+  - joblib
+  - matplotlib
+  - openpyxl
+  # Pinned to the versions the saved model's descriptors were computed with:
+  # a different RDKit can embed a slightly different conformer.
+  - rdkit=2026.03.6
+  - xtb-python=22.1
+  - pytest
+  - pip
+  - pip:
+      - morfeus-ml==0.8.0
+      - -e ".[boosting]"
+# For the graph-network benchmark also install torch for your platform:
+#   https://pytorch.org/get-started/locally/

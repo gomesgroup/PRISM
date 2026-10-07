@@ -1,0 +1,219 @@
+{
+  "acyl": {
+    "n": 31,
+    "n_train": 28,
+    "n_test": 3,
+    "similarity_all": {
+      "mean": 0.13021144439346363,
+      "sd": 0.12919091059500906,
+      "median": 0.11538461538461539,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 465
+    },
+    "diversity_all": {
+      "mean": 0.8697885556065363,
+      "sd": 0.12919091059500906,
+      "median": 0.8846153846153846,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 465
+    },
+    "distinct_scaffolds": 7,
+    "acyclic": 7,
+    "functional_classes": {
+      "aromatic": 19,
+      "aliphatic primary": 4,
+      "heteroaromatic": 2,
+      "aliphatic tertiary": 2,
+      "aliphatic secondary": 2,
+      "other": 1,
+      "alkenyl": 1
+    },
+    "similarity_train_train": {
+      "mean": 0.12157373080501901,
+      "sd": 0.11419347879894345,
+      "median": 0.11538461538461539,
+      "min": 0.0,
+      "max": 0.6666666666666666,
+      "n": 378
+    },
+    "similarity_test_test": {
+      "mean": 0.12698412698412698,
+      "sd": 0.14720029357929687,
+      "median": 0.047619047619047616,
+      "min": 0.0,
+      "max": 0.3333333333333333,
+      "n": 3
+    },
+    "similarity_test_train": {
+      "mean": 0.1691964168775122,
+      "sd": 0.17630146543379066,
+      "median": 0.13636363636363635,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 84
+    },
+    "nearest_train_test": {
+      "mean": 0.6534391534391534,
+      "sd": 0.2561360305282462,
+      "median": 0.5714285714285714,
+      "min": 0.3888888888888889,
+      "max": 1.0,
+      "n": 3
+    },
+    "nearest_train_train_loo": {
+      "mean": 0.3359859654457442,
+      "sd": 0.1369537947226208,
+      "median": 0.3333333333333333,
+      "min": 0.041666666666666664,
+      "max": 0.6666666666666666,
+      "n": 28
+    },
+    "test_scaffold_in_train": 1.0,
+    "test_scaffolds_not_in_train": 0,
+    "identical_fingerprints": [
+      [
+        13,
+        25
+      ]
+    ]
+  },
+  "amine": {
+    "n": 35,
+    "n_train": 32,
+    "n_test": 3,
+    "similarity_all": {
+      "mean": 0.14507629697502977,
+      "sd": 0.13018782775477397,
+      "median": 0.13043478260869565,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 595
+    },
+    "diversity_all": {
+      "mean": 0.8549237030249703,
+      "sd": 0.13018782775477397,
+      "median": 0.8695652173913043,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 595
+    },
+    "distinct_scaffolds": 12,
+    "acyclic": 3,
+    "functional_classes": {
+      "aromatic primary": 23,
+      "aliphatic secondary": 8,
+      "aliphatic primary": 3,
+      "aromatic secondary": 1
+    },
+    "similarity_train_train": {
+      "mean": 0.1465560992480993,
+      "sd": 0.13211273200420823,
+      "median": 0.1297335203366059,
+      "min": 0.0,
+      "max": 1.0,
+      "n": 496
+    },
+    "similarity_test_test": {
+      "mean": 0.07889224065694654,
+      "sd": 0.07113449124493704,
+      "median": 0.029411764705882353,
+      "min": 0.027777777777777776,
+      "max": 0.1794871794871795,
+      "n": 3
+    },
+    "similarity_test_train": {
+      "mean": 0.13949890365744397,
+      "sd": 0.12055048544339432,
+      "median": 0.1464285714285714,
+      "min": 0.0,
+      "max": 0.5555555555555556,
+      "n": 96
+    },
+    "nearest_train_test": {
+      "mean": 0.49122807017543857,
+      "sd": 0.04702665918836189,
+      "median": 0.47368421052631576,
+      "min": 0.4444444444444444,
+      "max": 0.5555555555555556,
+      "n": 3
+    },
+    "nearest_train_train_loo": {
+      "mean": 0.4301737186362472,
+      "sd": 0.1793632988753489,
+      "median": 0.4444444444444444,
+      "min": 0.13043478260869565,
+      "max": 1.0,
+      "n": 32
+    },
+    "test_scaffold_in_train": 1.0,
+    "test_scaffolds_not_in_train": 0,
+    "identical_fingerprints": [
+      [
+        7,
+        10
+      ]
+    ]
+  },
+  "acyl_with_common_group": {
+    "similarity_all": {
+      "mean": 0.2922399365252793,
+      "sd": 0.13038808032817856,
+      "median": 0.2608695652173913,
+      "min": 0.125,
+      "max": 1.0,
+      "n": 465
+    },
+    "similarity_train_train": {
+      "mean": 0.2825414288690681,
+      "sd": 0.1165385591289586,
+      "median": 0.2608695652173913,
+      "min": 0.125,
+      "max": 0.7894736842105263,
+      "n": 378
+    },
+    "similarity_test_train": {
+      "mean": 0.33539335753796584,
+      "sd": 0.17226835061561746,
+      "median": 0.3,
+      "min": 0.13513513513513514,
+      "max": 1.0,
+      "n": 84
+    },
+    "nearest_train_test": {
+      "mean": 0.7683982683982684,
+      "sd": 0.17133781322219307,
+      "median": 0.7142857142857143,
+      "min": 0.5909090909090909,
+      "max": 1.0,
+      "n": 3
+    },
+    "nearest_train_train_loo": {
+      "mean": 0.5047617334436755,
+      "sd": 0.12033250181963376,
+      "median": 0.5,
+      "min": 0.25,
+      "max": 0.7894736842105263,
+      "n": 28
+    },
+    "identical_fingerprints": [
+      [
+        13,
+        25
+      ]
+    ]
+  },
+  "split": {
+    "test_acyls": [
+      2,
+      18,
+      25
+    ],
+    "test_amines": [
+      18,
+      21,
+      23
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+kind,id,name,smiles,split,functional_class,scaffold,nearest_train_id,nearest_train_similarity
+acyl,1,01_acid_chloride.sdf,ClC(c1ccc(F)cc1)=O,train,aromatic,c1ccccc1,5,0.3889
+acyl,3,03_acid_chloride.sdf,CC(C)(C)c1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,5,0.4737
+acyl,4,04_acid_chloride.sdf,Fc1ccc(c(F)c1)C(Cl)=O,train,aromatic,c1ccccc1,1,0.3684
+acyl,5,05_acid_chloride.sdf,FC(F)(F)c1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,3,0.4737
+acyl,6,06_acid_chloride.sdf,ClC(=O)c1ccc(cc1)c2ccccc2,train,aromatic,c1ccc(-c2ccccc2)cc1,1,0.3333
+acyl,7,07_acid_chloride.sdf,ClC(=O)c1sccc1,train,heteroaromatic,c1ccsc1,6,0.1818
+acyl,8,08_acid_chloride.sdf,ClC(=O)c1ccc2ccccc2c1,train,aromatic,c1ccc2ccccc2c1,6,0.3333
+acyl,9,09_acid_chloride.sdf,COc1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,15,0.4091
+acyl,10,10_acid_chloride.sdf,CC(C)(C)C(Cl)=O,train,aliphatic tertiary,,3,0.1875
+acyl,11,11_acid_chloride.sdf,CCCCC(Cl)=O,train,aliphatic primary,,13,0.6667
+acyl,12,12_acid_chloride.sdf,ClC(=O)c1ccc(Cl)cc1,train,aromatic,c1ccccc1,1,0.375
+acyl,13,13_acid_chloride.sdf,CCCCCCC(Cl)=O,train,aliphatic primary,,11,0.6667
+acyl,14,14_acid_chloride.sdf,CC(Cl)=O,train,aliphatic primary,,10,0.1429
+acyl,15,15_acid_chloride.sdf,FC(F)(F)Oc1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,5,0.4091
+acyl,16,16_acid_chloride.sdf,ClC(=O)c1cccc2ccccc12,train,aromatic,c1ccc2ccccc2c1,23,0.3333
+acyl,17,17_acid_chloride.sdf,FC(F)(F)Sc1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,5,0.4091
+acyl,19,19_acid_chloride.sdf,ClC(=O)c1ccc(Cl)cc1Cl,train,aromatic,c1ccccc1,12,0.3684
+acyl,20,20_acid_chloride.sdf,ClC(=O)c1occc1,train,heteroaromatic,c1ccoc1,6,0.1818
+acyl,21,21_acid_chloride.sdf,CCC(C(Cl)=O)c1ccccc1,train,other,c1ccccc1,6,0.25
+acyl,22,22_acid_chloride.sdf,CCCCC(CC)C(Cl)=O,train,aliphatic secondary,,11,0.3529
+acyl,23,23_acid_chloride.sdf,Cc1ccccc1C(Cl)=O,train,aromatic,c1ccccc1,16,0.3333
+acyl,24,24_acid_chloride.sdf,CCc1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,3,0.3333
+acyl,26,26_acid_chloride.sdf,CC(C)C(Cl)=O,train,aliphatic secondary,,14,0.1429
+acyl,27,27_acid_chloride.sdf,ClC(C=Cc1ccccc1)=O,train,alkenyl,c1ccccc1,6,0.2857
+acyl,28,28_acid_chloride.sdf,ClC(=O)c1ccc(Br)cc1,train,aromatic,c1ccccc1,1,0.375
+acyl,29,29_acid_chloride.sdf,COc1cc(cc(OC)c1OC)C(Cl)=O,train,aromatic,c1ccccc1,9,0.3043
+acyl,30,30_acid_chloride.sdf,[O-][N+](=O)c1ccc(cc1)C(Cl)=O,train,aromatic,c1ccccc1,1,0.2857
+acyl,31,31_acid_chloride.sdf,ClC(=O)C12CC3CC(CC(C3)C1)C2,train,aliphatic tertiary,C1C2CC3CC1CC(C2)C3,27,0.0417
+acyl,2,02_acid_chloride.sdf,ClC(=O)c1ccccc1,test,aromatic,c1ccccc1,6,0.5714
+acyl,18,18_acid_chloride.sdf,Cc1ccc(cc1)C(Cl)=O,test,aromatic,c1ccccc1,3,0.3889
+acyl,25,25_acid_chloride.sdf,CCCCCCCCCCCC(Cl)=O,test,aliphatic primary,,13,1.0
+amine,1,01_amine.sdf,CC(N)(C)C,train,aliphatic primary,,13,0.2222
+amine,3,03_amine.sdf,Nc1ccc(F)cc1,train,aromatic primary,c1ccccc1,15,0.4444
+amine,4,04_amine.sdf,COc1ccc(N)cc1,train,aromatic primary,c1ccccc1,35,0.5
+amine,5,05_amine.sdf,Nc1ccccc1,train,aromatic primary,c1ccccc1,36,0.4762
+amine,6,06_amine.sdf,Nc1c(C)cc(C)cc1C,train,aromatic primary,c1ccccc1,30,0.4737
+amine,7,07_amine.sdf,CCCCCCCc1ccc(N)cc1,train,aromatic primary,c1ccccc1,10,1.0
+amine,8,08_amine.sdf,CC(C)c1cccc(C(C)C)c1N,train,aromatic primary,c1ccccc1,30,0.4091
+amine,9,09_amine.sdf,C1CCC(CC1)NC2CCCCC2,train,aliphatic secondary,C1CCC(NC2CCCCC2)CC1,27,0.4737
+amine,10,10_amine.sdf,CCCCCCc1ccc(N)cc1,train,aromatic primary,c1ccccc1,7,1.0
+amine,11,11_amine.sdf,CSc1ccccc1N,train,aromatic primary,c1ccccc1,28,0.3846
+amine,12,12_amine.sdf,Nc1ccccc1c2ccccc2,train,aromatic primary,c1ccc(-c2ccccc2)cc1,5,0.4
+amine,13,13_amine.sdf,CC(C)(C)c1ccc(N)cc1,train,aromatic primary,c1ccccc1,25,0.45
+amine,14,14_amine.sdf,CC(C)NC(C)C,train,aliphatic secondary,,27,0.2632
+amine,15,15_amine.sdf,Nc1ccc(Br)cc1,train,aromatic primary,c1ccccc1,3,0.4444
+amine,16,16_amine.sdf,CC1CCCCN1,train,aliphatic secondary,C1CCNCC1,27,0.24
+amine,17,17_amine.sdf,Nc1cccc2cccnc12,train,aromatic primary,c1ccc2ncccc2c1,33,0.2857
+amine,19,19_amine.sdf,C1COCCN1,train,aliphatic secondary,C1COCCN1,16,0.1304
+amine,20,20_amine.sdf,COc1ccc(cc1N)C(F)(F)F,train,aromatic primary,c1ccccc1,28,0.4333
+amine,22,22_amine.sdf,CCC(N)CC,train,aliphatic primary,,1,0.1429
+amine,24,24_amine.sdf,Nc1ccc(C=C)cc1,train,aromatic primary,c1ccccc1,3,0.381
+amine,25,25_amine.sdf,Cc1ccc(N)cc1,train,aromatic primary,c1ccccc1,4,0.45
+amine,26,26_amine.sdf,Cc1cccc(N)c1,train,aromatic primary,c1ccccc1,35,0.48
+amine,27,27_amine.sdf,CC(C)NC1CCCCC1,train,aliphatic secondary,C1CCCCC1,9,0.4737
+amine,28,28_amine.sdf,COc1ccccc1N,train,aromatic primary,c1ccccc1,20,0.4333
+amine,29,29_amine.sdf,NC(c1ccccc1)(c2ccccc2)c3ccccc3,train,aliphatic primary,c1ccc(C(c2ccccc2)c2ccccc2)cc1,5,0.3889
+amine,30,30_amine.sdf,Cc1cccc(C)c1N,train,aromatic primary,c1ccccc1,26,0.4762
+amine,31,31_amine.sdf,CC1CN(C(OC(C)(C)C)=O)CC(C)N1,train,aliphatic secondary,C1CNCCN1,34,0.4595
+amine,32,32_amine.sdf,N#CCCNc1ccccc1,train,aromatic secondary,c1ccccc1,5,0.2222
+amine,33,33_amine.sdf,Nc1ccccc1F,train,aromatic primary,c1ccccc1,12,0.3913
+amine,34,34_amine.sdf,O=C(N1CCC(NC2CC2)CC1)OC(C)(C)C,train,aliphatic secondary,C1CC(NC2CC2)CCN1,31,0.4595
+amine,35,35_amine.sdf,COc1cccc(N)c1,train,aromatic primary,c1ccccc1,4,0.5
+amine,36,36_amine.sdf,Nc1ccc(cc1)C(=O)c2ccccc2,train,aromatic primary,O=C(c1ccccc1)c1ccccc1,5,0.4762
+amine,18,18_amine.sdf,CC(=O)c1cccc(N)c1,test,aromatic primary,c1ccccc1,26,0.4444
+amine,21,21_amine.sdf,COCCOc1ccccc1N,test,aromatic primary,c1ccccc1,28,0.5556
+amine,23,23_amine.sdf,CC1CCCC(C)N1,test,aliphatic secondary,C1CCNCC1,16,0.4737

@@ -1,0 +1,189 @@
+{
+  "feature_set": "tier2_reduced",
+  "family": "gb_exact_x_histgb",
+  "test": {
+    "classification": {
+      "tp": 57,
+      "fp": 10,
+      "fn": 27,
+      "tn": 95,
+      "n": 189,
+      "accuracy": 0.8042328042328042,
+      "majority": 0.5555555555555556,
+      "precision": 0.8507462686567164,
+      "recall": 0.6785714285714286
+    },
+    "rate": {
+      "n": 72,
+      "r2": 0.8559897159378609,
+      "mae": 0.23489208649044835
+    },
+    "by_regime": {
+      "new_acyl": {
+        "n": 96,
+        "accuracy": 0.8333333333333334,
+        "n_rate": 32,
+        "r2": 0.9174654551869343,
+        "mae": 0.17690124519570227
+      },
+      "new_amine": {
+        "n": 84,
+        "accuracy": 0.7976190476190477,
+        "n_rate": 37,
+        "r2": 0.7948836616232905,
+        "mae": 0.2788327243407429
+      },
+      "both_new": {
+        "n": 9,
+        "accuracy": 0.5555555555555556,
+        "n_rate": 3,
+        "r2": 0.8874323450856211,
+        "mae": 0.3115265268141068
+      }
+    },
+    "coverage": 0.6527777777777778,
+    "gated_mae": 0.25173011962104436,
+    "residual_90pc_band": 0.8668093855021763
+  },
+  "scope": {
+    "report": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 4,
+      "tn": 12,
+      "n": 30,
+      "accuracy": 0.8666666666666667,
+      "majority": 0.6,
+      "precision": 1.0,
+      "recall": 0.7777777777777778
+    },
+    "by_note": {
+      "too fast": {
+        "n": 18,
+        "predicted_reactive": 14,
+        "correct": "14/18"
+      },
+      "too slow": {
+        "n": 4,
+        "predicted_reactive": 0,
+        "correct": "4/4"
+      },
+      "non-reactive": {
+        "n": 3,
+        "predicted_reactive": 0,
+        "correct": "3/3"
+      },
+      "multiple products": {
+        "n": 5,
+        "predicted_reactive": 0,
+        "correct": "5/5"
+      },
+      "insoluble": {
+        "n": 11,
+        "predicted_reactive": 1,
+        "correct": "not scored"
+      }
+    },
+    "n_substrates": 41,
+    "n_scored": 30
+  },
+  "drug": {
+    "report": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 2,
+      "tn": 0,
+      "n": 11,
+      "accuracy": 0.8181818181818182,
+      "majority": 1.0,
+      "precision": 1.0,
+      "recall": 0.8181818181818182
+    },
+    "rate_mae_measured": 0.1719118591124824,
+    "n_measured": 2
+  },
+  "pooled": {
+    "report": {
+      "tp": 80,
+      "fp": 10,
+      "fn": 33,
+      "tn": 107,
+      "n": 230,
+      "accuracy": 0.8130434782608695,
+      "majority": 0.508695652173913,
+      "precision": 0.8888888888888888,
+      "recall": 0.7079646017699115
+    },
+    "by_regime": {
+      "Unseen acyl chloride": {
+        "tp": 26,
+        "fp": 0,
+        "fn": 16,
+        "tn": 54,
+        "n": 96,
+        "accuracy": 0.8333333333333334,
+        "majority": 0.5625,
+        "precision": 1.0,
+        "recall": 0.6190476190476191
+      },
+      "Unseen amine": {
+        "tp": 53,
+        "fp": 9,
+        "fn": 14,
+        "tn": 48,
+        "n": 124,
+        "accuracy": 0.8145161290322581,
+        "majority": 0.5403225806451613,
+        "precision": 0.8548387096774194,
+        "recall": 0.7910447761194029
+      },
+      "Both unseen": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 3,
+        "tn": 5,
+        "n": 10,
+        "accuracy": 0.6,
+        "majority": 0.6,
+        "precision": 0.5,
+        "recall": 0.25
+      },
+      "One reactant unseen": {
+        "tp": 79,
+        "fp": 9,
+        "fn": 30,
+        "tn": 102,
+        "n": 220,
+        "accuracy": 0.8227272727272728,
+        "majority": 0.5045454545454545,
+        "precision": 0.8977272727272727,
+        "recall": 0.7247706422018348
+      },
+      "Two reactants unseen": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 3,
+        "tn": 5,
+        "n": 10,
+        "accuracy": 0.6,
+        "majority": 0.6,
+        "precision": 0.5,
+        "recall": 0.25
+      }
+    }
+  },
+  "split": {
+    "test_acyls": [
+      2,
+      18,
+      25
+    ],
+    "test_amines": [
+      18,
+      21,
+      23
+    ],
+    "partner_acyl": 1,
+    "partner_amine": 3
+  }
+}

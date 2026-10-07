@@ -1,0 +1,5 @@
+name,acyl_smiles,amine_smiles
+benzoyl chloride + aniline,O=C(Cl)c1ccccc1,Nc1ccccc1
+4-fluorobenzoyl chloride + piperidine,O=C(Cl)c1ccc(F)cc1,C1CCNCC1
+acetyl chloride + benzylamine,CC(=O)Cl,NCc1ccccc1
+benzoyl chloride + fluoxetine,O=C(Cl)c1ccccc1,CNCCC(Oc1ccc(C(F)(F)F)cc1)c1ccccc1
