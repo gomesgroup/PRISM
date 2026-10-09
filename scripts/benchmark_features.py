@@ -96,11 +96,12 @@ def main() -> int:
         reactions.table, acyl, amine, split, candidates=args.candidates,
         class_weight=args.class_weight, threshold=args.threshold,
         fold_seed=args.fold_seed, family=args.family)
-    show = ["label", "cost", "n_features", "n_reactions",
-            "accuracy_macro", "r2_macro", "mae_macro", "joint"]
+    show = ["label", "n_features", "accuracy_stratified", "r2_stratified",
+            "joint_stratified", "joint_stratified_sd", "joint_loro", "joint"]
     print("\n" + ranking[show].to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     best = ranking.iloc[0]
-    print(f"\nranked first: {best.label}  (selected in config: "
+    print(f"\nranked by: {config.SELECTION_CV} cross-validation")
+    print(f"ranked first: {best.label}  (selected in config: "
           f"{config.FEATURE_SETS[config.SELECTED]['label']})")
 
     metadata = {

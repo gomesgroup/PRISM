@@ -61,7 +61,16 @@ def reactant_classes(table: pd.DataFrame) -> Dict[int, str]:
 
 def build_split(reactions: pd.DataFrame, acyl: pd.DataFrame,
                 amine: pd.DataFrame) -> splits.Split:
-    """The study's train/test split, with the configured pinned reactants."""
+    """The study's train/test split: config.FIXED_TEST_SET when set, otherwise
+    the class-stratified rule with the configured pinned reactants."""
+    fixed = config.FIXED_TEST_SET
+    if fixed:
+        for kind in ("acyl", "amine"):
+            absent = sorted(set(fixed[kind]) - set(reactions[kind]))
+            if absent:
+                raise ValueError(f"fixed test {kind}s {absent} have no reactions")
+        return splits.Split(test_acyls=tuple(sorted(fixed["acyl"])),
+                            test_amines=tuple(sorted(fixed["amine"])))
     return splits.build_split(reactions, reactant_classes(acyl), reactant_classes(amine),
                               force_train_acyls=config.FORCE_TRAIN_ACYLS,
                               force_train_amines=config.FORCE_TRAIN_AMINES)

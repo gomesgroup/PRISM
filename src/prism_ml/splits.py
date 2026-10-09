@@ -134,6 +134,42 @@ def loro_folds(rows: pd.DataFrame, min_rows: int = None, pair_folds: int = None,
     return folds
 
 
+def stratified_folds(rows: pd.DataFrame, acyl_class: Dict[int, str],
+                     amine_class: Dict[int, str], draws: int = None,
+                     first_seed: int = None, force_train_acyls: Sequence[int] = (),
+                     force_train_amines: Sequence[int] = ()) -> List[Fold]:
+    """Repeated class-stratified validation folds over ``rows``.
+
+    Each draw holds out reactants by the same class rule as the test set
+    (:func:`build_split`: classes of <= SMALL_CLASS members contribute none,
+    larger ones one, classes above LARGE_CLASS two), but chooses the members at
+    random, with seed ``first_seed + i``. Every reaction involving a held-out
+    acyl chloride or amine is validation; the rest is training.
+    """
+    draws = config.STRATIFIED_DRAWS if draws is None else draws
+    first_seed = config.STRATIFIED_FIRST_SEED if first_seed is None else first_seed
+    positions = np.arange(len(rows))
+    folds: List[Fold] = []
+    for i in range(draws):
+        rng = np.random.default_rng(first_seed + i)
+        held_out = {}
+        for kind, classes, forced in (("acyl", acyl_class, set(force_train_acyls)),
+                                      ("amine", amine_class, set(force_train_amines))):
+            by_class = defaultdict(list)
+            for r in sorted(np.unique(rows[kind])):
+                by_class[classes.get(int(r), "unknown")].append(int(r))
+            chosen: List[int] = []
+            for _, members in sorted(by_class.items()):
+                eligible = [m for m in members if m not in forced]
+                k = min(_picks_for_class(len(members)), len(eligible))
+                if k:
+                    chosen += [int(v) for v in rng.choice(eligible, size=k, replace=False)]
+            held_out[kind] = chosen
+        held = (rows.acyl.isin(held_out["acyl"]) | rows.amine.isin(held_out["amine"])).to_numpy()
+        folds.append(("stratified", positions[~held], positions[held]))
+    return folds
+
+
 def fold_summary(folds: Sequence[Fold]) -> Dict[str, int]:
     out: Dict[str, int] = defaultdict(int)
     for kind, _, _ in folds:

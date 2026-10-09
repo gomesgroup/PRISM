@@ -11,4 +11,5 @@ python scripts/benchmark_features.py                 # feature sets, fixed learn
 python scripts/benchmark_models.py ${GRAPH_FLAG}     # every learner family
 python scripts/holdout.py                            # selected model, reserved sets
 python analysis/chemical_space.py                    # reactant diversity, train vs test
+python analysis/data_summary.py                      # class counts and rate constants
 python scripts/train_final.py                        # refit on all data -> model/

@@ -17,3 +17,6 @@ data/aimnet2/*.jpt
 
 # CatBoost writes training logs here when allow_writing_files is left on
 catboost_info/
+
+# Superseded rate tables kept locally until deleted
+data/datasheets/_*.xlsx

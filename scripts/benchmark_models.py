@@ -64,11 +64,12 @@ def main() -> int:
         families=families, class_weight=args.class_weight,
         threshold=args.threshold, fold_seed=args.fold_seed)
 
-    show = ["label", "accuracy_macro", "r2_macro", "mae_macro", "joint"]
+    show = ["label", "accuracy_stratified", "r2_stratified", "joint_stratified",
+            "joint_stratified_sd", "joint_loro", "joint"]
     print("\n" + frame[show].to_string(index=False, float_format=lambda v: f"{v:.4f}"))
-    print(f"\nbest classifier (CV accuracy): "
-          f"{frame.loc[frame.accuracy_macro.idxmax(), 'label']}")
-    print(f"best regressor  (CV R2):       {frame.loc[frame.r2_macro.idxmax(), 'label']}")
+    print(f"\nranked by: {config.SELECTION_CV} cross-validation")
+    print(f"ranked first: {frame.iloc[0].label}  (selected in config: "
+          f"{config.MODEL_FAMILIES[config.SELECTED_FAMILY]['label']})")
     frame.to_csv(out / "model_families.csv", index=False)
     plotting.plot_candidate_ranking(frame, out / "figures" / "model_families.png",
                                     highlight=config.SELECTED_FAMILY)

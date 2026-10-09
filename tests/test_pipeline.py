@@ -181,3 +181,38 @@ class TestModel:
         logk = pd.Series([np.nan] * len(design.rows))
         with pytest.raises(ValueError, match="need >= 10"):
             ReactivityRateModel().fit(design.X, design.rows.reactive, logk)
+
+
+def test_fixed_test_set_overrides_the_rule(monkeypatch):
+    import pandas as pd
+    from prism_ml import config, holdout
+    reactions = pd.DataFrame({"acyl": [1, 2, 3, 4], "amine": [5, 6, 7, 8],
+                              "rate_class": ["measurable"] * 4})
+    monkeypatch.setattr(config, "FIXED_TEST_SET", {"acyl": (3, 1), "amine": (8,)})
+    split = holdout.build_split(reactions, None, None)
+    assert split.test_acyls == (1, 3) and split.test_amines == (8,)
+    monkeypatch.setattr(config, "FIXED_TEST_SET", {"acyl": (9,), "amine": (8,)})
+    with pytest.raises(ValueError, match="no reactions"):
+        holdout.build_split(reactions, None, None)
+
+
+def test_stratified_folds_follow_the_class_rule():
+    import pandas as pd
+    acyls, amines = list(range(1, 15)), list(range(101, 115))
+    rows = pd.DataFrame([(a, m) for a in acyls for m in amines], columns=["acyl", "amine"])
+    acyl_class = {a: ("big" if a <= 11 else "small") for a in acyls}     # 11 + 3 members
+    amine_class = {m: ("mid" if m <= 105 else "two") for m in amines}    # 5 members, then 9
+    folds = splits.stratified_folds(rows, acyl_class, amine_class, draws=5, first_seed=1,
+                                    force_train_amines=[101])
+    assert len(folds) == 5 and all(kind == "stratified" for kind, _, _ in folds)
+    for _, train, held in folds:
+        assert len(set(train) & set(held)) == 0 and len(train) + len(held) == len(rows)
+        h = rows.iloc[held]
+        held_acyls = set(h.acyl) - set(rows.iloc[train].acyl)
+        held_amines = set(h.amine) - set(rows.iloc[train].amine)
+        assert sum(acyl_class[a] == "big" for a in held_acyls) == 2      # > 10 members
+        assert sum(acyl_class[a] == "small" for a in held_acyls) == 1    # 3-10 members
+        assert 101 not in held_amines                                    # forced into training
+    again = splits.stratified_folds(rows, acyl_class, amine_class, draws=5, first_seed=1,
+                                    force_train_amines=[101])
+    assert all((a[2] == b[2]).all() for a, b in zip(folds, again))       # seeded

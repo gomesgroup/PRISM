@@ -1,10 +1,16 @@
 """Loading the Excel sources and assembling the reaction table.
 
 Both rate workbooks carry one row per plate, so a reactant pair can appear more
-than once, and ten pairs appear in both. The rules below are not arbitrary:
-they were recovered by reproducing the study's existing reaction table from
-these two workbooks, and :func:`load_reactions` re-checks them on every call
-through ``expected_rows``.
+than once: 4-fluorobenzoyl chloride (acyl chloride 1) was run as three
+replicate batches, 1A, 2B and 3C, and 2B and 3C are recorded under the labels
+of acyl chlorides 2 and 3. Rows are first assigned to the reactant they belong
+to (config.REPLICATE_BATCHES), then the replicates of each pair are combined:
+
+- rate constants: the geometric mean of the usable (k > 0) replicates;
+- classes (unmeasurable workbook): the replicates' common class.
+
+A pair with at least one usable rate constant is measurable whatever its other
+replicates say, as before: a fitted rate beats a bin.
 """
 
 from __future__ import annotations
@@ -43,18 +49,64 @@ class Reactions:
                 f"{self.table.amine.nunique()} amines); {counts}")
 
 
-def _pairs(path: Path) -> pd.DataFrame:
-    """Read a rate workbook and collapse replicate plate rows."""
-    df = pd.read_excel(path)
+def _read_pairs(path: Path) -> pd.DataFrame:
+    """Read a rate workbook and assign its rows to reactant pairs."""
+    return assign_reactants(pd.read_excel(path))
+
+
+def assign_reactants(df: pd.DataFrame) -> pd.DataFrame:
+    """Integer ``acyl`` / ``amine`` columns from the labels, with replicate
+    batches (config.REPLICATE_BATCHES) assigned to the reactant they belong to."""
     df = df.assign(
         acyl=pd.to_numeric(df.acyl_label, errors="coerce"),
         amine=pd.to_numeric(df.amine_label, errors="coerce"),
     ).dropna(subset=["acyl", "amine"])
+    if "acyl_chloride" in df.columns:
+        batch = df.acyl_chloride.astype(str).str.strip().map(config.REPLICATE_BATCHES)
+        df.loc[batch.notna(), "acyl"] = batch[batch.notna()]
+        df["replicate"] = df.acyl_chloride.where(batch.notna())
     df["acyl"] = df.acyl.astype(int)
     df["amine"] = df.amine.astype(int)
-    # First row per pair, not the mean: matches the study's table on every one
-    # of its duplicated pairs, where averaging does not.
-    return df.drop_duplicates(subset=["acyl", "amine"], keep="first")
+    return df
+
+
+def combine_rate_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """One row per pair from the rate workbook.
+
+    ``k_corrected`` becomes the geometric mean of the usable (k > 0) replicates;
+    a pair with none keeps its first (non-positive) value. Other columns are
+    taken from the usable replicate fitted on the most wells. ``n_replicates``
+    and ``n_usable`` record what was combined.
+    """
+    rows = []
+    for _, g in df.groupby(["acyl", "amine"], sort=False):
+        k = pd.to_numeric(g.k_corrected, errors="coerce")
+        usable = g[k > 0]
+        if len(usable):
+            order = (usable.sort_values("n_wells_used", ascending=False, kind="stable")
+                     if "n_wells_used" in usable.columns else usable)
+            row = order.iloc[0].to_dict()
+            row["k_corrected"] = float(np.exp(np.log(k[k > 0]).mean()))
+        else:
+            row = g.iloc[0].to_dict()
+        row["n_replicates"], row["n_usable"] = len(g), len(usable)
+        rows.append(row)
+    return pd.DataFrame(rows) if rows else df.iloc[0:0].copy()
+
+
+def combine_class_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """One row per pair from the unmeasurable workbook. ``rate_class`` is the
+    replicates' common class, or ``mixed:<a>,<b>`` when they disagree (an error
+    only if the pair has no usable rate constant to settle it)."""
+    rows = []
+    for _, g in df.groupby(["acyl", "amine"], sort=False):
+        row = g.iloc[0].to_dict()
+        classes = sorted(set(g.rate_class.astype(str)))
+        if len(classes) > 1:
+            row["rate_class"] = "mixed:" + ",".join(classes)
+        row["n_replicates"] = len(g)
+        rows.append(row)
+    return pd.DataFrame(rows) if rows else df.iloc[0:0].copy()
 
 
 def load_reactions(rates_xlsx: Path = None, excluded_xlsx: Path = None,
@@ -69,8 +121,10 @@ def load_reactions(rates_xlsx: Path = None, excluded_xlsx: Path = None,
         expected_rows: if given, raise unless exactly this many pairs result.
             Use it to pin the table against silent upstream changes.
     """
-    rates = _pairs(Path(rates_xlsx or config.RATES_XLSX)).set_index(["acyl", "amine"])
-    excl = _pairs(Path(excluded_xlsx or config.EXCLUDED_XLSX)).set_index(["acyl", "amine"])
+    rates = combine_rate_rows(_read_pairs(Path(rates_xlsx or config.RATES_XLSX))
+                              ).set_index(["acyl", "amine"])
+    excl = combine_class_rows(_read_pairs(Path(excluded_xlsx or config.EXCLUDED_XLSX))
+                              ).set_index(["acyl", "amine"])
 
     records = []
     for key in sorted(set(rates.index) | set(excl.index)):
@@ -88,6 +142,9 @@ def load_reactions(rates_xlsx: Path = None, excluded_xlsx: Path = None,
         if rate_class is None:
             if key in excl.index:
                 rate_class = str(excl.loc[key, "rate_class"])
+                if rate_class.startswith("mixed:"):
+                    raise ValueError(f"replicates of pair {key} disagree "
+                                     f"({rate_class[6:]}) and none has a rate constant")
                 if rate_class == "ambiguous":
                     if ambiguous == "drop":
                         continue

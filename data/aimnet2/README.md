@@ -56,15 +56,8 @@ Before October 2026 the features came from a different AIMNet2 checkpoint,
   expected: separately trained networks learn different internal
   representations.
 
-In the learner benchmark, run on the same GPU (NVIDIA A30):
-
-| checkpoint | CV accuracy | CV R² | joint |
-|---|---|---|---|
-| LoQI `wb97m_cpcms_v2_0` (current) | 0.670 | 0.253 | 0.461 |
-| `model_wb_nse_0` (earlier) | 0.667 | 0.209 | 0.438 |
-
-Either way, the AIMNet2 graph network ranks well below the descriptor-based
-models (`docs/RESULTS.md`).
+Benchmark scores with the current checkpoint are in `docs/RESULTS.md`; the
+AIMNet2 graph network ranks well below the descriptor-based models.
 
 ## Citation
 

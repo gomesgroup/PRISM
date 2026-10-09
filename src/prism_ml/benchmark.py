@@ -1,4 +1,9 @@
-"""The leave-one-reactant-out comparison that selects a feature set.
+"""The cross-validated comparisons that select the feature set and the learner.
+
+Every candidate is scored two ways on the training pool: leave-one-reactant-out
+(each acyl chloride and amine in turn) and repeated class-stratified validation
+(splits.stratified_folds: several reactants held out at once, as in the test
+set). config.SELECTION_CV decides which ranks the candidates.
 
 This module never touches the held-out test set or the excluded substrate
 scope. Selection happens here, on the training pool alone; the reserved sets
@@ -48,6 +53,11 @@ class CandidateResult:
     mae_acyl: float = float("nan")
     mae_amine: float = float("nan")
     mae_macro: float = float("nan")
+    joint_loro: float = float("nan")
+    accuracy_stratified: float = float("nan")
+    r2_stratified: float = float("nan")
+    joint_stratified: float = float("nan")
+    joint_stratified_sd: float = float("nan")
     joint: float = float("nan")
     folds: Dict[str, int] = field(default_factory=dict)
 
@@ -75,6 +85,7 @@ def _score_candidate(name: str, design: features.Design,
     logk = rows.logk.to_numpy(dtype=float)
 
     acc: Dict[str, List[float]] = {"acyl": [], "amine": [], "pair": []}
+    strat: List[tuple] = []          # (accuracy, R2) per stratified draw
     rate: Dict[str, List[np.ndarray]] = {"acyl": [[], []], "amine": [[], []],
                                          "pair": [[], []]}
     for kind, train_idx, held_idx in fold_list:
@@ -88,8 +99,13 @@ def _score_candidate(name: str, design: features.Design,
         model.fit(design.X[train_idx], reactive[train_idx], logk[train_idx],
                   rows=train_rows)
         pred = model.predict(design.X[held_idx], rows=held_rows)
-        acc[kind].append(metrics.accuracy(reactive[held_idx], pred.reactive))
         measured = np.isfinite(logk[held_idx])
+        if kind == "stratified":
+            strat.append((metrics.accuracy(reactive[held_idx], pred.reactive),
+                          metrics.r2(logk[held_idx][measured], pred.log_k[measured])
+                          if measured.sum() > 2 else float("nan")))
+            continue
+        acc[kind].append(metrics.accuracy(reactive[held_idx], pred.reactive))
         if measured.any():
             rate[kind][0].extend(pred.log_k[measured])
             rate[kind][1].extend(logk[held_idx][measured])
@@ -112,9 +128,32 @@ def _score_candidate(name: str, design: features.Design,
     result.accuracy_macro = float(np.mean([result.accuracy_acyl, result.accuracy_amine]))
     result.r2_macro = float(np.mean([result.r2_acyl, result.r2_amine]))
     result.mae_macro = float(np.mean([result.mae_acyl, result.mae_amine]))
-    result.joint = metrics.joint_score(result.accuracy_macro, result.r2_macro,
-                                       class_weight)
+    result.joint_loro = metrics.joint_score(result.accuracy_macro, result.r2_macro,
+                                            class_weight)
+    if strat:
+        a, r = np.array(strat).T
+        per_draw = [metrics.joint_score(x, y, class_weight) for x, y in zip(a, r)]
+        result.accuracy_stratified = float(np.mean(a))
+        result.r2_stratified = float(np.nanmean(r))
+        result.joint_stratified = float(np.mean(per_draw))
+        result.joint_stratified_sd = float(np.std(per_draw, ddof=1))
+    result.joint = (result.joint_stratified if config.SELECTION_CV == "stratified" and strat
+                    else result.joint_loro)
     return result
+
+
+def _reactant_classes(table: pd.DataFrame) -> Dict[int, str]:
+    return {int(i): str(c) for i, c in zip(table.index, table["class"])
+            if isinstance(c, str) and c}
+
+
+def selection_folds(rows: pd.DataFrame, acyl: pd.DataFrame, amine: pd.DataFrame,
+                    fold_seed: int = None) -> List[splits.Fold]:
+    """Leave-one-reactant-out folds plus the repeated class-stratified draws."""
+    return (splits.loro_folds(rows, seed=fold_seed)
+            + splits.stratified_folds(rows, _reactant_classes(acyl), _reactant_classes(amine),
+                                      force_train_acyls=config.FORCE_TRAIN_ACYLS,
+                                      force_train_amines=config.FORCE_TRAIN_AMINES))
 
 
 def run_benchmark(reactions: pd.DataFrame, acyl: pd.DataFrame, amine: pd.DataFrame,
@@ -167,7 +206,7 @@ def run_benchmark(reactions: pd.DataFrame, acyl: pd.DataFrame, amine: pd.DataFra
     for name in names:
         design = designs[name]
         spec = config.FEATURE_SETS[name]
-        fold_list = splits.loro_folds(design.rows, seed=fold_seed)
+        fold_list = selection_folds(design.rows, acyl, amine, fold_seed)
         result = _score_candidate(name, design, fold_list, class_weight, threshold,
                                   family=family or config.FEATURE_BENCHMARK_FAMILY,
                                   label=spec["label"], cost=spec["cost"])
@@ -270,7 +309,7 @@ def compare_model_families(reactions: pd.DataFrame, acyl: pd.DataFrame,
     regime = split.label(reactions)
     pool = reactions[regime == "pool"].reset_index(drop=True)
     design = features.build_design(pool, acyl, amine, feature_set)
-    fold_list = splits.loro_folds(design.rows, seed=fold_seed)
+    fold_list = selection_folds(design.rows, acyl, amine, fold_seed)
 
     names = list(families or config.MODEL_FAMILIES)
     graph_sources = {config.MODEL_FAMILIES[n].get("graph_source")
@@ -302,7 +341,7 @@ def compare_model_families(reactions: pd.DataFrame, acyl: pd.DataFrame,
                 print(f"  {int((~covered).sum())} reaction(s) lack a graph; scoring "
                       f"every family on the {len(kept)} all of them cover")
             design = features.restrict(design, kept)
-            fold_list = splits.loro_folds(design.rows, seed=fold_seed)
+            fold_list = selection_folds(design.rows, acyl, amine, fold_seed)
     if verbose:
         print(f"learner comparison on {config.FEATURE_SETS[feature_set]['label']} "
               f"({len(design.columns)} descriptors, {len(design.rows)} reactions)")

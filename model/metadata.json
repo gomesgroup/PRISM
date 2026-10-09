@@ -1,10 +1,10 @@
 {
-  "created": "2026-10-06T00:57:55+00:00",
+  "created": "2026-10-09T01:25:32+00:00",
   "feature_set": "tier2_reduced",
   "feature_set_label": "Tier 2 (reduced)",
-  "family": "gb_exact_x_histgb",
-  "classifier": "gradient_boosting",
-  "regressor": "boosted_trees",
+  "family": "lightgbm",
+  "classifier": "lightgbm",
+  "regressor": "lightgbm",
   "threshold": 0.5,
   "columns": [
     "acyl:num_Hs",
@@ -62,23 +62,23 @@
   ],
   "training": {
     "reactions": 1085,
-    "with_rate_constant": 370,
+    "with_rate_constant": 363,
     "acyl_chlorides": 31,
     "amines": 35,
     "descriptors": "PRISM_substrate_features_smiles.xlsx",
     "inputs": {
-      "PRISM_rates.xlsx": "a688f8999e2db4cb",
-      "PRISM_rates_unmeasurable.xlsx": "aaaabe4e023ad5fb",
-      "PRISM_substrate_features_smiles.xlsx": "213fa5211d783c31"
+      "PRISM_rates.xlsx": "cecf4d73772326dd",
+      "PRISM_rates_unmeasurable.xlsx": "9988f0de0659e028",
+      "PRISM_substrate_features_smiles.xlsx": "32d7cef818e7053b"
     },
     "held_out_validation": {
       "held_out_reactions": 189,
-      "accuracy": 0.8466,
-      "precision": 0.8395,
-      "recall": 0.8095,
-      "rate_r2": 0.803,
-      "rate_mae": 0.2649,
-      "rate_n": 72
+      "accuracy": 0.7831,
+      "precision": 0.7158,
+      "recall": 0.8293,
+      "rate_r2": 0.8075,
+      "rate_mae": 0.2379,
+      "rate_n": 69
     }
   },
   "versions": {

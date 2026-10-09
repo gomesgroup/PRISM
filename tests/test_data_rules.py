@@ -28,13 +28,40 @@ def write_workbooks(tmp_path: Path, rates: list, excluded: list):
     return rates_path, excluded_path
 
 
-def test_replicate_plate_rows_take_the_first(tmp_path):
+def test_replicate_rate_constants_are_geometrically_averaged(tmp_path):
     r, e = write_workbooks(tmp_path, [
         {"acyl_label": 1, "amine_label": 1, "k_corrected": 10.0},
-        {"acyl_label": 1, "amine_label": 1, "k_corrected": 1000.0}], [])
+        {"acyl_label": 1, "amine_label": 1, "k_corrected": 1000.0},
+        {"acyl_label": 1, "amine_label": 1, "k_corrected": -3.0}], [])
     table = data.load_reactions(r, e).table
     row = table[(table.acyl == 1) & (table.amine == 1)].iloc[0]
-    assert row.k == pytest.approx(10.0)
+    assert row.k == pytest.approx(100.0)          # sqrt(10 * 1000); k <= 0 ignored
+
+
+def test_replicate_batches_are_assigned_to_their_reactant(tmp_path):
+    """4-F benzoyl chloride batch 2B, recorded under acyl 2, belongs to acyl 1."""
+    r, e = write_workbooks(tmp_path, [
+        {"acyl_label": 1, "amine_label": 7, "acyl_chloride": "4-fluorobenzoyl chloride-1A",
+         "k_corrected": 20.0},
+        {"acyl_label": 2, "amine_label": 7, "acyl_chloride": "4-fluorobenzoyl chloride-2B",
+         "k_corrected": 80.0},
+        {"acyl_label": 2, "amine_label": 7, "acyl_chloride": "benzoyl chloride",
+         "k_corrected": 5.0}], [])
+    table = data.load_reactions(r, e).table.set_index(["acyl", "amine"])
+    assert table.loc[(1, 7), "k"] == pytest.approx(40.0)
+    assert table.loc[(2, 7), "k"] == pytest.approx(5.0)
+
+
+def test_disagreeing_replicate_classes_need_a_rate_constant(tmp_path):
+    rows = [{"acyl_label": 1, "amine_label": 1, "rate_class": "slow"},
+            {"acyl_label": 1, "amine_label": 1, "rate_class": "instant"}]
+    r, e = write_workbooks(tmp_path, [], rows)
+    with pytest.raises(ValueError, match="disagree"):
+        data.load_reactions(r, e)
+    r, e = write_workbooks(tmp_path, [{"acyl_label": 1, "amine_label": 1,
+                                       "k_corrected": 10.0}], rows)
+    table = data.load_reactions(r, e).table
+    assert table.iloc[0].rate_class == "measurable"
 
 
 def test_a_fitted_rate_beats_an_excluded_classification(tmp_path):
