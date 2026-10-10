@@ -14,7 +14,7 @@ reaction name `rxn_AA_BB` combines them as acyl chloride AA + amine BB.
 | `datasheets/PRISM_substrate_scope.xlsx` | names, SMILES and classes of all substrates, including the excluded scope |
 | `datasheets/PRISM_substrate_features.xlsx` | descriptors used for the reported results |
 | `datasheets/PRISM_substrate_features_smiles.xlsx` | descriptors recomputed from SMILES (deployed model) and excluded-scope descriptors |
-| `xyz/acyls/acid_NN.xyz`, `xyz/amines/amine_NN.xyz` | 3D structures of the reactants (46 acyl chlorides, 55 amines): the geometries the descriptors were computed on (see below) |
+| `xyz/acyls/acid_NN.xyz`, `xyz/amines/amine_NN.xyz` | 3D structures of the reactants (46 acyl chlorides, 50 amines): the geometries the descriptors were computed on (see below) |
 | `aimnet2_atoms.npz` | AIMNet2 atom features for the graph-network benchmark (see `aimnet2/README.md`) |
 
 ## Rate tables
@@ -109,25 +109,26 @@ Sheet `Sheet1`: 11 reactions of three drug-like amines (54–56).
 `class` gives the chemical class used for the train/test split. For amines,
 the prefix 1 or 2 means primary or secondary.
 
-The `split_type` columns in these workbooks come from an earlier split and
-are not used. The held-out split is computed by `prism_ml.splits.build_split`
-(`docs/RESULTS.md`).
+In the scope workbook, `split_type` is `NMR analysis` for acyl chlorides
+32–46 and amines 37–48. These have NMR rate constants (NMR comparison and
+Hammett analysis) but no PRISM data, so they are in no modelled reaction.
+Other `split_type` values come from an earlier split and are not used; the
+held-out reactants are set in `config.FIXED_TEST_SET` (`docs/RESULTS.md`).
 
 ## Reactant structures (xyz/)
 
 The geometries the stored descriptors (`PRISM_substrate_features.xlsx`) were
 computed on. Acyl chlorides 1–46 and amines 1, 3–33, 35–48 and 54–56 are
 Gaussian 16 ωB97X-D geometry optimisations; the title line of each file is
-`<ID>_acid_chloride_wb97xd.log` or `<ID>_amine_wb97xd.log`. Amines 34 and 49–53
-come from other sources (amine 34: a generated conformer; 49–53: not recorded)
-and are titled `<ID>_amine`. Recomputing the descriptors on these structures with
+`<ID>_acid_chloride_wb97xd.log` or `<ID>_amine_wb97xd.log`. Amine 34 is a
+generated conformer, titled `34_amine`. Recomputing the descriptors on these structures with
 `prism_ml.descriptors` reproduces the stored values for every acyl chloride and
 for 44 of the 49 amines that have a Gaussian structure; the other 5 (9, 14, 23,
 27, 31) differ only in which nitrogen substituent is taken as secondary atom 1.
 
 ## PRISM_substrate_features.xlsx and PRISM_substrate_features_smiles.xlsx
 
-Sheets `acyl` (46 rows) and `amine` (55 rows) in both workbooks, one row per
+Sheets `acyl` (46 rows) and `amine` (50 rows) in both workbooks, one row per
 reactant (`id` = reactant number):
 
 - `PRISM_substrate_features.xlsx`: descriptors used for all reported results.

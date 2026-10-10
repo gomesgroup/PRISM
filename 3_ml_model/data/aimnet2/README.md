@@ -35,7 +35,7 @@ To benchmark a different feature file, set `PRISM_AIMNET_NPZ=/path/to/file.npz`.
 
 ## What the stored file contains
 
-Features for 46 acyl chlorides and 55 amines, computed from the optimised
+Features for 46 acyl chlorides and 50 amines, computed from the optimised
 geometries in `data/xyz` (neutral, singlet). Each atom has 513 values:
 
 - 256 learned atomic features
