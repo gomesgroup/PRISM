@@ -1,0 +1,12 @@
+reaction,acyl,amine,rate_class,regime,truth,probability,predicted,predicted_class,correct,k,predicted_k,logk,predicted_logk
+rxn_03_54,3,54,instant,new_amine,1,0.9953,1,reactive,True,,23.92,,1.379
+rxn_07_54,7,54,instant,new_amine,1,0.9783,1,reactive,True,,647.3,,2.811
+rxn_07_55,7,55,instant,new_amine,1,0.8875,1,reactive,True,,612.5,,2.787
+rxn_07_56,7,56,measurable,new_amine,1,0.2462,0,un-reactive,False,154.7,117.1,2.18937800584203,2.069
+rxn_10_54,10,54,instant,new_amine,1,0.9689,1,reactive,True,,22.28,,1.348
+rxn_14_56,14,56,instant,new_amine,1,0.1889,0,un-reactive,False,,1215.0,,3.085
+rxn_22_54,22,54,instant,new_amine,1,0.9755,1,reactive,True,,17.75,,1.249
+rxn_22_55,22,55,instant,new_amine,1,0.9784,1,reactive,True,,50.73,,1.705
+rxn_22_56,22,56,measurable,new_amine,1,0.8302,1,reactive,True,3.7,3.069,0.568201724066995,0.487
+rxn_25_55,25,55,instant,both_new,1,0.9887,1,reactive,True,,2257.0,,3.354
+rxn_31_55,31,55,instant,new_amine,1,0.9878,1,reactive,True,,129.9,,2.114

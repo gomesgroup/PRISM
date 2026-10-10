@@ -1,0 +1,498 @@
+group,acyl_chloride,amine,control_source,control_status,margin,n_wells_kept,k_M1min1,r2,n_raw_detections,kept_conc_mM,time_at_most_dilute_min,conc_at_most_dilute_mM,confidence_tier
+group1,1-adamantanecarbonyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,2,1.6382252559726957,,4,25;6.25,327.0,6.25,low_confidence_order_of_magnitude
+group1,1-adamantanecarbonyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,5,8.985556731655686,0.9932119915585138,5,50;25;12.5;6.25;3.125,144.0,3.125,high_confidence
+group1,1-adamantanecarbonyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,4,27.095785440613025,0.9763318340829585,5,25;12.5;6.25;3.125,72.0,1.563,high_confidence
+group1,1-adamantanecarbonyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,106.66666666666664,,4,6.25;3.125,34.0,1.563,low_confidence_order_of_magnitude
+group1,1-adamantanecarbonyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,59.42857142857143,0.8622448979591838,4,12.5;6.25;3.125,34.0,1.563,medium_confidence
+group1,1-adamantanecarbonyl chloride,aniline,own_plate,matched same-plate control,1.1,4,16.551724137931032,0.9904047976011994,5,25;12.5;6.25;3.125,117.0,1.563,high_confidence
+group1,1-adamantanecarbonyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,4,1.922291827055221,0.9635487783114294,4,25;12.5;6.25;3.125,555.0,3.125,high_confidence
+group1,1-naphthoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,20.000000000000007,,6,6.25;3.125,114.0,1.563,low_confidence_order_of_magnitude
+group1,1-naphthoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,20.000000000000007,,6,6.25;3.125,114.0,1.563,low_confidence_order_of_magnitude
+group1,1-naphthoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,6.28317088286664,0.977537969945993,4,12.5;6.25;3.125,426.0,1.563,medium_confidence
+group1,1-naphthoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,2,159.9999999999999,,4,6.25;3.125,25.0,1.563,low_confidence_order_of_magnitude
+group1,"2,4-dichlorobenzoyl chloride","2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,24.15094339622641,,3,3.125;1.563,75.0,1.563,low_confidence_order_of_magnitude
+group1,"2,4-dichlorobenzoyl chloride","2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,2,35.55555555555556,,3,6.25;3.125,174.0,1.563,low_confidence_order_of_magnitude
+group1,"2,4-dichlorobenzoyl chloride",4-fluoroaniline,own_plate,matched same-plate control,1.1,3,34.60968163977324,0.9579465453865803,3,6.25;3.125;1.563,56.0,1.563,medium_confidence
+group1,"2,4-dichlorobenzoyl chloride",4-heptylaniline,own_plate,matched same-plate control,1.1,2,137.1428571428572,,4,6.25;1.563,41.0,0.391,low_confidence_order_of_magnitude
+group1,"2,4-dichlorobenzoyl chloride",4-hexylaniline,own_plate,matched same-plate control,1.1,3,114.28571428571433,0.8928571428571429,4,6.25;3.125;1.563,34.0,0.391,medium_confidence
+group1,"2,4-dichlorobenzoyl chloride",aniline,own_plate,matched same-plate control,1.1,3,38.918918918918905,0.9382239382239382,3,6.25;3.125;1.563,52.0,1.563,medium_confidence
+group1,"2,4-dichlorobenzoyl chloride",dicyclohexylamine,own_plate,matched same-plate control,1.1,3,20.140559112915817,0.9058755940295844,4,6.25;3.125;1.563,195.0,0.391,medium_confidence
+group1,"2,4-difluorobenzoyl chloride","2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,128.00000000000003,,4,6.25;3.125,31.0,1.563,low_confidence_order_of_magnitude
+group1,"2,4-difluorobenzoyl chloride","2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,2,24.615384615384617,,5,6.25;3.125,216.0,0.781,low_confidence_order_of_magnitude
+group1,"2,4-difluorobenzoyl chloride",2-aminobiphenyl,own_plate,matched same-plate control,1.1,2,63.99999999999999,,4,6.25;3.125,46.0,1.563,low_confidence_order_of_magnitude
+group1,"2,4-difluorobenzoyl chloride",dicyclohexylamine,own_plate,matched same-plate control,1.1,2,49.23076923076922,,4,6.25;3.125,51.0,1.563,low_confidence_order_of_magnitude
+group1,2-ethylhexanoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,3,1.2357231319664241,0.9907851540230789,4,50;25;12.5,459.0,6.25,medium_confidence
+group1,2-ethylhexanoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,3,1.57273334818445,0.9913836998376985,5,50;25;12.5,492.0,3.125,medium_confidence
+group1,2-ethylhexanoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.1,3,0.9257631686881117,0.9794904954423324,5,50;25;12.5,867.0,3.125,medium_confidence
+group1,2-ethylhexanoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,7.619047619047619,,4,25;12.5,174.0,3.125,low_confidence_order_of_magnitude
+group1,2-ethylhexanoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,21.93548387096775,0.9988479262672811,6,50;25;12.5,111.0,1.563,medium_confidence
+group1,2-ethylhexanoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,21.53846153846154,0.9423076923076923,5,50;25;12.5,56.0,3.125,medium_confidence
+group1,2-ethylhexanoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,6.66666666666667,,4,25;12.5,195.0,3.125,low_confidence_order_of_magnitude
+group1,2-ethylhexanoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,2.356457840328808,0.9951826414960055,5,50;25;12.5,558.0,3.125,medium_confidence
+group1,2-furuoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,1279.9999999999923,,6,1.563;0.781,135.0,0.391,low_confidence_order_of_magnitude
+group1,2-methylbenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,17.777777777777782,,4,6.25;3.125,147.0,3.125,low_confidence_order_of_magnitude
+group1,2-methylbenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,13.333333333333346,,4,6.25;3.125,261.0,1.563,low_confidence_order_of_magnitude
+group1,2-methylbenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,29.034749034749055,0.9138168781025924,4,12.5;6.25;3.125,44.0,3.125,medium_confidence
+group1,2-methylbenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,28.984088127294967,0.9575100542052807,5,12.5;6.25;3.125,108.0,1.563,medium_confidence
+group1,2-methylbenzoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,15.23809523809524,,4,6.25;3.125,147.0,3.125,low_confidence_order_of_magnitude
+group1,2-methylbenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,2,8.205128205128204,,4,12.5;6.25,57.0,6.25,low_confidence_order_of_magnitude
+group1,2-methylbenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,2,213.33333333333323,,8,6.25;3.125,66.0,0.391,low_confidence_order_of_magnitude
+group1,2-naphthoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,6.530612244897956,,4,12.5;6.25,84.0,6.25,low_confidence_order_of_magnitude
+group1,2-naphthoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,7.3521383075523215,0.9945079942805147,4,25;12.5;6.25,69.0,6.25,medium_confidence
+group1,2-naphthoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,33.6842105263158,,4,6.25;3.125,66.0,1.563,low_confidence_order_of_magnitude
+group1,2-naphthoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,28.473019517795635,0.9851156306380187,4,12.5;6.25;3.125,66.0,1.563,medium_confidence
+group1,2-naphthoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,7.518317935648291,0.9901356209893961,4,25;12.5;6.25,69.0,6.25,medium_confidence
+group1,2-naphthoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,4.8507168223069845,0.9982948460194284,4,12.5;6.25;3.125,381.0,1.563,medium_confidence
+group1,2-phenylbutyryl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,41.29032258064516,,5,3.125;1.563,114.0,0.391,low_confidence_order_of_magnitude
+group1,2-phenylbutyryl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,2,29.090909090909104,,5,3.125;1.563,177.0,0.391,low_confidence_order_of_magnitude
+group1,2-phenylbutyryl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.1,2,27.826086956521745,,7,3.125;1.563,201.0,0.391,low_confidence_order_of_magnitude
+group1,2-phenylbutyryl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,1279.999999999999,,4,3.125;1.563,7.0,0.391,low_confidence_order_of_magnitude
+group1,2-phenylbutyryl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,23.587531856498725,0.9898339261209287,5,6.25;3.125;1.563,336.0,0.391,medium_confidence
+group1,"3,4,5-trimethoxybenzoyl chloride","2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,4.84848484848485,,5,12.5;6.25,285.0,3.125,low_confidence_order_of_magnitude
+group1,"3,4,5-trimethoxybenzoyl chloride",4-fluoroaniline,own_plate,matched same-plate control,1.1,3,4.92860057119543,0.9967214547997901,5,25;12.5;6.25,243.0,3.125,medium_confidence
+group1,"3,4,5-trimethoxybenzoyl chloride",4-heptylaniline,own_plate,matched same-plate control,1.1,3,14.615384615384622,0.9917582417582418,5,25;12.5;6.25,84.0,3.125,medium_confidence
+group1,"3,4,5-trimethoxybenzoyl chloride",4-hexylaniline,own_plate,matched same-plate control,1.1,3,14.930643127364439,0.9864889209151504,7,25;12.5;6.25,279.0,0.781,medium_confidence
+group1,"3,4,5-trimethoxybenzoyl chloride",aniline,own_plate,matched same-plate control,1.1,4,3.958439788792371,0.9999363118645072,4,50;25;12.5;6.25,147.0,6.25,high_confidence
+group1,"3,4,5-trimethoxybenzoyl chloride",dicyclohexylamine,own_plate,matched same-plate control,1.1,4,3.7242136638167693,0.961009047597936,4,50;25;12.5;6.25,147.0,6.25,high_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,40.000000000000014,,4,6.25;3.125,40.0,3.125,low_confidence_order_of_magnitude
+group1,4-(trifluoromethylthio)benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,13.094529779612655,0.9850126195824697,4,6.25;3.125;1.563,165.0,1.563,medium_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,30.616958099637092,0.9909506527784324,6,6.25;3.125;1.563,213.0,0.391,medium_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,91.00917431192659,0.9446264744429882,5,6.25;3.125;1.563,75.0,0.391,medium_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,92.76872964169375,0.9214751046998604,5,6.25;3.125;1.563,93.0,0.391,medium_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,31.04559478916695,0.9805695675596259,4,6.25;3.125;1.563,75.0,1.563,medium_confidence
+group1,4-(trifluoromethylthio)benzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,19.80277261683577,0.9569866677555687,5,6.25;3.125;1.563,246.0,0.391,medium_confidence
+group1,4-bromobenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,18.55072463768115,,7,3.125;1.563,300.0,0.781,low_confidence_order_of_magnitude
+group1,4-bromobenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,4,11.092596298675993,0.9920036526886601,7,12.5;6.25;3.125;1.563,465.0,0.781,high_confidence
+group1,4-bromobenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,4,21.05263157894737,0.9839816933638443,5,12.5;6.25;3.125;1.563,300.0,0.781,high_confidence
+group1,4-bromobenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,84.2105263157895,0.986842105263158,7,6.25;3.125;1.563,102.0,0.781,medium_confidence
+group1,4-bromobenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,78.41059602649004,0.9713812677388837,7,6.25;3.125;1.563,108.0,0.781,medium_confidence
+group1,4-bromobenzoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,21.271902953069468,0.9746627831115027,7,12.5;3.125;1.563,315.0,0.781,medium_confidence
+group1,4-bromobenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,4,12.316910073289462,0.9632626954056274,7,12.5;6.25;3.125;1.563,360.0,0.781,high_confidence
+group1,4-chloro benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,6.129366819393204,0.9980743515061038,4,6.25;3.125;1.563,348.0,1.563,medium_confidence
+group1,4-chloro benzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,12.421154779233376,0.9981285090455396,4,6.25;3.125;1.563,189.0,1.563,medium_confidence
+group1,4-chloro benzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,50.420769919427045,0.990407980560174,4,6.25;3.125;1.563,75.0,0.781,medium_confidence
+group1,4-chloro benzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,59.143206854345166,0.9967214547997901,4,6.25;3.125;1.563,75.0,0.781,medium_confidence
+group1,4-chloro benzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,2,12.800000000000006,,3,6.25;3.125,75.0,3.125,low_confidence_order_of_magnitude
+group1,4-ethylbenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,7.356321839080458,,5,6.25;3.125,195.0,3.125,low_confidence_order_of_magnitude
+group1,4-ethylbenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,20.869565217391305,0.9642857142857142,5,12.5;6.25;3.125,126.0,1.563,medium_confidence
+group1,4-ethylbenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,20.869565217391305,0.9642857142857142,4,12.5;6.25;3.125,66.0,3.125,medium_confidence
+group1,4-ethylbenzoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,6.666666666666668,,5,6.25;3.125,231.0,3.125,low_confidence_order_of_magnitude
+group1,4-ethylbenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,3.2452726523510846,0.962715927449685,6,12.5;6.25;3.125,375.0,1.563,medium_confidence
+group1,4-ethylbenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,2,213.33333333333331,,5,6.25;3.125,39.0,0.781,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-1A,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,6.666666666666667,,6,3.125;1.563,330.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-1A,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,2,5.033707865168539,,4,12.5;1.563,456.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-1A,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,7.231638418079099,,6,3.125;1.563,330.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-1A,4-heptylaniline,own_plate,matched same-plate control,1.1,4,23.600438032661994,0.9933988726248217,5,12.5;6.25;3.125;1.563,153.0,0.781,high_confidence
+group1,4-fluorobenzoyl chloride-1A,4-hexylaniline,own_plate,matched same-plate control,1.1,4,25.315182330107703,0.9954094791213546,6,12.5;6.25;3.125;1.563,330.0,0.391,high_confidence
+group1,4-fluorobenzoyl chloride-1A,aniline,own_plate,matched same-plate control,1.1,2,6.368159203980101,,6,3.125;1.563,315.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-1A,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,10.63958101888589,0.9950858140431224,4,12.5;6.25;3.125,99.0,3.125,medium_confidence
+group1,4-fluorobenzoyl chloride-1A,p-anisidine,own_plate,matched same-plate control,1.1,3,98.46153846153842,0.9230769230769231,6,6.25;3.125;1.563,59.0,0.391,medium_confidence
+group1,4-fluorobenzoyl chloride-2B,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,7.356321839080459,,4,6.25;3.125,312.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-2B,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,7.399488728793868,0.9860479399754324,4,12.5;6.25;3.125,312.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-2B,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,10.41723979825768,0.9905678915307526,4,6.25;3.125;1.563,234.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-2B,4-heptylaniline,own_plate,matched same-plate control,1.1,4,29.163021289005552,0.9905917557406774,4,12.5;6.25;3.125;1.563,84.0,1.563,high_confidence
+group1,4-fluorobenzoyl chloride-2B,4-hexylaniline,own_plate,matched same-plate control,1.1,4,27.181858491163613,0.9905128325176742,4,12.5;6.25;3.125;1.563,90.0,1.563,high_confidence
+group1,4-fluorobenzoyl chloride-2B,aniline,own_plate,matched same-plate control,1.1,2,9.922480620155033,,4,3.125;1.563,258.0,1.563,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-2B,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,9.074181902876441,0.9864121845314345,4,12.5;6.25;3.125,333.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-2B,p-anisidine,own_plate,matched same-plate control,1.1,2,213.33333333333331,,3,6.25;3.125,5.0,3.125,low_confidence_order_of_magnitude
+group1,4-fluorobenzoyl chloride-3C,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,7.4453821279280685,0.9805302355976699,4,12.5;6.25;3.125,333.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-3C,4-heptylaniline,own_plate,matched same-plate control,1.1,3,32.606635071090054,0.9388964116452267,4,12.5;6.25;3.125,63.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-3C,4-hexylaniline,own_plate,matched same-plate control,1.1,3,35.3930530164534,0.9559284408461739,5,12.5;6.25;3.125,58.0,1.563,medium_confidence
+group1,4-fluorobenzoyl chloride-3C,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,9.454822722073954,0.981359947715266,4,12.5;6.25;3.125,306.0,1.563,medium_confidence
+group1,4-nitrobenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,170.6666666666667,,6,1.563;0.781,78.0,0.391,low_confidence_order_of_magnitude
+group1,4-nitrobenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,68.38499184339315,0.9998252155674668,5,3.125;1.563;0.781,150.0,0.391,medium_confidence
+group1,4-nitrobenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,120.00000000000004,0.9642857142857143,5,3.125;1.563;0.781,75.0,0.391,medium_confidence
+group1,4-nitrobenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,536.2162162162163,0.9276061776061776,4,3.125;1.563;0.781,21.0,0.391,medium_confidence
+group1,4-nitrobenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,426.6666666666668,0.5714285714285714,4,3.125;1.563;0.781,17.0,0.391,medium_confidence
+group1,4-nitrobenzoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,138.27915869980887,0.8719612127833926,6,3.125;1.563;0.781,75.0,0.391,medium_confidence
+group1,4-nitrobenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,139.0831918505942,0.9934513703613873,4,3.125;1.563;0.781,90.0,0.391,medium_confidence
+group1,4-phenylbenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,6.8817204301075305,,5,6.25;3.125,177.0,3.125,low_confidence_order_of_magnitude
+group1,4-phenylbenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,26.666666666666668,0.9642857142857142,5,12.5;6.25;3.125,45.0,3.125,medium_confidence
+group1,4-phenylbenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,26.2295081967213,0.9367681498829039,5,12.5;6.25;3.125,45.0,3.125,medium_confidence
+group1,4-phenylbenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,3.598858898398069,0.9880795636226841,4,12.5;6.25;3.125,507.0,1.563,medium_confidence
+group1,4-phenylbenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,2,319.9999999999996,,4,6.25;3.125,21.0,1.563,low_confidence_order_of_magnitude
+group1,4-tertbutyl benzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,5.470085470085469,,4,6.25;3.125,282.0,3.125,low_confidence_order_of_magnitude
+group1,4-tertbutyl benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,2,2.021660649819494,,4,25;3.125,564.0,3.125,low_confidence_order_of_magnitude
+group1,4-tertbutyl benzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,4.140030441400305,0.9897260273972602,4,12.5;6.25;3.125,306.0,3.125,medium_confidence
+group1,4-tertbutyl benzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,4,13.413114551847508,0.9906751454326505,4,25;12.5;6.25;3.125,90.0,3.125,high_confidence
+group1,4-tertbutyl benzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,4,14.011299435028251,0.991451731761238,4,25;12.5;6.25;3.125,87.0,3.125,high_confidence
+group1,4-tertbutyl benzoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,4.139924833766984,0.9924730516664602,4,12.5;6.25;3.125,300.0,3.125,medium_confidence
+group1,4-tertbutyl benzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,2.038198817241119,0.9986264294295215,3,12.5;6.25;3.125,492.0,3.125,medium_confidence
+group1,4-tertbutyl benzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,2,79.99999999999994,,4,6.25;3.125,105.0,0.781,low_confidence_order_of_magnitude
+group1,4-trifluoromethoxybenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,16.842105263157883,,4,6.25;3.125,87.0,3.125,low_confidence_order_of_magnitude
+group1,4-trifluoromethoxybenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.1,3,8.436160669789697,0.996144864803292,4,12.5;6.25;3.125,123.0,3.125,medium_confidence
+group1,4-trifluoromethoxybenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,4,16.695917588706607,0.9926811870676642,4,25;12.5;6.25;3.125,66.0,3.125,high_confidence
+group1,4-trifluoromethoxybenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,91.42857142857146,,5,6.25;3.125,111.0,0.391,low_confidence_order_of_magnitude
+group1,4-trifluoromethoxybenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,91.4285714285714,,5,6.25;3.125,117.0,0.391,low_confidence_order_of_magnitude
+group1,4-trifluoromethoxybenzoyl chloride,aniline,own_plate,matched same-plate control,1.1,3,16.873204759950767,0.9679494694882467,4,12.5;6.25;3.125,66.0,3.125,medium_confidence
+group1,4-trifluoromethoxybenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,15.718717683557392,0.999963066922736,4,12.5;6.25;3.125,66.0,3.125,medium_confidence
+group1,4-trifluoromethylbenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,2,26.122448979591823,,3,3.125;1.563,59.0,1.563,low_confidence_order_of_magnitude
+group1,4-trifluoromethylbenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,71.11111111111107,,3,6.25;3.125,10.0,3.125,low_confidence_order_of_magnitude
+group1,4-trifluoromethylbenzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,79.99999999999999,,3,3.125;1.563,18.0,1.563,low_confidence_order_of_magnitude
+group1,4-trifluoromethylbenzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,126.51162790697676,0.9601328903654485,5,6.25;3.125;1.563,66.0,0.391,medium_confidence
+group1,4-trifluoromethylbenzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,41.1063306699447,0.9588418649574151,3,6.25;3.125;1.563,44.0,1.563,medium_confidence
+group1,acetyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,1097.1428571428578,,3,1.563;0.391,19.0,0.391,low_confidence_order_of_magnitude
+group1,acetyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,853.3333333333333,,3,1.563;0.391,19.0,0.391,low_confidence_order_of_magnitude
+group1,acetyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,1280.0,,3,1.563;0.391,9.0,0.391,low_confidence_order_of_magnitude
+group1,acetyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,1536.0,,3,1.563;0.391,8.0,0.391,low_confidence_order_of_magnitude
+group1,acetyl chloride,aniline,own_plate,matched same-plate control,1.1,2,767.9999999999997,,3,1.563;0.391,19.0,0.391,low_confidence_order_of_magnitude
+group1,benzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,6.530612244897961,,4,12.5;6.25,111.0,3.125,low_confidence_order_of_magnitude
+group1,benzoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,17.459749552772813,0.9509327881420905,4,25;12.5;6.25,42.0,3.125,medium_confidence
+group1,benzoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,18.24561403508772,0.9530075187969924,4,25;12.5;6.25,42.0,3.125,medium_confidence
+group1,benzoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,4.217054263565891,0.9601328903654485,4,25;12.5;6.25,180.0,3.125,medium_confidence
+group1,dodecanoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,213.33333333333326,,4,0.781;0.391,39.0,0.391,low_confidence_order_of_magnitude
+group1,dodecanoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,222.60869565217388,,4,0.781;0.391,34.0,0.391,low_confidence_order_of_magnitude
+group1,dodecanoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,640.0000000000003,0.8928571428571429,4,1.563;0.781;0.391,12.0,0.391,medium_confidence
+group1,dodecanoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,538.9473684210526,0.8421052631578948,5,1.563;0.781;0.391,14.0,0.391,medium_confidence
+group1,dodecanoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,243.8095238095237,,4,0.781;0.391,32.0,0.391,low_confidence_order_of_magnitude
+group1,heptanoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,232.72727272727258,,5,1.563;0.781,36.0,0.391,low_confidence_order_of_magnitude
+group1,heptanoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,1279.9999999999984,,4,1.563;0.781,17.0,0.391,low_confidence_order_of_magnitude
+group1,heptanoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,853.3333333333329,,4,1.563;0.781,15.0,0.391,low_confidence_order_of_magnitude
+group1,heptanoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,365.71428571428567,,5,1.563;0.781,37.0,0.391,low_confidence_order_of_magnitude
+group1,isobutyryl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,41.29032258064514,,5,3.125;1.563,84.0,1.563,low_confidence_order_of_magnitude
+group1,isobutyryl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,2,37.64705882352942,,4,3.125;1.563,87.0,1.563,low_confidence_order_of_magnitude
+group1,isobutyryl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.1,2,23.703703703703688,,4,3.125;1.563,141.0,1.563,low_confidence_order_of_magnitude
+group1,isobutyryl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,3,105.01930501930498,0.996276889134032,5,6.25;3.125;1.563,66.0,0.391,medium_confidence
+group1,isobutyryl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,2,182.85714285714292,,4,3.125;1.563,20.0,0.391,low_confidence_order_of_magnitude
+group1,isobutyryl chloride,aniline,own_plate,matched same-plate control,1.1,3,116.92307692307698,0.9917582417582418,4,6.25;3.125;1.563,43.0,0.781,medium_confidence
+group1,isobutyryl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,9.975191457232226,0.9652333698013775,4,6.25;3.125;1.563,462.0,0.781,medium_confidence
+group1,p-anisoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,2,3.2432432432432425,,4,12.5;3.125,330.0,3.125,low_confidence_order_of_magnitude
+group1,p-anisoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,2,9.275362318840578,,4,6.25;3.125,174.0,3.125,low_confidence_order_of_magnitude
+group1,p-anisoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,3.0646834096966042,0.9980743515061038,4,12.5;6.25;3.125,330.0,3.125,medium_confidence
+group1,p-anisoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,3,27.100977198697066,0.9436947417403444,4,12.5;6.25;3.125,40.0,3.125,medium_confidence
+group1,p-toluoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.1,2,6.46464646464647,,6,3.125;1.563,381.0,1.563,low_confidence_order_of_magnitude
+group1,p-toluoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,7.485380116959067,,6,3.125;1.563,351.0,1.563,low_confidence_order_of_magnitude
+group1,p-toluoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,24.48013524936602,0.9890411786016181,6,6.25;3.125;1.563,114.0,1.563,medium_confidence
+group1,p-toluoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,24.207728480883258,0.9996495020007594,6,6.25;3.125;1.563,117.0,1.563,medium_confidence
+group1,p-toluoyl chloride,aniline,own_plate,matched same-plate control,1.1,2,6.3681592039801,,6,3.125;1.563,405.0,1.563,low_confidence_order_of_magnitude
+group1,p-toluoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,3,2.975465237075323,0.9630412039641112,4,12.5;6.25;3.125,852.0,1.563,medium_confidence
+group1,p-toluoyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,3,80.18735362997657,0.9575945132151221,4,6.25;3.125;1.563,28.0,1.563,medium_confidence
+group1,pivaloyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.1,3,5.195118276329669,0.99959641834736,5,25;12.5;6.25,426.0,1.563,medium_confidence
+group1,pivaloyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,12.307692307692312,,4,12.5;6.25,135.0,1.563,low_confidence_order_of_magnitude
+group1,pivaloyl chloride,aniline,own_plate,matched same-plate control,1.1,3,13.06122448979592,0.9795918367346939,6,25;12.5;6.25,150.0,1.563,medium_confidence
+group1,pivaloyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.1,4,2.804015713662158,0.9789672252481354,5,50;25;12.5;6.25,378.0,3.125,high_confidence
+group1,thiophene-2-carbonyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.1,3,7.204191583507673,0.977711714904613,5,6.25;3.125;1.563,597.0,0.781,medium_confidence
+group1,thiophene-2-carbonyl chloride,p-anisidine,own_plate,matched same-plate control,1.1,4,52.211313697989716,0.9903124174238267,6,6.25;3.125;1.563;0.781,171.0,0.391,high_confidence
+group1,valeroyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.1,2,255.99999999999997,,4,0.781;0.391,42.0,0.391,low_confidence_order_of_magnitude
+group1,valeroyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.1,3,511.99999999999994,1.0,3,1.563;0.781;0.391,22.0,0.391,medium_confidence
+group1,valeroyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.1,3,453.4529147982062,0.9995195387572069,3,1.563;0.781;0.391,23.0,0.391,medium_confidence
+group2,1-adamantanecarbonyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,3.976108086663289,0.9745786668940992,4,50;25;12.5;6.25,141.0,6.25,high_confidence
+group2,1-adamantanecarbonyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,148.57142857142856,0.8622448979591837,6,12.5;6.25;3.125,90.0,0.391,medium_confidence
+group2,1-adamantanecarbonyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,2.9629629629629624,,6,6.25;3.125,720.0,1.563,low_confidence_order_of_magnitude
+group2,1-adamantanecarbonyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,6.464646464646465,,5,6.25;3.125,429.0,3.125,low_confidence_order_of_magnitude
+group2,1-adamantanecarbonyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,5,4.768666225939658,0.9969172353724324,6,50;25;12.5;6.25;3.125,429.0,1.563,high_confidence
+group2,1-adamantanecarbonyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,5,4.85048978338599,0.9977242341732983,5,50;25;12.5;6.25;3.125,249.0,3.125,high_confidence
+group2,1-adamantanecarbonyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,73.07086614173231,0.9460067491563555,6,12.5;6.25;3.125,123.0,0.391,medium_confidence
+group2,1-adamantanecarbonyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,14.589963280293754,0.9704930931981115,6,12.5;6.25;3.125,399.0,0.391,medium_confidence
+group2,1-adamantanecarbonyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,36.27863487611033,0.9562574953757342,7,25;12.5;6.25;3.125,207.0,0.391,high_confidence
+group2,1-adamantanecarbonyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,3.804072287186196,0.9617687108690319,5,50;25;12.5;6.25,597.0,3.125,high_confidence
+group2,1-naphthoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,319.9999999999998,,4,6.25;3.125,5.0,0.781,low_confidence_order_of_magnitude
+group2,1-naphthoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,16.41025641025642,,6,6.25;3.125,171.0,1.563,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,640.0000000000013,,5,6.25;3.125,53.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,42.66666666666664,,5,6.25;3.125,363.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,45.71428571428572,,5,6.25;3.125,333.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,37.64705882352943,,5,6.25;3.125,288.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,63.99999999999996,,5,6.25;3.125,144.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-dichlorobenzoyl chloride",8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,71.11111111111107,,5,6.25;3.125,141.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride","2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,40.00000000000001,,5,6.25;3.125,213.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,31.999999999999996,,5,6.25;3.125,306.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,33.68421052631579,,5,6.25;3.125,228.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,30.476190476190478,,5,6.25;3.125,228.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,128.00000000000003,,5,6.25;3.125,135.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,53.333333333333364,,5,6.25;3.125,141.0,0.391,low_confidence_order_of_magnitude
+group2,"2,4-difluorobenzoyl chloride",diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,71.11111111111111,,5,6.25;3.125,207.0,0.391,low_confidence_order_of_magnitude
+group2,2-ethylhexanoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.6751556310130165,0.9961193305845258,4,50;25;12.5,408.0,6.25,medium_confidence
+group2,2-ethylhexanoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,53.33333333333333,,5,25;12.5,47.0,3.125,low_confidence_order_of_magnitude
+group2,2-ethylhexanoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,0.6114174913751856,0.9940993319591189,4,50;25;12.5,897.0,6.25,medium_confidence
+group2,2-ethylhexanoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.2102973406169244,0.9995759286345136,5,50;25;12.5,795.0,3.125,medium_confidence
+group2,2-ethylhexanoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.3964826745603345,0.999981343747668,5,50;25;12.5,780.0,3.125,medium_confidence
+group2,2-ethylhexanoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,31.99999999999998,,5,25;12.5,55.0,3.125,low_confidence_order_of_magnitude
+group2,2-ethylhexanoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.0631780472239947,0.9845929437505698,4,50;25;12.5,186.0,6.25,medium_confidence
+group2,2-ethylhexanoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.833514689880303,0.9579123270635784,5,50;25;12.5,120.0,3.125,medium_confidence
+group2,2-ethylhexanoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.8330458261456535,0.9999919640848164,5,50;25;12.5,612.0,3.125,medium_confidence
+group2,2-furuoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,24.150943396226413,,4,3.125;0.781,486.0,0.391,low_confidence_order_of_magnitude
+group2,2-furuoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,73.23383084577117,0.845948827292111,6,3.125;1.563;0.781,141.0,0.391,medium_confidence
+group2,2-furuoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,28.029197080291972,,5,3.125;0.781,375.0,0.391,low_confidence_order_of_magnitude
+group2,2-furuoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,27.62589928057554,,5,3.125;0.781,420.0,0.391,low_confidence_order_of_magnitude
+group2,2-methylbenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.9736211031175066,0.987667009249743,4,12.5;6.25;3.125,333.0,3.125,medium_confidence
+group2,2-methylbenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,15.573259438863872,0.9768048889108812,4,12.5;6.25;3.125,90.0,3.125,medium_confidence
+group2,2-methylbenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,19.434276206322792,0.9500237699072974,5,12.5;6.25;3.125,63.0,3.125,medium_confidence
+group2,2-methylbenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.1727276581911714,0.9936019875987085,4,12.5;6.25;3.125,549.0,1.563,medium_confidence
+group2,2-naphthoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,4.149811284234976,0.9929905572990834,4,12.5;6.25;3.125,420.0,1.563,medium_confidence
+group2,2-naphthoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,19.099327667131806,0.9767645290636428,4,25;12.5;6.25;3.125,63.0,3.125,high_confidence
+group2,2-naphthoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,39.999999999999986,,4,6.25;3.125,135.0,0.781,low_confidence_order_of_magnitude
+group2,2-naphthoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,5.053357766519351,0.9914958653505598,4,12.5;6.25;3.125,426.0,1.563,medium_confidence
+group2,2-phenylbutyryl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,18.539042821158688,0.9993702770780857,3,6.25;3.125;1.563,111.0,1.563,medium_confidence
+group2,2-phenylbutyryl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,24.15094339622643,,6,3.125;1.563,99.0,1.563,low_confidence_order_of_magnitude
+group2,2-phenylbutyryl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,45.71428571428571,0.9795918367346939,4,6.25;3.125;1.563,48.0,1.563,medium_confidence
+group2,2-phenylbutyryl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,52.24489795918367,0.9795918367346939,4,6.25;3.125;1.563,42.0,1.563,medium_confidence
+group2,2-phenylbutyryl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,104.89626556016599,0.9248666271487849,5,6.25;3.125;1.563,108.0,0.391,medium_confidence
+group2,2-phenylbutyryl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,120.65573770491805,0.9291569086651054,5,6.25;3.125;1.563,48.0,0.391,medium_confidence
+group2,2-phenylbutyryl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,25.97035991531404,0.9999747958463555,4,6.25;3.125;1.563,75.0,1.563,medium_confidence
+group2,"3,4,5-trimethoxybenzoyl chloride","2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.5908325400893317,0.9826697978012322,4,25;12.5;6.25,459.0,3.125,medium_confidence
+group2,"3,4,5-trimethoxybenzoyl chloride",2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,10.010928961748634,0.9967403183654074,5,50;25;12.5;6.25,108.0,3.125,high_confidence
+group2,"3,4,5-trimethoxybenzoyl chloride",2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1.6279069767441854,,5,50;6.25,666.0,3.125,low_confidence_order_of_magnitude
+group2,"3,4,5-trimethoxybenzoyl chloride",4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,16.869009584664543,0.9681344631198777,6,50;25;12.5;6.25,129.0,1.563,high_confidence
+group2,"3,4,5-trimethoxybenzoyl chloride",4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,3.5648991344469296,0.9954593343906701,5,50;25;12.5;6.25,285.0,3.125,high_confidence
+group2,"3,4,5-trimethoxybenzoyl chloride",8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.555555555555554,,5,12.5;6.25,348.0,3.125,low_confidence_order_of_magnitude
+group2,"3,4,5-trimethoxybenzoyl chloride",diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,4.110429447852761,0.983567046450482,4,25;12.5;6.25,456.0,3.125,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,23.1759984712402,0.9803240424776829,5,6.25;3.125;1.563,90.0,1.563,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,130.44585987261152,0.9317561419472248,6,6.25;3.125;1.563,78.0,0.391,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,10.920538974940179,0.9908926547574073,5,6.25;3.125;1.563,195.0,1.563,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.722909546045347,0.9956622951496105,5,6.25;3.125;1.563,183.0,1.563,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,11.851851851851855,,5,6.25;1.563,285.0,0.781,low_confidence_order_of_magnitude
+group2,4-(trifluoromethylthio)benzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,91.42857142857146,,5,3.125;1.563,81.0,0.391,low_confidence_order_of_magnitude
+group2,4-(trifluoromethylthio)benzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,28.988566402814428,0.9997173011684884,6,6.25;3.125;1.563,90.0,1.563,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,37.02352376380222,0.9958336190933407,6,6.25;3.125;1.563,69.0,1.563,medium_confidence
+group2,4-(trifluoromethylthio)benzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,22.55661066471877,0.971746843368465,4,6.25;3.125;1.563,183.0,0.781,medium_confidence
+group2,4-bromobenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,15.238095238095235,,3,12.5;6.25,246.0,3.125,low_confidence_order_of_magnitude
+group2,4-bromobenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,31.21418826739427,0.9963457415708439,5,12.5;6.25;3.125,261.0,0.391,medium_confidence
+group2,4-bromobenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,42.66666666666668,,3,6.25;3.125,165.0,0.781,low_confidence_order_of_magnitude
+group2,4-chloro benzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.120328364657592,0.9822238681603556,4,6.25;3.125;1.563,291.0,1.563,medium_confidence
+group2,4-chloro benzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,43.60721442885772,0.9928428285141712,4,6.25;3.125;1.563,111.0,0.781,medium_confidence
+group2,4-chloro benzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,45.51422319474836,0.9905439199749922,4,6.25;3.125;1.563,102.0,0.781,medium_confidence
+group2,4-chloro benzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,10.406504065040647,,4,3.125;1.563,246.0,1.563,low_confidence_order_of_magnitude
+group2,4-chloro benzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,12.929292929292934,,4,3.125;1.563,210.0,1.563,low_confidence_order_of_magnitude
+group2,4-chloro benzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.020830765438184,0.9763342783187478,4,6.25;3.125;1.563,411.0,0.781,medium_confidence
+group2,4-ethylbenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,8.205128205128206,,4,12.5;6.25,55.0,6.25,low_confidence_order_of_magnitude
+group2,4-ethylbenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,9.885785055731386,0.9907851540230789,5,12.5;6.25;3.125,138.0,3.125,medium_confidence
+group2,4-ethylbenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,14.793310192489745,0.967508903214173,6,12.5;6.25;3.125,153.0,1.563,medium_confidence
+group2,4-ethylbenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.746149720327945,0.9611524021147805,6,12.5;6.25;3.125,474.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-1A,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,21.090114009058254,0.9933067089087705,5,6.25;3.125;1.563,129.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-1A,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,21.381766939366663,0.9918118523233392,5,12.5;6.25;3.125;1.563,111.0,1.563,high_confidence
+group2,4-fluorobenzoyl chloride-1A,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.956521739130437,1.0,5,12.5;6.25;3.125,483.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-2B,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.325581395348838,0.9601328903654485,4,12.5;6.25;3.125,639.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-2B,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.59060011652748,0.9650209472019532,4,6.25;3.125;1.563,180.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-2B,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,26.911314984709488,0.9911533420707732,4,12.5;6.25;3.125,40.0,3.125,medium_confidence
+group2,4-fluorobenzoyl chloride-2B,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.411652340019102,0.9628530495292673,4,12.5;6.25;3.125,543.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-2B,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,320.0000000000001,,2,3.125;1.563,9.0,1.563,low_confidence_order_of_magnitude
+group2,4-fluorobenzoyl chloride-3C,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.692307692307692,0.9917582417582418,4,12.5;6.25;3.125,246.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-3C,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,29.752925877763328,0.9497027679732492,5,12.5;6.25;3.125,75.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-3C,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,6.808510638297873,,4,12.5;3.125,429.0,1.563,low_confidence_order_of_magnitude
+group2,4-fluorobenzoyl chloride-3C,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,33.21711568938193,0.9713040525243378,5,12.5;6.25;3.125,52.0,1.563,medium_confidence
+group2,4-fluorobenzoyl chloride-3C,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.434870475840532,0.992893887299546,4,12.5;6.25;3.125,252.0,1.563,medium_confidence
+group2,4-nitrobenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,218.9473684210527,0.9530075187969924,5,3.125;1.563;0.781,49.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,836.9230769230767,0.7939560439560438,4,3.125;1.563;0.781,14.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,45.63847429519071,0.9856076759061834,5,3.125;1.563;0.781,114.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,56.140350877192986,0.9868421052631579,6,3.125;1.563;0.781,111.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,63.13001045660508,0.9969750535278594,4,3.125;1.563;0.781,114.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1280.0000000000005,,3,1.563;0.781,13.0,0.391,low_confidence_order_of_magnitude
+group2,4-nitrobenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,160.00000000000006,0.9642857142857143,6,3.125;1.563;0.781,49.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,161.4678899082569,0.9911533420707732,7,3.125;1.563;0.781,46.0,0.391,medium_confidence
+group2,4-nitrobenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,212.4696356275304,0.9722382880277617,4,3.125;1.563;0.781,49.0,0.391,medium_confidence
+group2,4-phenylbenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,12.386875402101655,0.9981388437854233,5,12.5;6.25;3.125,99.0,3.125,medium_confidence
+group2,4-phenylbenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,18.991339786041774,0.9877192344079762,7,12.5;6.25;3.125,345.0,0.781,medium_confidence
+group2,4-phenylbenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.079365079365079,,5,12.5;6.25,678.0,1.563,low_confidence_order_of_magnitude
+group2,4-tertbutyl benzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,1.9618238121563731,0.9908276459983245,4,25;12.5;6.25;3.125,552.0,3.125,high_confidence
+group2,4-tertbutyl benzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.5041876046901175,0.9849246231155779,4,12.5;6.25;3.125,174.0,3.125,medium_confidence
+group2,4-tertbutyl benzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,175.99999999999997,0.8175675675675675,6,25;6.25;3.125,9.0,0.781,medium_confidence
+group2,4-tertbutyl benzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,11.233924226624952,0.9866316059905397,4,25;12.5;6.25;3.125,105.0,3.125,high_confidence
+group2,4-tertbutyl benzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,2.0915315575273388,0.9887033417050425,4,25;12.5;6.25;3.125,519.0,3.125,high_confidence
+group2,4-trifluoromethoxybenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,14.443470639789659,0.996212595467635,4,12.5;6.25;3.125,72.0,3.125,medium_confidence
+group2,4-trifluoromethoxybenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,106.66666666666674,,4,6.25;3.125,66.0,0.781,low_confidence_order_of_magnitude
+group2,4-trifluoromethoxybenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,91.42857142857137,,4,6.25;3.125,78.0,0.781,low_confidence_order_of_magnitude
+group2,4-trifluoromethoxybenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,20.000000000000004,,4,6.25;3.125,81.0,3.125,low_confidence_order_of_magnitude
+group2,4-trifluoromethoxybenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,16.000000000000007,1.0,4,12.5;6.25;3.125,63.0,3.125,medium_confidence
+group2,4-trifluoromethylbenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,45.71428571428571,,4,3.125;1.563,81.0,0.781,low_confidence_order_of_magnitude
+group2,4-trifluoromethylbenzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,116.36363636363635,,4,3.125;1.563,26.0,0.781,low_confidence_order_of_magnitude
+group2,4-trifluoromethylbenzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,127.99999999999999,,5,3.125;1.563,40.0,0.391,low_confidence_order_of_magnitude
+group2,4-trifluoromethylbenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,55.65217391304347,,4,3.125;1.563,87.0,0.781,low_confidence_order_of_magnitude
+group2,acetyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1919.9999999999995,,4,1.563;0.391,13.0,0.391,low_confidence_order_of_magnitude
+group2,benzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,10.0,,4,12.5;6.25,377.0,1.563,low_confidence_order_of_magnitude
+group2,benzoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,10.66666666666667,,4,12.5;6.25,77.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.6140350877193,,4,12.5;6.25,212.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.614035087719301,,4,12.5;6.25,212.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.4444444444444455,,4,12.5;6.25,239.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,15.999999999999998,,4,12.5;6.25,101.0,1.563,low_confidence_order_of_magnitude
+group2,benzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.9259259259259265,,4,12.5;6.25,167.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.333333333333333,,4,12.5;6.25,176.0,3.125,low_confidence_order_of_magnitude
+group2,benzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,9.142857142857148,,4,12.5;6.25,401.0,1.563,low_confidence_order_of_magnitude
+group2,dodecanoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1280.0,,4,1.563;0.391,9.0,0.391,low_confidence_order_of_magnitude
+group2,dodecanoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,768.0000000000002,,4,1.563;0.391,12.0,0.391,low_confidence_order_of_magnitude
+group2,heptanoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,2559.999999999997,,3,1.563;0.781,3.0,0.781,low_confidence_order_of_magnitude
+group2,heptanoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,2559.999999999997,,3,1.563;0.781,12.0,0.391,low_confidence_order_of_magnitude
+group2,heptanoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,284.4444444444444,,5,1.563;0.781,32.0,0.391,low_confidence_order_of_magnitude
+group2,heptanoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,142.2222222222222,,5,1.563;0.781,32.0,0.781,low_confidence_order_of_magnitude
+group2,isobutyryl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,10.359486111656787,0.9527027406255788,4,6.25;3.125;1.563,468.0,0.781,medium_confidence
+group2,isobutyryl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,20.31746031746033,,6,3.125;1.563,141.0,1.563,low_confidence_order_of_magnitude
+group2,isobutyryl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,23.703703703703685,,6,3.125;1.563,126.0,1.563,low_confidence_order_of_magnitude
+group2,isobutyryl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,71.55635062611809,0.9982749808331204,5,6.25;3.125;1.563,114.0,0.391,medium_confidence
+group2,isobutyryl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,137.1428571428571,0.9642857142857143,6,6.25;3.125;1.563,47.0,0.391,medium_confidence
+group2,isobutyryl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,10.219464204631448,0.9626370299898377,5,6.25;3.125;1.563,429.0,0.781,medium_confidence
+group2,p-anisoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.189368770764119,,4,12.5;3.125,336.0,3.125,low_confidence_order_of_magnitude
+group2,p-anisoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.3566433566433567,,5,12.5;3.125,654.0,1.563,low_confidence_order_of_magnitude
+group2,p-toluoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,95.99999999999999,,8,6.25;1.563,42.0,0.391,low_confidence_order_of_magnitude
+group2,p-toluoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,8.648648648648647,,5,6.25;3.125,129.0,3.125,low_confidence_order_of_magnitude
+group2,pivaloyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.6546681664791896,0.9789088863892014,4,25;12.5;6.25,360.0,3.125,medium_confidence
+group2,pivaloyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.5365598156295834,0.9993939121846098,4,25;12.5;6.25,291.0,3.125,medium_confidence
+group2,pivaloyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.290600887052677,0.9945253573815455,4,25;12.5;6.25,288.0,3.125,medium_confidence
+group2,pivaloyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.268422610239717,0.9961632773855325,4,25;12.5;6.25,123.0,3.125,medium_confidence
+group2,pivaloyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,24.615384615384606,,4,12.5;6.25,63.0,1.563,low_confidence_order_of_magnitude
+group2,pivaloyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.001484363003531,0.9821821598578522,4,25;12.5;6.25,309.0,3.125,medium_confidence
+group2,thiophene-2-carbonyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,2559.999999999997,,3,1.563;0.781,6.0,0.391,low_confidence_order_of_magnitude
+group2,thiophene-2-carbonyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.98067257370848,0.9839943594412738,3,6.25;3.125;1.563,276.0,1.563,medium_confidence
+group2,valeroyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,426.66666666666646,,3,1.563;0.781,13.0,0.781,low_confidence_order_of_magnitude
+group2,valeroyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,387.3684210526315,0.9943609022556391,4,1.563;0.781;0.391,26.0,0.391,medium_confidence
+group3,1-adamantanecarbonyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.266666666666671,,5,6.25;3.125,402.0,3.125,low_confidence_order_of_magnitude
+group3,1-adamantanecarbonyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.353741496598639,,5,6.25;3.125,456.0,3.125,low_confidence_order_of_magnitude
+group3,1-adamantanecarbonyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,5,13.229974160206718,0.9958045066822261,6,50;25;12.5;6.25;3.125,132.0,1.563,high_confidence
+group3,1-adamantanecarbonyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,2.1486145182535568,0.9418729323113467,5,50;12.5;6.25;3.125,516.0,3.125,high_confidence
+group3,1-adamantanecarbonyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,28.618253743995485,0.9845301423885401,4,25;12.5;6.25;3.125,38.0,3.125,high_confidence
+group3,1-adamantanecarbonyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,58.18181818181814,,3,6.25;3.125,21.0,3.125,low_confidence_order_of_magnitude
+group3,1-adamantanecarbonyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,86.66666666666664,0.9797101449275363,7,25;12.5;6.25;3.125,132.0,0.391,high_confidence
+group3,1-adamantanecarbonyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.8787878787878793,,5,6.25;3.125,387.0,3.125,low_confidence_order_of_magnitude
+group3,1-adamantanecarbonyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.333333333333333,,4,6.25;3.125,495.0,3.125,low_confidence_order_of_magnitude
+group3,1-naphthoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,17.777777777777782,,5,6.25;3.125,81.0,3.125,low_confidence_order_of_magnitude
+group3,"2,4-dichlorobenzoyl chloride",1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.683800070896849,0.9401807869549805,5,6.25;3.125;1.563,480.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride","2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,42.66666666666666,,4,6.25;3.125,330.0,0.781,low_confidence_order_of_magnitude
+group3,"2,4-dichlorobenzoyl chloride",2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.65302124667236,0.9429062950711451,5,6.25;3.125;1.563,456.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,30.476190476190485,,5,6.25;3.125,456.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-dichlorobenzoyl chloride",3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,37.41935483870967,0.9688940092165899,5,6.25;3.125;1.563,204.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,13.848427274646403,0.9505337917307518,4,6.25;3.125;1.563,294.0,0.781,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,48.48484848484851,0.8928571428571429,5,6.25;3.125;1.563,267.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,94.05750798722045,0.9657690552259243,5,6.25;3.125;1.563,102.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,88.93982808022923,0.9628530495292673,5,6.25;3.125;1.563,102.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,426.66666666666663,0.5714285714285714,5,6.25;3.125;1.563,42.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride","tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,29.117737473101748,0.9619252558078257,5,6.25;3.125;1.563,204.0,0.391,medium_confidence
+group3,"2,4-dichlorobenzoyl chloride",triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.545982430889874,0.9368224583992115,4,6.25;3.125;1.563,330.0,0.781,medium_confidence
+group3,"2,4-difluorobenzoyl chloride","2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,45.71428571428572,,4,6.25;3.125,201.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,45.71428571428573,,4,6.25;3.125,267.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,37.647058823529406,,4,6.25;3.125,219.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,213.33333333333323,,4,6.25;3.125,78.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,58.181818181818215,,4,6.25;3.125,267.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,91.42857142857147,,4,6.25;3.125,183.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride","tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,79.99999999999999,,4,6.25;3.125,108.0,0.391,low_confidence_order_of_magnitude
+group3,"2,4-difluorobenzoyl chloride",triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,42.666666666666664,,4,6.25;3.125,267.0,0.391,low_confidence_order_of_magnitude
+group3,2-ethylhexanoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,0.39800995024875613,,3,50;25,651.0,12.5,low_confidence_order_of_magnitude
+group3,2-ethylhexanoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,4.03055656602401,0.9968430078470093,5,50;25;12.5,231.0,3.125,medium_confidence
+group3,2-ethylhexanoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.962303124193132,0.9986721257054332,4,50;25;12.5,348.0,6.25,medium_confidence
+group3,2-ethylhexanoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,11.428571428571429,,4,25;12.5,66.0,6.25,low_confidence_order_of_magnitude
+group3,2-ethylhexanoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,26.666666666666668,,4,25;12.5,41.0,6.25,low_confidence_order_of_magnitude
+group3,2-ethylhexanoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,31.99999999999999,,4,25;12.5,26.0,6.25,low_confidence_order_of_magnitude
+group3,2-furuoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,23.272727272727277,,5,3.125;1.563,495.0,0.391,low_confidence_order_of_magnitude
+group3,2-furuoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,23.272727272727277,,5,3.125;1.563,498.0,0.391,low_confidence_order_of_magnitude
+group3,2-furuoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,26.12244897959184,,4,3.125;1.563,432.0,0.391,low_confidence_order_of_magnitude
+group3,2-furuoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,56.88888888888886,,5,1.563;0.781,336.0,0.391,low_confidence_order_of_magnitude
+group3,2-furuoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,96.22603430877896,0.8000937004468791,6,3.125;1.563;0.781,105.0,0.391,medium_confidence
+group3,2-furuoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,18.285714285714292,,5,3.125;1.563,507.0,0.391,low_confidence_order_of_magnitude
+group3,2-methylbenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.7081185832680497,0.9925738200281555,4,12.5;6.25;3.125,825.0,1.563,medium_confidence
+group3,2-methylbenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.499717034521796,0.9779893281591074,4,12.5;6.25;3.125,189.0,1.563,medium_confidence
+group3,2-methylbenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,11.58118831043158,0.9668224169869225,4,12.5;6.25;3.125,171.0,1.563,medium_confidence
+group3,2-methylbenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,25.092250922509216,0.952161307327359,4,12.5;6.25;3.125,81.0,1.563,medium_confidence
+group3,2-naphthoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.1578947368421058,,4,12.5;3.125,342.0,3.125,low_confidence_order_of_magnitude
+group3,2-naphthoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.333333333333332,,4,12.5;3.125,477.0,1.563,low_confidence_order_of_magnitude
+group3,2-naphthoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,13.125649013499487,0.9580297078874893,4,25;12.5;6.25;3.125,87.0,3.125,high_confidence
+group3,2-naphthoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,14.067454597866824,0.957717333113701,4,12.5;6.25;3.125,87.0,3.125,medium_confidence
+group3,2-naphthoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,34.56978967495219,0.8719612127833926,4,12.5;6.25;3.125,72.0,1.563,medium_confidence
+group3,2-phenylbutyryl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,24.860419822549236,0.9960815531579436,4,6.25;3.125;1.563,150.0,0.781,medium_confidence
+group3,2-phenylbutyryl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,23.27272727272727,,6,3.125;1.563,162.0,0.781,low_confidence_order_of_magnitude
+group3,2-phenylbutyryl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,116.36363636363635,,4,3.125;1.563,93.0,0.391,low_confidence_order_of_magnitude
+group3,2-phenylbutyryl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,21.80360721442886,0.9928428285141712,5,6.25;3.125;1.563,249.0,0.391,medium_confidence
+group3,2-phenylbutyryl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,33.68421052631578,,4,3.125;1.563,150.0,0.781,low_confidence_order_of_magnitude
+group3,"3,4,5-trimethoxybenzoyl chloride",1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.872967829904554,0.9886865656168463,5,50;12.5;6.25,621.0,3.125,medium_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride","2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1.830065359477124,,5,50;6.25,615.0,3.125,low_confidence_order_of_magnitude
+group3,"3,4,5-trimethoxybenzoyl chloride",2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.904761904761905,0.9884169884169884,5,50;12.5;6.25,621.0,3.125,medium_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.6396791333386878,0.9893469365347629,5,50;12.5;6.25,657.0,3.125,medium_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,3.9358649789029516,0.9976562098697487,5,50;25;12.5;6.25,297.0,3.125,high_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,2.4449517637528535,0.9925972649583596,5,50;25;12.5;6.25,564.0,3.125,high_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,10.66666666666666,,3,25;12.5,24.0,12.5,low_confidence_order_of_magnitude
+group3,"3,4,5-trimethoxybenzoyl chloride",m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.352138307552319,0.9945079942805147,4,25;12.5;6.25,141.0,3.125,medium_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,7.345497351383166,0.9964326841876295,5,50;25;12.5;6.25,141.0,3.125,high_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,18.285714285714285,0.9795918367346939,5,25;12.5;6.25,54.0,3.125,medium_confidence
+group3,"3,4,5-trimethoxybenzoyl chloride",triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,1.7840514972807386,0.9959949659650068,5,50;12.5;6.25,657.0,3.125,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,13.162403548210706,0.9945253573815455,4,6.25;3.125;1.563,345.0,0.781,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,10.699634728856417,0.9947316661983704,4,6.25;3.125;1.563,402.0,0.781,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,29.921556322560406,0.9951589044780134,4,6.25;3.125;1.563,195.0,0.781,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,12.849522246321586,0.9823574485190055,4,6.25;3.125;1.563,369.0,0.781,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,25.139234774733975,0.9735842038875773,4,6.25;3.125;1.563,339.0,0.781,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,51.19999999999999,,4,3.125;1.563,255.0,0.391,low_confidence_order_of_magnitude
+group3,4-(trifluoromethylthio)benzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,75.29411764705883,,4,3.125;1.563,183.0,0.391,low_confidence_order_of_magnitude
+group3,4-(trifluoromethylthio)benzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,27.16113867850612,0.9851975525127784,5,6.25;3.125;1.563,291.0,0.391,medium_confidence
+group3,4-(trifluoromethylthio)benzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,16.84210526315789,,4,6.25;3.125,432.0,0.781,low_confidence_order_of_magnitude
+group3,4-bromobenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,29.090909090909108,,4,12.5;6.25,17.0,6.25,low_confidence_order_of_magnitude
+group3,4-bromobenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,23.261961406291302,0.8691629601535473,7,12.5;6.25;3.125;1.563,252.0,0.391,high_confidence
+group3,4-bromobenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,29.81658107116654,0.8231969121822068,7,12.5;6.25;3.125;1.563,288.0,0.391,high_confidence
+group3,4-bromobenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,71.31086142322097,0.9223904901481843,7,12.5;6.25;3.125;1.563,177.0,0.391,high_confidence
+group3,4-chloro benzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,22.456140350877195,,4,3.125;1.563,315.0,0.391,low_confidence_order_of_magnitude
+group3,4-chloro benzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,25.138304934720065,0.9959931084626814,4,6.25;3.125;1.563,105.0,1.563,medium_confidence
+group3,4-chloro benzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,44.13793103448276,,4,3.125;1.563,129.0,0.391,low_confidence_order_of_magnitude
+group3,4-ethylbenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.818181818181815,,4,12.5;6.25,87.0,6.25,low_confidence_order_of_magnitude
+group3,4-ethylbenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.0815391477111462,0.980177072653657,4,12.5;6.25;3.125,324.0,3.125,medium_confidence
+group3,4-ethylbenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.444444444444445,,4,6.25;3.125,255.0,3.125,low_confidence_order_of_magnitude
+group3,4-ethylbenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.811623491946841,0.992893887299546,4,12.5;6.25;3.125,270.0,3.125,medium_confidence
+group3,4-ethylbenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.143226919758411,0.9763342783187476,4,12.5;6.25;3.125,363.0,1.563,medium_confidence
+group3,4-ethylbenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,10.644596530319903,0.9931788726950274,4,12.5;6.25;3.125,126.0,3.125,medium_confidence
+group3,4-ethylbenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,8.82494004796163,0.9514388489208633,4,12.5;6.25;3.125,144.0,3.125,medium_confidence
+group3,4-ethylbenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,21.45956607495069,0.9771766694843618,4,12.5;6.25;3.125,123.0,1.563,medium_confidence
+group3,4-fluorobenzoyl chloride-1A,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,10.0,,4,6.25;3.125,120.0,3.125,low_confidence_order_of_magnitude
+group3,4-fluorobenzoyl chloride-1A,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,13.61702127659574,,4,6.25;3.125,102.0,3.125,low_confidence_order_of_magnitude
+group3,4-fluorobenzoyl chloride-1A,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,20.620747371102137,0.9923734672342903,4,12.5;6.25;3.125;1.563,111.0,1.563,high_confidence
+group3,4-fluorobenzoyl chloride-2B,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,15.134268537074146,0.9965645576868022,6,6.25;3.125;1.563,165.0,1.563,medium_confidence
+group3,4-fluorobenzoyl chloride-2B,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,19.345511893809963,0.9931847624054222,6,6.25;3.125;1.563,135.0,1.563,medium_confidence
+group3,4-fluorobenzoyl chloride-2B,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,30.194655229297265,0.9638026111137296,6,6.25;3.125;1.563,72.0,1.563,medium_confidence
+group3,4-fluorobenzoyl chloride-3C,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,8.371081000890124,0.9884602342568913,5,12.5;6.25;3.125,909.0,0.781,medium_confidence
+group3,4-fluorobenzoyl chloride-3C,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,14.201183431952666,0.9985207100591716,7,12.5;6.25;3.125,261.0,0.781,medium_confidence
+group3,4-fluorobenzoyl chloride-3C,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,17.280813214739517,0.983617716463968,7,12.5;6.25;3.125,186.0,0.781,medium_confidence
+group3,4-fluorobenzoyl chloride-3C,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,48.155339805825264,0.9996532593619972,6,12.5;6.25;3.125,57.0,1.563,medium_confidence
+group3,4-nitrobenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,49.23076923076921,,4,3.125;1.563,309.0,0.391,low_confidence_order_of_magnitude
+group3,4-nitrobenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,85.93931568754037,0.997509914230379,4,3.125;1.563;0.781,129.0,0.391,medium_confidence
+group3,4-nitrobenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,64.00000000000003,,4,3.125;1.563,315.0,0.391,low_confidence_order_of_magnitude
+group3,4-nitrobenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,128.0,,3,1.563;0.781,114.0,0.391,low_confidence_order_of_magnitude
+group3,4-nitrobenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,255.99999999999997,,3,1.563;0.781,51.0,0.391,low_confidence_order_of_magnitude
+group3,4-nitrobenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,365.71428571428584,,3,1.563;0.781,30.0,0.391,low_confidence_order_of_magnitude
+group3,4-nitrobenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,91.42857142857142,,4,1.563;0.781,75.0,0.391,low_confidence_order_of_magnitude
+group3,4-phenylbenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,3.118279569892472,0.9688940092165899,4,12.5;6.25;3.125,516.0,1.563,medium_confidence
+group3,4-phenylbenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,9.446935724962632,0.9995195387572069,7,12.5;6.25;3.125,411.0,0.781,medium_confidence
+group3,4-phenylbenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,9.570897912130139,0.997680652893923,6,12.5;6.25;3.125,234.0,1.563,medium_confidence
+group3,4-phenylbenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,31.067961165048537,0.9708737864077669,7,12.5;6.25;3.125,174.0,0.781,medium_confidence
+group3,4-tertbutyl benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.0870961268312263,0.9992904446546831,4,12.5;6.25;3.125,531.0,3.125,medium_confidence
+group3,4-tertbutyl benzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.8787878787878793,,5,6.25;3.125,396.0,3.125,low_confidence_order_of_magnitude
+group3,4-tertbutyl benzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,2.868096570303594,0.9967915982059594,4,12.5;6.25;3.125,399.0,3.125,medium_confidence
+group3,4-tertbutyl benzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,2.7488391726466874,0.9728500376236533,4,25;12.5;6.25;3.125,399.0,3.125,high_confidence
+group3,4-tertbutyl benzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,8.53378665533362,0.9562412725396151,5,12.5;6.25;3.125,444.0,1.563,medium_confidence
+group3,4-tertbutyl benzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.333333333333332,,4,12.5;6.25,114.0,6.25,low_confidence_order_of_magnitude
+group3,4-tertbutyl benzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,12.175932939453618,0.9972353771606849,6,25;12.5;6.25;3.125,234.0,1.563,high_confidence
+group3,4-trifluoromethoxybenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,12.54901960784314,,4,6.25;3.125,342.0,0.781,low_confidence_order_of_magnitude
+group3,4-trifluoromethoxybenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,7.590721732805301,0.9945878699010519,4,12.5;6.25;3.125,342.0,1.563,medium_confidence
+group3,4-trifluoromethoxybenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,14.883720930232558,,4,6.25;3.125,420.0,0.781,low_confidence_order_of_magnitude
+group3,4-trifluoromethoxybenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,35.55555555555553,,4,6.25;3.125,153.0,0.781,low_confidence_order_of_magnitude
+group3,4-trifluoromethoxybenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,58.181818181818244,,4,6.25;3.125,111.0,0.781,low_confidence_order_of_magnitude
+group3,4-trifluoromethoxybenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,127.99999999999991,,4,6.25;3.125,66.0,0.781,low_confidence_order_of_magnitude
+group3,4-trifluoromethoxybenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,8.421052631578945,,4,12.5;6.25,540.0,1.563,low_confidence_order_of_magnitude
+group3,acetyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,959.9999999999994,,3,1.563;0.391,19.0,0.391,low_confidence_order_of_magnitude
+group3,acetyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,853.3333333333333,,2,1.563;0.391,14.0,0.391,low_confidence_order_of_magnitude
+group3,acetyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1919.999999999999,,2,1.563;0.391,8.0,0.391,low_confidence_order_of_magnitude
+group3,acetyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,590.7692307692306,,2,1.563;0.391,24.0,0.391,low_confidence_order_of_magnitude
+group3,benzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.0506329113924044,,4,12.5;6.25,273.0,3.125,low_confidence_order_of_magnitude
+group3,benzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,6.212534059945505,0.9485208252238225,4,25;12.5;6.25,165.0,3.125,medium_confidence
+group3,benzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,9.142857142857144,,4,12.5;6.25,93.0,3.125,low_confidence_order_of_magnitude
+group3,benzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,8.88888888888889,,4,12.5;6.25,99.0,3.125,low_confidence_order_of_magnitude
+group3,benzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,21.333333333333332,,3,12.5;6.25,31.0,3.125,low_confidence_order_of_magnitude
+group3,benzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.3684210526315796,,4,12.5;6.25,249.0,3.125,low_confidence_order_of_magnitude
+group3,dodecanoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,170.66666666666666,,5,0.781;0.391,40.0,0.391,low_confidence_order_of_magnitude
+group3,dodecanoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,482.62295081967204,0.9291569086651054,3,1.563;0.781;0.391,18.0,0.391,medium_confidence
+group3,dodecanoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,465.45454545454544,,2,0.781;0.391,14.0,0.391,low_confidence_order_of_magnitude
+group3,heptanoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,639.9999999999997,,2,1.563;0.781,13.0,0.781,low_confidence_order_of_magnitude
+group3,heptanoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,1279.9999999999995,,3,1.563;0.781,35.0,0.391,low_confidence_order_of_magnitude
+group3,heptanoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,853.3333333333328,,3,1.563;0.781,6.0,0.781,low_confidence_order_of_magnitude
+group3,isobutyryl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,12.138454243717401,0.9754115017272912,6,6.25;3.125;1.563,186.0,1.563,medium_confidence
+group3,isobutyryl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,84.21052631578945,0.9868421052631579,7,6.25;3.125;1.563,53.0,0.781,medium_confidence
+group3,isobutyryl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,14.328358208955223,,6,6.25;1.563,159.0,1.563,low_confidence_order_of_magnitude
+group3,isobutyryl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,29.090909090909093,,4,6.25;3.125,31.0,3.125,low_confidence_order_of_magnitude
+group3,isobutyryl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,127.99999999999999,,4,3.125;1.563,55.0,0.391,low_confidence_order_of_magnitude
+group3,isobutyryl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,320.0,,4,3.125;1.563,20.0,0.391,low_confidence_order_of_magnitude
+group3,isobutyryl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,12.47328497868335,0.9800438197536918,6,6.25;3.125;1.563,186.0,1.563,medium_confidence
+group3,isobutyryl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,11.925465838509318,,6,6.25;1.563,192.0,1.563,low_confidence_order_of_magnitude
+group3,p-anisoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,3.3802816901408455,,4,12.5;3.125,807.0,1.563,low_confidence_order_of_magnitude
+group3,p-toluoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,5.688888888888891,,6,3.125;1.563,390.0,1.563,low_confidence_order_of_magnitude
+group3,p-toluoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,4.224422442244226,,6,3.125;1.563,477.0,1.563,low_confidence_order_of_magnitude
+group3,p-toluoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,19.329430548163916,0.9794153425074128,4,12.5;6.25;3.125,57.0,3.125,medium_confidence
+group3,pivaloyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,8.455022186365467,0.9889356307266755,5,25;12.5;6.25,228.0,1.563,medium_confidence
+group3,pivaloyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,4,2.1007313911107843,0.980493542764099,6,50;25;12.5;6.25,666.0,1.563,high_confidence
+group3,pivaloyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,18.245614035087712,0.9530075187969924,5,25;12.5;6.25,111.0,1.563,medium_confidence
+group3,pivaloyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,53.33333333333334,,4,12.5;6.25,49.0,1.563,low_confidence_order_of_magnitude
+group3,thiophene-2-carbonyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,479.99999999999983,0.9642857142857143,4,3.125;1.563;0.781,33.0,0.391,medium_confidence
+group3,valeroyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,365.7142857142858,,2,1.563;0.781,9.0,0.781,low_confidence_order_of_magnitude
+group3,valeroyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,2,232.72727272727258,,5,0.781;0.391,44.0,0.391,low_confidence_order_of_magnitude
+group3,valeroyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,236.57282741738064,0.9967214547997901,4,1.563;0.781;0.391,39.0,0.391,medium_confidence
+group3,valeroyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.1,3,361.0256410256409,0.9972527472527473,3,1.563;0.781;0.391,24.0,0.391,medium_confidence

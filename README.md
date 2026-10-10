@@ -1,135 +1,23 @@
-# PRISM ML
+# PRISM
 
-Machine-learning models that predict, for an **acyl chloride + amine** pair,
+Code and data for PRISM amide-coupling kinetics, from plate images to the
+machine-learning models.
 
-1. **reactivity** — does the amide form? (*reactive* vs *un-reactive*), and
-2. the **rate constant** — log₁₀ *k*, for pairs predicted to react,
-
-trained on PRISM plate-reader kinetics at the **1.5× hydrolysis control**.
-
-*Reactive* means a rate constant was measured, or the reaction was too fast to
-resolve. *Un-reactive* means the acyl chloride was consumed by a competing
-pathway — hydrolysis or another side reaction — before forming the amide.
-
-## Selected model
-
-| | |
-|---|---|
-| descriptors | Tier 2 (reduced): 52 morfeus / xTB descriptors (one conformer + one xTB single point) |
-| reactivity | LightGBM classifier (`LGBMClassifier`) |
-| rate constant | LightGBM regressor (`LGBMRegressor`), trained on the reactions with a rate constant |
-
-The held-out test set is fixed: acyl chlorides 2, 18, 25 and amines 18, 21, 23
-(`config.FIXED_TEST_SET`). The descriptors and learner were selected on the
-training pool alone, by repeated class-stratified validation. Each of 20
-draws holds out acyl chlorides and amines the same way the test set is built.
-The selected model was then scored once on data it never saw:
-
-| evaluation | reactivity accuracy | log₁₀ *k* R² / MAE |
+| folder | step | output |
 |---|---|---|
-| held-out test (189 pairs, unseen reactants) | 0.83 | 0.79 / 0.29 |
-| excluded substrate scope (30 substrates) | 0.87 | — |
-| drug-like amines (11 pairs) | 7 / 11 | — |
-| all three pooled (230 calls) | 0.83 | — |
+| [`1_image_analysis`](1_image_analysis/Amide_Code) | plate images → inflection time of every well | one workbook per plate (`times_and_concs.xlsx`) |
+| [`2_rate_fitting`](2_rate_fitting) | per-well hydrolysis control (1.5×), rate constants, reaction classes | `PRISM_rates*.xlsx` in `3_ml_model/data/datasheets` |
+| [`3_ml_model`](3_ml_model) | reactivity classifier and rate-constant regressor; held-out evaluation; NMR and Hammett comparisons | models, results, `docs/RESULTS.md` |
 
-Full benchmark and held-out results: [`docs/RESULTS.md`](docs/RESULTS.md).
-
-## Installation
+Each folder has its own README. To rebuild the rate tables and rerun the
+models:
 
 ```bash
-git clone <this repository> prism_ml_model && cd prism_ml_model
-conda env create -f environment.yml
-conda activate prism-ml
+cd 2_rate_fitting
+python scripts/prism_perwell.py --plates inputs/original_plate_files_99.zip --outdir outputs
+cd ../3_ml_model
+./run_all.sh
 ```
 
-This installs everything needed to predict from SMILES (RDKit, morfeus,
-xtb-python) and to rerun the benchmark. To only load the saved model and score
-precomputed descriptors, `pip install -e .` is enough. Optional extras:
-`.[features]` (descriptors from SMILES; xtb-python comes from conda-forge),
-`.[boosting]` (XGBoost and CatBoost, for the learner benchmark), `.[gnn]` (graph networks, torch).
-
-Check the installation:
-
-```bash
-python -m pytest -q
-```
-
-## Predict
-
-```bash
-# one pair
-python scripts/predict.py --acyl "O=C(Cl)c1ccccc1" --amine "Nc1ccccc1"
-
-# many pairs: CSV with columns acyl_smiles, amine_smiles
-python scripts/predict.py --input examples/pairs.csv --output predictions.csv
-```
-
-```python
-import pandas as pd
-from prism_ml.predictor import Predictor
-
-model = Predictor.load()   # the model in model/
-model.predict_smiles(pd.DataFrame({"acyl_smiles": ["O=C(Cl)c1ccccc1"],
-                                   "amine_smiles": ["Nc1ccccc1"]}))
-```
-
-Output: `p_reactive`, `reactive` (0/1), `log10_k`, and `log10_k_gated`
-(blank where the pair is predicted un-reactive). Descriptors are computed on
-the fly (RDKit conformer → MMFF → morfeus + xTB).
-
-The saved model is trained on descriptors computed by that same SMILES
-pipeline, so predictions for unseen molecules are consistent with training. Its
-own held-out check is in `model/metadata.json` (accuracy 0.78, log₁₀ *k*
-R² 0.81).
-
-## Reproduce
-
-```bash
-./run_all.sh                 # tests, both benchmarks, held-out scoring, chemical space, final model
-./run_all.sh --skip-graph    # without the graph networks (no torch / GPU needed)
-```
-
-or step by step:
-
-| step | script | output |
-|---|---|---|
-| rate tables (labels, replicates) | `scripts/build_rate_tables.py` | `data/datasheets/PRISM_rates*.xlsx` |
-| feature-set benchmark | `scripts/benchmark_features.py` | `results/benchmark/feature_sets/` |
-| learner benchmark | `scripts/benchmark_models.py` | `results/benchmark/model_families/` |
-| held-out, scope, drug | `scripts/holdout.py` | `results/holdout/` |
-| chemical space (all data, train vs test) | `analysis/chemical_space.py` | `analysis/results/chemical_space/` |
-| data summary (class counts, rate constants) | `analysis/data_summary.py` | `analysis/results/data_summary/` |
-| descriptors from SMILES | `scripts/compute_descriptors.py` | `data/datasheets/PRISM_substrate_features_smiles.xlsx` |
-| final model | `scripts/train_final.py` | `model/` |
-
-On a SLURM cluster: `sbatch slurm/workflow_cpu.slurm` and
-`sbatch slurm/benchmark_models_gpu.slurm` (edit the partition first).
-
-## Layout
-
-```
-src/prism_ml/     library (data, features, splits, models, scoring, descriptors, predictor)
-scripts/          the workflow steps above, plus predict.py
-model/            the saved model and its metadata
-results/          benchmark and held-out outputs
-data/datasheets/  rate constants, reactivity classes, descriptors, substrate scope
-data/             reactant geometries, AIMNet2 atom features (data dictionary: data/README.md)
-analysis/         chemical-space analysis; NMR and Hammett comparison data and figures
-examples/         example input for predict.py
-tests/            test suite
-```
-
-The graph-network benchmark uses AIMNet2 atom features
-(`data/aimnet2_atoms.npz`, included). They were computed with the AIMNet2
-checkpoint distributed with [LoQI](https://github.com/isayevlab/LoQI), which
-is needed only to regenerate them (`data/aimnet2/README.md`).
-
-## Use of AI tools
-
-Claude Code (Anthropic, `claude-opus-5-5`, October 2026) was used as a tool to
-help organize and run this workflow.
-
-## License
-
-MIT (see [`LICENSE`](LICENSE)). The AIMNet2 checkpoint is third-party, from
-the LoQI repository (MIT), and is not redistributed here.
+The plate images are not included. The 99 plate workbooks they produced are
+in `2_rate_fitting/inputs`.

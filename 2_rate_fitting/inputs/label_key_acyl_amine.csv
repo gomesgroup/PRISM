@@ -1,0 +1,73 @@
+kind,label,name_in_label_sheet,name_in_PRISM_plate_files
+acyl_chloride,1,4-fluorobenzoyl chloride - 3,4-fluorobenzoyl chloride-1A | 4-fluorobenzoyl chloride-2B | 4-fluorobenzoyl chloride-3C
+acyl_chloride,2,benzoyl chloride,benzoyl chloride
+acyl_chloride,3,4-tertbutylbenzoylchloride,4-tertbutyl benzoyl chloride
+acyl_chloride,4,"2,4-difluorobenzoyl chloride","2,4-difluorobenzoyl chloride"
+acyl_chloride,5,4-CF3-benzoyl chloride,4-trifluoromethylbenzoyl chloride
+acyl_chloride,6,4-phenylbenzoyl chloride,4-phenylbenzoyl chloride
+acyl_chloride,7,thiophene-2-carbonyl chloride,thiophene-2-carbonyl chloride
+acyl_chloride,8,2-naphthoyl chloride,2-naphthoyl chloride
+acyl_chloride,9,p-anisoyl chloride,p-anisoyl chloride
+acyl_chloride,10,trimethylacetyl chloride,pivaloyl chloride
+acyl_chloride,11,"valeroyl chloride - get from maty, our lid was broken",valeroyl chloride
+acyl_chloride,12,4-chlorobenzoyl chloride,4-chloro benzoyl chloride
+acyl_chloride,13,heptanoyl chloride - use new stock,heptanoyl chloride
+acyl_chloride,14,acetyl chloride - use Noonan in fridge(make stock in glovebox),acetyl chloride
+acyl_chloride,15,4-OCF3-benzoyl chloride,4-trifluoromethoxybenzoyl chloride
+acyl_chloride,16,1-naphthoyl chloride,1-naphthoyl chloride
+acyl_chloride,17,4-SCF3-benzoyl chloride,4-(trifluoromethylthio)benzoyl chloride
+acyl_chloride,18,p-toluoyl chloride,p-toluoyl chloride
+acyl_chloride,19,"2,4-dichlorobenzoyl chloride","2,4-dichlorobenzoyl chloride"
+acyl_chloride,20,2-furuoyl chloride - use Noonan in glovebox,2-furuoyl chloride
+acyl_chloride,21,2-phenylbutyryl chloride,2-phenylbutyryl chloride
+acyl_chloride,22,2-ethylhexanoyl chloride,2-ethylhexanoyl chloride
+acyl_chloride,23,2-methylbenzoyl chloride,2-methylbenzoyl chloride
+acyl_chloride,24,4-ethylbenzoyl chloride,4-ethylbenzoyl chloride
+acyl_chloride,25,dodecanoyl chloride,dodecanoyl chloride
+acyl_chloride,26,isobutyryl chloride,isobutyryl chloride
+acyl_chloride,27,cinnamoyl chloride,cinnamoyl chloride
+acyl_chloride,28,4-bromo-benzoyl chloride,4-bromobenzoyl chloride
+acyl_chloride,29,"3,4,5-trimethoxybenzoyl chloride","3,4,5-trimethoxybenzoyl chloride"
+acyl_chloride,30,4-nitro benzoyl chloride,4-nitrobenzoyl chloride
+acyl_chloride,31,1-adamantanecarbonylchloride,1-adamantanecarbonyl chloride
+acyl_chloride,32,2-CF3-benzoyl chloride,
+acyl_chloride,33,"2,6-difluorobenzoyl chloride",
+acyl_chloride,34,cyclohexanecarbonyl chloride,
+acyl_chloride,35,2-ethylbutyryl chloride,
+acyl_chloride,36,tetrahydro-2H-pyran-4-carbonyl chloride,
+amine,1,tertbutylamine,tertbutylamine
+amine,2,blank,blank
+amine,3,4-fluoroaniline,4-fluoroaniline
+amine,4,p-anisidine,p-anisidine
+amine,5,aniline,aniline
+amine,6,"2,4,6-trimethylaniline","2,4,6-trimethylaniline"
+amine,7,4-heptylaniline,4-heptylaniline
+amine,8,"2,6-diisopropylaniline","2,6-diisopropylaniline"
+amine,9,dicyclohexylamine,dicyclohexylamine
+amine,10,4-hexylaniline,4-hexylaniline
+amine,11,2-methylthioaniline,2-methylthioaniline
+amine,12,2-aminobiphenyl,2-aminobiphenyl
+amine,13,4-tertbutylaniline,4-tertbutylaniline
+amine,14,diisopropylamine,diisopropylamine
+amine,15,4-bromoaniline,4-bromoaniline
+amine,16,2-methylpiperidine,2-methylpiperidine
+amine,17,8-aminoquinoline,8-aminoquinoline
+amine,18,3'-aminoacetophenone,3-aminoacetophenone
+amine,19,morpholine,morpholine
+amine,20,2-methoxy-5-CF3-aniline,2-methoxy-5-CF3-aniline
+amine,21,2-(2-methoxyethoxy)aniline,2-(2-methoxyethoxy)aniline
+amine,22,3 amino pentane,3 amino pentane
+amine,23,"2,6-dimethylpiperidine","2,6-dimethylpiperidine"
+amine,24,4-vinylaniline,4-vinylaniline
+amine,25,p-toluidine,p-toluidine
+amine,26,m-toluidine,m-toluidine
+amine,27,N-isopropylcyclohexanamine,N-isopropylcyclohexanamine
+amine,28,o-anisidine,o-anisidine
+amine,29,triphenylmethanamine,triphenylmethanamine
+amine,30,"2,6-dimethylaniline","2,6-dimethylaniline"
+amine,31,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate","tertbutyl-3,5-dimethylpiperazin-1-carboxylate"
+amine,32,3-anilinopropionitrile,3-anilinopropionitrile
+amine,33,2-fluoroaniline,2-fluoroaniline
+amine,34,1-Boc-4-cyclopropylaminopiperidine,1-Boc-4-cyclopropylaminopiperidine
+amine,35,3-methoxyaniline,3-methoxyaniline
+amine,36,4-aminobenzophenone,4-aminobenzophenone

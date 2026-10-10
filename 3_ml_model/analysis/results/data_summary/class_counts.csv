@@ -1,0 +1,7 @@
+set,reactions,acyl_chlorides,amines,measurable,instant,slow,undetermined,modelled,total_reactive,un-reactive,fraction_reactive
+All data,1085,31,35,363,138,543,41,1044,501,543,0.48
+Training pool,896,28,32,294,120,444,38,858,414,444,0.483
+Held-out test,189,31,35,69,18,99,3,186,87,99,0.468
+Unseen acyl chloride,96,3,32,28,14,54,0,96,42,54,0.438
+Unseen amine,84,28,3,38,4,40,2,82,42,40,0.512
+Both unseen,9,3,3,3,0,5,1,8,3,5,0.375

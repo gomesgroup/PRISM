@@ -1,0 +1,31 @@
+{
+  "generated": "2026-10-09T23:22:16+00:00",
+  "prism_ml_version": "1.0.0",
+  "python": "3.11.16",
+  "inputs": {
+    "rates": "2de95cd1edaa42f9",
+    "excluded": "82545e60c5bcaeeb",
+    "features": "45735cd93ca02745"
+  },
+  "split": {
+    "test_acyls": [
+      2,
+      18,
+      25
+    ],
+    "test_amines": [
+      18,
+      21,
+      23
+    ],
+    "forced_train_amines": [
+      34
+    ]
+  },
+  "settings": {
+    "family": "boosted_trees",
+    "class_weight": 0.5,
+    "threshold": 0.5,
+    "fold_seed": 0
+  }
+}

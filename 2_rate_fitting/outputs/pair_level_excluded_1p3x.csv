@@ -1,0 +1,727 @@
+group,acyl_chloride,amine,control_source,control_status,margin,n_wells_kept,n_raw_detections,kept_conc_mM,time_at_most_dilute_min,conc_at_most_dilute_mM,k_negative_fit_value,bin
+group1,2-furuoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.3,2,6,1.563;0.781,147.0,0.391,,borderline_kept_out_by_fit_quality
+group1,4-fluorobenzoyl chloride-3C,p-anisidine,own_plate,matched same-plate control,1.3,2,5,6.25;3.125,35.0,0.391,,borderline_kept_out_by_fit_quality
+group2,"2,4-dichlorobenzoyl chloride","2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,6.25;3.125,189.0,0.391,,borderline_kept_out_by_fit_quality
+group2,"2,4-difluorobenzoyl chloride",2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,5,6.25;3.125,51.0,0.391,,borderline_kept_out_by_fit_quality
+group3,4-trifluoromethoxybenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,12.5;6.25,5.0,6.25,,borderline_kept_out_by_fit_quality
+group1,2-furuoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,2,4,1.563;0.781,38.0,0.391,-1279.9999999999952,set_aside_negative_fit
+group2,4-tertbutyl benzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,6,12.5;6.25,153.0,0.391,-64.00000000000001,set_aside_negative_fit
+group1,2-phenylbutyryl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,3,,0.0,0.391,,too_fast_even_when_diluted
+group1,4-bromobenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group1,4-nitrobenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,2,6,3.125;1.563,1.0,1.563,,too_fast_even_when_diluted
+group1,4-nitrobenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,1.0,6.25,,too_fast_even_when_diluted
+group1,4-trifluoromethylbenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,5,,0.0,0.781,,too_fast_even_when_diluted
+group1,acetyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,3,,0.0,0.391,,too_fast_even_when_diluted
+group1,dodecanoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,2,0.391,2.0,0.391,,too_fast_even_when_diluted
+group2,1-adamantanecarbonyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,5,7,50;25;12.5;6.25;3.125,2.0,0.781,,too_fast_even_when_diluted
+group2,1-adamantanecarbonyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,4.0,0.391,,too_fast_even_when_diluted
+group2,1-naphthoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,47.0,0.391,,too_fast_even_when_diluted
+group2,1-naphthoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,516.0,3.125,,too_fast_even_when_diluted
+group2,1-naphthoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,0.0,0.781,,too_fast_even_when_diluted
+group2,"2,4-dichlorobenzoyl chloride",2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,6.25,,too_fast_even_when_diluted
+group2,"2,4-dichlorobenzoyl chloride",3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,0.0,3.125,,too_fast_even_when_diluted
+group2,"2,4-dichlorobenzoyl chloride",diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,6.25;3.125,189.0,0.391,,too_fast_even_when_diluted
+group2,"2,4-dichlorobenzoyl chloride",morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,0.0,3.125,,too_fast_even_when_diluted
+group2,"2,4-difluorobenzoyl chloride",2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,0.391,,too_fast_even_when_diluted
+group2,"2,4-difluorobenzoyl chloride",3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,10.0,0.391,,too_fast_even_when_diluted
+group2,"2,4-difluorobenzoyl chloride",morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-ethylhexanoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,153.0,0.391,,too_fast_even_when_diluted
+group2,2-ethylhexanoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,6.0,0.391,,too_fast_even_when_diluted
+group2,2-ethylhexanoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,3.125,,too_fast_even_when_diluted
+group2,2-furuoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-furuoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,1.0,0.391,,too_fast_even_when_diluted
+group2,2-furuoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-methylbenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,12.0,0.391,,too_fast_even_when_diluted
+group2,2-methylbenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,7.0,0.391,,too_fast_even_when_diluted
+group2,2-methylbenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-naphthoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,3.0,0.391,,too_fast_even_when_diluted
+group2,2-naphthoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,4,8,25;12.5;6.25;3.125,1.0,0.391,,too_fast_even_when_diluted
+group2,2-naphthoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,3,8,25;6.25;3.125,0.0,0.391,,too_fast_even_when_diluted
+group2,2-phenylbutyryl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,4.0,0.391,,too_fast_even_when_diluted
+group2,2-phenylbutyryl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-phenylbutyryl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,0.0,0.391,,too_fast_even_when_diluted
+group2,2-phenylbutyryl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,0.0,0.391,,too_fast_even_when_diluted
+group2,"3,4,5-trimethoxybenzoyl chloride",2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,5.0,0.391,,too_fast_even_when_diluted
+group2,"3,4,5-trimethoxybenzoyl chloride",3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,4,5,50;25;12.5;6.25,2.0,3.125,,too_fast_even_when_diluted
+group2,"3,4,5-trimethoxybenzoyl chloride",morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,33.0,0.391,,too_fast_even_when_diluted
+group2,4-(trifluoromethylthio)benzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,0.0,1.563,,too_fast_even_when_diluted
+group2,4-(trifluoromethylthio)benzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,0.0,1.563,,too_fast_even_when_diluted
+group2,4-(trifluoromethylthio)benzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,0.0,1.563,,too_fast_even_when_diluted
+group2,4-bromobenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,3,5,12.5;6.25;3.125,5.0,3.125,,too_fast_even_when_diluted
+group2,4-bromobenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,3,5,12.5;6.25;3.125,5.0,3.125,,too_fast_even_when_diluted
+group2,4-bromobenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,6.25,504.0,0.781,,too_fast_even_when_diluted
+group2,4-bromobenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,3,4,12.5;6.25;3.125,5.0,3.125,,too_fast_even_when_diluted
+group2,4-chloro benzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,0.0,0.781,,too_fast_even_when_diluted
+group2,4-chloro benzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,0.0,1.563,,too_fast_even_when_diluted
+group2,4-chloro benzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,4-ethylbenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,5.0,0.391,,too_fast_even_when_diluted
+group2,4-ethylbenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,2.0,0.391,,too_fast_even_when_diluted
+group2,4-ethylbenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-1A,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,3.125,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-1A,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,3.125,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-1A,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,12.5,483.0,1.563,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-1A,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,3.125,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-2B,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,4.0,0.391,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-2B,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,4.0,0.391,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-3C,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,6.0,0.391,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-3C,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,12.5;6.25,2.0,6.25,,too_fast_even_when_diluted
+group2,4-fluorobenzoyl chloride-3C,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,3.125,3.0,1.563,,too_fast_even_when_diluted
+group2,4-nitrobenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,1.0,12.5,,too_fast_even_when_diluted
+group2,4-nitrobenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,1.0,6.25,,too_fast_even_when_diluted
+group2,4-nitrobenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,3.125;1.563,3.0,1.563,,too_fast_even_when_diluted
+group2,4-phenylbenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,0.0,6.25,,too_fast_even_when_diluted
+group2,4-phenylbenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,6.25,,too_fast_even_when_diluted
+group2,4-phenylbenzoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,12.5,678.0,1.563,,too_fast_even_when_diluted
+group2,4-phenylbenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,6.25,,too_fast_even_when_diluted
+group2,4-tertbutyl benzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,0.781,,too_fast_even_when_diluted
+group2,4-trifluoromethoxybenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,3.125,,too_fast_even_when_diluted
+group2,4-trifluoromethoxybenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,1.563,,too_fast_even_when_diluted
+group2,4-trifluoromethoxybenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,4-trifluoromethylbenzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,0.391,,too_fast_even_when_diluted
+group2,4-trifluoromethylbenzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,0.391,,too_fast_even_when_diluted
+group2,4-trifluoromethylbenzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,0.781,,too_fast_even_when_diluted
+group2,acetyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,1.563,2.0,1.563,,too_fast_even_when_diluted
+group2,acetyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,1.0,6.25,,too_fast_even_when_diluted
+group2,acetyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,2.0,1.563,,too_fast_even_when_diluted
+group2,acetyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,30.0,0.391,,too_fast_even_when_diluted
+group2,acetyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,12.5,,too_fast_even_when_diluted
+group2,benzoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,6.0,0.391,,too_fast_even_when_diluted
+group2,benzoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,14.0,0.391,,too_fast_even_when_diluted
+group2,benzoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,0.391,,too_fast_even_when_diluted
+group2,cinnamoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,3.0,6.25,,too_fast_even_when_diluted
+group2,cinnamoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,3.0,12.5,,too_fast_even_when_diluted
+group2,cinnamoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,56.0,0.391,,too_fast_even_when_diluted
+group2,cinnamoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,3.0,12.5,,too_fast_even_when_diluted
+group2,dodecanoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,0.0,0.391,,too_fast_even_when_diluted
+group2,dodecanoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,1.0,6.25,,too_fast_even_when_diluted
+group2,dodecanoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,75.0,0.391,,too_fast_even_when_diluted
+group2,dodecanoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,1.0,3.125,,too_fast_even_when_diluted
+group2,heptanoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,2.0,0.391,,too_fast_even_when_diluted
+group2,heptanoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,2.0,0.391,,too_fast_even_when_diluted
+group2,heptanoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,32.0,0.781,,too_fast_even_when_diluted
+group2,heptanoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,1.563,5.0,1.563,,too_fast_even_when_diluted
+group2,isobutyryl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,6.25,,too_fast_even_when_diluted
+group2,isobutyryl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,0.0,1.563,,too_fast_even_when_diluted
+group2,isobutyryl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,p-anisoyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,13.0,0.781,,too_fast_even_when_diluted
+group2,p-anisoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,10.0,0.781,,too_fast_even_when_diluted
+group2,p-anisoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,654.0,1.563,,too_fast_even_when_diluted
+group2,p-anisoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,0.0,0.781,,too_fast_even_when_diluted
+group2,p-toluoyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,0.0,3.125,,too_fast_even_when_diluted
+group2,p-toluoyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,16.0,12.5,,too_fast_even_when_diluted
+group2,p-toluoyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,8,,0.0,0.391,,too_fast_even_when_diluted
+group2,pivaloyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,330.0,6.25,,too_fast_even_when_diluted
+group2,pivaloyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,177.0,0.391,,too_fast_even_when_diluted
+group2,pivaloyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,6.25,,too_fast_even_when_diluted
+group2,thiophene-2-carbonyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,2,4,1.563;0.781,3.0,0.391,,too_fast_even_when_diluted
+group2,thiophene-2-carbonyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,6.25,276.0,1.563,,too_fast_even_when_diluted
+group2,thiophene-2-carbonyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,2.0,0.391,,too_fast_even_when_diluted
+group2,valeroyl chloride,2-methylpiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,1.563,4.0,1.563,,too_fast_even_when_diluted
+group2,valeroyl chloride,3 amino pentane,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,0.391,,too_fast_even_when_diluted
+group2,valeroyl chloride,diisopropylamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,72.0,0.391,,too_fast_even_when_diluted
+group2,valeroyl chloride,morpholine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,0.0,0.391,,too_fast_even_when_diluted
+group1,1-adamantanecarbonyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,387.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,1-adamantanecarbonyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,1,4,6.25,216.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,1-adamantanecarbonyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,3,,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,1-adamantanecarbonyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,6,3.125,330.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,525.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,558.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,591.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,4,3.125,189.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,6,3.125,327.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,1-naphthoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,474.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-dichlorobenzoyl chloride",2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,3,,195.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-dichlorobenzoyl chloride",2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,450.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-dichlorobenzoyl chloride",p-anisidine,own_plate,matched same-plate control,1.3,1,4,1.563,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-dichlorobenzoyl chloride",tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride","2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,5,,216.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,201.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",4-fluoroaniline,own_plate,matched same-plate control,1.3,1,4,3.125,25.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",4-heptylaniline,own_plate,matched same-plate control,1.3,0,3,,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",4-hexylaniline,own_plate,matched same-plate control,1.3,0,4,,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",aniline,own_plate,matched same-plate control,1.3,0,4,,42.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",p-anisidine,own_plate,matched same-plate control,1.3,0,2,,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"2,4-difluorobenzoyl chloride",tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,63.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-ethylhexanoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,3,,810.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group1,2-ethylhexanoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,4,12.5,33.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,2-ethylhexanoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,2,,600.0,25.0,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,6,0.781,288.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,6,,423.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,6,,390.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,255.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,6,0.781,276.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,6,0.781,273.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,6,,303.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-furuoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,291.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,2-methylbenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,396.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-methylbenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,5,,498.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-methylbenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,471.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-methylbenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,576.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,6.25,84.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,354.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,354.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,381.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,4,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-naphthoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,270.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,243.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,5,1.563,177.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,4,1.563,12.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,4-heptylaniline,own_plate,matched same-plate control,1.3,1,4,1.563,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,aniline,own_plate,matched same-plate control,1.3,1,4,1.563,23.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,2-phenylbutyryl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,378.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,"3,4,5-trimethoxybenzoyl chloride","2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,5,,717.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,"3,4,5-trimethoxybenzoyl chloride",2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,5,,660.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,"3,4,5-trimethoxybenzoyl chloride",2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,717.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,"3,4,5-trimethoxybenzoyl chloride",p-anisidine,own_plate,matched same-plate control,1.3,1,8,6.25,99.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,"3,4,5-trimethoxybenzoyl chloride",tertbutylamine,own_plate,matched same-plate control,1.3,0,2,,19.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-(trifluoromethylthio)benzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,189.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-(trifluoromethylthio)benzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,231.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-(trifluoromethylthio)benzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,2,,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-(trifluoromethylthio)benzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,228.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-bromobenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,7,1.563,522.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,4-bromobenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,7,,603.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,4-bromobenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,3,1.563,25.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,3.125,96.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,3.125,348.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,381.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,381.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,4,3.125,81.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,4,1.563,43.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-chloro benzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,192.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,5,3.125,213.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,5,,459.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,528.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,393.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,5,3.125,231.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-ethylbenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,465.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-1A,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,12.5,456.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-1A,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,3,,18.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-1A,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,546.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-1A,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,6,1.563,330.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-1A,tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,44.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-2B,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,312.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-2B,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,6.25,312.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-2B,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,4,6.25,381.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-2B,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,381.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-2B,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,420.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,3.125,129.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,504.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,429.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,4,3.125,99.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,aniline,own_plate,matched same-plate control,1.3,1,4,3.125,129.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-fluorobenzoyl chloride-3C,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-nitrobenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,6,0.781,78.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-nitrobenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,6,0.781,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-nitrobenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,213.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,102.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,624.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,600.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,426.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,5,3.125,177.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,5,3.125,180.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-phenylbenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,426.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-tertbutyl benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,25,564.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-tertbutyl benzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,612.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-tertbutyl benzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,549.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-tertbutyl benzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,570.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,3.125,87.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,12.5,123.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,153.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,165.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,2,,25.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethoxybenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,168.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethylbenzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,3,,81.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethylbenzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,3,,90.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethylbenzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,3,,84.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethylbenzoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,4,1.563,69.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,4-trifluoromethylbenzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,96.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,3,0.391,19.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,3,,32.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,3,,31.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,3,,32.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,3,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,acetyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,3,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,6.25,141.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,243.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,252.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,255.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,4,6.25,150.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,4,6.25,15.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,benzoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,423.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,3,,38.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,33.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,3,,38.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,0,4,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.3,0,4,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.3,1,5,0.391,22.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,aniline,own_plate,matched same-plate control,1.3,0,4,,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,3,,38.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,5,0.391,20.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,cinnamoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,1,5,0.391,6.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,39.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,23.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,5,,66.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,57.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,3,,21.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,dodecanoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,29.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,5,0.781,38.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,4,0.781,49.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,4,0.781,46.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,40.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,aniline,own_plate,matched same-plate control,1.3,1,5,0.781,37.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,4,,66.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,2,,8.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,heptanoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,49.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,isobutyryl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,1,6,1.563,279.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,isobutyryl chloride,4-heptylaniline,own_plate,matched same-plate control,1.3,1,4,1.563,23.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,isobutyryl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,2,,5.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,isobutyryl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,504.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,5,,525.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,558.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,1,4,3.125,330.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,525.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,0,4,,525.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.3,1,4,6.25,105.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,aniline,own_plate,matched same-plate control,1.3,0,5,,558.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,p-anisoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,678.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,p-toluoyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,1140.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,p-toluoyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,4,,993.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,p-toluoyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,1008.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,p-toluoyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,204.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,444.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,351.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,255.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.3,1,5,6.25,135.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.3,1,6,6.25,171.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,0,4,,40.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,pivaloyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,2,,357.0,25.0,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,0,4,,435.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,5,,489.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,5,,597.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,0,4,,354.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,4-heptylaniline,own_plate,matched same-plate control,1.3,1,5,1.563,237.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,4-hexylaniline,own_plate,matched same-plate control,1.3,1,5,1.563,201.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,aniline,own_plate,matched same-plate control,1.3,0,4,,558.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,4,,354.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group1,thiophene-2-carbonyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,4,,414.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,"2,4,6-trimethylaniline",own_plate,matched same-plate control,1.3,1,4,0.391,47.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,"2,6-diisopropylaniline",own_plate,matched same-plate control,1.3,0,4,,69.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,2-aminobiphenyl,own_plate,matched same-plate control,1.3,0,5,,66.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,2-methylthioaniline,own_plate,matched same-plate control,1.3,0,4,,69.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,4-fluoroaniline,own_plate,matched same-plate control,1.3,1,4,0.391,42.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,aniline,own_plate,matched same-plate control,1.3,1,3,0.391,39.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,dicyclohexylamine,own_plate,matched same-plate control,1.3,0,4,,69.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,p-anisidine,own_plate,matched same-plate control,1.3,1,2,0.391,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group1,valeroyl chloride,tertbutylamine,own_plate,matched same-plate control,1.3,0,5,,87.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,936.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,126.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,687.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,888.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,873.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,504.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,1-naphthoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,402.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,"2,4-dichlorobenzoyl chloride",4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,32.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,"2,4-dichlorobenzoyl chloride",4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,144.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,"2,4-difluorobenzoyl chloride",4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,29.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,486.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,0.781,273.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,450.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,510.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,420.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,159.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,2-furuoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.781,375.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-methylbenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,510.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-methylbenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,492.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-methylbenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,576.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-methylbenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,201.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,2-methylbenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,327.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-naphthoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,411.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-naphthoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,411.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-naphthoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,450.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-naphthoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,231.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-naphthoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,213.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,2-phenylbutyryl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,111.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,2-phenylbutyryl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,31.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,2-phenylbutyryl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,99.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,"3,4,5-trimethoxybenzoyl chloride",2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,50,666.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,"3,4,5-trimethoxybenzoyl chloride",3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,741.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,"3,4,5-trimethoxybenzoyl chloride",4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,753.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,"3,4,5-trimethoxybenzoyl chloride",8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,348.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-(trifluoromethylthio)benzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,195.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-(trifluoromethylthio)benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,183.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-(trifluoromethylthio)benzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,285.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-bromobenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,477.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-bromobenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,54.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-bromobenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,438.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-bromobenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,147.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-bromobenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,52.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-chloro benzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,564.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-chloro benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,618.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-chloro benzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,543.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-ethylbenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,513.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-ethylbenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,477.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-ethylbenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,555.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-ethylbenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,408.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-ethylbenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,396.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,489.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,591.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,522.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,489.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,225.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-1A,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,408.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,639.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,399.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,351.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,399.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,492.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-2B,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,399.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-3C,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,429.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-3C,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,342.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-3C,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,399.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-3C,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,225.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-fluorobenzoyl chloride-3C,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,243.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,12.5,90.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,132.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,156.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,177.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,342.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-phenylbenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,306.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-tertbutyl benzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,765.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-tertbutyl benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,687.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-tertbutyl benzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,732.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-tertbutyl benzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,519.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-tertbutyl benzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,462.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethoxybenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,12.5,303.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethoxybenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,153.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethoxybenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,165.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethoxybenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,99.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethoxybenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,81.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethylbenzoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,141.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethylbenzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,129.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethylbenzoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,138.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethylbenzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,114.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,4-trifluoromethylbenzoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,99.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,45.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,3.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,0.391,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,30.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,0.391,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,acetyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,17.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,benzoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,212.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,benzoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,167.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,50.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,56.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,46.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,32.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,0.391,29.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,56.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.391,22.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,cinnamoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,56.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,75.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,75.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,75.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,57.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,39.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,dodecanoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,0.391,26.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,heptanoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,57.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,heptanoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.781,29.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,heptanoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,32.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,heptanoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,0.781,28.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,heptanoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,0.781,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,isobutyryl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,16.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,isobutyryl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,228.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,isobutyryl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,11.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,336.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,267.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,321.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,345.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,429.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,153.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,462.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,p-anisoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,624.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,20.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,198.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,474.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,462.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,570.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,129.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,657.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,p-toluoyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,453.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group2,pivaloyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,55.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,pivaloyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,336.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group2,pivaloyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,132.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,264.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,276.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,279.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,4-tertbutylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,297.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,276.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,thiophene-2-carbonyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,264.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,"2,6-dimethylpiperidine",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,2-(2-methoxyethoxy)aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.781,13.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,2-methoxy-5-CF3-aniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,72.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,3-aminoacetophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,75.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,4-bromoaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,75.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,4-vinylaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,66.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group2,valeroyl chloride,8-aminoquinoline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,27.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,1-adamantanecarbonyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,309.0,25.0,,too_slow_indistinguishable_from_hydrolysis
+group3,1-adamantanecarbonyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,795.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-adamantanecarbonyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,6.25,195.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,59.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,819.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,525.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,561.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,366.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,384.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,759.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,186.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,138.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,537.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,1-naphthoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,498.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,"2,4-difluorobenzoyl chloride",1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,6.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,"2,4-difluorobenzoyl chloride",m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,40.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,"2,4-difluorobenzoyl chloride",o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,54.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,"2,4-difluorobenzoyl chloride",p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,14.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,612.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,936.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,50,651.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,651.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,699.0,25.0,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,618.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-ethylhexanoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,651.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,480.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,1.563,483.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,507.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,480.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.781,336.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,0.781,321.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,0.781,315.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-furuoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,507.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,597.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,624.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,597.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,648.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,375.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,411.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,825.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,699.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-methylbenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,624.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,20.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,288.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,360.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,477.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,381.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,342.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,219.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,2-naphthoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,345.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,102.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,174.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,144.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,27.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,19.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,7.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,2-phenylbutyryl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,162.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,"3,4,5-trimethoxybenzoyl chloride","2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,615.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,"3,4,5-trimethoxybenzoyl chloride",3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,50,657.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,"3,4,5-trimethoxybenzoyl chloride","tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,6.25,300.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,"3,4,5-trimethoxybenzoyl chloride",triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,50,657.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-(trifluoromethylthio)benzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,47.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-(trifluoromethylthio)benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,402.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-(trifluoromethylthio)benzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,384.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-(trifluoromethylthio)benzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,108.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,45.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,48.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,43.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,48.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,39.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,35.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,45.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-bromobenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,42.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,1.563,18.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,741.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,564.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,615.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,510.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,438.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,186.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-chloro benzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,669.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-ethylbenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,96.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-ethylbenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,144.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-ethylbenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,111.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-ethylbenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,123.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,16.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,426.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,618.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,639.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,267.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,531.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,606.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,120.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,102.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,246.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-1A,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,657.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,645.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,777.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,669.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,675.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,333.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,468.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,720.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,309.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-2B,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,663.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,1047.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,1260.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,1047.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,714.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,495.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,909.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,7,3.125,261.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,7,3.125,186.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,414.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-fluorobenzoyl chloride-3C,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,7,,1299.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,309.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,213.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,282.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,240.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,1,,180.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-nitrobenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,252.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,9.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,507.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,411.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,522.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,267.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,534.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,396.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-phenylbenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,411.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,108.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,495.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,531.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,651.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,396.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,234.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-tertbutyl benzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,240.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,444.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,168.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,483.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,342.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,342.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,99.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethoxybenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,540.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,6.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,99.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,120.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,114.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,59.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,120.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,55.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,41.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,69.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,4-trifluoromethylbenzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,114.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,1.563,55.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.391,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.391,24.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.391,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.391,16.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,0.391,29.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,2,,8.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,acetyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,21.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,31.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,273.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,12.5,282.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,309.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,198.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,588.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,benzoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,249.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,72.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,50.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,78.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,55.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,135.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,34.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,102.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,102.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,87.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,87.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,102.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,cinnamoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,48.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,31.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,60.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,21.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,21.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.781,40.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,21.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,0.391,9.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,84.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,dodecanoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,108.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,93.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,0.781,55.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,93.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,102.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,2,0.781,21.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,90.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,heptanoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,6,,105.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,138.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,201.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,201.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,37.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,186.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,isobutyryl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,6,1.563,192.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,3,3.125,66.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,357.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,576.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,444.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,735.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,978.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,3.125,807.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,261.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,288.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,114.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,489.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,p-anisoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,3.125,297.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,501.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,828.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,510.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,585.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,378.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,444.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,579.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,249.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,p-toluoyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,498.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,1-Boc-4-cyclopropylaminopiperidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,19.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,3,,348.0,12.5,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,483.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,372.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,396.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,6.25,69.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,285.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,pivaloyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,333.0,6.25,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,198.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,198.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,189.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,204.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,168.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,201.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,165.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,o-anisidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,198.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,p-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,93.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,153.0,3.125,,too_slow_indistinguishable_from_hydrolysis
+group3,thiophene-2-carbonyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,4,1.563,195.0,1.563,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,"2,6-dimethylaniline",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,114.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,2-fluoroaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,138.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,3-anilinopropionitrile,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,126.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,3-methoxyaniline,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,48.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,4-aminobenzophenone,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,138.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,N-isopropylcyclohexanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,78.0,0.781,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,m-toluidine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,1,5,0.391,44.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,"tertbutyl-3,5-dimethylpiperazin-1-carboxylate",same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,5,,120.0,0.391,,too_slow_indistinguishable_from_hydrolysis
+group3,valeroyl chloride,triphenylmethanamine,same_acyl_group1_plate,indeterminate: control borrowed from other plate,1.3,0,4,,138.0,0.391,,too_slow_indistinguishable_from_hydrolysis

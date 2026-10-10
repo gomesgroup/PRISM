@@ -1,0 +1,42 @@
+name,molecule,kind,substrate_class,note,training_class,regime,probability,predicted,predicted_logk,truth
+57_amine,(+)-Phenylethylamine,amine,1_aliphatic,too fast,instant,new_amine,0.9558,1,1.31,1.0
+58_amine,2-Aminopyridine,amine,1_hetero,too fast,instant,new_amine,0.0589,0,1.678,1.0
+59_amine,Benzylamine,amine,1_aliphatic,too fast,instant,new_amine,0.9837,1,2.272,1.0
+60_amine,3-Aminopyridine,amine,1_hetero,too fast,instant,new_amine,0.3496,0,1.681,1.0
+61_amine,Octylamine,amine,1_aliphatic,too fast,instant,new_amine,0.9838,1,2.127,1.0
+62_amine,Benzeneethanamine,amine,1_aliphatic,too fast,instant,new_amine,0.985,1,2.123,1.0
+63_amine,Bis(2-ethylhexyl)amine,amine,2_aliphatic,too fast,instant,new_amine,0.8394,1,1.597,1.0
+64_amine,Diisobutylamine,amine,2_aliphatic,too fast,instant,new_amine,0.9944,1,2.224,1.0
+65_amine,Dihexylamine,amine,2_aliphatic,too fast,instant,new_amine,0.9966,1,2.197,1.0
+66_amine,Imidazole,amine,2_hetero,too fast,instant,new_amine,0.7352,1,1.899,1.0
+67_amine,Pyrrolidine,amine,2_aliphatic,too fast,instant,new_amine,0.9985,1,2.394,1.0
+68_amine,(Methylamino)acetaldehyde dimethyl acetal,amine,2_aliphatic,too fast,instant,new_amine,0.9973,1,2.27,1.0
+69_amine,Piperidine,amine,2_aliphatic,too fast,instant,new_amine,0.9985,1,2.38,1.0
+70_amine,9-(N-Methylaminomethyl)anthracene,amine,2_aliphatic,too fast,instant,new_amine,0.991,1,2.19,1.0
+71_amine,Dibenzylamine,amine,2_aliphatic,too fast,instant,new_amine,0.9909,1,2.219,1.0
+72_amine,Ethyl isonipecotate,amine,2_aliphatic,too fast,instant,new_amine,0.995,1,2.256,1.0
+73_amine,Cytisine,amine,2_aliphatic,too fast,instant,new_amine,0.9849,1,2.313,1.0
+74_amine,Ethyl nipecotat,amine,2_aliphatic,too fast,instant,new_amine,0.9947,1,2.462,1.0
+75_amine,Diphenylamine,amine,2_aromatic,too slow,slow,new_amine,0.0017,0,1.303,0.0
+76_amine,Benzocaine,amine,1_aromatic,too slow,slow,new_amine,0.0323,0,0.936,0.0
+77_amine,2-tert-Butylaniline,amine,1_aromatic,too slow,slow,new_amine,0.0053,0,0.887,0.0
+78_amine,2-Aminobenzophenone,amine,1_aromatic,too slow,slow,new_amine,0.0084,0,0.864,0.0
+79_amine,p-Aminoacetophenone,amine,1_aromatic,non-reactive,slow,new_amine,0.0346,0,0.916,0.0
+80_amine,Phenothiazine,amine,2_hetero,non-reactive,slow,new_amine,0.018,0,1.458,0.0
+81_amine,5-Methoxyindole,amine,2_hetero,non-reactive,slow,new_amine,0.0269,0,1.78,0.0
+82_amine,4-Aminopyridine,amine,1_hetero,multiple products,slow,new_amine,0.0739,0,1.863,0.0
+83_amine,2-Aminobenzothiazole,amine,1_hetero,multiple products,slow,new_amine,0.0308,0,1.668,0.0
+84_amine,2-Amino-6-chlorobenzothiazole,amine,1_hetero,multiple products,slow,new_amine,0.0216,0,1.405,0.0
+85_amine,4-Phenylimidazole,amine,2_hetero,multiple products,slow,new_amine,0.016,0,1.729,0.0
+86_amine,2-(2′-Pyridyl)benzimidazole,amine,2_hetero,multiple products,slow,new_amine,0.0055,0,0.96,0.0
+47_acid_chloride,Methyl 4-(chlorocarbonyl)benzoate,acyl,aromatic,insoluble,,new_acyl,0.8922,1,1.89,
+48_acid_chloride,4-Cyanobenzoyl chloride,acyl,aromatic,insoluble,,new_acyl,0.9707,1,1.893,
+49_acid_chloride,2-Chloronicotinoyl chloride,acyl,hetero,insoluble,,new_acyl,0.9089,1,1.646,
+87_amine,5-Aminoindole,amine,1_hetero,insoluble,,new_amine,0.9721,1,1.46,
+88_amine,1H-Indazol-5-amine,amine,1_hetero,insoluble,,new_amine,0.9583,1,1.061,
+89_amine,7-Amino-4-methylcoumarin,amine,1_hetero,insoluble,,new_amine,0.0428,0,0.902,
+90_amine,5-Aminoquinoline,amine,1_hetero,insoluble,,new_amine,0.0196,0,0.998,
+91_amine,6-Aminophthalide,amine,1_hetero,insoluble,,new_amine,0.0376,0,0.807,
+92_amine,Sulfamethoxazole,amine,1_aromatic,insoluble,,new_amine,0.0361,0,0.981,
+93_amine,Sulfanilamide,amine,1_aromatic,insoluble,,new_amine,0.039,0,0.756,
+94_amine,4-Nitroaniline,amine,1_aromatic,insoluble,,new_amine,0.0418,0,1.423,
