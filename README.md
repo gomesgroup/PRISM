@@ -21,3 +21,8 @@ cd ../3_ml_model
 
 The plate images are not included. The 99 plate workbooks they produced are
 in `2_rate_fitting/inputs`.
+
+## Use of AI tools
+
+Claude Code (Anthropic, `claude-opus-5-5`, October 2026) was used as a tool to
+help organize and combine these workflows into this repository.

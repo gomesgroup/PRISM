@@ -133,11 +133,6 @@ The graph-network benchmark uses AIMNet2 atom features
 checkpoint distributed with [LoQI](https://github.com/isayevlab/LoQI), which
 is needed only to regenerate them (`data/aimnet2/README.md`).
 
-## Use of AI tools
-
-Claude Code (Anthropic, `claude-opus-5-5`, October 2026) was used as a tool to
-help organize and run this workflow.
-
 ## License
 
 MIT (see [`LICENSE`](LICENSE)). The AIMNet2 checkpoint is third-party, from
