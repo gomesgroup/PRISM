@@ -18,7 +18,8 @@ python scripts/nmr_vs_prism.py --nmr inputs/PRISM_nmr_rates.xlsx --key inputs/la
 1. **Reads the plates.** There are 99 workbooks, one per group and acyl
    chloride (33 acyl chlorides, counting the three 4-fluorobenzoyl chloride
    batches, × groups 1–3). Each amine column gives the inflection time at 8
-   dilutions (50 to 0.391 mM). The `blank` column (no amine) is the
+   dilutions (stock concentrations 50 to 0.391 mM; the initial concentration in
+   the well, [A]₀, is a quarter of the stock). The `blank` column (no amine) is the
    hydrolysis control.
 2. **Applies a per-well control.** A well is kept if the control is at least
    1.5× slower than the amine at the same concentration
@@ -75,7 +76,8 @@ reactions).
   the inflection finder (`1_image_analysis`). The filter cannot tell these
   apart; both count as "no reading".
 - **Ordinate.** The stored `1/[A]` column is 2/[A]₀ (the value at 50%
-  conversion), so k is fitted on half of it.
+  conversion), so k is fitted on half of it: 1/[A]₀ = k t₁/₂. The `conc_mM`
+  column of the outputs is the stock concentration, not [A]₀.
 - **Too fast.** The inflection is ≤ 2 min at the most dilute concentration
   with a reading. Four amines that react too fast to detect are also binned
   too fast when they have no rate: diisopropylamine, 2-methylpiperidine,

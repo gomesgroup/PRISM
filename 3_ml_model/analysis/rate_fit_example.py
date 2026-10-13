@@ -98,9 +98,13 @@ def main() -> int:
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.output_dir / f"rate_fit_{args.reaction}.png", dpi=300)
-    out = w[["conc_mM", "amine_time_min", "control_time_min", "inv_A0",
+    # conc_mM in the plate files is the stock concentration; in the well the
+    # initial concentration [A]0 is a quarter of it (1/[A]0 = stored value / 2).
+    out = w[["conc_mM", "inv_A0", "amine_time_min", "control_time_min",
              "control_over_amine_ratio", "status_" + args.margin]].rename(
-        columns={"inv_A0": "inv_A0_M-1", "status_" + args.margin: "status"})
+        columns={"conc_mM": "stock_conc_mM", "inv_A0": "inv_A0_M-1",
+                 "status_" + args.margin: "status"})
+    out.insert(1, "A0_in_well_mM", 1000 / out["inv_A0_M-1"])
     out.to_csv(args.output_dir / f"rate_fit_{args.reaction}.csv", index=False)
     print(f"written to {args.output_dir}")
     return 0

@@ -1,9 +1,9 @@
-conc_mM,amine_time_min,control_time_min,inv_A0_M-1,control_over_amine_ratio,status
-50.0,,,,,excluded: no amine reading
-25.0,1.0,3.0,160.0,3.0,kept
-12.5,7.0,16.0,320.0,2.2857142857142856,kept
-6.25,32.0,54.0,640.0,1.6875,kept
-3.125,66.0,153.0,1280.0,2.3181818181818183,kept
-1.563,,,,,excluded: no amine reading
-0.781,,,,,excluded: no amine reading
-0.391,,,,,excluded: no amine reading
+stock_conc_mM,A0_in_well_mM,inv_A0_M-1,amine_time_min,control_time_min,control_over_amine_ratio,status
+50.0,,,,,,excluded: no amine reading
+25.0,6.25,160.0,1.0,3.0,3.0,kept
+12.5,3.125,320.0,7.0,16.0,2.2857142857142856,kept
+6.25,1.5625,640.0,32.0,54.0,1.6875,kept
+3.125,0.78125,1280.0,66.0,153.0,2.3181818181818183,kept
+1.563,,,,,,excluded: no amine reading
+0.781,,,,,,excluded: no amine reading
+0.391,,,,,,excluded: no amine reading
