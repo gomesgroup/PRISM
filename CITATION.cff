@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "PRISM: code and data for Democratizing Reaction Kinetics through Machine Vision and Learning"
+type: software
+authors:
+  - family-names: Baumer
+    given-names: Mitchell
+    affiliation: Carnegie Mellon University
+  - family-names: Gallegos
+    given-names: Liliana C.
+    affiliation: Carnegie Mellon University
+  - family-names: Anstine
+    given-names: Dylan M.
+    affiliation: Carnegie Mellon University
+  - family-names: Kubaney
+    given-names: Andrew
+    affiliation: Carnegie Mellon University
+  - family-names: Regio
+    given-names: Jose Emilio A.
+    affiliation: Carnegie Mellon University
+  - family-names: Isayev
+    given-names: Olexandr
+    affiliation: Carnegie Mellon University
+  - family-names: Bernhard
+    given-names: Stefan
+    affiliation: Carnegie Mellon University
+  - family-names: Gomes
+    given-names: Gabe
+    affiliation: Carnegie Mellon University
+version: 1.0.0
+date-released: 2026-11-03
+license: MIT
+repository-code: "https://github.com/gomesgroup/PRISM"
+url: "https://gomes.andrew.cmu.edu/prism/"
+abstract: "Image analysis, rate-constant fitting and machine-learning models for PRISM, a plate-based colorimetric method for measuring amide-coupling rate constants."
+keywords:
+  - reaction kinetics
+  - high-throughput experimentation
+  - machine learning
+  - amide coupling
