@@ -22,6 +22,13 @@ cd ../3_ml_model
 The plate images are not included. The 99 plate workbooks they produced are
 in `2_rate_fitting/inputs`.
 
+## Citation
+
+Mitchell Baumer, Liliana C. Gallegos, Dylan M. Anstine, Andrew Kubaney, Jose Emilio A. Regio, Olexandr Isayev, Stefan Bernhard, and Gabe Gomes.
+[Democratizing reaction kinetics through machine vision and learning](https://doi.org/10.1039/D6DD00225K). *Digital Discovery* (2026).
+
+Archived code and data (v1.0.0): [10.5281/zenodo.23924414](https://doi.org/10.5281/zenodo.23924414).
+
 ## Use of AI tools
 
 Claude Code (Anthropic, `claude-opus-5-5`, October 2026) was used as a tool to
