@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite it as below."
+message: "Please cite the paper below when referencing this work. The software archive has its own DOI."
 title: "PRISM: code and data for Democratizing Reaction Kinetics through Machine Vision and Learning"
 type: software
 authors:
@@ -28,6 +28,7 @@ authors:
     given-names: Gabe
     affiliation: Carnegie Mellon University
 version: 1.0.0
+doi: 10.5281/zenodo.23924414
 date-released: 2026-11-03
 license: MIT
 repository-code: "https://github.com/gomesgroup/PRISM"
@@ -38,3 +39,26 @@ keywords:
   - high-throughput experimentation
   - machine learning
   - amide coupling
+preferred-citation:
+  type: article
+  title: "Democratizing reaction kinetics through machine vision and learning"
+  authors:
+    - family-names: Baumer
+      given-names: Mitchell
+    - family-names: Gallegos
+      given-names: Liliana C.
+    - family-names: Anstine
+      given-names: Dylan M.
+    - family-names: Kubaney
+      given-names: Andrew
+    - family-names: Regio
+      given-names: Jose Emilio A.
+    - family-names: Isayev
+      given-names: Olexandr
+    - family-names: Bernhard
+      given-names: Stefan
+    - family-names: Gomes
+      given-names: Gabe
+  journal: Digital Discovery
+  year: 2026
+  doi: 10.1039/D6DD00225K
