@@ -59,6 +59,9 @@ preferred-citation:
       given-names: Stefan
     - family-names: Gomes
       given-names: Gabe
+  contact:
+    - family-names: Gomes
+      given-names: Gabe
   journal: Digital Discovery
   year: 2026
   doi: 10.1039/D6DD00225K
