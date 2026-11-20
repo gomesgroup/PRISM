@@ -25,7 +25,7 @@ in `2_rate_fitting/inputs`.
 ## Citation
 
 Mitchell Baumer, Liliana C. Gallegos, Dylan M. Anstine, Andrew Kubaney, Jose Emilio A. Regio, Olexandr Isayev, Stefan Bernhard, and Gabe Gomes.
-[Democratizing reaction kinetics through machine vision and learning](https://doi.org/10.1039/D6DD00225K). *Digital Discovery* (2026).
+[Democratizing reaction kinetics through machine vision and learning](https://doi.org/10.1039/D6DD00225K). *Digital Discovery* (2026). Gabe Gomes is the corresponding author.
 
 Archived code and data (v1.0.0): [10.5281/zenodo.23924414](https://doi.org/10.5281/zenodo.23924414).
 
